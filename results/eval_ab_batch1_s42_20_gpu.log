@@ -1,0 +1,20 @@
+lease=GPU-LEASE-T6EVAL3-20261109-09
+run_id=ab_batch1_s42_20
+phase=before_process
+memory.used [MiB]
+1289 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+20872, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+45752, C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe, [N/A]
+lease=GPU-LEASE-T6EVAL3-20261109-09
+run_id=ab_batch1_s42_20
+phase=after_process_exit
+memory.used [MiB]
+1289 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+20872, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+45752, C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe, [N/A]
+python_exit_code=0
+wall_seconds=77.544

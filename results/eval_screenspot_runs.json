@@ -1,0 +1,172 @@
+{
+  "format": "eval-screenspot-execution-v1",
+  "task": {
+    "id": "task-25",
+    "subject": "T3b · ScreenSpot 迁移独立评测"
+  },
+  "lease_id": "GPU-LEASE-SCREENSPOT-20261110-04",
+  "lease_window_local": "2026-11-10 05:05-07:30 UTC+8",
+  "started_at": "2026-11-10T05:01:30.959510+08:00",
+  "plan": "results\\eval_screenspot_plan.json",
+  "plan_sha256": "88c80ab152b955fab734acfa9c023b1354138912f28b4b91a265d9f04ac4854e",
+  "runs": [
+    {
+      "index": 1,
+      "run_id": "screenspot_b0_base_v1",
+      "key": "b0_base",
+      "adapter": null,
+      "execution": {
+        "run_id": "screenspot_b0_base_v1",
+        "exit_code": 0,
+        "wall_seconds": 1268.279909499921,
+        "memory_before_mib": 1016,
+        "memory_after_mib": 1105
+      },
+      "validation": {
+        "report": "results\\eval_screenspot_b0_base_v1_validation.json",
+        "exit_code": 0,
+        "wall_seconds": 0.16910000005736947,
+        "status": "passed",
+        "errors": [],
+        "details_rows": 1272,
+        "recomputed_metrics": {
+          "acc@0.5": 0.0,
+          "mIoU": 0.0001967861567620813,
+          "parse_rate": 0.00550314465408805,
+          "invalid": 1265
+        }
+      },
+      "summary": {
+        "n": 1272,
+        "details_sha256": "576d008e324e04405194a4f7318a5d9f28b489b0c2b5ee08ffca49531b8ebb55",
+        "metrics": {
+          "acc@0.5": 0.0,
+          "mIoU": 0.0001967861567620813,
+          "parse_rate": 0.00550314465408805,
+          "invalid": 1265
+        },
+        "adapter": null,
+        "hit_max_new_tokens": 153
+      }
+    },
+    {
+      "index": 2,
+      "run_id": "screenspot_sft_s42_v1",
+      "key": "sft_s42",
+      "adapter": "adapters/sft_v1/adapter",
+      "execution": {
+        "run_id": "screenspot_sft_s42_v1",
+        "exit_code": 0,
+        "wall_seconds": 1777.8892167999875,
+        "memory_before_mib": 1105,
+        "memory_after_mib": 1111
+      },
+      "validation": {
+        "report": "results\\eval_screenspot_sft_s42_v1_validation.json",
+        "exit_code": 0,
+        "wall_seconds": 0.1985464000608772,
+        "status": "passed",
+        "errors": [],
+        "details_rows": 1272,
+        "recomputed_metrics": {
+          "acc@0.5": 0.0007861635220125787,
+          "mIoU": 0.018978406499020196,
+          "parse_rate": 0.9968553459119497,
+          "invalid": 4
+        }
+      },
+      "summary": {
+        "n": 1272,
+        "details_sha256": "e438418caa5168e57206fd6f3ab7e25ed15dece43c5e11df2821fed1c4d59519",
+        "metrics": {
+          "acc@0.5": 0.0007861635220125787,
+          "mIoU": 0.018978406499020196,
+          "parse_rate": 0.9968553459119497,
+          "invalid": 4
+        },
+        "adapter": "adapters/sft_v1/adapter",
+        "hit_max_new_tokens": 0
+      }
+    },
+    {
+      "index": 3,
+      "run_id": "screenspot_sft_s43_v1",
+      "key": "sft_s43",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "execution": {
+        "run_id": "screenspot_sft_s43_v1",
+        "exit_code": 0,
+        "wall_seconds": 1771.9579407998826,
+        "memory_before_mib": 1111,
+        "memory_after_mib": 1091
+      },
+      "validation": {
+        "report": "results\\eval_screenspot_sft_s43_v1_validation.json",
+        "exit_code": 0,
+        "wall_seconds": 0.17834370001219213,
+        "status": "passed",
+        "errors": [],
+        "details_rows": 1272,
+        "recomputed_metrics": {
+          "acc@0.5": 0.0,
+          "mIoU": 0.0173761340058079,
+          "parse_rate": 0.9968553459119497,
+          "invalid": 4
+        }
+      },
+      "summary": {
+        "n": 1272,
+        "details_sha256": "bc1fed17e4738f278717c1e067202d1cfabed7b172fbe99243156dc013701d02",
+        "metrics": {
+          "acc@0.5": 0.0,
+          "mIoU": 0.0173761340058079,
+          "parse_rate": 0.9968553459119497,
+          "invalid": 4
+        },
+        "adapter": "adapters/sft_v1_s43/adapter",
+        "hit_max_new_tokens": 0
+      }
+    },
+    {
+      "index": 4,
+      "run_id": "screenspot_sft_s44_v1",
+      "key": "sft_s44",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "execution": {
+        "run_id": "screenspot_sft_s44_v1",
+        "exit_code": 0,
+        "wall_seconds": 1778.9440194999333,
+        "memory_before_mib": 1091,
+        "memory_after_mib": 1038
+      },
+      "validation": {
+        "report": "results\\eval_screenspot_sft_s44_v1_validation.json",
+        "exit_code": 0,
+        "wall_seconds": 0.18752959999255836,
+        "status": "passed",
+        "errors": [],
+        "details_rows": 1272,
+        "recomputed_metrics": {
+          "acc@0.5": 0.0007861635220125787,
+          "mIoU": 0.01821966983689426,
+          "parse_rate": 0.9992138364779874,
+          "invalid": 1
+        }
+      },
+      "summary": {
+        "n": 1272,
+        "details_sha256": "e5941baf7d92ad187982e0bfb40179b4d2c679d184a28fd5c21208249ce6c004",
+        "metrics": {
+          "acc@0.5": 0.0007861635220125787,
+          "mIoU": 0.01821966983689426,
+          "parse_rate": 0.9992138364779874,
+          "invalid": 1
+        },
+        "adapter": "adapters/sft_v1_s44/adapter",
+        "hit_max_new_tokens": 0
+      }
+    }
+  ],
+  "status": "completed_all_four",
+  "finished_at": "2026-11-10T06:51:29.535756+08:00"
+}

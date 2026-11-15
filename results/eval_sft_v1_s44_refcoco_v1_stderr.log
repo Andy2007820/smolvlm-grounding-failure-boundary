@@ -1,0 +1,3 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]Loading weights:  29%|██▉       | 137/471 [00:00<00:00, 1344.31it/s]Loading weights:  58%|█████▊    | 272/471 [00:00<00:00, 1181.56it/s]Loading weights: 100%|██████████| 471/471 [00:00<00:00, 1871.47it/s]
+W1110 01:15:26.550000 3144 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels

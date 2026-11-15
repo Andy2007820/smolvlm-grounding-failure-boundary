@@ -1,0 +1,90 @@
+{
+  "status": "completed",
+  "stage": "rest_pool_from_audit",
+  "tag": "r1",
+  "pool": {
+    "path": "data/rest/r1_pool.jsonl",
+    "records": 191,
+    "sha256": "ddce93a7211dc3477b2e565f5bb1307951e5c3e26591cc993e08bff37f686923"
+  },
+  "pool_schema": {
+    "fields": 8,
+    "raw_bbox": "derived_from_predicted_box_pixels_float"
+  },
+  "pool_validation": {
+    "validator": "src.eval.dataset.validate_record",
+    "check_image": true,
+    "rows": 191,
+    "passed": 191,
+    "failed": 0,
+    "failures": [],
+    "all_passed": true
+  },
+  "design_deviation": [
+    {
+      "field": "raw_bbox",
+      "rule": "raw_bbox = predicted_box * [width, height] as float pixel coordinates",
+      "reason": "ReST pool rows are model predictions, not GT. The frozen contract requires answer == raw_bbox / (width, height); copying the GT raw_bbox would conflict with the supervised prediction and leak GT into the pool."
+    }
+  ],
+  "note": "Pool rebuilt offline from a sampling audit; no GPU used. Records are the model's own predictions (normalised box) that passed the tau filter. Trainer-ready eight-field rows.",
+  "audit": "data/rest/r1_pool_audit.jsonl",
+  "audit_sha256": "6522528f88f2fb71b2493796829482efc694eedd0abd575567c33353f158058c",
+  "audit_rows": 4000,
+  "tau": 0.5,
+  "tau_sweep": {
+    "0.1": {
+      "pool_records": 1680,
+      "by_dataset": {
+        "refcoco": 1235,
+        "synthetic": 445
+      }
+    },
+    "0.25": {
+      "pool_records": 928,
+      "by_dataset": {
+        "refcoco": 717,
+        "synthetic": 211
+      }
+    },
+    "0.3": {
+      "pool_records": 707,
+      "by_dataset": {
+        "refcoco": 549,
+        "synthetic": 158
+      }
+    },
+    "0.5": {
+      "pool_records": 191,
+      "by_dataset": {
+        "refcoco": 150,
+        "synthetic": 41
+      }
+    },
+    "0.75": {
+      "pool_records": 13,
+      "by_dataset": {
+        "refcoco": 11,
+        "synthetic": 2
+      }
+    }
+  },
+  "pool_records": 191,
+  "by_dataset": {
+    "refcoco": {
+      "generations": 2000,
+      "accepted": 150,
+      "survival_rate": 0.075,
+      "prompts_with_accept": 116
+    },
+    "synthetic": {
+      "generations": 2000,
+      "accepted": 41,
+      "survival_rate": 0.0205,
+      "prompts_with_accept": 38
+    }
+  },
+  "prompts_total": 1000,
+  "prompts_with_accept": 154,
+  "generated_at": "2026-11-10T19:01:50.324894+08:00"
+}

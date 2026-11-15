@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "records": 1272,
+  "source_rows_reread": 1272,
+  "unique_image_paths": 610,
+  "unique_image_hashes": 606,
+  "source_exact_duplicate_rows": 0,
+  "final_exact_duplicate_rows": 0,
+  "source_annotation_variation_groups": 1,
+  "source_annotation_variation_extra_rows": 1,
+  "variation_disposition": "both Done annotations retained; same target, IoU 0.7792577287012425; no relabeling",
+  "train_isolation": {
+    "id_intersection_count": 0,
+    "image_path_intersection_count": 0,
+    "image_sha256_intersection_count": 0
+  },
+  "screenspot_jsonl_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+  "checks_by_category": {
+    "coordinates": 7632,
+    "duplicates": 4,
+    "images": 9566,
+    "isolation": 20004,
+    "qa": 17,
+    "schema": 5090,
+    "source": 20368,
+    "statistics": 10
+  },
+  "check_total": 62691,
+  "error_count": 0,
+  "errors": [],
+  "warnings": [
+    "one same-image/instruction source annotation variation group retained and disclosed"
+  ]
+}

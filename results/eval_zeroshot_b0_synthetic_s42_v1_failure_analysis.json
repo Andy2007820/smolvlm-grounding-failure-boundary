@@ -1,0 +1,140 @@
+{
+  "run_id": "zeroshot_b0_synthetic_s42_v1",
+  "n": 1000,
+  "parse_error_counts": {
+    "degenerate_or_reversed_box": 634,
+    "ambiguous_multiple_boxes": 344,
+    "expected_exactly_four_coordinates": 15,
+    "no_bracket_with_exactly_four_coordinates": 3,
+    "valid": 4
+  },
+  "valid_examples": [
+    {
+      "id": "synthetic_eval_000377",
+      "question": "the yellow pentagon",
+      "output_text": " The yellow pentagon is located in the center of the image and is located between [0, 0] and [1, 1]. The bounding box coordinates are [0, 0, 1, 1].",
+      "predicted_box": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "ground_truth": [
+        0.71428571,
+        0.25,
+        0.89285714,
+        0.5
+      ],
+      "iou": 0.04464285750000002,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_eval_000475",
+      "question": "the blue square in the top left",
+      "output_text": " The bounding box of the blue square in the top left is [50.0, 50.0, 100.0, 100.0].",
+      "predicted_box": [
+        0.05,
+        0.05,
+        0.1,
+        0.1
+      ],
+      "ground_truth": [
+        0.390625,
+        0.3125,
+        0.59151786,
+        0.59375
+      ],
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_eval_000774",
+      "question": "the purple circle above the red square",
+      "output_text": " The bounding box of the purple circle is [40.0, 40.0, 100.0, 100.0].",
+      "predicted_box": [
+        0.04,
+        0.04,
+        0.1,
+        0.1
+      ],
+      "ground_truth": [
+        0.05078125,
+        0.171875,
+        0.3515625,
+        0.47265625
+      ],
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_eval_000914",
+      "question": "the red diamond",
+      "output_text": " The red diamond is located in the center of the bounding box [0, 0, 1, 1].",
+      "predicted_box": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "ground_truth": [
+        0.55580357,
+        0.253125,
+        0.75669643,
+        0.534375
+      ],
+      "iou": 0.056501116875,
+      "correct@0.5": false
+    }
+  ],
+  "hit_max_new_tokens": 13,
+  "generated_tokens": {
+    "min": 11,
+    "max": 64,
+    "mean": 41.247,
+    "median": 39.0
+  },
+  "unique_output_texts": 436,
+  "most_common_output_texts": [
+    {
+      "count": 86,
+      "output_text": " The bounding box is [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 16,
+      "output_text": " The red circle is located at [0.0, 0.0, 0.0, 1.0] and its bounding box coordinates are [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 16,
+      "output_text": " The bounding box of the purple circle is [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 15,
+      "output_text": " The green pentagon is located in the center of the image. The bounding box coordinates are [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 14,
+      "output_text": " The red pentagon is located in the center of the image. The bounding box coordinates are [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 14,
+      "output_text": " The blue pentagon is located in the center of the image. The bounding box coordinates are [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 13,
+      "output_text": " The blue triangle is located in the center of the image. The bounding box coordinates are [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 13,
+      "output_text": " The yellow square is located in the center of the image. The bounding box coordinates are [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 12,
+      "output_text": " The green circle is located at [0.0, 0.0, 0.0, 1.0] and its bounding box coordinates are [0.0, 0.0, 0.0, 1.0]."
+    },
+    {
+      "count": 12,
+      "output_text": " The orange pentagon is located in the center of the image. The bounding box coordinates are [0.0, 0.0, 0.0, 1.0]."
+    }
+  ],
+  "interpretation": "Descriptive failure taxonomy only; no parser, prompt, model or metric changes were made."
+}

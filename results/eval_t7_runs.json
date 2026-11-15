@@ -1,0 +1,172 @@
+{
+  "format": "eval-t7-execution-v1",
+  "task": {
+    "id": "task-24",
+    "subject": "T7-eval · B/C 坐标表示独立评测"
+  },
+  "lease_id": "GPU-LEASE-T7EVAL-20261110-03",
+  "lease_window_local": "2026-11-10 04:05-06:20 UTC+8",
+  "started_at": "2026-11-10T04:00:53.158454+08:00",
+  "plan": "results\\eval_t7_batch1_plan.json",
+  "plan_sha256": "d72eafba83a0801aea9104dc0c7993a31597bee34fd0749eb64929c6bd68b630",
+  "runs": [
+    {
+      "index": 1,
+      "run_id": "t7_b_synthetic_v1",
+      "prompt_id": "p1_bin1000",
+      "execution": {
+        "run_id": "t7_b_synthetic_v1",
+        "exit_code": 0,
+        "wall_seconds": 876.8553317999467,
+        "memory_before_mib": 1100,
+        "memory_after_mib": 1029
+      },
+      "validation": {
+        "report": "results\\eval_t7_b_synthetic_v1_validation.json",
+        "exit_code": 0,
+        "wall_seconds": 0.17954569985158741,
+        "status": "passed",
+        "errors": [],
+        "details_rows": 1000,
+        "recomputed_metrics": {
+          "acc@0.5": 0.03,
+          "mIoU": 0.08110781507976045,
+          "parse_rate": 1.0,
+          "invalid": 0
+        }
+      },
+      "summary": {
+        "n": 1000,
+        "details_sha256": "45a724bb7bee68379b75992e2b5637c2c727ee1b0e6b0b8d9e3142f4b87058f5",
+        "metrics": {
+          "acc@0.5": 0.03,
+          "mIoU": 0.08110781507976045,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "prompt_id": "p1_bin1000",
+        "adapter": "adapters/sft_t7_b_bin1000/adapter",
+        "hit_max_new_tokens": 0
+      }
+    },
+    {
+      "index": 2,
+      "run_id": "t7_b_refcoco_v1",
+      "prompt_id": "p1_bin1000",
+      "execution": {
+        "run_id": "t7_b_refcoco_v1",
+        "exit_code": 0,
+        "wall_seconds": 856.7169263998512,
+        "memory_before_mib": 1029,
+        "memory_after_mib": 1099
+      },
+      "validation": {
+        "report": "results\\eval_t7_b_refcoco_v1_validation.json",
+        "exit_code": 0,
+        "wall_seconds": 0.16335259983316064,
+        "status": "passed",
+        "errors": [],
+        "details_rows": 1000,
+        "recomputed_metrics": {
+          "acc@0.5": 0.113,
+          "mIoU": 0.22896690196474548,
+          "parse_rate": 1.0,
+          "invalid": 0
+        }
+      },
+      "summary": {
+        "n": 1000,
+        "details_sha256": "1d4d6d9ce428bc6f1cb12c9e891d8c6ba4f03da1ec697516dd94abb85fa3cfa2",
+        "metrics": {
+          "acc@0.5": 0.113,
+          "mIoU": 0.22896690196474548,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "prompt_id": "p1_bin1000",
+        "adapter": "adapters/sft_t7_b_bin1000/adapter",
+        "hit_max_new_tokens": 0
+      }
+    },
+    {
+      "index": 3,
+      "run_id": "t7_c_synthetic_v1",
+      "prompt_id": "p1_pixel",
+      "execution": {
+        "run_id": "t7_c_synthetic_v1",
+        "exit_code": 0,
+        "wall_seconds": 869.244670700049,
+        "memory_before_mib": 1105,
+        "memory_after_mib": 1116
+      },
+      "validation": {
+        "report": "results\\eval_t7_c_synthetic_v1_validation.json",
+        "exit_code": 0,
+        "wall_seconds": 0.16881359997205436,
+        "status": "passed",
+        "errors": [],
+        "details_rows": 1000,
+        "recomputed_metrics": {
+          "acc@0.5": 0.014,
+          "mIoU": 0.05516290278650977,
+          "parse_rate": 0.994,
+          "invalid": 6
+        }
+      },
+      "summary": {
+        "n": 1000,
+        "details_sha256": "e78937db621fa3717d38c8831e6fa828a91ef5472acd2af649cfaaa262f14f2a",
+        "metrics": {
+          "acc@0.5": 0.014,
+          "mIoU": 0.05516290278650977,
+          "parse_rate": 0.994,
+          "invalid": 6
+        },
+        "prompt_id": "p1_pixel",
+        "adapter": "adapters/sft_t7_c_pixel/adapter",
+        "hit_max_new_tokens": 0
+      }
+    },
+    {
+      "index": 4,
+      "run_id": "t7_c_refcoco_v1",
+      "prompt_id": "p1_pixel",
+      "execution": {
+        "run_id": "t7_c_refcoco_v1",
+        "exit_code": 0,
+        "wall_seconds": 847.8875209998805,
+        "memory_before_mib": 1116,
+        "memory_after_mib": 1115
+      },
+      "validation": {
+        "report": "results\\eval_t7_c_refcoco_v1_validation.json",
+        "exit_code": 0,
+        "wall_seconds": 0.1743203999940306,
+        "status": "passed",
+        "errors": [],
+        "details_rows": 1000,
+        "recomputed_metrics": {
+          "acc@0.5": 0.043,
+          "mIoU": 0.13519229729249985,
+          "parse_rate": 0.929,
+          "invalid": 71
+        }
+      },
+      "summary": {
+        "n": 1000,
+        "details_sha256": "38a422d6774cc0335dd4e8f7b1ce701b8eb8724a19870fbdaebacd3d4150e387",
+        "metrics": {
+          "acc@0.5": 0.043,
+          "mIoU": 0.13519229729249985,
+          "parse_rate": 0.929,
+          "invalid": 71
+        },
+        "prompt_id": "p1_pixel",
+        "adapter": "adapters/sft_t7_c_pixel/adapter",
+        "hit_max_new_tokens": 0
+      }
+    }
+  ],
+  "status": "completed_all_four",
+  "finished_at": "2026-11-10T04:58:25.327747+08:00"
+}

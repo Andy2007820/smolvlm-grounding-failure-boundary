@@ -1,0 +1,127 @@
+{
+  "format": "eval-screenspot-data-audit-v1",
+  "dataset_path": "data\\screenspot.jsonl",
+  "dataset_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+  "rows": 1272,
+  "unique_ids": 1272,
+  "unique_image_paths": 610,
+  "source_values": [
+    "screenspot"
+  ],
+  "max_answer_value": 1.0,
+  "answer_within_unit_interval": true,
+  "answer_equals_raw_bbox_over_width_height": true,
+  "errors": [],
+  "error_count": 0,
+  "image_size_checked_sample_rows": 50,
+  "image_size_mismatches": [],
+  "double_normalization_check": {
+    "source_bbox_semantics": "source bbox is normalized [x1,y1,x2,y2] once by the data pipeline; answer is already normalized and raw_bbox is the pixel conversion",
+    "answer_max": 1.0,
+    "answer_is_not_pixel": true,
+    "eval_rule": "evaluation uses answer unchanged; evaluator performs no second normalization; raw_bbox is used only for traceability"
+  },
+  "sample": [
+    {
+      "id": "screenspot_test_000001",
+      "image": "data/images/screenspot/pc_ede36f9b-1154-4f76-b7f8-c15d7d3f9b6e.png",
+      "question": "close",
+      "answer": [
+        0.94791667,
+        0.14444444,
+        0.99375,
+        0.20740741
+      ],
+      "raw_bbox": [
+        910.0,
+        78.0,
+        954.0,
+        112.0
+      ],
+      "width": 960,
+      "height": 540,
+      "source": "screenspot"
+    },
+    {
+      "id": "screenspot_test_000002",
+      "image": "data/images/screenspot/pc_5e09e8e9-7ef6-44be-ad54-aeaeac151897.png",
+      "question": "minimize this window",
+      "answer": [
+        0.86979167,
+        0.0,
+        0.90729167,
+        0.05555556
+      ],
+      "raw_bbox": [
+        835.0,
+        0.0,
+        871.0,
+        30.0
+      ],
+      "width": 960,
+      "height": 540,
+      "source": "screenspot"
+    },
+    {
+      "id": "screenspot_test_000201",
+      "image": "data/images/screenspot/pc_dde13919-4c5b-49a1-8c8a-7d03f363c7ac.png",
+      "question": "check the date and time",
+      "answer": [
+        0.75,
+        0.00308642,
+        0.99820789,
+        0.09104938
+      ],
+      "raw_bbox": [
+        837.0,
+        2.0,
+        1114.0,
+        59.0
+      ],
+      "width": 1116,
+      "height": 648,
+      "source": "screenspot"
+    },
+    {
+      "id": "screenspot_test_000701",
+      "image": "data/images/screenspot/mobile_07c1d6c0-7f94-457e-94b4-1e855dc1aded.png",
+      "question": "back",
+      "answer": [
+        0.0287037,
+        0.04791667,
+        0.1287037,
+        0.09
+      ],
+      "raw_bbox": [
+        31.0,
+        115.0,
+        139.0,
+        216.0
+      ],
+      "width": 1080,
+      "height": 2400,
+      "source": "screenspot"
+    },
+    {
+      "id": "screenspot_test_001272",
+      "image": "data/images/screenspot/web_3b0ad239-da6b-4f6f-8f12-f674dc90ff33.png",
+      "question": "view the previous photo",
+      "answer": [
+        0.03632813,
+        0.05138889,
+        0.06992187,
+        0.14305556
+      ],
+      "raw_bbox": [
+        93.0,
+        74.0,
+        179.0,
+        206.0
+      ],
+      "width": 2560,
+      "height": 1440,
+      "source": "screenspot"
+    }
+  ],
+  "note": "read-only audit; no data/manifest modified"
+}

@@ -1,0 +1,17 @@
+{
+  "attempt": "T7-D-S42-A1",
+  "status": "training_numerically_complete_finalize_failed",
+  "failure": "FileExistsError: results/train_sft_t7_d_grid100_s42_probe.json (collided with P1 dry-run plan)",
+  "steps": 1250,
+  "micro_batches": 10000,
+  "adapter_model_sha256": "26205fda0ab974974a1284fba19455764d70f27ff9e4ef2490b85a89b4d373a1",
+  "adapter_model_bytes": 7407008,
+  "probe_metrics_from_log": {
+    "acc@0.5": 0.05,
+    "mIoU": 0.13196229612719448,
+    "parse_rate": 1.0,
+    "invalid": 0
+  },
+  "training_summary_copy": "artifacts/tmp/t7d_s42_attempt1/training_summary.json",
+  "adapter_copy": "artifacts/tmp/t7d_s42_attempt1/adapter/"
+}

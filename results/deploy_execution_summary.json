@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "document": "results/deploy_execution_summary.json",
+  "task": "T14/T15 (task-23) deployment execution, provisional seed42",
+  "started_at": "2026-11-10T01:39:00+08:00",
+  "finished_at": "2026-11-10T01:58:13.082843+08:00",
+  "cpu_only": true,
+  "gpu_used": false,
+  "gpu_note": "T7 training holds the GPU; no GPU lease requested or used for T14/T15",
+  "cpu_threads": 2,
+  "steps": [
+    {
+      "id": "S1",
+      "title": "merge LoRA into fp32 checkpoint",
+      "status": "completed",
+      "wall_seconds": 8.6,
+      "artifact": "adapters/merged/sft_v1_merged",
+      "weights_bytes": 1025998224,
+      "weights_sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2",
+      "report": "results/deploy_merge_report.json",
+      "note": "first packaging persisted processor runtime overrides (DEPLOY-F1). The weights themselves were fine; packaging was fixed by restoring base processor files. See S1b/S2."
+    },
+    {
+      "id": "S1b",
+      "title": "packaging fix + verify-only",
+      "status": "completed",
+      "wall_seconds": 1.4,
+      "artifact": "results/deploy_merge_verify.json",
+      "result": {
+        "status": "verified",
+        "ok": true
+      },
+      "archive": "results/deploy_archive_2026-11-10/ (failed packaging report + manifest sha256)"
+    },
+    {
+      "id": "S2",
+      "title": "merge equivalence base+adapter vs merged (5 fixed samples)",
+      "status": "completed",
+      "wall_seconds": 20.3,
+      "artifact": "results/deploy_merge_equivalence.json",
+      "result": {
+        "passed": true,
+        "mismatch_count": 0,
+        "samples": 5
+      }
+    },
+    {
+      "id": "S3a",
+      "title": "ONNX export + INT8 (10 min box)",
+      "status": "blocked_incompatible_dependency",
+      "wall_seconds": null,
+      "artifact": null,
+      "report": "results/deploy_quantize_onnx.json",
+      "reason": "optimum-onnx 0.1.0 requires transformers<4.58; project frozen at 5.19.0; optimum 2.3 core has no exporter",
+      "fallback_taken": "torch INT8 dynamic (S3b)"
+    },
+    {
+      "id": "S3b",
+      "title": "torch INT8 dynamic quantization smoke",
+      "status": "completed_negative",
+      "wall_seconds": 7.8,
+      "artifact": "results/deploy_quantize_torch_int8.json",
+      "result": {
+        "parseable_sample": false,
+        "sample_output_text": " [0.0000, 0.0000, 0.0000, 0.9999]"
+      }
+    },
+    {
+      "id": "S4",
+      "title": "CPU fp32 50-image latency (2 threads, warmup 5)",
+      "status": "completed",
+      "wall_seconds": 102.8,
+      "artifact": "results/deploy_latency_fp32.json",
+      "result": {
+        "n": 50,
+        "warmup": 5,
+        "selected_ids_digest": "949320384680ff6e74f98262ef9e616a149f7675e56a03803f48316540c23117",
+        "latency": {
+          "n": 50.0,
+          "mean_seconds": 1.570195675981231,
+          "median_seconds": 1.5550357999745756,
+          "stdev_seconds": 0.07118840332218128,
+          "min_seconds": 1.5099933999590576,
+          "max_seconds": 1.9866789001971483,
+          "p95_seconds": 1.6440343998838216,
+          "p99_seconds": 1.9866789001971483
+        },
+        "diagnostic_metrics": {
+          "acc@0.5": 0.0,
+          "mIoU": 0.06749723459633851,
+          "parse_rate": 1.0,
+          "invalid": 0
+        }
+      }
+    },
+    {
+      "id": "S4b",
+      "title": "CPU torch INT8 50-image latency (same ids, 2 threads)",
+      "status": "completed_negative",
+      "wall_seconds": 111.3,
+      "artifact": "results/deploy_latency_torch_int8.json",
+      "result": {
+        "n": 50,
+        "selected_ids_digest": "949320384680ff6e74f98262ef9e616a149f7675e56a03803f48316540c23117",
+        "latency": {
+          "n": 50.0,
+          "mean_seconds": 1.937984361993149,
+          "median_seconds": 1.8446024000877514,
+          "stdev_seconds": 0.47243034895926983,
+          "min_seconds": 0.7143443999812007,
+          "max_seconds": 2.5052174997981638,
+          "p95_seconds": 2.478194700088352,
+          "p99_seconds": 2.5052174997981638
+        },
+        "diagnostic_metrics": {
+          "acc@0.5": 0.02,
+          "mIoU": 0.02224578360299098,
+          "parse_rate": 0.28,
+          "invalid": 36
+        }
+      },
+      "note": "slower than fp32 and quality collapse; not a deployment candidate"
+    },
+    {
+      "id": "S5",
+      "title": "gradio install (5 min box) + demo smoke",
+      "status": "completed_partial_environment",
+      "wall_seconds": 175.4,
+      "artifact": "results/deploy_demo_smoke.json",
+      "install": {
+        "method": "manual wheel resolution into .cache/deploy_pkgs (pip blocked by sandbox temp dir)",
+        "gradio_version": "6.31.0",
+        "gradio_client_version": "2.7.2",
+        "wheels_selected": 40,
+        "resolution_seconds": 67.3,
+        "abi_fixes": [
+          "pydantic-core cp314-cp314",
+          "audioop-lts cp313-abi3 + pyaudioop shim"
+        ]
+      },
+      "fake_smoke": {
+        "report": "results/deploy_demo_smoke_fake.json",
+        "status": "passed",
+        "wall_seconds": 51.7
+      },
+      "real_smoke": {
+        "report": "results/deploy_demo_smoke.json",
+        "status": "passed",
+        "wall_seconds": 56.2,
+        "model_output": "**归一化框 [x1, y1, x2, y2]**：`[0.4000, 0.3500, 0.6100, 0.5500]`\n**像素框**：`(128, 112, 195, 176)`\n**延迟（含图像预处理）**：`1.917 s`\n\n**模型原始输出**：\n```text\n[0.4000, 0.3500, 0.6100, 0.5500]\n```",
+        "annotated_output": "demo/artifacts/deploy_demo_smoke_output.png"
+      },
+      "server_stopped": true
+    },
+    {
+      "id": "S6",
+      "title": "handoff + ledger + this summary",
+      "status": "completed",
+      "artifact": "results/deploy_handoff.json, results/deploy_failure_ledger.json, results/deploy_execution_summary.json"
+    }
+  ],
+  "claims": {
+    "merged_model_created": true,
+    "merge_equivalence_passed": true,
+    "cpu_latency_measured": true,
+    "int8_quantization_attempted": true,
+    "int8_quality_usable": false,
+    "quantized_model_created": false,
+    "gguf_artifact_created": false,
+    "onnx_artifact_created": false,
+    "demo_http_api_verified": true,
+    "demo_browser_human_verified": false,
+    "official_deployment_metrics": "not_run (eval-closer)",
+    "gpu_used": false,
+    "four_bit_claim": "false; no 4-bit artifact exists"
+  },
+  "key_numbers": {
+    "cpu_fp32_latency_median_seconds": 1.5550357999745756,
+    "cpu_fp32_latency_mean_seconds": 1.570195675981231,
+    "cpu_fp32_latency_p95_seconds": 1.6440343998838216,
+    "cpu_int8_latency_median_seconds": 1.8446024000877514,
+    "cpu_int8_parse_rate": 0.28,
+    "cpu_int8_invalid": 36,
+    "cpu_fp32_parse_rate": 1.0,
+    "cpu_fp32_mIoU": 0.06749723459633851,
+    "merge_equivalence_samples_identical": 5
+  },
+  "gaps": [
+    "no 4-bit/GGUF/ONNX artifact exists; quantization is blocked (GGUF tooling) or negative (INT8 dynamic)",
+    "Table 1 '+量化' row must stay not_run; do not use INT8 dynamic numbers as the deployment accuracy",
+    "Table 3 GPU bf16 column not measured (GPU held by T7; no lease)",
+    "official deployment accuracy (CPU fp32 1000-image eval) still needs eval-closer",
+    "demo browser-visible confirmation needs a human (agent evidence is HTTP 200 + gradio_client round-trip)",
+    "gradio lives in workspace-local .cache/deploy_pkgs, not in the project Python environment; reproduce with PYTHONPATH",
+    "project root still has an empty unremovable probe_if4ilkub/ (sandbox ACL on mkdtemp dir)"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "task": "task-19 / T6b · multi-seed full SFT (seed43, seed44)",
+  "lease_id": "GPU-LEASE-T6SEEDS-20261109-08",
+  "lease_window": "2026-11-09 18:15-21:00 UTC+8 (extended)",
+  "status": "training_completed",
+  "gpu_released": true,
+  "execution_order": ["seed43", "seed44"],
+  "parallel_execution": false,
+  "seeds": {
+    "seed43": {
+      "run_id": "sft_v1_s43",
+      "config": "configs/sft_v1_s43.json",
+      "started_at": "2026-11-09T18:15:04.6+08:00",
+      "abort": {
+        "stage": "after optimizer step 800 (18:53:45), before checkpoint-000800",
+        "cause": "wrapper/session lifecycle terminated the child process; no Python exception, OOM, competing job, or non-finite loss observed",
+        "last_complete_checkpoint": "adapters/sft_v1_s43/checkpoint-000600",
+        "valid_metrics_produced": false,
+        "ledger_entry": "T6-S43-A1",
+        "evidence": "results/train_t6_seed43_abort_step800.json, logs/train/sft_v1_s43_gpu.log, logs/train/sft_v1_s43_stderr.log, logs/train/sft_v1_s43.jsonl",
+        "archive": "archive/training_failures_2026-11-09/t6_seed43_wrapper_abort_step800/"
+      },
+      "resume": {
+        "resumed_from": "adapters/sft_v1_s43/checkpoint-000600",
+        "started_at": "2026-11-09T19:02:41.6+08:00",
+        "finished_at": "2026-11-09T19:36:19.9+08:00",
+        "exit_code": 0
+      },
+      "hard_counts_merged": {
+        "evidence": "results/train_t6_seed43_resume_merged_counters.json",
+        "evidence_sha256": "4607f0a542312e3e96207f59db47b5a69f82dff312981d35057af72074af10dc",
+        "segment_A_checkpoint_prefix": {"step": 600, "samples_seen": 4800, "forward_calls": 4800, "backward_calls": 4800, "optimizer_steps": 600, "clip_calls": 600, "scheduler_step_calls": 600, "zero_grad_calls": 600, "micro_batches_seen": 4800},
+        "segment_B_resume": {"step_start": 600, "step_end": 1250, "samples_seen_start": 4800, "samples_seen_end": 10000, "forward_calls": 5200, "backward_calls": 5200, "optimizer_steps": 650, "clip_calls": 650, "scheduler_step_calls": 650, "zero_grad_calls": 650, "micro_batches_seen": 5200, "partial_final_step": false},
+        "merged_final": {"step": 1250, "samples_seen": 10000, "forward_calls": 10000, "backward_calls": 10000, "optimizer_steps": 1250, "clip_calls": 1250, "scheduler_step_calls": 1250, "zero_grad_calls": 1250, "micro_batches_seen": 10000, "every_step_8_micro_batches_of_1": true},
+        "log_evidence": {"step_events_total": 1450, "unique_step_numbers": 1250, "replayed_steps_601_800": 200, "log_sha256": "computed in merged evidence file"}
+      },
+      "loss": {"first_resumed_segment": 1.46748685836792, "last": 1.0720034688711166},
+      "checkpoints_complete": ["checkpoint-000200", "checkpoint-000400", "checkpoint-000600", "checkpoint-000800", "checkpoint-001000", "checkpoint-001200"],
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+      "training_json_sha256": "computed in merged evidence file",
+      "probe": {"path": "results/train_sft_v1_s43_probe.json", "sha256": "see file", "n": 20, "parse_rate": 1.0, "invalid": 0, "acc@0.5": 0.0, "mIoU": 0.09474568240122817, "eos_reached": "20/20", "diagnostic_only": true},
+      "gpu": {"before_mib": 1321, "profile_mib": 2231, "after_exit_mib": 1432}
+    },
+    "seed44": {
+      "run_id": "sft_v1_s44",
+      "config": "configs/sft_v1_s44.json",
+      "started_at": "2026-11-09T19:36:40.1+08:00",
+      "finished_at": "2026-11-09T20:47:58.0+08:00",
+      "duration_minutes": 71.3,
+      "exit_code": 0,
+      "hard_counts": {
+        "forward_calls": 10000,
+        "backward_calls": 10000,
+        "optimizer_steps": 1250,
+        "optimizer_step_calls": 1250,
+        "clip_calls": 1250,
+        "scheduler_step_calls": 1250,
+        "zero_grad_calls": 1250,
+        "micro_batches_seen": 10000,
+        "samples_seen": 10000,
+        "partial_final_step": false,
+        "stop_reason": "max_steps",
+        "every_step_micro_batches_in_step": 8,
+        "every_step_micro_batch_sizes": [1,1,1,1,1,1,1,1]
+      },
+      "loss": {"first": 1.5099032819271088, "last": 1.0182362124323845},
+      "checkpoints_complete": ["checkpoint-000200", "checkpoint-000400", "checkpoint-000600", "checkpoint-000800", "checkpoint-001000", "checkpoint-001200"],
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+      "training_json_sha256": "97181820ae7475953bb9951cec316c53b524de2170459e481fd8a685928bdbdf",
+      "probe": {"path": "results/train_sft_v1_s44_probe.json", "sha256": "10d2639ca0b50f60bc5b9285ba9cfd50f1dc2f6edcb0420e27a934b3df76574f", "n": 20, "parse_rate": 1.0, "invalid": 0, "acc@0.5": 0.1, "mIoU": 0.1442754872034147, "eos_reached": "20/20", "generated_tokens": "33 for all 20", "diagnostic_only": true},
+      "gpu": {"before_mib": 1422, "profile_mib": 2379, "peak_checkpoint_mib": 2644, "after_exit_mib": 1305}
+    }
+  },
+  "gpu_release": {
+    "after_exit_mib": 1305,
+    "current_mib": 1294,
+    "compute_processes": ["DeepSeek Harness.exe", "msedge.exe"],
+    "python_compute_process": false,
+    "released_at": "2026-11-09T20:48:10+08:00",
+    "note": "both seeds ran sequentially under the same lease; no parallel training; lease released after seed44 exit"
+  },
+  "failure_ledger": {
+    "seed43_abort": "T6-S43-A1 appended; archive/training_failures_2026-11-09/t6_seed43_wrapper_abort_step800/; manifest SHA256 e8add8337e88e667a6e7884e871ad701177f42514b9d1ec8fa17717f3b835d04",
+    "seed44_failure": false,
+    "negative_result": "No final-metric negative decision made here; official per-seed evaluation is eval-closer's job. The 20-sample probes are diagnostic only."
+  },
+  "main_table_note": "Seeds now available for independent evaluation: seed42 (already G3 PASS), seed43, seed44. Main table still requires eval-closer to evaluate seed43/seed44 on full synthetic_eval+RefCOCO val (2 sets each) and then 3-seed mean±std. Do not report seed42 alone as the 3-seed table.",
+  "next": "Hand off adapters/sft_v1_s43 and adapters/sft_v1_s44 to eval-closer/Lead for independent 2-set evaluation each; task-19 remains in_progress until evaluation/table decisions.",
+  "created_at": "2026-11-09T20:49:00+08:00"
+}

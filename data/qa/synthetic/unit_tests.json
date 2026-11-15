@@ -1,0 +1,7 @@
+{
+  "tests_run": 8,
+  "failures": 0,
+  "errors": 0,
+  "status": "passed",
+  "test_file": "src/data/test_make_synthetic.py"
+}

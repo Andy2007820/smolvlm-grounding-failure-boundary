@@ -1,0 +1,97 @@
+{
+  "attempt": 1,
+  "status": "failed_before_training",
+  "lease_id": "GPU-LEASE-T5-20261109-02",
+  "lease_window": "2026-11-09 14:56-15:36 UTC+8",
+  "started_at": "2026-11-09T14:56:05.3050919+08:00",
+  "exited_at": "2026-11-09T14:56:13.0551819+08:00",
+  "duration_seconds": 8,
+  "exit_code": 1,
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "memory_before_mib": 1186,
+    "memory_after_exit_mib": 1186,
+    "memory_later_mib": 1227,
+    "python_compute_process_after_exit": false,
+    "competing_processes_seen": ["DeepSeek Harness.exe", "msedge.exe"],
+    "compliant": true
+  },
+  "failure_stage": "after successful model weight load, inside build_lora_model() LoRA target-name validation; BEFORE optimizer creation, any forward/backward, any optimizer step, or any checkpoint/adapter/log/result write",
+  "error": {
+    "type": "RuntimeError",
+    "message": "LoRA target discovery mismatch; missing=[] extra=[]",
+    "traceback_file": "logs/train/sft_overfit100_attempt1_failure.log",
+    "traceback_tail": [
+      "File \"src\\train\\train_sft.py\", line 683, in run_training: peft_model, parameter_audit = build_lora_model(model, config)",
+      "File \"src\\train\\train_sft.py\", line 501, in build_lora_model: raise RuntimeError(f\"LoRA target discovery mismatch; missing={missing[:5]} extra={sorted(set(targets) - set(expected_targets))[:5]}\")",
+      "RuntimeError: LoRA target discovery mismatch; missing=[] extra=[]"
+    ]
+  },
+  "root_cause": {
+    "summary": "Order-sensitive list comparison of two identical LoRA target-name sets.",
+    "detail": "discover_lora_target_modules() sorts names by (layer_index, leaf_name), producing per-layer order k_proj, o_proj, q_proj, v_proj. expected_lora_target_modules() builds names in config order q_proj, k_proj, v_proj, o_proj. Both lists contain the same 120 names; missing=[] and extra=[] prove set equality, but targets != expected_targets compared positionally and raised a false mismatch.",
+    "affected_file": "src/train/train_sft.py",
+    "affected_function": "build_lora_model",
+    "classification": "implementation bug (validation logic), not data/model/environment failure"
+  },
+  "side_issue": {
+    "summary": "Wrapper PowerShell parameter error unrelated to Python",
+    "detail": "The shell wrapper used Tee-Object -NoNewline, unsupported on this PowerShell 5.1 host, printing a parameter-binding error to stderr. The Python process still ran; wrapper must use Add-Content.",
+    "affects_python": false
+  },
+  "artifacts_absent_after_failure": [
+    "logs/train/sft_overfit100.jsonl",
+    "results/train_sft_overfit100_s42_training.json",
+    "results/train_sft_overfit100_s42_probe.json",
+    "adapters/sft_overfit100"
+  ],
+  "fix_applied_cpu_only": {
+    "code": "src/train/train_sft.py: added lora_targets_match(discovered, expected) using sorted-set equality; build_lora_model now calls it instead of list equality",
+    "regression_test": "src/train/test_t5_cpu.py: asserts reversed/sorted target lists match, a list with one missing element does not, and reversed != expected (the old comparison would have raised)",
+    "wrapper_fix": "retry wrapper uses Add-Content for before/after nvidia-smi instead of Tee-Object -NoNewline",
+    "gpu_started_after_failure": false
+  },
+  "post_fix_cpu_evidence": {
+    "cpu_tests": {
+      "path": "results/train_t5_cpu_tests.json",
+      "status": "passed",
+      "tests_run": 15,
+      "failures": 0,
+      "errors": 0,
+      "gpu_used": false,
+      "elapsed_seconds": 4.17
+    },
+    "dry_run": {
+      "path": "results/train_t5_dryrun_plan_v4.json",
+      "status": "preflight_passed",
+      "gpu_used": false,
+      "true_accumulation": true,
+      "micro_forwards_total": 1600,
+      "optimizer_steps": 200
+    },
+    "source_hashes_match_current_files": true,
+    "current_source_hashes": {
+      "src/train/train_sft.py": "8d554b3874f3eb3b040118105b15411a5219a3a12379b34819a8674fb0d80575",
+      "src/train/accumulation.py": "daedbb5a2d9abcdd7718fc833b71bb5cba539aa5e1462df24d764ff3281d708e"
+    }
+  },
+  "lora_target_audit": {
+    "expected_count": 120,
+    "text_decoder_hidden_layers": 30,
+    "leaves": ["q_proj", "k_proj", "v_proj", "o_proj"],
+    "discovered_order_alpha_per_layer": ["k_proj", "o_proj", "q_proj", "v_proj"],
+    "set_equal": true,
+    "old_comparison_result": "false mismatch",
+    "new_comparison_result": "match"
+  },
+  "retry_request": {
+    "gpu_started": false,
+    "requires_lead_approval": true,
+    "reason": "Lead instruction: no second GPU start before root cause and evidence are reported/approved",
+    "exact_command": "python -m src.train.train_sft --config configs/sft_overfit100.json --device cuda --gpu-lease-id GPU-LEASE-T5-20261109-02 --max-steps 200 --profile-steps 25",
+    "wrapper": "record pre/post nvidia-smi with Add-Content -Path logs/train/sft_overfit100_gpu.log; append exit code; after-exit value must be reported",
+    "estimated_duration": "15-30 min (hard cap 40 min); must report measured s/step, memory and torch peak at optimizer step 25 and stop at next checkpoint if projected past the lease window",
+    "remaining_lease_time_at_report": "approximately 38 minutes (14:58 -> 15:36 UTC+8)"
+  },
+  "created_at": "2026-11-09T14:58:00+08:00"
+}

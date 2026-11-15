@@ -1,0 +1,102 @@
+{
+  "run_id": "sft_v1_s43",
+  "how_to_read": "seed43 was interrupted after step 800; the model was resumed from checkpoint-000600. Segment A = the checkpoint-complete prefix (steps 1-600), Segment B = the resumed segment (steps 601-1250). Step 601-800 were executed once before the abort and replayed after resume; the final model chain is 600 + 650 = 1250 optimizer steps.",
+  "segment_A_checkpoint_prefix": {
+    "source": "adapters/sft_v1_s43/checkpoint-000600/checkpoint_meta.json",
+    "checkpoint_complete": true,
+    "step": 600,
+    "samples_seen": 4800,
+    "forward_calls": 4800,
+    "backward_calls": 4800,
+    "optimizer_steps": 600,
+    "clip_calls": 600,
+    "scheduler_step_calls": 600,
+    "zero_grad_calls": 600,
+    "micro_batches_seen": 4800,
+    "basis": "step=600 and samples_seen=4800 with 8 micro-batches per optimizer step under true accumulation",
+    "checkpoint_meta_sha256": "10d991c11ac13d7ea2cf8f5c19685ef7f38da8a66627cf9e11295d6cb7670a66"
+  },
+  "segment_B_resumed": {
+    "source": "results/train_sft_v1_s43_training.json accumulation_stats",
+    "step_start": 600,
+    "step_end": 1250,
+    "samples_seen_start": 4800,
+    "samples_seen_end": 10000,
+    "forward_calls": 5200,
+    "backward_calls": 5200,
+    "optimizer_steps": 650,
+    "optimizer_step_calls": 650,
+    "clip_calls": 650,
+    "scheduler_step_calls": 650,
+    "zero_grad_calls": 650,
+    "micro_batches_seen": 5200,
+    "partial_final_step": false,
+    "stop_reason": "max_steps",
+    "step_records_count": 650,
+    "step_records_with_micro_batches_not_8": 0,
+    "step_records_with_micro_batch_sizes_not_all_1": 0,
+    "training_json_sha256": "eb3ae59239f7932a83551039e60788782c5a9b230a2819e6efd4b78b0ffd32cf"
+  },
+  "merged_final": {
+    "step": 1250,
+    "samples_seen": 10000,
+    "forward_calls": 10000,
+    "backward_calls": 10000,
+    "optimizer_steps": 1250,
+    "clip_calls": 1250,
+    "scheduler_step_calls": 1250,
+    "zero_grad_calls": 1250,
+    "micro_batches_seen": 10000,
+    "every_optimizer_step_has_8_micro_batches_of_1": true,
+    "formulae": {
+      "steps": "600 + 650 = 1250",
+      "samples_microbatches": "4800 + 5200 = 10000",
+      "forward_backward": "4800 + 5200 = 10000",
+      "optimizer_clip_scheduler_zero": "600 + 650 = 1250 each"
+    },
+    "assertions": {
+      "final_step_is_1250": true,
+      "final_samples_seen_is_10000": true,
+      "merged_forward_is_10000": true,
+      "merged_backward_is_10000": true,
+      "merged_optimizer_steps_is_1250": true,
+      "merged_clip_is_1250": true,
+      "merged_scheduler_is_1250": true,
+      "merged_zero_grad_is_1250": true,
+      "merged_micro_batches_is_10000": true,
+      "resume_segment_all_micro8": true,
+      "resume_segment_all_batch_sizes_1": true
+    }
+  },
+  "log_evidence": {
+    "log_path": "logs/train/sft_v1_s43.jsonl",
+    "log_sha256": "4f6a1934468977738743aef08c5d46b46a7d6c500fe9735fe8adb450d02219fe",
+    "step_events_total": 1450,
+    "unique_step_numbers": 1250,
+    "max_step_number": 1250,
+    "overlap_steps_replayed_after_resume": {
+      "count": 200,
+      "first": [
+        601
+      ],
+      "last": [
+        800
+      ]
+    },
+    "explanation": "log contains 800 pre-abort step events plus 650 resume step events = 1450 total; steps 601-800 appear twice because the resume replays from checkpoint-600; unique step numbers = 1250 (1..1250)."
+  },
+  "final_artifacts": {
+    "adapter": "adapters/sft_v1_s43/adapter",
+    "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+    "training_summary_complete": true,
+    "checkpoints_complete": [
+      "checkpoint-000200",
+      "checkpoint-000400",
+      "checkpoint-000600",
+      "checkpoint-000800",
+      "checkpoint-001000",
+      "checkpoint-001200"
+    ]
+  },
+  "created_at": "2026-11-09T19:38:00+08:00"
+}

@@ -1,0 +1,44 @@
+{
+  "run_id": "validation_deploy_cpu_fp32_synthetic_v1",
+  "validated_run_id": "deploy_cpu_fp32_synthetic_v1",
+  "dataset": "synthetic",
+  "split": "eval",
+  "n": 1000,
+  "timestamp": "2026-11-10T10:54:35.343350+08:00",
+  "status": "passed",
+  "result_path": "results/zeroshot_deploy_cpu_fp32_synthetic_v1.json",
+  "checks": {
+    "prompt_variant": {
+      "prompt_id": "p1",
+      "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+      "prompt_sha256_matches": true,
+      "prompt_template_matches": true,
+      "representation": "normalized_decimal",
+      "representation_matches": true,
+      "conversion_required": false
+    },
+    "adapter": null,
+    "details_rows": 1000,
+    "recomputed_metrics": {
+      "acc@0.5": 0.017,
+      "mIoU": 0.08376013366688331,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "invalid_in_n_verified": true,
+    "raw_outputs_present": true,
+    "unique_detail_ids": 1000,
+    "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+    "details_sha256": "9427f6c2feb056701a5767e3d6f0a1635916131bb9bc3a8fe2336ce46fae27e3",
+    "recorded_source_sha256": {
+      "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+      "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+      "prompts.py": "57cab7f86584efc940bd40d8e85549cf993918ece87e3b75ace99eb4c53de0a5",
+      "pixel_convert.py": "4d6aa2295ea930f297c8b3cc8de53c9116c891341b2451ffef9b05d0e4c4bf9e",
+      "run_zeroshot.py": "cbeb2216eaf67c112fae09d9655cfcf0a37a82886932e4c455569fdd44a77483"
+    },
+    "recorded_source_matches_current": true
+  },
+  "errors": [],
+  "gpu_used": false
+}

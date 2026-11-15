@@ -1,0 +1,24 @@
+{
+  "run_id": "sft_t7_c_pixel_s42",
+  "stage": "T7-C attempt1, first training example (RefCOCO record refcoco_train_r003956_s011284) during build_sft_example answer encoding; before any optimizer step/checkpoint",
+  "timestamp": "2026-11-09T02:57:48+08:00",
+  "error": "ValueError: raw_bbox/answer inconsistency for refcoco_train_r003956_s011284: 0.0005625000000000213",
+  "root_cause": "RefCOCO raw_bbox stores integer pixel coordinates while answer is normalized from the source bbox; a <=1px rounding gap produces normalized differences up to 1/width + 1/height. The C pixel representation initially reused the 1e-8 consistency assertion used for synthetic integer boxes, which was too strict for RefCOCO.",
+  "impact": {
+    "gpu_used": true,
+    "training_started": false,
+    "metrics_produced": false,
+    "checkpoints_produced": false,
+    "contaminated_artifacts": false
+  },
+  "fix": "src/train/coordinate_variants.py C encoder now allows pixel_rounding_tolerance = 1/width + 1/height + 1e-8 and records max_abs_pixel_answer_gap; test_20 adds 50 RefCOCO records for C encode/convert/IoU>0.95; 20/20 CPU tests pass before rerun.",
+  "resume_action": "rerun C from scratch (no checkpoint existed) with same lease GPU-LEASE-T7-20261110-02 and same config; attempt2 stderr kept separately",
+  "evidence": [
+    "logs/train/sft_t7_c_stderr.log",
+    "logs/train/sft_t7_c_gpu.log",
+    "logs/train/sft_t7_c_pixel.jsonl",
+    "src/train/coordinate_variants.py",
+    "results/train_t5_cpu_tests.json"
+  ],
+  "created_at": "2026-11-09T03:02:00+08:00"
+}

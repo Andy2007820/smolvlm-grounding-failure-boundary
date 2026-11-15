@@ -1,0 +1,222 @@
+{
+  "schema": "g6_kd_vs_sft/v1",
+  "generated_at": "2026-11-11T05:45:32+08:00",
+  "datasets": [
+    "synthetic",
+    "refcoco"
+  ],
+  "metric_keys": [
+    "acc@0.5",
+    "mIoU",
+    "parse_rate",
+    "invalid"
+  ],
+  "stages": [
+    {
+      "stage": "sft_s42",
+      "label": "初始 SFT（seed42 基线，复用不重跑）",
+      "datasets": {
+        "synthetic": {
+          "summary": "results/zeroshot_sft_v1_s42_synthetic_v1.json",
+          "run_id": "sft_v1_s42_synthetic_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.011,
+            "mIoU": 0.06743763938552531,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_sft_v1_s42_synthetic_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        },
+        "refcoco": {
+          "summary": "results/zeroshot_sft_v1_s42_refcoco_v1.json",
+          "run_id": "sft_v1_s42_refcoco_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.095,
+            "mIoU": 0.21124828873091464,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_sft_v1_s42_refcoco_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        }
+      },
+      "complete": true
+    },
+    {
+      "stage": "kd_v1",
+      "label": "KD（3B 教师响应蒸馏，seed42）",
+      "datasets": {
+        "synthetic": {
+          "summary": "results/zeroshot_kd_v1_s42_synthetic_v1.json",
+          "run_id": "kd_v1_s42_synthetic_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.012,
+            "mIoU": 0.06728028742791117,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_kd_v1_s42_synthetic_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        },
+        "refcoco": {
+          "summary": "results/zeroshot_kd_v1_s42_refcoco_v1.json",
+          "run_id": "kd_v1_s42_refcoco_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.093,
+            "mIoU": 0.21926890385036313,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_kd_v1_s42_refcoco_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        }
+      },
+      "complete": true
+    }
+  ],
+  "teacher": {
+    "path": "results/train_kd_teacher_v1.json",
+    "prompts_total": 1000,
+    "accepted": 356,
+    "survival_rate": 0.356,
+    "accepted_by_dataset": {
+      "synthetic": 42,
+      "refcoco": 314
+    },
+    "tau": 0.5,
+    "load_mode": "4bit",
+    "memory": {
+      "nvidia_smi_before_mib": 706,
+      "nvidia_smi_after_load_mib": 3228,
+      "nvidia_smi_after_generation_mib": 3382,
+      "torch_peak_allocated_mib": 2444.2890625
+    },
+    "data_manifest": {
+      "path": "data/kd/kd_train.jsonl",
+      "records": 356,
+      "bytes": 99480,
+      "sha256": "740c3fcab423b0a36232f8ef85e3cc6a3d70dbdd444f55c1a14e1b1b8d11f522"
+    },
+    "pool_validation": {
+      "validator": "src.eval.dataset.validate_record",
+      "check_image": true,
+      "rows": 356,
+      "passed": 356,
+      "failed": 0,
+      "all_passed": true,
+      "failure_samples": [],
+      "contract": "answer = 4dp rounded normalized box; raw_bbox = answer * [w, h, w, h] rounded 4dp (same convention as the ReST pools)"
+    }
+  },
+  "kd_training": {
+    "path": "results/train_kd_v1_s42_training.json",
+    "train_records": 10356,
+    "steps": 1250,
+    "micro_batches": 10000,
+    "training_seconds": 4003.394155099988,
+    "loss_first": 1.568840429186821,
+    "loss_last": 0.9768162444233894,
+    "adapter_sha256": {
+      "adapter_config.json": {
+        "sha256": "29cffa533826ba1b8a461f26269ddc4aff067e454188abe9eec1d84d13296c8c",
+        "bytes": 4313
+      },
+      "adapter_model.safetensors": {
+        "sha256": "0999a305276bf504eefa4b4aa940a94718b967dc212f8c5a75448b2d48e9ac0c",
+        "bytes": 7407008
+      },
+      "README.md": {
+        "sha256": "527973cab2c52dba1b5daf8226e8c4958fc1c532504d30b4099c37231d48d0b0",
+        "bytes": 5278
+      }
+    }
+  },
+  "gate": {
+    "g6_requires_kd_run_and_two_datasets": true,
+    "stage_order": [
+      "sft_s42",
+      "kd_v1"
+    ],
+    "points_present": [
+      "sft_s42",
+      "kd_v1"
+    ],
+    "kd_present": true,
+    "all_validations_passed": true,
+    "verdict_kd_vs_sft": "混合（有升有降，按数据集逐个报）",
+    "comparison": {
+      "synthetic": {
+        "acc@0.5": {
+          "sft": 0.011,
+          "kd": 0.012,
+          "delta": 0.0010000000000000009,
+          "sign": 1
+        },
+        "mIoU": {
+          "sft": 0.06743763938552531,
+          "kd": 0.06728028742791117,
+          "delta": -0.00015735195761414078,
+          "sign": -1
+        },
+        "hits": {
+          "sft": 11,
+          "kd": 12,
+          "delta": 1
+        }
+      },
+      "refcoco": {
+        "acc@0.5": {
+          "sft": 0.095,
+          "kd": 0.093,
+          "delta": -0.0020000000000000018,
+          "sign": -1
+        },
+        "mIoU": {
+          "sft": 0.21124828873091464,
+          "kd": 0.21926890385036313,
+          "delta": 0.008020615119448488,
+          "sign": 1
+        },
+        "hits": {
+          "sft": 95,
+          "kd": 93,
+          "delta": -2
+        }
+      }
+    },
+    "g6_passed": true,
+    "significance_claim": false,
+    "scope": "single-seed pilot (seed 42); never a significance claim",
+    "distillation_kind": "response distillation (teacher text answer -> student SFT); NOT logit KD (different vocabularies, paper §6.5)"
+  },
+  "notes": [
+    "G6 = KD 与同 seed SFT 基线对比；基线复用不重跑，KD 为 single-seed pilot。",
+    "教师 Qwen2.5-VL-3B-Instruct，IoU>=τ 过滤后作为额外 SFT 数据；学生 Qwen 与 SmolVLM 词表不同 → 只能做响应蒸馏。",
+    "所有差值均不得表述为“KD 有效/显著提升”。"
+  ]
+}

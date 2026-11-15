@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "route": "onnx",
+  "status": "blocked_incompatible_dependency",
+  "started_at": "2026-11-10T01:44:00+08:00",
+  "finished_at": "2026-11-10T01:43:02.457239+08:00",
+  "merged": "adapters/merged/sft_v1_merged",
+  "artifact_created": false,
+  "provisional": true,
+  "provisional_reason": "seed42 provisional adapter; T12/KD not run",
+  "blocked_reasons": [
+    {
+      "reason": "optimum-onnx 0.1.0 requires transformers<4.58.0,>=4.36; this project is frozen at transformers 5.19.0",
+      "evidence": "PyPI metadata requires_dist: ['optimum~=2.1.0', 'transformers<4.58.0,>=4.36', 'onnx', ...]",
+      "action_taken": "did NOT downgrade transformers/torch; the validated training/eval stack is shared"
+    },
+    {
+      "reason": "optimum 2.3.0 core no longer ships the ONNX exporter: import optimum.exporters.onnx raises ModuleNotFoundError",
+      "evidence": "import smoke: optimum 2.3.0 OK; optimum.exporters.onnx -> ModuleNotFoundError; ONNX exporter moved to the separate optimum-onnx package"
+    },
+    {
+      "reason": "pip cannot install into the environment under this session sandbox (OS temp dir denied); a transient package could only be used via PYTHONPATH, which is moot given the version wall",
+      "evidence": "pip install/download failed with PermissionError under C:/Users/.../Temp/dsh-*/pip-unpack-*; manual wheel fetch to .cache/deploy_pkgs worked (optimum 2.3.0, onnx 1.23.2)"
+    }
+  ],
+  "attempts": [
+    {
+      "step": "pip install --no-deps optimum onnx",
+      "result": "failed",
+      "error": "PermissionError: temp dir denied by sandbox"
+    },
+    {
+      "step": "pip download --no-deps --only-binary=:all:",
+      "result": "failed",
+      "error": "PermissionError: temp dir denied by sandbox"
+    },
+    {
+      "step": "manual PyPI wheel fetch + unpack to .cache/deploy_pkgs",
+      "result": "completed",
+      "detail": "optimum 2.3.0 sha256 3e9b217b..., onnx 1.23.2 sha256 9b382ba8..."
+    },
+    {
+      "step": "import optimum.exporters.onnx",
+      "result": "failed",
+      "error": "ModuleNotFoundError: No module named optimum.exporters.onnx"
+    },
+    {
+      "step": "check optimum-onnx compatibility",
+      "result": "blocked",
+      "error": "requires transformers<4.58.0; environment has 5.19.0"
+    }
+  ],
+  "environment": {
+    "python": "3.14.8",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "onnxruntime": "1.31.0",
+    "optimum_core_fetched": "2.3.0",
+    "onnx_fetched": "1.23.2",
+    "optimum_onnx_available": false
+  },
+  "fallback_decision": "torch INT8 dynamic quantization (torch.ao.quantization.quantize_dynamic on the text decoder); labelled INT8 dynamic (runtime-only), NOT 4-bit and NOT GGUF",
+  "scientific_note": "the upstream models/.../onnx files are the BASE model without LoRA and were not used"
+}

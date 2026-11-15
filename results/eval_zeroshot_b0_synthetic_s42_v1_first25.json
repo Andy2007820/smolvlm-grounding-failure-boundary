@@ -1,0 +1,17 @@
+{
+  "run_id": "zeroshot_b0_synthetic_s42_v1",
+  "first25_total_seconds": 62.54273120057769,
+  "first25_samples_per_second": 0.399726707166397,
+  "first25_mean_seconds_per_sample": 2.501709248023108,
+  "steady_samples_2_to_25_seconds": 45.01991040050052,
+  "steady_samples_per_second": 0.5330974625780946,
+  "steady_mean_seconds_per_sample": 1.875829600020855,
+  "first25_generated_tokens": 1018,
+  "first25_parse_rate": 0.0,
+  "first25_invalid": 25,
+  "rows_at_measurement": 55,
+  "projected_remaining_seconds": 1772.658972019708,
+  "projected_remaining_minutes": 29.544316200328467,
+  "projected_finish_local": "2026-11-09T14:08:31.627669+08:00",
+  "projection_exceeds_lease_end_1519": false
+}

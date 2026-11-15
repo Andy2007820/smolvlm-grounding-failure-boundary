@@ -1,0 +1,497 @@
+{
+  "status": "passed",
+  "suite": "T5 SFT CPU contract / preflight",
+  "tests_run": 21,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "gpu_used": false,
+  "device": "cpu",
+  "torch_cuda_imported": true,
+  "image_size": 384,
+  "image_seq_len": 36,
+  "processor_default_image_seq_len": 64,
+  "observations": {
+    "visual_token_preflight": [
+      {
+        "case": "synthetic_square",
+        "record_id": "synthetic_train_000004",
+        "original_size_wh": [
+          384,
+          384
+        ],
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ],
+        "views": 1,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "image_placeholders": 36,
+        "expected_image_seq_len": 36,
+        "raw_conversation_placeholders": 1,
+        "raw_conversation_tokens": 89,
+        "expanded_conversation_tokens": 127,
+        "expansion_delta": 38,
+        "prompt_tokens": 93,
+        "answer_tokens": 33,
+        "runtime_image_seq_len": {
+          "processor_config_path": "models/SmolVLM-256M-Instruct/processor_config.json",
+          "processor_config_default_image_seq_len": 64,
+          "processor_config_sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+          "processor_image_seq_len_before_call": 36,
+          "runtime_image_seq_len": 36,
+          "processor_image_seq_len_after_call": 36,
+          "global_default_unchanged": true
+        }
+      },
+      {
+        "case": "synthetic_rectangle",
+        "record_id": "synthetic_train_000001",
+        "original_size_wh": [
+          256,
+          320
+        ],
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ],
+        "views": 1,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "image_placeholders": 36,
+        "expected_image_seq_len": 36,
+        "raw_conversation_placeholders": 1,
+        "raw_conversation_tokens": 89,
+        "expanded_conversation_tokens": 127,
+        "expansion_delta": 38,
+        "prompt_tokens": 93,
+        "answer_tokens": 33,
+        "runtime_image_seq_len": {
+          "processor_config_path": "models/SmolVLM-256M-Instruct/processor_config.json",
+          "processor_config_default_image_seq_len": 64,
+          "processor_config_sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+          "processor_image_seq_len_before_call": 36,
+          "runtime_image_seq_len": 36,
+          "processor_image_seq_len_after_call": 36,
+          "global_default_unchanged": true
+        }
+      },
+      {
+        "case": "refcoco_real",
+        "record_id": "refcoco_train_r014910_s042440",
+        "original_size_wh": [
+          640,
+          640
+        ],
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ],
+        "views": 1,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "image_placeholders": 36,
+        "expected_image_seq_len": 36,
+        "raw_conversation_placeholders": 1,
+        "raw_conversation_tokens": 88,
+        "expanded_conversation_tokens": 126,
+        "expansion_delta": 38,
+        "prompt_tokens": 92,
+        "answer_tokens": 33,
+        "runtime_image_seq_len": {
+          "processor_config_path": "models/SmolVLM-256M-Instruct/processor_config.json",
+          "processor_config_default_image_seq_len": 64,
+          "processor_config_sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+          "processor_image_seq_len_before_call": 36,
+          "runtime_image_seq_len": 36,
+          "processor_image_seq_len_after_call": 36,
+          "global_default_unchanged": true
+        }
+      }
+    ],
+    "processor_default_audit": {
+      "processor_config_sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+      "on_disk_default_image_seq_len": 64,
+      "runtime_image_seq_len": 36,
+      "global_default_unchanged": true,
+      "first_call_audit": {
+        "processor_config_path": "models/SmolVLM-256M-Instruct/processor_config.json",
+        "processor_config_default_image_seq_len": 64,
+        "processor_config_sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+        "processor_image_seq_len_before_call": 64,
+        "runtime_image_seq_len": 36,
+        "processor_image_seq_len_after_call": 36,
+        "global_default_unchanged": true
+      },
+      "second_call_audit": {
+        "processor_config_path": "models/SmolVLM-256M-Instruct/processor_config.json",
+        "processor_config_default_image_seq_len": 64,
+        "processor_config_sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+        "processor_image_seq_len_before_call": 36,
+        "runtime_image_seq_len": 36,
+        "processor_image_seq_len_after_call": 36,
+        "global_default_unchanged": true
+      }
+    },
+    "pad_eos_audit": {
+      "tokenizer_class": "GPT2Tokenizer",
+      "tokenizer_pad_token": "<|im_end|>",
+      "tokenizer_pad_token_id": 2,
+      "tokenizer_eos_token": "<end_of_utterance>",
+      "tokenizer_eos_token_id": 49279,
+      "tokenizer_bos_token": "<|im_start|>",
+      "tokenizer_bos_token_id": 1,
+      "generation_config_pad_token_id": 2,
+      "generation_config_eos_token_id": 49279,
+      "text_config_pad_token_id": 2,
+      "config_image_token_id": 49190,
+      "processor_config_default_image_seq_len": 64,
+      "top_level_config_default_pad_token_id": 128002,
+      "text_config_vocab_size": 49280,
+      "top_level_default_is_out_of_vocab": true,
+      "warning_observed": true,
+      "warning_text": "Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.",
+      "warning_source": "transformers/models/idefics3/configuration_idefics3.py: class Idefics3Config default pad_token_id = 128_002, validated against the legacy 32000-entry default text vocabulary in configuration_utils.validate_token_ids",
+      "conclusion": "128002 is only the Idefics3Config class-level default for top-level pad_token_id; the tokenizer, generation_config and text config all resolve to pad=2 / eos=49279. SFT explicitly appends eos=49279 to every answer and uses pad=2 for collation, so the warning is documented and does not affect the training contract.",
+      "checks": {
+        "tokenizer_pad_is_2": true,
+        "tokenizer_eos_is_49279": true,
+        "generation_pad_is_2": true,
+        "generation_eos_is_49279": true,
+        "text_config_pad_is_2": true,
+        "image_token_is_49190": true,
+        "processor_default_image_seq_len_is_64": true,
+        "actual_pad_eos_inside_vocab": true,
+        "top_level_default_128002_outside_vocab": true,
+        "actual_pad_eos_not_128002": true
+      }
+    },
+    "split_isolation": {
+      "train_id_counts": {
+        "synthetic_train": 5000,
+        "refcoco_train": 5000
+      },
+      "val_id_counts": {
+        "synthetic_eval": 1000,
+        "refcoco_val": 1000
+      },
+      "pair_id_intersection_counts": {
+        "synthetic_train|synthetic_eval": 0,
+        "synthetic_train|refcoco_val": 0,
+        "refcoco_train|synthetic_eval": 0,
+        "refcoco_train|refcoco_val": 0
+      },
+      "global_train_val_id_intersection_count": 0,
+      "train_image_count": 9439,
+      "val_image_count": 1777,
+      "train_val_image_path_intersection_count": 0,
+      "requirement": "train/val ID intersection must be exactly 0",
+      "selected_overfit_records": 100,
+      "selected_ids_sha256": "bd431d2d06c4eb8e6706c79a4c63adac1cee3ac21e549c4adedf037df21fc11f",
+      "selected_vs_val_intersections": {
+        "synthetic_eval": 0,
+        "refcoco_val": 0
+      },
+      "negative_overlap_case_raised": true
+    },
+    "answer_roundtrip": {
+      "records_checked": 100,
+      "worst_abs_rounding_error": 5.000000000000143e-05,
+      "precision_usage": {
+        "4": 100
+      },
+      "degenerate_fallback_example": {
+        "answer_text": "[0.999960, 0.100000, 1.000000, 0.500000]",
+        "precision_used": 6,
+        "max_abs_rounding_error": 0.0,
+        "evaluator_parse_ok": true
+      },
+      "evaluator_parser": "src/eval/grounding.py:parse_box (read-only import)"
+    },
+    "config_contract": {
+      "config_fingerprint": "497e24ddb164cbd0d0b40e55a831ef7e91c2170a509d5562fe0ce315f2ed87a0",
+      "config_sha256": "25b6d0f6cb4788d84c901b92c4ad8d48972036f0c0833048f4e2a48bcc4f2781",
+      "v1_config_fingerprint": "30b27a0a4c91ad3ebd216c5e7196449f61bd2885ffdd5bc54ea3aa260daa6979",
+      "tamper_cases_rejected": 13,
+      "compile_checked_sources": [
+        "src/train/__init__.py",
+        "src/train/config.py",
+        "src/train/vision_tokens.py",
+        "src/train/sft_data.py",
+        "src/train/checkpoint.py",
+        "src/train/accumulation.py",
+        "src/train/probe_only.py",
+        "src/train/model_audit.py",
+        "src/train/train_sft.py",
+        "src/train/test_t5_cpu.py"
+      ],
+      "source_file_paths": [
+        "src/train/__init__.py",
+        "src/train/config.py",
+        "src/train/vision_tokens.py",
+        "src/train/sft_data.py",
+        "src/train/checkpoint.py",
+        "src/train/accumulation.py",
+        "src/train/coordinate_variants.py",
+        "src/train/model_audit.py",
+        "src/train/train_sft.py",
+        "src/eval/grounding.py",
+        "src/eval/prompts.py",
+        "src/eval/dataset.py",
+        "src/eval/run_zeroshot.py"
+      ],
+      "accumulation_py_tracked": true,
+      "accumulation_py_sha256": "daedbb5a2d9abcdd7718fc833b71bb5cba539aa5e1462df24d764ff3281d708e",
+      "all_source_hashes_match_current_files": true
+    },
+    "accumulation_evidence": {
+      "scenario": "single optimizer step over 8 micro-batches of batch=1",
+      "counters": {
+        "forward_calls": 8,
+        "backward_calls": 8,
+        "optimizer_step_calls": 1,
+        "scheduler_step_calls": 1,
+        "clip_calls": 1,
+        "zero_grad_calls": 1,
+        "micro_batches_seen": 8,
+        "optimizer_steps": 1,
+        "loss_scale": 0.125
+      },
+      "micro_batch_sizes_observed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "captured_gradients": [
+        4.5
+      ],
+      "expected_accumulated_gradient": 4.5,
+      "buggy_double_scaled_gradient": 0.5625,
+      "weight_after_step": 0.5499999523162842,
+      "true_accumulation": true
+    },
+    "accumulation_two_steps_and_partial": {
+      "two_step_gradients": [
+        4.5,
+        12.5
+      ],
+      "two_step_weight": -0.7000000476837158,
+      "partial_group_gradient": 1.875,
+      "partial_expected": 1.875,
+      "partial_accumulation_flag": true
+    },
+    "accumulation_stop_and_resume": {
+      "max_steps_forward_calls": 8,
+      "max_steps_stop_reason": "max_steps",
+      "resumed_optimizer_step": 2,
+      "resumed_samples_seen": 16,
+      "resumed_gradient": 12.5,
+      "production_uses_helper": true,
+      "legacy_batch8_path_absent": true
+    },
+    "probe_only_evidence": {
+      "ast_forbidden_operations": [],
+      "source_checks": [
+        "torch.inference_mode()",
+        "is_trainable=False",
+        "model.eval()"
+      ],
+      "plan_status": "preflight_passed",
+      "identity_checks": {
+        "summary_config_fingerprint_matches_config": true,
+        "training_results_config_fingerprint_matches_config": true,
+        "summary_and_results_fingerprints_equal": true,
+        "seed_is_42": true,
+        "lora_r_is_16": true,
+        "lora_alpha_is_32": true,
+        "task_type_is_causal_lm": true,
+        "adapter_is_for_causal_lm": true,
+        "model_path_matches": true
+      },
+      "adapter_model_sha256": "47da671c9700cb1ac5ab5c9187181764905b3b56e25f98b427834470f1052ed7",
+      "probe_records": 20,
+      "max_new_tokens": 64,
+      "inference_only_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      },
+      "processor_configured_for_384": true,
+      "probe_visual_placeholders": 36,
+      "probe_visual_pixel_shape": [
+        1,
+        1,
+        3,
+        384,
+        384
+      ]
+    },
+    "extension_e48_config": {
+      "config_path": "configs/sft_overfit100_e48.json",
+      "config_fingerprint": "b6a152bef5d41238c0db585f35e06014592b85b021b542c5876120ae73dadd19",
+      "run_name": "sft_overfit100_e48_s42",
+      "output_dir": "adapters/sft_overfit100_e48",
+      "num_epochs": 48,
+      "micro_forwards_total": 4800,
+      "total_optimizer_steps": 600,
+      "checkpoint_steps": [
+        100,
+        200,
+        300,
+        400,
+        500,
+        600
+      ],
+      "probe_max_new_tokens": 64,
+      "original_config_unchanged": true
+    },
+    "extension_overfit1_config": {
+      "config_path": "configs/sft_overfit1_e1600.json",
+      "config_fingerprint": "938e92211c2fef61b49727be153dd61a9a33617c11df282defbc8f6317210e1e",
+      "run_name": "sft_overfit1_e1600_s42",
+      "output_dir": "adapters/sft_overfit1_e1600",
+      "train_limit": 1,
+      "num_epochs": 1600,
+      "micro_forwards_total": 1600,
+      "total_optimizer_steps": 200,
+      "checkpoint_steps": [
+        100,
+        200
+      ],
+      "probe": {
+        "records": "train",
+        "n": 1,
+        "max_new_tokens": 64,
+        "do_sample": false
+      },
+      "original_configs_unchanged": true
+    },
+    "multiseed_configs": {
+      "s43": "configs/sft_v1_s43.json",
+      "s44": "configs/sft_v1_s44.json",
+      "base_seed42_unchanged": true,
+      "fixed_contract_inherited": true
+    },
+    "coordinate_variants": {
+      "configs": {
+        "a_normalized": {
+          "path": "configs/t7_a_normalized.json",
+          "fingerprint": "fd9daa0b2f8b53e9d55afc5eb567c206a073efc33a72617301ff13c84aa0ccdb"
+        },
+        "b_bin1000": {
+          "path": "configs/t7_b_bin1000.json",
+          "fingerprint": "fabf34bb637e232bd87aab455d08f2fea3d9034e5a63ba09e5deac875a1627be"
+        },
+        "c_pixel": {
+          "path": "configs/t7_c_pixel.json",
+          "fingerprint": "89effa27e0e7d9379dee4d2fbf48da6a1ae590193768844342f8990ceaff790a"
+        }
+      },
+      "representations": {
+        "a_normalized": "normalized_decimal",
+        "b_bin1000": "bin1000_integer",
+        "c_pixel": "pixel_xyxy"
+      },
+      "records_checked": 100,
+      "prompt_templates": {
+        "normalized_decimal": "Locate the object described below in the image.\nDescription: {question}\nAnswer with the bounding box as normalized coordinates [x1, y1, x2, y2], each between 0 and 1.",
+        "bin1000_integer": "Locate the object described below in the image.\nDescription: {question}\nAnswer with the bounding box as integer coordinates [x1, y1, x2, y2] in the 0-1000 range, where 1000 corresponds to the image width or height.",
+        "pixel_xyxy": "Locate the object described below in the image.\nDescription: {question}\nAnswer with the bounding box as pixel coordinates [x1, y1, x2, y2] using the image width and height."
+      },
+      "a_frozen_parser_used": true,
+      "b_frozen_parser_used": true,
+      "c_conversion_required": true,
+      "c_conversion_checks": "pixel bounds + ordering + normalize by image width/height, then frozen iou/metrics"
+    },
+    "t7b_seed43_44_configs": {
+      "base_seed42_config": "configs/t7_b_bin1000.json",
+      "seed43_config": "configs/t7_b_bin1000_s43.json",
+      "seed44_config": "configs/t7_b_bin1000_s44.json",
+      "representation": "bin1000_integer",
+      "fixed_contract_inherited": true,
+      "only_seed_run_output_log_changed": true
+    }
+  },
+  "model_geometry": {
+    "model_path": "models/SmolVLM-256M-Instruct",
+    "vision_patch_size": 16,
+    "vision_image_size": 512,
+    "scale_factor": 4,
+    "image_token_id": 49190,
+    "text_vocab_size": 49280,
+    "vision_hidden_layers": 12,
+    "text_hidden_layers": 30,
+    "text_hidden_size": 576,
+    "source_sha256": {
+      "config.json": "b70fb4bfde88df9eeebc9d8ff523733b8bf70d6c9b06c610325960e06ae9db52",
+      "generation_config.json": "067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636",
+      "processor_config.json": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46"
+    }
+  },
+  "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+  "config": {
+    "path": "configs/sft_overfit100.json",
+    "sha256": "25b6d0f6cb4788d84c901b92c4ad8d48972036f0c0833048f4e2a48bcc4f2781",
+    "fingerprint": "497e24ddb164cbd0d0b40e55a831ef7e91c2170a509d5562fe0ce315f2ed87a0"
+  },
+  "source_sha256": {
+    "src/train/__init__.py": "1dc9d1345a5554d313aa0da5d4ddf0b60117b37483b81c984dcfcda54e4ac80e",
+    "src/train/config.py": "7e9e71d4971316c446a5c67b39d0d9f34e2664a3016741060b1432260ff7b7ca",
+    "src/train/vision_tokens.py": "3998f31e0b05a41256484e600051e253f09e4c73730fae89812d9003e90bc80d",
+    "src/train/sft_data.py": "e0ad312d6c12598ec36e6683bb44b29c3bdf9f5c7be0892ff7fe343f0102efcb",
+    "src/train/checkpoint.py": "072781d088b54da0f796dc5b4f5642dbb5a0779641026c76879134c6fbe67224",
+    "src/train/accumulation.py": "daedbb5a2d9abcdd7718fc833b71bb5cba539aa5e1462df24d764ff3281d708e",
+    "src/train/probe_only.py": "54ca0a15f896b8bed071b827823ac6b794c5e3a1219ca08e7a2df4c9b45c71c7",
+    "src/train/model_audit.py": "fa444051d600bf619ac8f0197c95b81f3506f517bf8eb6f7f6e6a2501f96bacf",
+    "src/train/train_sft.py": "0de3f6ba27c87f06ff7a182997cc0e8c719fa775906047ad1e38feb8c1a4be58",
+    "src/train/test_t5_cpu.py": "d7c274f4c4267413de435069c6d9cffd412810cf92694f810ba4a10c9c771953",
+    "src/eval/grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+    "src/eval/prompts.py": "57cab7f86584efc940bd40d8e85549cf993918ece87e3b75ace99eb4c53de0a5",
+    "src/eval/dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+    "src/eval/run_zeroshot.py": "cbeb2216eaf67c112fae09d9655cfcf0a37a82886932e4c455569fdd44a77483"
+  },
+  "environment": {
+    "python": "3.14.8 (tags/v3.14.8:8e6e75d, Sep 30 2026, 18:19:33) [MSC v.1944 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "peft": "0.21.2"
+  },
+  "failure_details": [],
+  "elapsed_seconds": 4.444412200002262,
+  "generated_at": "2026-11-11T06:31:13.947222+00:00",
+  "notes": "CPU-only preflight. No model weights loaded, no CUDA context initialized, no training started. GPU training requires an explicit Lead lease; see src/train/README.md."
+}

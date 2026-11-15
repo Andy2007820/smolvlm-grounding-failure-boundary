@@ -1,0 +1,382 @@
+{
+  "format": "eval-3seed-summary-v2",
+  "task": {
+    "id": "task-20",
+    "subject": "T6c · 3-seed 独立评测与主表"
+  },
+  "method": "independent frozen evaluator; n=1000 per dataset per seed; batch_size=1 (batch8 permanently rejected by the GPU A/B gate); greedy p1 384/no-split/seq36/max64/seed42",
+  "std_definition": "sample standard deviation (ddof=1) across the three seeds; pooled row uses the six seed-dataset runs",
+  "seed44_status": "newly evaluated in this lease (sft_v1_s44_{synthetic,refcoco}_v1)",
+  "adapter_hashes": {
+    "42": {
+      "path": "adapters/sft_v1/adapter",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d"
+    },
+    "43": {
+      "path": "adapters/sft_v1_s43/adapter",
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2"
+    },
+    "44": {
+      "path": "adapters/sft_v1_s44/adapter",
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0"
+    }
+  },
+  "runs": [
+    {
+      "dataset": "synthetic",
+      "split": "eval",
+      "seed": 42,
+      "run_id": "sft_v1_s42_synthetic_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+      "summary": "results\\zeroshot_sft_v1_s42_synthetic_v1.json",
+      "validation": "results\\eval_sft_v1_s42_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "details_rows": 1000,
+      "details_sha256": "4663be71c26e451aebd64f535968b3caa069f1396c2e7468f84d25325a4544bd",
+      "metrics": {
+        "acc@0.5": 0.011,
+        "mIoU": 0.06743763938552531,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.011,
+        "mIoU": 0.06743763938552531,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "elapsed_seconds_including_load": 1347.0033692999277,
+      "hit_max_new_tokens": 0,
+      "generated_tokens_mean": 33.0,
+      "legacy_batch1_summary_without_batch_size_field": true
+    },
+    {
+      "dataset": "synthetic",
+      "split": "eval",
+      "seed": 43,
+      "run_id": "sft_v1_s43_synthetic_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+      "summary": "results\\zeroshot_sft_v1_s43_synthetic_v1.json",
+      "validation": "results\\eval_sft_v1_s43_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "details_rows": 1000,
+      "details_sha256": "b601397e2264fa82f04e759772e7200d9b6f1ca34312bc0976ee96069d2d61c9",
+      "metrics": {
+        "acc@0.5": 0.004,
+        "mIoU": 0.05225551852880544,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.004,
+        "mIoU": 0.05225551852880544,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "elapsed_seconds_including_load": 24.725383799988776,
+      "hit_max_new_tokens": 0,
+      "generated_tokens_mean": 33.014,
+      "legacy_batch1_summary_without_batch_size_field": false
+    },
+    {
+      "dataset": "synthetic",
+      "split": "eval",
+      "seed": 44,
+      "run_id": "sft_v1_s44_synthetic_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+      "summary": "results\\zeroshot_sft_v1_s44_synthetic_v1.json",
+      "validation": "results\\eval_sft_v1_s44_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "details_rows": 1000,
+      "details_sha256": "73553084102df724c7a4237fe9ab55ae1c1e4cc729670d12edaa28acba3115d5",
+      "metrics": {
+        "acc@0.5": 0.01,
+        "mIoU": 0.06043332964441271,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.01,
+        "mIoU": 0.06043332964441271,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "elapsed_seconds_including_load": 1383.4866066998802,
+      "hit_max_new_tokens": 0,
+      "generated_tokens_mean": 33.0,
+      "legacy_batch1_summary_without_batch_size_field": false
+    },
+    {
+      "dataset": "refcoco",
+      "split": "val",
+      "seed": 42,
+      "run_id": "sft_v1_s42_refcoco_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+      "summary": "results\\zeroshot_sft_v1_s42_refcoco_v1.json",
+      "validation": "results\\eval_sft_v1_s42_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "details_rows": 1000,
+      "details_sha256": "bd811877375c437dbbb23edfeed13b365285d19e9afc8c04930a67e5e1b84131",
+      "metrics": {
+        "acc@0.5": 0.095,
+        "mIoU": 0.21124828873091464,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.095,
+        "mIoU": 0.21124828873091464,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "elapsed_seconds_including_load": 1358.8669571999926,
+      "hit_max_new_tokens": 0,
+      "generated_tokens_mean": 33.0,
+      "legacy_batch1_summary_without_batch_size_field": true
+    },
+    {
+      "dataset": "refcoco",
+      "split": "val",
+      "seed": 43,
+      "run_id": "sft_v1_s43_refcoco_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+      "summary": "results\\zeroshot_sft_v1_s43_refcoco_v1.json",
+      "validation": "results\\eval_sft_v1_s43_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "details_rows": 1000,
+      "details_sha256": "695fbc4204a14d4e05ca71c63f8d0ac0a08841550acda8352f6e8f91d383b5e4",
+      "metrics": {
+        "acc@0.5": 0.052,
+        "mIoU": 0.13413801391646313,
+        "parse_rate": 0.999,
+        "invalid": 1
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.052,
+        "mIoU": 0.13413801391646313,
+        "parse_rate": 0.999,
+        "invalid": 1
+      },
+      "elapsed_seconds_including_load": 2149.668199100066,
+      "hit_max_new_tokens": 0,
+      "generated_tokens_mean": 33.0,
+      "legacy_batch1_summary_without_batch_size_field": false
+    },
+    {
+      "dataset": "refcoco",
+      "split": "val",
+      "seed": 44,
+      "run_id": "sft_v1_s44_refcoco_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+      "summary": "results\\zeroshot_sft_v1_s44_refcoco_v1.json",
+      "validation": "results\\eval_sft_v1_s44_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "details_rows": 1000,
+      "details_sha256": "fdaf35b90f5235a2bfe45273c871f2d3cb7619130f6940d0093357cc140cab45",
+      "metrics": {
+        "acc@0.5": 0.097,
+        "mIoU": 0.20310631666903378,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.097,
+        "mIoU": 0.20310631666903378,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "elapsed_seconds_including_load": 1354.7139107000548,
+      "hit_max_new_tokens": 0,
+      "generated_tokens_mean": 33.0,
+      "legacy_batch1_summary_without_batch_size_field": false
+    }
+  ],
+  "per_dataset": {
+    "synthetic": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "per_seed": {
+        "42": {
+          "run_id": "sft_v1_s42_synthetic_v1",
+          "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+          "metrics": {
+            "acc@0.5": 0.011,
+            "mIoU": 0.06743763938552531,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": "results\\eval_sft_v1_s42_synthetic_v1_validation.json",
+          "validation_status": "passed",
+          "details_rows": 1000,
+          "details_sha256": "4663be71c26e451aebd64f535968b3caa069f1396c2e7468f84d25325a4544bd"
+        },
+        "43": {
+          "run_id": "sft_v1_s43_synthetic_v1",
+          "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+          "metrics": {
+            "acc@0.5": 0.004,
+            "mIoU": 0.05225551852880544,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": "results\\eval_sft_v1_s43_synthetic_v1_validation.json",
+          "validation_status": "passed",
+          "details_rows": 1000,
+          "details_sha256": "b601397e2264fa82f04e759772e7200d9b6f1ca34312bc0976ee96069d2d61c9"
+        },
+        "44": {
+          "run_id": "sft_v1_s44_synthetic_v1",
+          "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+          "metrics": {
+            "acc@0.5": 0.01,
+            "mIoU": 0.06043332964441271,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": "results\\eval_sft_v1_s44_synthetic_v1_validation.json",
+          "validation_status": "passed",
+          "details_rows": 1000,
+          "details_sha256": "73553084102df724c7a4237fe9ab55ae1c1e4cc729670d12edaa28acba3115d5"
+        }
+      },
+      "mean_std_ddof1": {
+        "acc@0.5": {
+          "mean": 0.008333333333333333,
+          "std_ddof1": 0.003785938897200182
+        },
+        "mIoU": {
+          "mean": 0.06004216251958116,
+          "std_ddof1": 0.0075986154802486165
+        },
+        "parse_rate": {
+          "mean": 1.0,
+          "std_ddof1": 0.0
+        },
+        "invalid": {
+          "mean": 0.0,
+          "std_ddof1": 0.0
+        }
+      },
+      "b0": {
+        "acc@0.5": 0.0,
+        "mIoU": 0.00010114397437500003,
+        "parse_rate": 0.004,
+        "invalid": 996
+      }
+    },
+    "refcoco": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "per_seed": {
+        "42": {
+          "run_id": "sft_v1_s42_refcoco_v1",
+          "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+          "metrics": {
+            "acc@0.5": 0.095,
+            "mIoU": 0.21124828873091464,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": "results\\eval_sft_v1_s42_refcoco_v1_validation.json",
+          "validation_status": "passed",
+          "details_rows": 1000,
+          "details_sha256": "bd811877375c437dbbb23edfeed13b365285d19e9afc8c04930a67e5e1b84131"
+        },
+        "43": {
+          "run_id": "sft_v1_s43_refcoco_v1",
+          "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+          "metrics": {
+            "acc@0.5": 0.052,
+            "mIoU": 0.13413801391646313,
+            "parse_rate": 0.999,
+            "invalid": 1
+          },
+          "validation": "results\\eval_sft_v1_s43_refcoco_v1_validation.json",
+          "validation_status": "passed",
+          "details_rows": 1000,
+          "details_sha256": "695fbc4204a14d4e05ca71c63f8d0ac0a08841550acda8352f6e8f91d383b5e4"
+        },
+        "44": {
+          "run_id": "sft_v1_s44_refcoco_v1",
+          "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+          "metrics": {
+            "acc@0.5": 0.097,
+            "mIoU": 0.20310631666903378,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": "results\\eval_sft_v1_s44_refcoco_v1_validation.json",
+          "validation_status": "passed",
+          "details_rows": 1000,
+          "details_sha256": "fdaf35b90f5235a2bfe45273c871f2d3cb7619130f6940d0093357cc140cab45"
+        }
+      },
+      "mean_std_ddof1": {
+        "acc@0.5": {
+          "mean": 0.08133333333333333,
+          "std_ddof1": 0.025423086620891128
+        },
+        "mIoU": {
+          "mean": 0.18283087310547053,
+          "std_ddof1": 0.04236530218544993
+        },
+        "parse_rate": {
+          "mean": 0.9996666666666667,
+          "std_ddof1": 0.0005773502691896263
+        },
+        "invalid": {
+          "mean": 0.3333333333333333,
+          "std_ddof1": 0.5773502691896258
+        }
+      },
+      "b0": {
+        "acc@0.5": 0.0,
+        "mIoU": 0.0002031602971321504,
+        "parse_rate": 0.002,
+        "invalid": 998
+      }
+    }
+  },
+  "pooled_across_six_runs": {
+    "n_runs": 6,
+    "mean_std_ddof1": {
+      "acc@0.5": {
+        "mean": 0.044833333333333336,
+        "std_ddof1": 0.04316209757028343
+      },
+      "mIoU": {
+        "mean": 0.12143651781252583,
+        "std_ddof1": 0.07255441646651191
+      },
+      "parse_rate": {
+        "mean": 0.9998333333333332,
+        "std_ddof1": 0.0004082482904638634
+      },
+      "invalid": {
+        "mean": 0.16666666666666666,
+        "std_ddof1": 0.408248290463863
+      }
+    }
+  },
+  "g3_note": "seed42 batch1 G3 remains a weak positive (synthetic acc 0.011, RefCOCO acc 0.095 vs B0 0.0); all three seeds are reported, none is selected or dropped",
+  "hit_max_new_tokens_total": 0,
+  "status": "complete_3seed"
+}

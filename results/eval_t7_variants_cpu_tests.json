@@ -1,0 +1,57 @@
+{
+  "run_id": "eval_t7_variants_cpu_tests_v1",
+  "timestamp": "2026-11-12T00:02:31.216918+08:00",
+  "status": "passed",
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "failure_details": [],
+  "error_details": [],
+  "gpu_used": false,
+  "device": "cpu",
+  "cuda_initialized": false,
+  "prompt_variants": {
+    "p1": {
+      "representation": "normalized_decimal",
+      "sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+      "template_matches_training": true
+    },
+    "p1_bin1000": {
+      "representation": "bin1000_integer",
+      "sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+      "template_matches_training": true
+    },
+    "p1_pixel": {
+      "representation": "pixel_xyxy",
+      "sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+      "template_matches_training": true
+    },
+    "p1_grid100": {
+      "representation": "grid100_integer",
+      "sha256": "840bc56487b518683874ff41b6c814c48cb7a000a06083fafb0e0988618a27cd",
+      "template_matches_training": true
+    }
+  },
+  "contracts": {
+    "B_uses_frozen_parse_box": true,
+    "C_independent_pixel_parse_then_frozen_metrics": true,
+    "D_independent_grid_parse_then_frozen_metrics": true,
+    "frozen_grounding_not_modified": true,
+    "invalid_predictions_remain_in_n": true
+  },
+  "source_sha256": {
+    "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+    "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+    "prompts.py": "5d1362329c70e2a74228a6271a8f40ace5e0457cd9c46f93559f95ddeb95310b",
+    "pixel_convert.py": "4d6aa2295ea930f297c8b3cc8de53c9116c891341b2451ffef9b05d0e4c4bf9e",
+    "grid_convert.py": "8ab270831283220cec06b7495149ef374fca3eef4373de9339bf60e0df9d1f46",
+    "run_zeroshot.py": "7977aed90f80aa208a909af163b0c1258d4ce12baec50e2681e66008fc4f1784",
+    "validate_results.py": "a209a5fe7e1956825b519a9bc2666f43c2cfdd67d2aa17478651d44e432465ce",
+    "train/coordinate_variants.py": "5dafaa1f5283f9d55de98e11dbbe1759fa8c5139ebacc2f3820528afc7557622",
+    "test_t7_variants_cpu.py": "cdfde39decd378d930b9d2333944f637316b85635389195b5fc3698a0434f9da"
+  },
+  "torch_version": "2.11.0+cu128",
+  "transformers_version": "5.19.0",
+  "peft_version": "0.21.2",
+  "python": "3.14.8"
+}

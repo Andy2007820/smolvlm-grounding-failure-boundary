@@ -1,0 +1,90 @@
+{
+  "probe_path": "results/train_sft_overfit100_e48_s42_probe.json",
+  "n": 20,
+  "metrics": {
+    "acc@0.5": 0.0,
+    "mIoU": 0.08421838906564025,
+    "parse_rate": 1.0,
+    "invalid": 0
+  },
+  "parse_ok": 20,
+  "eos_reached": 20,
+  "hit_max_new_tokens": 0,
+  "generated_tokens": [
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33
+  ],
+  "no_truncation": true,
+  "iou": {
+    "mean": 0.08421838906564025,
+    "median": 0.0,
+    "max": 0.42513110212983096,
+    "min": 0.0,
+    "count_ge_0.5": 0,
+    "count_gt_0.1": 5
+  },
+  "center_alignment": {
+    "mean_abs_center_error": 0.20859676137500002,
+    "pearson_center_x": 0.17203557779565043,
+    "pearson_center_y": 0.053199545796997705,
+    "fraction_center_within_0.2": 0.3
+  },
+  "size_comparison": {
+    "pred_mean_width": 0.19129499999999997,
+    "pred_mean_height": 0.1957,
+    "gt_mean_width": 0.21612444150000001,
+    "gt_mean_height": 0.23387090800000002
+  },
+  "before_after": {
+    "200_step_metrics": {
+      "acc@0.5": 0.0,
+      "mIoU": 0.030300934597406952,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "600_step_metrics": {
+      "acc@0.5": 0.0,
+      "mIoU": 0.08421838906564025,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "miou_gain": 0.053917454468233296,
+    "acc_gain": 0.0
+  },
+  "training": {
+    "steps": 600,
+    "samples_seen": 4800,
+    "counters": {
+      "forward_calls": 4800,
+      "backward_calls": 4800,
+      "optimizer_steps": 600,
+      "clip_calls": 600,
+      "scheduler_step_calls": 600,
+      "zero_grad_calls": 600,
+      "micro_batches_seen": 4800
+    },
+    "loss_first": 1.5555554181337357,
+    "loss_last": 0.8389677554368973,
+    "stop_reason": "max_steps",
+    "training_seconds": 1581.76864559995
+  },
+  "conclusion": "600 optimizer steps improve location metrics (mIoU 0.0303 -> 0.0842) and keep parse_rate=1.0 with EOS/truncation clean, but acc@0.5 remains 0.0 on the 100 training records. The answer format is learned; localization is still not learned even on training samples. Per Lead instruction: stop extending steps and audit label/image/answer alignment."
+}

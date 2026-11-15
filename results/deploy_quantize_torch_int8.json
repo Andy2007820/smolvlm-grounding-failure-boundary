@@ -1,0 +1,107 @@
+{
+  "started_at": "2026-11-10T01:43:12.778402+08:00",
+  "elapsed_seconds": 5.490587400039658,
+  "plan": {
+    "route": "torch-int8",
+    "title": "PyTorch INT8 dynamic quantization of the text decoder (CPU, no export)",
+    "status": "ready",
+    "missing": [],
+    "merged": "adapters/merged/sft_v1_merged",
+    "output_dir": null,
+    "commands": [
+      {
+        "step": "quantize_and_smoke",
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.quantize",
+          "--route",
+          "torch-int8",
+          "--merged",
+          "D:\\Deepseek Harness\\final-project\\adapters\\merged\\sft_v1_merged",
+          "--report",
+          "results/deploy_quantize_torch_int8.json"
+        ],
+        "cwd": "D:\\Deepseek Harness\\final-project",
+        "expected_outputs": [
+          "results/deploy_quantize_torch_int8.json"
+        ],
+        "timeout_seconds": 1800
+      }
+    ],
+    "requires_gpu": false,
+    "requires_download": false,
+    "estimated_minutes": 8.0,
+    "acceptance": [
+      "quantize_dynamic replaces text-decoder Linear layers with qint8 dynamic modules",
+      "generate() still returns four parseable coordinates on a fixed image",
+      "artifact_type recorded as runtime_only (no file artifact)"
+    ],
+    "notes": [
+      "this is real INT8 dynamic quantization, but it is not GGUF/Q4_K_M and must not be labelled 4-bit",
+      "no file artifact: the quantized modules exist only in the benchmark process; reproducibility comes from the script"
+    ],
+    "fallback": "hf-fp32",
+    "merged_artifact": {
+      "path": "adapters/merged/sft_v1_merged",
+      "exists": true,
+      "kind": "merged",
+      "usable": true,
+      "required_files": [
+        "model.safetensors",
+        "config.json",
+        "generation_config.json",
+        "preprocessor_config.json",
+        "processor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "chat_template.json",
+        "special_tokens_map.json"
+      ],
+      "missing_required_files": [],
+      "files": {
+        "model.safetensors": {
+          "path": "adapters/merged/sft_v1_merged/model.safetensors",
+          "exists": true,
+          "bytes": 1025998224
+        },
+        "config.json": {
+          "path": "adapters/merged/sft_v1_merged/config.json",
+          "exists": true,
+          "bytes": 5482
+        }
+      },
+      "architecture": "Idefics3ForConditionalGeneration",
+      "has_lora_in_config": false,
+      "requires_base_model": false
+    },
+    "report_path": "results/deploy_quantize_torch_int8.json",
+    "plan_only": false
+  },
+  "status": "completed",
+  "route": "torch-int8",
+  "artifact_type": "runtime_only",
+  "artifact_path": null,
+  "quantized_scope": "model.model.text_model Linear -> qint8 dynamic",
+  "dtype": "qint8",
+  "image_size": 384,
+  "image_seq_len": 36,
+  "max_new_tokens": 64,
+  "sample": {
+    "id": "synthetic_eval_000001",
+    "question": "the purple triangle",
+    "output_text": " [0.0000, 0.0000, 0.0000, 0.9999]",
+    "predicted_box": null
+  },
+  "parseable": false,
+  "peak_process_memory_mib": null,
+  "caveat": "runtime-only artifact; re-running this command reproduces the quantized model",
+  "environment": {
+    "python": "3.14.8",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "onnxruntime": "1.31.0",
+    "optimum": null
+  },
+  "claims_note": "only routes that actually ran appear under artifacts; everything else is not_run"
+}

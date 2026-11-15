@@ -1,0 +1,207 @@
+{
+  "format": "eval-screenspot-summary-v1",
+  "task": {
+    "id": "task-25",
+    "subject": "T3b · ScreenSpot 迁移独立评测"
+  },
+  "created_at": "2026-11-11T14:32:05.066299+08:00",
+  "dataset": {
+    "path": "data/screenspot.jsonl",
+    "split": "test",
+    "n": 1272,
+    "source": "screenspot"
+  },
+  "method": "independent frozen evaluator; batch_size=1; p1 prompt; 384/no-split/seq36/max64/seed42/greedy; source bbox already normalized once and used unchanged",
+  "runs": [
+    {
+      "key": "b0_base",
+      "label": "B0 base (zero-shot)",
+      "run_id": "screenspot_b0_base_v1",
+      "adapter": null,
+      "seed": null,
+      "summary": "results\\zeroshot_screenspot_b0_base_v1.json",
+      "details": "results/eval_screenspot_b0_base_v1_details.jsonl",
+      "details_sha256": "576d008e324e04405194a4f7318a5d9f28b489b0c2b5ee08ffca49531b8ebb55",
+      "validation": "results\\eval_screenspot_b0_base_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.0,
+        "mIoU": 0.0001967861567620813,
+        "parse_rate": 0.00550314465408805,
+        "invalid": 1265
+      },
+      "recomputed": {
+        "n": 1272,
+        "acc@0.5": 0.0,
+        "mIoU": 0.0001967861567620813,
+        "parse_rate": 0.00550314465408805,
+        "invalid": 1265
+      },
+      "hit_max_new_tokens": 153,
+      "elapsed_seconds_including_load": 1262.6727608998772,
+      "delta_vs_b0": {
+        "acc@0.5": 0.0,
+        "mIoU": 0.0,
+        "parse_rate": 0.0,
+        "invalid": 0
+      }
+    },
+    {
+      "key": "sft_s42",
+      "label": "SFT v1 seed42",
+      "run_id": "screenspot_sft_s42_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "seed": 42,
+      "summary": "results\\zeroshot_screenspot_sft_s42_v1.json",
+      "details": "results/eval_screenspot_sft_s42_v1_details.jsonl",
+      "details_sha256": "e438418caa5168e57206fd6f3ab7e25ed15dece43c5e11df2821fed1c4d59519",
+      "validation": "results\\eval_screenspot_sft_s42_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.0007861635220125787,
+        "mIoU": 0.018978406499020196,
+        "parse_rate": 0.9968553459119497,
+        "invalid": 4
+      },
+      "recomputed": {
+        "n": 1272,
+        "acc@0.5": 0.0007861635220125787,
+        "mIoU": 0.018978406499020196,
+        "parse_rate": 0.9968553459119497,
+        "invalid": 4
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 1772.220498799812,
+      "delta_vs_b0": {
+        "acc@0.5": 0.0007861635220125787,
+        "mIoU": 0.018781620342258117,
+        "parse_rate": 0.9913522012578616,
+        "invalid": -1261
+      }
+    },
+    {
+      "key": "sft_s43",
+      "label": "SFT v1 seed43",
+      "run_id": "screenspot_sft_s43_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "seed": 43,
+      "summary": "results\\zeroshot_screenspot_sft_s43_v1.json",
+      "details": "results/eval_screenspot_sft_s43_v1_details.jsonl",
+      "details_sha256": "bc1fed17e4738f278717c1e067202d1cfabed7b172fbe99243156dc013701d02",
+      "validation": "results\\eval_screenspot_sft_s43_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.0,
+        "mIoU": 0.0173761340058079,
+        "parse_rate": 0.9968553459119497,
+        "invalid": 4
+      },
+      "recomputed": {
+        "n": 1272,
+        "acc@0.5": 0.0,
+        "mIoU": 0.0173761340058079,
+        "parse_rate": 0.9968553459119497,
+        "invalid": 4
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 1766.2783319998998,
+      "delta_vs_b0": {
+        "acc@0.5": 0.0,
+        "mIoU": 0.01717934784904582,
+        "parse_rate": 0.9913522012578616,
+        "invalid": -1261
+      }
+    },
+    {
+      "key": "sft_s44",
+      "label": "SFT v1 seed44",
+      "run_id": "screenspot_sft_s44_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "seed": 44,
+      "summary": "results\\zeroshot_screenspot_sft_s44_v1.json",
+      "details": "results/eval_screenspot_sft_s44_v1_details.jsonl",
+      "details_sha256": "e5941baf7d92ad187982e0bfb40179b4d2c679d184a28fd5c21208249ce6c004",
+      "validation": "results\\eval_screenspot_sft_s44_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.0007861635220125787,
+        "mIoU": 0.01821966983689426,
+        "parse_rate": 0.9992138364779874,
+        "invalid": 1
+      },
+      "recomputed": {
+        "n": 1272,
+        "acc@0.5": 0.0007861635220125787,
+        "mIoU": 0.01821966983689426,
+        "parse_rate": 0.9992138364779874,
+        "invalid": 1
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 1773.2393005997874,
+      "delta_vs_b0": {
+        "acc@0.5": 0.0007861635220125787,
+        "mIoU": 0.01802288368013218,
+        "parse_rate": 0.9937106918238994,
+        "invalid": -1264
+      }
+    }
+  ],
+  "b0_base": {
+    "key": "b0_base",
+    "label": "B0 base (zero-shot)",
+    "run_id": "screenspot_b0_base_v1",
+    "adapter": null,
+    "seed": null,
+    "summary": "results\\zeroshot_screenspot_b0_base_v1.json",
+    "details": "results/eval_screenspot_b0_base_v1_details.jsonl",
+    "details_sha256": "576d008e324e04405194a4f7318a5d9f28b489b0c2b5ee08ffca49531b8ebb55",
+    "validation": "results\\eval_screenspot_b0_base_v1_validation.json",
+    "validation_status": "passed",
+    "metrics": {
+      "acc@0.5": 0.0,
+      "mIoU": 0.0001967861567620813,
+      "parse_rate": 0.00550314465408805,
+      "invalid": 1265
+    },
+    "recomputed": {
+      "n": 1272,
+      "acc@0.5": 0.0,
+      "mIoU": 0.0001967861567620813,
+      "parse_rate": 0.00550314465408805,
+      "invalid": 1265
+    },
+    "hit_max_new_tokens": 153,
+    "elapsed_seconds_including_load": 1262.6727608998772,
+    "delta_vs_b0": {
+      "acc@0.5": 0.0,
+      "mIoU": 0.0,
+      "parse_rate": 0.0,
+      "invalid": 0
+    }
+  },
+  "sft_three_seed_mean_std_ddof1": {
+    "acc@0.5": {
+      "mean": 0.0005241090146750524,
+      "std_ddof1": 0.0004538917210610266
+    },
+    "mIoU": {
+      "mean": 0.018191403447240784,
+      "std_ddof1": 0.0008015101541554031
+    },
+    "parse_rate": {
+      "mean": 0.9976415094339623,
+      "std_ddof1": 0.0013616751631830954
+    },
+    "invalid": {
+      "mean": 3.0,
+      "std_ddof1": 1.7320508075688772
+    }
+  },
+  "notes": [
+    "B0 is the base SmolVLM-256M-Instruct with no adapter.",
+    "SFT seeds 42/43/44 are the T6 adapters evaluated on ScreenSpot test; 3-seed mean/std is shown for the transfer column.",
+    "No GT was modified; the disclosed same-image/same-instruction annotation pair is kept as-is.",
+    "All four validations passed; hit_max_new_tokens counts are recorded per run."
+  ],
+  "status": "complete"
+}

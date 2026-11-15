@@ -1,0 +1,17 @@
+lease=GPU-LEASE-B0-20261109-01
+attempt=1_blocking_image_seq_len_36
+phase=before_process
+memory.used [MiB]
+1312 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+2208, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+52308, C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe, [N/A]
+phase=after_process_exit
+memory.used [MiB]
+1256 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+2208, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+52308, C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe, [N/A]
+python_exit_code=0

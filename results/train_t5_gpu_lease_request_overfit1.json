@@ -1,0 +1,124 @@
+{
+  "request_id": "GPU-LEASE-REQ-T5-20261109-05",
+  "requester": "train-runner",
+  "task": "task-6 / T5 single-sample learnability control",
+  "status": "attempt_completed_lease_released",
+  "context": "G3 failed. 600-step 100-record overfit improved mIoU 0.0303 -> 0.0842 but acc@0.5 stayed 0.0; CPU alignment audit over all 100 records found no label/image/answer misalignment and no coordinate-convention explanation. This control asks whether a SINGLE sample can be overfit at all (clear loss drop, fully parseable probe, position close to GT).",
+  "goal": "Diagnose single-sample learnability. If 200 optimizer steps on one sample still cannot localize, STOP GPU work and audit vision-feature injection / pixel_attention_mask / pixel_values passing / loss path; do not start full SFT.",
+  "independent_artifacts": {
+    "config": "configs/sft_overfit1_e1600.json",
+    "config_sha256": "003d69864ddb395dfb9d45f17aeb550801e33769c7a753c6630e8601bcec0e25",
+    "config_fingerprint": "938e92211c2fef61b49727be153dd61a9a33617c11df282defbc8f6317210e1e",
+    "run_name": "sft_overfit1_e1600_s42",
+    "adapter_dir": "adapters/sft_overfit1_e1600",
+    "log": "logs/train/sft_overfit1_e1600.jsonl",
+    "gpu_log": "logs/train/sft_overfit1_e1600_gpu.log",
+    "training_results": "results/train_sft_overfit1_e1600_s42_training.json",
+    "probe_results": "results/train_sft_overfit1_e1600_s42_probe.json"
+  },
+  "fixed_contract": {
+    "train_records": 1,
+    "train_record": "data/synthetic_train.jsonl first record (synthetic_train_000001)",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "learning_rate": 1e-4,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "true_accumulation": true,
+    "effective_batch_size": 8,
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len": 36,
+    "dtype": "bfloat16",
+    "freeze_vision_tower": true,
+    "seed": 42,
+    "gradient_checkpointing": true,
+    "eos_token_id": 49279,
+    "pad_token_id": 2,
+    "num_epochs": 1600,
+    "total_micro_batches": 1600,
+    "total_optimizer_steps": 200,
+    "save_every_steps": 100,
+    "checkpoints": [100, 200],
+    "probe": {"n": 1, "max_new_tokens": 64, "do_sample": false}
+  },
+  "cpu_evidence": {
+    "cpu_unit_tests": {
+      "path": "results/train_t5_cpu_tests.json",
+      "status": "passed",
+      "tests_run": 18,
+      "failures": 0,
+      "errors": 0,
+      "gpu_used": false,
+      "sha256": "a1b9734f63e624cc31cedef224ccf171ee6b2023d60cc382b377d71e3fa5435d",
+      "new_test": "test_18_single_sample_control_config_and_plan verifies limit=1, 1600 micro = 200 steps, checkpoints [100,200], probe n=1/max_new_tokens=64, independent paths, and that old configs are unchanged"
+    },
+    "dry_run_plan": {
+      "path": "results/train_t5_dryrun_plan_overfit1.json",
+      "status": "preflight_passed",
+      "gpu_used": false,
+      "sha256": "f8052de84608e156216e776313c7ab910de2cb332956ad218ae728812d18bd9a",
+      "train_records": 1,
+      "micro_forwards_total": 1600,
+      "micro_batches_per_optimizer_step": 8,
+      "total_optimizer_steps": 200,
+      "checkpoint_steps": [100, 200],
+      "loss_scale_per_micro_batch": 0.125,
+      "train_val_id_intersection": 0,
+      "preflight_source": "full_train_manifest_fallback_for_single_sample_preflight",
+      "preflight_observations": "square 384x384 and rectangular 256x320, both 36 placeholders; label_start=93, answer EOS=125",
+      "config_fingerprint": "938e92211c2fef61b49727be153dd61a9a33617c11df282defbc8f6317210e1e"
+    }
+  },
+  "exact_command": {
+    "gpu": [
+      "$env:PYTHONIOENCODING='utf-8'",
+      "$env:HF_HUB_OFFLINE='1'; $env:TRANSFORMERS_OFFLINE='1'; $env:TOKENIZERS_PARALLELISM='false'",
+      "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | Tee-Object -FilePath logs/train/sft_overfit1_e1600_gpu.log -Append",
+      "python -m src.train.train_sft --config configs/sft_overfit1_e1600.json --device cuda --gpu-lease-id GPU-LEASE-T5-20261109-05 --max-steps 200 --profile-steps 25",
+      "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | Tee-Object -FilePath logs/train/sft_overfit1_e1600_gpu.log -Append"
+    ],
+    "resume_if_interrupted": "python -m src.train.train_sft --config configs/sft_overfit1_e1600.json --device cuda --gpu-lease-id GPU-LEASE-T5-20261109-05 --max-steps 200 --profile-steps 25 --resume latest"
+  },
+  "expected_duration": {
+    "basis": "200 optimizer steps measured at ~2.6 s/step on this GPU in e48/attempt2; single cached example; model load ~10-15 s; 2 checkpoint writes; 1 probe generation.",
+    "estimate_minutes": "8-11",
+    "hard_cap_minutes": 15,
+    "measured_extrapolation_rule": "At step 25 report measured s/step, memory and projected finish; if projected finish exceeds the approved window, stop at checkpoint-000100 and request an extension."
+  },
+  "expected_memory": {
+    "same_workload_class_as_attempt2": true,
+    "nvidia_smi_peak_estimate_mib": "2000-2150",
+    "torch_peak_allocated_estimate_mib": 652,
+    "torch_peak_reserved_estimate_mib": 768,
+    "total_including_gui_estimate": "2150-2600 MiB",
+    "abort_threshold_mib": 7500
+  },
+  "nvidia_smi_logging": {
+    "shell_log": "logs/train/sft_overfit1_e1600_gpu.log",
+    "method": "Add-Content before start and after exit (memory.used, exit_code); script records before-load, after-load, step-25 profile, after-training and after-cleanup values plus torch peaks"
+  },
+  "acceptance_checks": [
+    "200/200 optimizer steps completed with finite loss; counters forward=backward=1600, optimizer/clip/scheduler/zero=200, micro_batches=samples_seen=1600, every step 8 x batch=1",
+    "loss must show a clear drop on the single sample (report first/last loss and per-100-step checkpoints)",
+    "probe n=1, max_new_tokens=64, greedy: output fully parseable, EOS reached, no truncation; report IoU / center error vs GT",
+    "if the single sample still cannot be localized: STOP GPU, do not start full SFT; next action is auditing vision-feature injection, pixel_attention_mask/pixel_values passing, and the loss path",
+    "no modification of data/, src/data/, src/eval/, GT, or existing configs/adapters/results",
+    "nvidia-smi never exceeds 7500 MiB; no competing tasks; after-exit memory reported"
+  ],
+  "stop_conditions": [
+    "nvidia-smi memory.used > 7500 MiB",
+    "competing game/training process",
+    "CUDA assert, OOM, or non-finite loss",
+    "projected finish exceeds the approved window"
+  ],
+  "concurrency": "Exclusive GPU lease; no other member may run GPU work during the window.",
+  "unchanged_artifacts": {
+    "configs/sft_overfit100.json_sha256": "25b6d0f6cb4788d84c901b92c4ad8d48972036f0c0833048f4e2a48bcc4f2781",
+    "configs/sft_overfit100_e48.json_sha256": "2e2662ebdcca23541136e2b226e4026fb6b56b2ac848ae0fd1ed0ca53a5acae7",
+    "adapter_sft_overfit100_model_sha256": "47da671c9700cb1ac5ab5c9187181764905b3b56e25f98b427834470f1052ed7",
+    "adapter_sft_overfit100_e48_model_sha256": "a4f74e3fcb43cd30710653e3ed565086004c590403e22694d9497082151523f5"
+  },
+  "notes": "CPU evidence complete. No GPU work for this control has been started. Existing T5 attempt2/e48 evidence remains untouched.",
+  "created_at": "2026-11-09T15:49:00+08:00"
+}

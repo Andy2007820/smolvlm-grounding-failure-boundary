@@ -1,0 +1,37 @@
+{
+  "attempt": 1,
+  "status": "failed_before_generation",
+  "lease_id": "GPU-LEASE-T5-20261109-02",
+  "started_at": "2026-11-09T15:11:28+08:00",
+  "exited_at": "2026-11-09T15:11:36+08:00",
+  "duration_seconds": 8,
+  "exit_code": 1,
+  "stage": "after base model + adapter load, at the first image processing call in build_probe_inputs; before any token generation",
+  "error": {
+    "type": "AssertionError",
+    "message": "visual-token contract mismatch: views(17) * tokens_per_view(64) = 1088 != placeholders(612)",
+    "traceback_file": "logs/train/sft_overfit100_probe_stderr.log"
+  },
+  "root_cause": "probe_only.py loaded AutoProcessor but did not call configure_processor(processor, image_size=384) before processing images; the processor default kept do_image_splitting=True and 512 px max tiles, so the 384 px no-split 36-token contract was violated (17 views x 64 tokens).",
+  "gpu": {
+    "memory_before_mib": 1224,
+    "memory_after_exit_mib": 1205,
+    "leak": false,
+    "competing_processes": ["DeepSeek Harness.exe", "msedge.exe"]
+  },
+  "output_file_written": false,
+  "fix": "src/train/probe_only.py now calls configure_processor(processor, image_size=config.image.image_size) immediately after AutoProcessor load and records processor_geometry in the probe output; test_t5_cpu.py test_16 now builds probe inputs after configure_processor and asserts 1 view x 36 tokens == 36 placeholders.",
+  "post_fix_cpu_evidence": {
+    "path": "results/train_t5_cpu_tests.json",
+    "tests_run": 16,
+    "failures": 0,
+    "errors": 0,
+    "gpu_used": false
+  },
+  "retry_attempt_2": {
+    "same_lease": true,
+    "script": "python -m src.train.probe_only --config configs/sft_overfit100.json --adapter-dir adapters/sft_overfit100/adapter --training-summary adapters/sft_overfit100/training_summary.json --training-results results/train_sft_overfit100_s42_training.json --max-new-tokens 64 --limit 20 --device cuda --gpu-lease-id GPU-LEASE-T5-20261109-02 --output results/train_sft_overfit100_s42_probe_maxtok64.json --gpu-log logs/train/sft_overfit100_probe_gpu.log",
+    "result": "completed: parse_rate=1.0, acc@0.5=0.0, mIoU=0.0303, 20/20 EOS reached, 0 truncated"
+  },
+  "created_at": "2026-11-09T15:14:00+08:00"
+}

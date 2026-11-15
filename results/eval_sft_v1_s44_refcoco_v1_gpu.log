@@ -1,0 +1,16 @@
+﻿lease=GPU-LEASE-T6EVAL4-20261110-01
+run_id=sft_v1_s44_refcoco_v1
+phase=before_process
+memory.used [MiB]
+998 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+54704, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+phase=after_process_exit
+memory.used [MiB]
+998 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+54704, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+python_exit_code=0
+wall_seconds=1364.615

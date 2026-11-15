@@ -1,0 +1,2 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]Loading weights:  13%|█▎        | 63/471 [00:00<00:00, 601.72it/s]Loading weights:  26%|██▋       | 124/471 [00:00<00:00, 599.73it/s]Loading weights:  39%|███▉      | 184/471 [00:00<00:00, 548.24it/s]Loading weights:  52%|█████▏    | 246/471 [00:00<00:00, 564.95it/s]Loading weights: 100%|██████████| 471/471 [00:00<00:00, 973.30it/s]

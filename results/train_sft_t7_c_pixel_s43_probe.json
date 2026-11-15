@@ -1,0 +1,1239 @@
+{
+  "run_id": "sft_t7_c_pixel_s43",
+  "config_fingerprint": "f66e7baaab63b1d75cea09115dc4f2d869db6544a0c84a15ba6551490fea4b3c",
+  "probe_kind": "training_diagnostic",
+  "official_eval": false,
+  "note": "Diagnostic overfitting check only: metrics are computed with the frozen evaluator parser but are not the project's official evaluation. eval-keeper produces the official numbers.",
+  "records": "val",
+  "n": 20,
+  "metrics": {
+    "acc@0.5": 0.05,
+    "mIoU": 0.0795447753697445,
+    "parse_rate": 1.0,
+    "invalid": 0
+  },
+  "details": [
+    {
+      "id": "synthetic_eval_000001",
+      "image": "data/images/synthetic/eval/synthetic_eval_000001.png",
+      "question": "the purple triangle",
+      "ground_truth": [
+        0.69375,
+        0.49375,
+        0.9,
+        0.7
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 21,
+      "raw_output": " [130, 110, 180, 160]<end_of_utterance>",
+      "output_text": " [130, 110, 180, 160]",
+      "predicted_box": [
+        0.40625,
+        0.34375,
+        0.5625,
+        0.5
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          130,
+          110,
+          180,
+          160
+        ],
+        "image_wh": [
+          320,
+          320
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000002",
+      "image": "data/images/synthetic/eval/synthetic_eval_000002.png",
+      "question": "the yellow diamond above the red pentagon",
+      "ground_truth": [
+        0.68164062,
+        0.359375,
+        0.91796875,
+        0.59570312
+      ],
+      "prompt_tokens": 97,
+      "generated_tokens": 21,
+      "raw_output": " [190, 121, 240, 189]<end_of_utterance>",
+      "output_text": " [190, 121, 240, 189]",
+      "predicted_box": [
+        0.37109375,
+        0.236328125,
+        0.46875,
+        0.369140625
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          190,
+          121,
+          240,
+          189
+        ],
+        "image_wh": [
+          512,
+          512
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000003",
+      "image": "data/images/synthetic/eval/synthetic_eval_000003.png",
+      "question": "the green triangle",
+      "ground_truth": [
+        0.178125,
+        0.378125,
+        0.315625,
+        0.515625
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 19,
+      "raw_output": " [10, 10, 120, 100]<end_of_utterance>",
+      "output_text": " [10, 10, 120, 100]",
+      "predicted_box": [
+        0.03125,
+        0.03125,
+        0.375,
+        0.3125
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          10,
+          10,
+          120,
+          100
+        ],
+        "image_wh": [
+          320,
+          320
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000004",
+      "image": "data/images/synthetic/eval/synthetic_eval_000004.png",
+      "question": "the red pentagon in the top left",
+      "ground_truth": [
+        0.1171875,
+        0.0546875,
+        0.44140625,
+        0.37890625
+      ],
+      "prompt_tokens": 97,
+      "generated_tokens": 17,
+      "raw_output": " [1, 1, 114, 179]<end_of_utterance>",
+      "output_text": " [1, 1, 114, 179]",
+      "predicted_box": [
+        0.00390625,
+        0.00390625,
+        0.4453125,
+        0.69921875
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          1,
+          1,
+          114,
+          179
+        ],
+        "image_wh": [
+          256,
+          256
+        ]
+      },
+      "iou": 0.3424977627523118,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000005",
+      "image": "data/images/synthetic/eval/synthetic_eval_000005.png",
+      "question": "the large green triangle",
+      "ground_truth": [
+        0.471875,
+        0.21875,
+        0.6625,
+        0.45703125
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 21,
+      "raw_output": " [212, 111, 270, 179]<end_of_utterance>",
+      "output_text": " [212, 111, 270, 179]",
+      "predicted_box": [
+        0.6625,
+        0.43359375,
+        0.84375,
+        0.69921875
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          212,
+          111,
+          270,
+          179
+        ],
+        "image_wh": [
+          320,
+          256
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000006",
+      "image": "data/images/synthetic/eval/synthetic_eval_000006.png",
+      "question": "the purple diamond below the green square",
+      "ground_truth": [
+        0.3515625,
+        0.60546875,
+        0.55208333,
+        0.75585938
+      ],
+      "prompt_tokens": 96,
+      "generated_tokens": 21,
+      "raw_output": " [114, 114, 180, 180]<end_of_utterance>",
+      "output_text": " [114, 114, 180, 180]",
+      "predicted_box": [
+        0.296875,
+        0.22265625,
+        0.46875,
+        0.3515625
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          114,
+          114,
+          180,
+          180
+        ],
+        "image_wh": [
+          384,
+          512
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000007",
+      "image": "data/images/synthetic/eval/synthetic_eval_000007.png",
+      "question": "the large blue triangle",
+      "ground_truth": [
+        0.13616071,
+        0.0875,
+        0.30803571,
+        0.328125
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 21,
+      "raw_output": " [114, 121, 174, 182]<end_of_utterance>",
+      "output_text": " [114, 121, 174, 182]",
+      "predicted_box": [
+        0.2544642857142857,
+        0.378125,
+        0.38839285714285715,
+        0.56875
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          114,
+          121,
+          174,
+          182
+        ],
+        "image_wh": [
+          448,
+          320
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000008",
+      "image": "data/images/synthetic/eval/synthetic_eval_000008.png",
+      "question": "the green square",
+      "ground_truth": [
+        0.434375,
+        0.13671875,
+        0.590625,
+        0.33203125
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 21,
+      "raw_output": " [192, 111, 264, 179]<end_of_utterance>",
+      "output_text": " [192, 111, 264, 179]",
+      "predicted_box": [
+        0.6,
+        0.43359375,
+        0.825,
+        0.69921875
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          192,
+          111,
+          264,
+          179
+        ],
+        "image_wh": [
+          320,
+          256
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000009",
+      "image": "data/images/synthetic/eval/synthetic_eval_000009.png",
+      "question": "the orange circle",
+      "ground_truth": [
+        0.1875,
+        0.19921875,
+        0.4921875,
+        0.50390625
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 20,
+      "raw_output": " [11, 120, 100, 160]<end_of_utterance>",
+      "output_text": " [11, 120, 100, 160]",
+      "predicted_box": [
+        0.04296875,
+        0.46875,
+        0.390625,
+        0.625
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          11,
+          120,
+          100,
+          160
+        ],
+        "image_wh": [
+          256,
+          256
+        ]
+      },
+      "iou": 0.05100261551874455,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000010",
+      "image": "data/images/synthetic/eval/synthetic_eval_000010.png",
+      "question": "the green circle",
+      "ground_truth": [
+        0.23958333,
+        0.66015625,
+        0.53645833,
+        0.8828125
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 21,
+      "raw_output": " [192, 129, 240, 180]<end_of_utterance>",
+      "output_text": " [192, 129, 240, 180]",
+      "predicted_box": [
+        0.5,
+        0.251953125,
+        0.625,
+        0.3515625
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          192,
+          129,
+          240,
+          180
+        ],
+        "image_wh": [
+          384,
+          512
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000011",
+      "image": "data/images/synthetic/eval/synthetic_eval_000011.png",
+      "question": "the green triangle",
+      "ground_truth": [
+        0.76171875,
+        0.46875,
+        0.9140625,
+        0.590625
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 21,
+      "raw_output": " [114, 121, 172, 179]<end_of_utterance>",
+      "output_text": " [114, 121, 172, 179]",
+      "predicted_box": [
+        0.4453125,
+        0.378125,
+        0.671875,
+        0.559375
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          114,
+          121,
+          172,
+          179
+        ],
+        "image_wh": [
+          256,
+          320
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000012",
+      "image": "data/images/synthetic/eval/synthetic_eval_000012.png",
+      "question": "the large yellow circle",
+      "ground_truth": [
+        0.5,
+        0.3828125,
+        0.8125,
+        0.6953125
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 21,
+      "raw_output": " [222, 111, 280, 179]<end_of_utterance>",
+      "output_text": " [222, 111, 280, 179]",
+      "predicted_box": [
+        0.578125,
+        0.2890625,
+        0.7291666666666666,
+        0.4661458333333333
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          222,
+          111,
+          280,
+          179
+        ],
+        "image_wh": [
+          384,
+          384
+        ]
+      },
+      "iou": 0.11256671518680246,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000013",
+      "image": "data/images/synthetic/eval/synthetic_eval_000013.png",
+      "question": "the purple diamond in the top right",
+      "ground_truth": [
+        0.521875,
+        0.09375,
+        0.765625,
+        0.3375
+      ],
+      "prompt_tokens": 96,
+      "generated_tokens": 21,
+      "raw_output": " [180, 129, 230, 183]<end_of_utterance>",
+      "output_text": " [180, 129, 230, 183]",
+      "predicted_box": [
+        0.5625,
+        0.403125,
+        0.71875,
+        0.571875
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          180,
+          129,
+          230,
+          183
+        ],
+        "image_wh": [
+          320,
+          320
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000014",
+      "image": "data/images/synthetic/eval/synthetic_eval_000014.png",
+      "question": "the small blue pentagon",
+      "ground_truth": [
+        0.25,
+        0.30625,
+        0.45535714,
+        0.59375
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 21,
+      "raw_output": " [126, 126, 201, 201]<end_of_utterance>",
+      "output_text": " [126, 126, 201, 201]",
+      "predicted_box": [
+        0.28125,
+        0.39375,
+        0.4486607142857143,
+        0.628125
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          126,
+          126,
+          201,
+          201
+        ],
+        "image_wh": [
+          448,
+          320
+        ]
+      },
+      "iou": 0.5167402369309216,
+      "correct@0.5": true,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000015",
+      "image": "data/images/synthetic/eval/synthetic_eval_000015.png",
+      "question": "the orange pentagon",
+      "ground_truth": [
+        0.6125,
+        0.45052083,
+        0.81875,
+        0.62239583
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 21,
+      "raw_output": " [121, 121, 201, 201]<end_of_utterance>",
+      "output_text": " [121, 121, 201, 201]",
+      "predicted_box": [
+        0.378125,
+        0.3151041666666667,
+        0.628125,
+        0.5234375
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          121,
+          121,
+          201,
+          201
+        ],
+        "image_wh": [
+          320,
+          384
+        ]
+      },
+      "iou": 0.0131876419069707,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000016",
+      "image": "data/images/synthetic/eval/synthetic_eval_000016.png",
+      "question": "the green square",
+      "ground_truth": [
+        0.48125,
+        0.3203125,
+        0.8,
+        0.5859375
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 21,
+      "raw_output": " [121, 121, 209, 209]<end_of_utterance>",
+      "output_text": " [121, 121, 209, 209]",
+      "predicted_box": [
+        0.378125,
+        0.3151041666666667,
+        0.653125,
+        0.5442708333333334
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          121,
+          121,
+          209,
+          209
+        ],
+        "image_wh": [
+          320,
+          384
+        ]
+      },
+      "iou": 0.3525115516470411,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000017",
+      "image": "data/images/synthetic/eval/synthetic_eval_000017.png",
+      "question": "the purple pentagon",
+      "ground_truth": [
+        0.35546875,
+        0.3625,
+        0.5234375,
+        0.496875
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 21,
+      "raw_output": " [114, 121, 174, 173]<end_of_utterance>",
+      "output_text": " [114, 121, 174, 173]",
+      "predicted_box": [
+        0.4453125,
+        0.378125,
+        0.6796875,
+        0.540625
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          114,
+          121,
+          174,
+          173
+        ],
+        "image_wh": [
+          256,
+          320
+        ]
+      },
+      "iou": 0.18056545497742932,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000018",
+      "image": "data/images/synthetic/eval/synthetic_eval_000018.png",
+      "question": "the red circle",
+      "ground_truth": [
+        0.46205357,
+        0.52901786,
+        0.625,
+        0.69196429
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 21,
+      "raw_output": " [140, 110, 200, 170]<end_of_utterance>",
+      "output_text": " [140, 110, 200, 170]",
+      "predicted_box": [
+        0.3125,
+        0.24553571428571427,
+        0.44642857142857145,
+        0.3794642857142857
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          140,
+          110,
+          200,
+          170
+        ],
+        "image_wh": [
+          448,
+          448
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000019",
+      "image": "data/images/synthetic/eval/synthetic_eval_000019.png",
+      "question": "the orange triangle",
+      "ground_truth": [
+        0.37053571,
+        0.209375,
+        0.54910714,
+        0.459375
+      ],
+      "prompt_tokens": 92,
+      "generated_tokens": 21,
+      "raw_output": " [111, 121, 174, 174]<end_of_utterance>",
+      "output_text": " [111, 121, 174, 174]",
+      "predicted_box": [
+        0.24776785714285715,
+        0.378125,
+        0.38839285714285715,
+        0.54375
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          111,
+          121,
+          174,
+          174
+        ],
+        "image_wh": [
+          448,
+          320
+        ]
+      },
+      "iou": 0.021823528474668532,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_eval_000020",
+      "image": "data/images/synthetic/eval/synthetic_eval_000020.png",
+      "question": "the large blue triangle",
+      "ground_truth": [
+        0.19010417,
+        0.40625,
+        0.42708333,
+        0.58398438
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 20,
+      "raw_output": " [13, 124, 100, 170]<end_of_utterance>",
+      "output_text": " [13, 124, 100, 170]",
+      "predicted_box": [
+        0.033854166666666664,
+        0.2421875,
+        0.2604166666666667,
+        0.33203125
+      ],
+      "parse_error": null,
+      "representation": "pixel_xyxy",
+      "coordinate_conversion": {
+        "representation": "pixel_xyxy",
+        "conversion_applied": true,
+        "pixel_box": [
+          13,
+          124,
+          100,
+          170
+        ],
+        "image_wh": [
+          384,
+          512
+        ]
+      },
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    }
+  ],
+  "elapsed_seconds": 18.4784903999971,
+  "generated_at": "2026-11-12T10:45:44.346771+08:00"
+}

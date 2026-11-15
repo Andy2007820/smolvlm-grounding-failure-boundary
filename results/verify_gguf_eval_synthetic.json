@@ -1,0 +1,86 @@
+{
+  "schema": "verify_gguf_eval/v1",
+  "dataset": "synthetic",
+  "run_id": "gguf_q4km_synthetic_v1",
+  "status": "passed",
+  "failed_checks": [],
+  "checks": [
+    {
+      "id": "summary_contract",
+      "description": "summary 的 dataset/prompt/representation 契约",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "run_id": "gguf_q4km_synthetic_v1"
+      }
+    },
+    {
+      "id": "details_rows_ids",
+      "description": "details 行数 / 唯一 id / 与数据集 id 集合一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "rows": 1000
+      }
+    },
+    {
+      "id": "row_recompute",
+      "description": "逐行用冻结 scorer 从 raw_output 复算 iou/correct/parse，并核对 CLI 退出码",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "rows": 1000,
+        "mismatches": 0,
+        "non_zero_exit": 0
+      }
+    },
+    {
+      "id": "metrics_recompute",
+      "description": "summary.metrics 与逐行复算完全一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "metrics": {
+          "acc@0.5": 0.029,
+          "mIoU": 0.07924666146485937,
+          "parse_rate": 0.972,
+          "invalid": 28
+        }
+      }
+    },
+    {
+      "id": "details_sha256",
+      "description": "details 文件 sha256 与 summary 记录一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "sha256": "3829e71a0cedcbd230dd8ea47c5ae1e51827dcef3d50298b1e77df807e277998"
+      }
+    },
+    {
+      "id": "artifact_shas",
+      "description": "GGUF / mmproj / dataset 的 sha256 与 summary 记录一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "model": "sft_v1_merged-Q4_K_M.gguf",
+        "mmproj": "mmproj-sft_v1_merged-Q8_0.gguf"
+      }
+    },
+    {
+      "id": "invalid_consistency",
+      "description": "invalid / parse_rate 与逐行 parse 失败数一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "invalid": 28
+      }
+    }
+  ],
+  "inputs": {
+    "summary": "results/zeroshot_gguf_q4km_synthetic_v1.json",
+    "details": "results/eval_gguf_q4km_synthetic_v1_details.jsonl",
+    "n": 1000
+  },
+  "note": "GGUF backend verification with the frozen grounding parser/scorer. It reproduces the frozen validator's substance (counts, recomputation, hashes, contract) but is NOT the transformers validator itself; the run is still llama.cpp, so wording must stay 'GGUF (llama.cpp) evaluation' and the Table 1 row must be annotated."
+}

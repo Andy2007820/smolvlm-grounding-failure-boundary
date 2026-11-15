@@ -1,0 +1,399 @@
+{
+  "generated_at": "2026-11-09T04:30:18.171455+00:00",
+  "sampling": "random.Random(seed + 0 for train, seed + 1 for val).sample(..., 10)",
+  "seed": 42,
+  "samples": [
+    {
+      "split": "train",
+      "id": "refcoco_train_r013635_s038801",
+      "image": "data/images/refcoco/COCO_train2014_000000425219.jpg",
+      "question": "hydrate",
+      "answer": [
+        0.17066852,
+        0.14051563,
+        0.54119777,
+        0.53848438
+      ],
+      "raw_bbox": [
+        61.27,
+        89.93,
+        194.29,
+        344.63
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r013635_s038801.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r039572_s112519",
+      "image": "data/images/refcoco/COCO_train2014_000000121557.jpg",
+      "question": "girl with blond highlights",
+      "answer": [
+        0.4061875,
+        0.48104167,
+        0.67753125,
+        0.98891667
+      ],
+      "raw_bbox": [
+        259.96,
+        230.9,
+        433.62,
+        474.68
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r039572_s112519.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r003989_s011380",
+      "image": "data/images/refcoco/COCO_train2014_000000536278.jpg",
+      "question": "R bear",
+      "answer": [
+        0.59326563,
+        0.307875,
+        0.81742187,
+        0.79102083
+      ],
+      "raw_bbox": [
+        379.69,
+        147.78,
+        523.15,
+        379.69
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r003989_s011380.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r002486_s007110",
+      "image": "data/images/refcoco/COCO_train2014_000000553758.jpg",
+      "question": "child in navy",
+      "answer": [
+        0.40540625,
+        0.21058333,
+        0.5675625,
+        0.8141875
+      ],
+      "raw_bbox": [
+        259.46,
+        101.08,
+        363.24,
+        390.81
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r002486_s007110.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r039521_s112374",
+      "image": "data/images/refcoco/COCO_train2014_000000121943.jpg",
+      "question": "person just right and behind blue girl",
+      "answer": [
+        0.51582812,
+        0.25283333,
+        0.63565625,
+        0.79697917
+      ],
+      "raw_bbox": [
+        330.13,
+        121.36,
+        406.82,
+        382.55
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r039521_s112374.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r010414_s029653",
+      "image": "data/images/refcoco/COCO_train2014_000000462052.jpg",
+      "question": "zebra in the back",
+      "answer": [
+        0.0,
+        0.28077283,
+        0.261625,
+        0.57053864
+      ],
+      "raw_bbox": [
+        0.0,
+        119.89,
+        167.44,
+        243.62
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r010414_s029653.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r048530_s138025",
+      "image": "data/images/refcoco/COCO_train2014_000000017181.jpg",
+      "question": "guy in black in back",
+      "answer": [
+        0.00419204,
+        0.3850625,
+        0.32819672,
+        0.7235
+      ],
+      "raw_bbox": [
+        1.79,
+        246.44,
+        140.14,
+        463.04
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r048530_s138025.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r036668_s104293",
+      "image": "data/images/refcoco/COCO_train2014_000000155108.jpg",
+      "question": "clock",
+      "answer": [
+        0.48534375,
+        0.18426887,
+        0.943875,
+        0.89662736
+      ],
+      "raw_bbox": [
+        310.62,
+        78.13,
+        604.08,
+        380.17
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r036668_s104293.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r030798_s087583",
+      "image": "data/images/refcoco/COCO_train2014_000000225562.jpg",
+      "question": "boy with whatever that is on his head, to left of arm",
+      "answer": [
+        0.50991667,
+        0.37010938,
+        0.76604167,
+        0.63096875
+      ],
+      "raw_bbox": [
+        244.76,
+        236.87,
+        367.7,
+        403.82
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r030798_s087583.png"
+    },
+    {
+      "split": "train",
+      "id": "refcoco_train_r032512_s092453",
+      "image": "data/images/refcoco/COCO_train2014_000000206058.jpg",
+      "question": "man with tie",
+      "answer": [
+        0.0369375,
+        0.10178404,
+        0.45235938,
+        0.99800469
+      ],
+      "raw_bbox": [
+        23.64,
+        43.36,
+        289.51,
+        425.15
+      ],
+      "qa_image": "data/qa/refcoco/train/refcoco_train_r032512_s092453.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r026485_s075310",
+      "image": "data/images/refcoco/COCO_train2014_000000277491.jpg",
+      "question": "Guy in white shirt",
+      "answer": [
+        0.38575,
+        0.150681,
+        0.69671875,
+        0.79175627
+      ],
+      "raw_bbox": [
+        246.88,
+        84.08,
+        445.9,
+        441.8
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r026485_s075310.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r000102_s000297",
+      "image": "data/images/refcoco/COCO_train2014_000000580785.jpg",
+      "question": "child",
+      "answer": [
+        0.37470726,
+        0.38490625,
+        0.63440281,
+        0.76114063
+      ],
+      "raw_bbox": [
+        160.0,
+        246.34,
+        270.89,
+        487.13
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r000102_s000297.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r029905_s085038",
+      "image": "data/images/refcoco/COCO_train2014_000000237193.jpg",
+      "question": "Man with dog on left. You too!",
+      "answer": [
+        0.15859375,
+        0.3403271,
+        0.38126562,
+        1.0
+      ],
+      "raw_bbox": [
+        101.5,
+        72.83,
+        244.01,
+        214.0
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r029905_s085038.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r023050_s065549",
+      "image": "data/images/refcoco/COCO_train2014_000000316801.jpg",
+      "question": "right car",
+      "answer": [
+        0.67640625,
+        0.40225,
+        0.99101562,
+        0.6494375
+      ],
+      "raw_bbox": [
+        432.9,
+        257.44,
+        634.25,
+        415.64
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r023050_s065549.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r027008_s076811",
+      "image": "data/images/refcoco/COCO_train2014_000000270248.jpg",
+      "question": "blurry person",
+      "answer": [
+        0.85821875,
+        0.0067217,
+        0.99975,
+        0.48716981
+      ],
+      "raw_bbox": [
+        549.26,
+        2.85,
+        639.84,
+        206.56
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r027008_s076811.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r011975_s034083",
+      "image": "data/images/refcoco/COCO_train2014_000000444651.jpg",
+      "question": "top right lamb",
+      "answer": [
+        0.5404375,
+        0.07741071,
+        0.77226562,
+        0.36988839
+      ],
+      "raw_bbox": [
+        345.88,
+        34.68,
+        494.25,
+        165.71
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r011975_s034083.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r010669_s030385",
+      "image": "data/images/refcoco/COCO_train2014_000000458827.jpg",
+      "question": "right skater",
+      "answer": [
+        0.67388,
+        0.0022449,
+        0.98836,
+        0.90336735
+      ],
+      "raw_bbox": [
+        336.94,
+        0.66,
+        494.18,
+        265.59
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r010669_s030385.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r035426_s100768",
+      "image": "data/images/refcoco/COCO_train2014_000000170689.jpg",
+      "question": "kid on right",
+      "answer": [
+        0.44932812,
+        0.26802083,
+        0.73985937,
+        0.70720833
+      ],
+      "raw_bbox": [
+        287.57,
+        128.65,
+        473.51,
+        339.46
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r035426_s100768.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r022889_s065086",
+      "image": "data/images/refcoco/COCO_train2014_000000318528.jpg",
+      "question": "center plant",
+      "answer": [
+        0.27322581,
+        0.00224,
+        0.99533499,
+        0.82022
+      ],
+      "raw_bbox": [
+        110.11,
+        1.12,
+        401.12,
+        410.11
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r022889_s065086.png"
+    },
+    {
+      "split": "val",
+      "id": "refcoco_val_r002500_s007150",
+      "image": "data/images/refcoco/COCO_train2014_000000553586.jpg",
+      "question": "sandwich in back",
+      "answer": [
+        0.35546875,
+        0.2534192,
+        0.60226563,
+        0.60740047
+      ],
+      "raw_bbox": [
+        227.5,
+        108.21,
+        385.45,
+        259.36
+      ],
+      "qa_image": "data/qa/refcoco/val/refcoco_val_r002500_s007150.png"
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "reviewed_at": "2026-11-09T04:32:55.315852+00:00",
+    "reviewer": "data-engineer; vision-assisted inspection through the configured fallback vision model (not a human review)",
+    "notes": "Reviewed both 10-sample contact sheets and individually rechecked five ambiguous or occluded cases. No xywh/xyxy swap, coordinate flip, image-size mismatch, or normalization error was observed. Source COCO visible-region and occlusion boxes were not relabeled; this is vision-assisted review, not human annotation.",
+    "sample_count": 20,
+    "contact_sheets": [
+      "data/qa/refcoco/train_contact_sheet.png",
+      "data/qa/refcoco/val_contact_sheet.png"
+    ],
+    "review_type": "vision-assisted overlay review; contact sheets remain available for independent human inspection"
+  }
+}

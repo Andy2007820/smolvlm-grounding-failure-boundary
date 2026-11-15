@@ -1,0 +1,8 @@
+﻿lease=GPU-LEASE-T6EVAL-20261109-07
+phase=before_process
+memory.used [MiB]
+1505 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+2208, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+28808, C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe, [N/A]

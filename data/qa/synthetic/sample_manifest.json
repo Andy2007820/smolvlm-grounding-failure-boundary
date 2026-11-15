@@ -1,0 +1,400 @@
+{
+  "generated_at": "2026-11-09T04:49:33.375851+00:00",
+  "seed": 42,
+  "samples_per_split": 10,
+  "samples": [
+    {
+      "split": "train",
+      "id": "synthetic_train_000913",
+      "image": "data/images/synthetic/train/synthetic_train_000913.png",
+      "question": "the small blue square",
+      "answer": [
+        0.125,
+        0.53571429,
+        0.25669643,
+        0.66741071
+      ],
+      "raw_bbox": [
+        56,
+        240,
+        115,
+        299
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_000913.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_000205",
+      "image": "data/images/synthetic/train/synthetic_train_000205.png",
+      "question": "the orange circle",
+      "answer": [
+        0.59375,
+        0.53515625,
+        0.828125,
+        0.76953125
+      ],
+      "raw_bbox": [
+        152,
+        137,
+        212,
+        197
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_000205.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_002254",
+      "image": "data/images/synthetic/train/synthetic_train_002254.png",
+      "question": "the large purple square",
+      "answer": [
+        0.234375,
+        0.640625,
+        0.4375,
+        0.84375
+      ],
+      "raw_bbox": [
+        60,
+        164,
+        112,
+        216
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_002254.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_002007",
+      "image": "data/images/synthetic/train/synthetic_train_002007.png",
+      "question": "the orange diamond",
+      "answer": [
+        0.75390625,
+        0.25520833,
+        0.9140625,
+        0.46875
+      ],
+      "raw_bbox": [
+        386,
+        98,
+        468,
+        180
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_002007.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_001829",
+      "image": "data/images/synthetic/train/synthetic_train_001829.png",
+      "question": "the large purple diamond",
+      "answer": [
+        0.16875,
+        0.5078125,
+        0.45,
+        0.7421875
+      ],
+      "raw_bbox": [
+        54,
+        195,
+        144,
+        285
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_001829.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_001144",
+      "image": "data/images/synthetic/train/synthetic_train_001144.png",
+      "question": "the red square in the bottom left",
+      "answer": [
+        0.03645833,
+        0.54166667,
+        0.27083333,
+        0.77604167
+      ],
+      "raw_bbox": [
+        14,
+        208,
+        104,
+        298
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_001144.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_000840",
+      "image": "data/images/synthetic/train/synthetic_train_000840.png",
+      "question": "the blue triangle",
+      "answer": [
+        0.5078125,
+        0.6953125,
+        0.765625,
+        0.953125
+      ],
+      "raw_bbox": [
+        130,
+        178,
+        196,
+        244
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_000840.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_004468",
+      "image": "data/images/synthetic/train/synthetic_train_004468.png",
+      "question": "the blue circle to the right of the orange triangle",
+      "answer": [
+        0.1640625,
+        0.75585938,
+        0.35416667,
+        0.8984375
+      ],
+      "raw_bbox": [
+        63,
+        387,
+        136,
+        460
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_004468.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_000713",
+      "image": "data/images/synthetic/train/synthetic_train_000713.png",
+      "question": "the large purple square",
+      "answer": [
+        0.23214286,
+        0.6125,
+        0.42633929,
+        0.884375
+      ],
+      "raw_bbox": [
+        104,
+        196,
+        191,
+        283
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_000713.png"
+    },
+    {
+      "split": "train",
+      "id": "synthetic_train_004838",
+      "image": "data/images/synthetic/train/synthetic_train_004838.png",
+      "question": "the yellow diamond",
+      "answer": [
+        0.11383929,
+        0.134375,
+        0.33705357,
+        0.446875
+      ],
+      "raw_bbox": [
+        51,
+        43,
+        151,
+        143
+      ],
+      "qa_image": "data/qa/synthetic/train/synthetic_train_004838.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000040",
+      "image": "data/images/synthetic/eval/synthetic_eval_000040.png",
+      "question": "the large yellow diamond",
+      "answer": [
+        0.6875,
+        0.303125,
+        0.9296875,
+        0.496875
+      ],
+      "raw_bbox": [
+        176,
+        97,
+        238,
+        159
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000040.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000293",
+      "image": "data/images/synthetic/eval/synthetic_eval_000293.png",
+      "question": "the blue pentagon",
+      "answer": [
+        0.1640625,
+        0.18164062,
+        0.48697917,
+        0.42382812
+      ],
+      "raw_bbox": [
+        63,
+        93,
+        187,
+        217
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000293.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000713",
+      "image": "data/images/synthetic/eval/synthetic_eval_000713.png",
+      "question": "the red diamond in the top left",
+      "answer": [
+        0.31640625,
+        0.18125,
+        0.515625,
+        0.340625
+      ],
+      "raw_bbox": [
+        81,
+        58,
+        132,
+        109
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000713.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000781",
+      "image": "data/images/synthetic/eval/synthetic_eval_000781.png",
+      "question": "the purple circle",
+      "answer": [
+        0.44335938,
+        0.14257812,
+        0.62109375,
+        0.3203125
+      ],
+      "raw_bbox": [
+        227,
+        73,
+        318,
+        164
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000781.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000148",
+      "image": "data/images/synthetic/eval/synthetic_eval_000148.png",
+      "question": "the green diamond",
+      "answer": [
+        0.1015625,
+        0.7109375,
+        0.2421875,
+        0.921875
+      ],
+      "raw_bbox": [
+        39,
+        182,
+        93,
+        236
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000148.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000983",
+      "image": "data/images/synthetic/eval/synthetic_eval_000983.png",
+      "question": "the red triangle in the top right",
+      "answer": [
+        0.63839286,
+        0.296875,
+        0.80133929,
+        0.525
+      ],
+      "raw_bbox": [
+        286,
+        95,
+        359,
+        168
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000983.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000474",
+      "image": "data/images/synthetic/eval/synthetic_eval_000474.png",
+      "question": "the orange circle",
+      "answer": [
+        0.31770833,
+        0.4765625,
+        0.44791667,
+        0.57421875
+      ],
+      "raw_bbox": [
+        122,
+        244,
+        172,
+        294
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000474.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000379",
+      "image": "data/images/synthetic/eval/synthetic_eval_000379.png",
+      "question": "the purple pentagon to the left of the blue diamond",
+      "answer": [
+        0.1328125,
+        0.13802083,
+        0.4140625,
+        0.41927083
+      ],
+      "raw_bbox": [
+        51,
+        53,
+        159,
+        161
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000379.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000688",
+      "image": "data/images/synthetic/eval/synthetic_eval_000688.png",
+      "question": "the yellow diamond",
+      "answer": [
+        0.19726562,
+        0.55859375,
+        0.34960938,
+        0.7109375
+      ],
+      "raw_bbox": [
+        101,
+        286,
+        179,
+        364
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000688.png"
+    },
+    {
+      "split": "eval",
+      "id": "synthetic_eval_000716",
+      "image": "data/images/synthetic/eval/synthetic_eval_000716.png",
+      "question": "the red pentagon",
+      "answer": [
+        0.31770833,
+        0.5625,
+        0.43229167,
+        0.734375
+      ],
+      "raw_bbox": [
+        122,
+        144,
+        166,
+        188
+      ],
+      "qa_image": "data/qa/synthetic/eval/synthetic_eval_000716.png"
+    }
+  ],
+  "visual_review": "passed",
+  "review": {
+    "status": "passed",
+    "reviewed_at": "2026-11-09T04:51:47.080048+00:00",
+    "reviewer": "data-engineer; vision-assisted inspection through the configured fallback vision model (not a human review)",
+    "notes": "Reviewed both final 10-sample contact sheets and individually rechecked three heavily overlapping scenes. Boxes matched the referred full-drawn objects; partially occluded targets intentionally retain their complete pre-occlusion GT boxes. No coordinate swap, scale error, shape/color mismatch, or image-size mismatch was observed. Vision-assisted review, not human relabeling.",
+    "sample_count": 20,
+    "contact_sheets": [
+      "data/qa/synthetic/train_contact_sheet.png",
+      "data/qa/synthetic/eval_contact_sheet.png"
+    ],
+    "review_type": "vision-assisted overlay review; contact sheets remain available for independent human inspection"
+  }
+}

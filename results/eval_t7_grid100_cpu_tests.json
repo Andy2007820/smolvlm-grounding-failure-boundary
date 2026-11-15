@@ -1,0 +1,61 @@
+{
+  "run_id": "eval_t7_grid100_cpu_tests_v1",
+  "timestamp": "2026-11-12T00:02:45.427965+08:00",
+  "status": "passed",
+  "tests_run": 11,
+  "failures": 0,
+  "errors": 0,
+  "failure_details": [],
+  "error_details": [],
+  "gpu_used": false,
+  "device": "cpu",
+  "cuda_initialized": false,
+  "observations": {
+    "dataset_probe": {
+      "synthetic_train": {
+        "n": 5000,
+        "degenerate": 0,
+        "max_abs_rounding_error": 0.0050000000000000044,
+        "min_normalized_side": 0.08333332999999998
+      },
+      "refcoco_train": {
+        "n": 5000,
+        "degenerate": 0,
+        "max_abs_rounding_error": 0.0050000000000000044,
+        "min_normalized_side": 0.049250000000000016
+      },
+      "synthetic_eval": {
+        "n": 1000,
+        "degenerate": 0,
+        "max_abs_rounding_error": 0.0050000000000000044,
+        "min_normalized_side": 0.0859375
+      },
+      "refcoco_val": {
+        "n": 1000,
+        "degenerate": 0,
+        "max_abs_rounding_error": 0.0050000000000000044,
+        "min_normalized_side": 0.08933007000000004
+      }
+    }
+  },
+  "contracts": {
+    "grid100_integer_only": true,
+    "ordered_and_range_validated_no_repair": true,
+    "frozen_parse_box_not_used_for_grid": true,
+    "invalid_predictions_remain_in_n": true,
+    "train_eval_parser_agreement": true
+  },
+  "source_sha256": {
+    "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+    "pixel_convert.py": "4d6aa2295ea930f297c8b3cc8de53c9116c891341b2451ffef9b05d0e4c4bf9e",
+    "grid_convert.py": "8ab270831283220cec06b7495149ef374fca3eef4373de9339bf60e0df9d1f46",
+    "prompts.py": "5d1362329c70e2a74228a6271a8f40ace5e0457cd9c46f93559f95ddeb95310b",
+    "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+    "train/coordinate_variants.py": "5dafaa1f5283f9d55de98e11dbbe1759fa8c5139ebacc2f3820528afc7557622",
+    "test_grid_convert_cpu.py": "43c8a3ccae27e5033ec103098682de8923a126df050b8c28d89f31d8c9291e66"
+  },
+  "torch_version": "2.11.0+cu128",
+  "transformers_version": "5.19.0",
+  "peft_version": "0.21.2",
+  "python": "3.14.8"
+}

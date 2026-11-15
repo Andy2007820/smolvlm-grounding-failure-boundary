@@ -1,0 +1,43 @@
+{
+  "finalized_at": "2026-11-09T04:32:55.413076+00:00",
+  "visual_review_status": "passed",
+  "train_records": 5000,
+  "val_records": 1000,
+  "train_unique_images": 4439,
+  "val_unique_images": 777,
+  "download_audit": {
+    "final_unique_images": 5216,
+    "network_download_result_count": 5216,
+    "cached_result_count": 5202,
+    "network_bytes_downloaded": 908364722,
+    "failed_image_result_count": 15,
+    "download_log": "data/raw/refcoco/download_log.jsonl",
+    "download_failures": "data/raw/refcoco/download_failures.jsonl",
+    "result_status_counts": {
+      "cached": 5202,
+      "downloaded": 5216,
+      "failed": 15
+    },
+    "http_attempt_count_excluding_cache_hits": 5281,
+    "retry_attempt_count_after_first_attempt": 50,
+    "result_with_retry_count": 25,
+    "successful_download_with_retry_count": 10,
+    "failed_after_retries_result_count": 15,
+    "final_selected_unique_image_count": 5216,
+    "final_selected_missing_image_count": 0,
+    "final_selected_missing_images": [],
+    "failure_semantics": "failed results are historical attempts; deterministic replacement rounds exclude those images. Final missing count must be zero."
+  },
+  "review": {
+    "status": "passed",
+    "reviewed_at": "2026-11-09T04:32:55.315852+00:00",
+    "reviewer": "data-engineer; vision-assisted inspection through the configured fallback vision model (not a human review)",
+    "notes": "Reviewed both 10-sample contact sheets and individually rechecked five ambiguous or occluded cases. No xywh/xyxy swap, coordinate flip, image-size mismatch, or normalization error was observed. Source COCO visible-region and occlusion boxes were not relabeled; this is vision-assisted review, not human annotation.",
+    "sample_count": 20,
+    "contact_sheets": [
+      "data/qa/refcoco/train_contact_sheet.png",
+      "data/qa/refcoco/val_contact_sheet.png"
+    ],
+    "review_type": "vision-assisted overlay review; contact sheets remain available for independent human inspection"
+  }
+}

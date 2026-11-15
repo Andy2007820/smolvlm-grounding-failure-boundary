@@ -1,0 +1,19 @@
+{
+  "run_id": "eval_unit_tests_grounding_v1",
+  "timestamp": "2026-11-09T17:15:16.697304+08:00",
+  "status": "passed",
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "failure_details": [],
+  "error_details": [],
+  "python": "3.14.8",
+  "gpu_used": false,
+  "source_sha256": {
+    "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+    "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+    "prompts.py": "5138231de07ef8e1cc371ff556a354ba7f941d7b6ec545b91035fe512ceb79f3",
+    "run_zeroshot.py": "92b209f6b1c41649ba604108892817664bb064da6a84e9d720a0f9e61e396585",
+    "test_grounding.py": "1df945990ea1c1ddf8614e59cabc265e1715d920166a678a6d4b471db25b2404"
+  }
+}

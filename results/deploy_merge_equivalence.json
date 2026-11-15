@@ -1,0 +1,116 @@
+{
+  "status": "completed",
+  "passed": true,
+  "artifact": "adapters/merged/sft_v1_merged",
+  "adapter": "adapters/sft_v1/adapter",
+  "dataset": "data/synthetic_eval.jsonl",
+  "samples": 5,
+  "mismatch_count": 0,
+  "mismatches": [],
+  "rows": [
+    {
+      "id": "synthetic_eval_000001",
+      "question": "the purple triangle",
+      "reference_output_text": " [0.4000, 0.3500, 0.6100, 0.5500]",
+      "merged_output_text": " [0.4000, 0.3500, 0.6100, 0.5500]",
+      "reference_box": [
+        0.4,
+        0.35,
+        0.61,
+        0.55
+      ],
+      "merged_box": [
+        0.4,
+        0.35,
+        0.61,
+        0.55
+      ],
+      "text_identical": true,
+      "box_identical": true
+    },
+    {
+      "id": "synthetic_eval_000002",
+      "question": "the yellow diamond above the red pentagon",
+      "reference_output_text": " [0.6000, 0.3500, 0.7500, 0.5500]",
+      "merged_output_text": " [0.6000, 0.3500, 0.7500, 0.5500]",
+      "reference_box": [
+        0.6,
+        0.35,
+        0.75,
+        0.55
+      ],
+      "merged_box": [
+        0.6,
+        0.35,
+        0.75,
+        0.55
+      ],
+      "text_identical": true,
+      "box_identical": true
+    },
+    {
+      "id": "synthetic_eval_000003",
+      "question": "the green triangle",
+      "reference_output_text": " [0.2000, 0.3100, 0.4000, 0.5200]",
+      "merged_output_text": " [0.2000, 0.3100, 0.4000, 0.5200]",
+      "reference_box": [
+        0.2,
+        0.31,
+        0.4,
+        0.52
+      ],
+      "merged_box": [
+        0.2,
+        0.31,
+        0.4,
+        0.52
+      ],
+      "text_identical": true,
+      "box_identical": true
+    },
+    {
+      "id": "synthetic_eval_000004",
+      "question": "the red pentagon in the top left",
+      "reference_output_text": " [0.1000, 0.2100, 0.3000, 0.4000]",
+      "merged_output_text": " [0.1000, 0.2100, 0.3000, 0.4000]",
+      "reference_box": [
+        0.1,
+        0.21,
+        0.3,
+        0.4
+      ],
+      "merged_box": [
+        0.1,
+        0.21,
+        0.3,
+        0.4
+      ],
+      "text_identical": true,
+      "box_identical": true
+    },
+    {
+      "id": "synthetic_eval_000005",
+      "question": "the large green triangle",
+      "reference_output_text": " [0.4000, 0.3500, 0.6000, 0.5500]",
+      "merged_output_text": " [0.4000, 0.3500, 0.6000, 0.5500]",
+      "reference_box": [
+        0.4,
+        0.35,
+        0.6,
+        0.55
+      ],
+      "merged_box": [
+        0.4,
+        0.35,
+        0.6,
+        0.55
+      ],
+      "text_identical": true,
+      "box_identical": true
+    }
+  ],
+  "elapsed_seconds": 19.249275699956343,
+  "contract": "base+adapter and merged checkpoint must produce byte-identical output_text for the same image/question",
+  "caveat": "5 fixed diagnostic samples, not an accuracy evaluation",
+  "started_at": "2026-11-10T01:40:49.074029+08:00"
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "ledger": "deployment failures / negative results (deploy-runner)",
+  "entries": [
+    {
+      "id": "DEPLOY-F1",
+      "date": "2026-11-10",
+      "phase": "T14 merge packaging",
+      "status": "fixed_verified",
+      "what_happened": "merge weights OK (1.026 GB fp32), but verification_failed because processor_config.json in the merged dir had image_seq_len=36, size=384 and do_image_splitting=false (runtime overrides persisted)",
+      "evidence": {
+        "failed_report": "results/deploy_archive_2026-11-10/deploy_merge_report_failed_packaging_20261110.json",
+        "failed_report_sha256": "95c53b5934e1c1f5e171464dfdab93a1fbc88a926b95fd3a33936c657bb2d39d",
+        "manifest": "results/deploy_archive_2026-11-10/manifest.json",
+        "merged_weights_sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2",
+        "verify_only_report": "results/deploy_merge_verify.json",
+        "verify_only_status": "verified",
+        "equivalence_report": "results/deploy_merge_equivalence.json",
+        "equivalence_passed": true,
+        "equivalence_mismatches": 0,
+        "merged_weights_sha256_unchanged": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2"
+      },
+      "root_cause": "merge_lora.py set processor.image_processor.size / max_image_size / image_seq_len before processor.save_pretrained, so the shipped default was permanently changed in the deployment artifact",
+      "improvement": "merged artifacts must copy processor/tokenizer files verbatim from the base model; runtime overrides belong to inference code (configure_processor), never to persisted packaging",
+      "weights_rolled_back": false,
+      "next_check": "verify-only + equivalence rerun must pass before ONNX/INT8/latency/demo",
+      "fix_verified_at": "2026-11-10T01:58:13.082843+08:00",
+      "fix_note": "processor/tokenizer files in the merged dir were replaced with the base model files (image_seq_len=64, size=2048, do_image_splitting=true); merge_lora.py now copies them verbatim and never persists runtime overrides. Weights were NOT re-generated/rolled back during the fix; --verify-only and 5-sample equivalence both passed afterwards."
+    },
+    {
+      "id": "DEPLOY-F2",
+      "date": "2026-11-10",
+      "phase": "T14 ONNX INT8 route",
+      "status": "blocked_documented",
+      "what_happened": "ONNX export/INT8 route is not executable without downgrading the validated transformers 5.19 stack",
+      "evidence": {
+        "report": "results/deploy_quantize_onnx.json",
+        "optimum_onnx_requires": "transformers<4.58.0,>=4.36",
+        "environment_transformers": "5.19.0",
+        "import_error": "ModuleNotFoundError: No module named optimum.exporters.onnx (optimum 2.3.0 core)"
+      },
+      "root_cause": "optimum split ONNX export into optimum-onnx 0.1.0, which pins transformers<4.58; project is frozen on transformers 5.19.0",
+      "improvement": "ONNX route requires a separate pinned environment (transformers 4.57 + optimum-onnx 0.1.0); do not downgrade the shared training/eval environment. Deployment main path becomes GGUF (blocked, no llama.cpp) or torch INT8 dynamic.",
+      "weights_rolled_back": false,
+      "next_check": "torch INT8 dynamic quantization smoke + 50-image latency"
+    },
+    {
+      "id": "DEPLOY-F3",
+      "date": "2026-11-10",
+      "phase": "T14 torch INT8 dynamic quantization",
+      "status": "negative_result_documented",
+      "what_happened": "INT8 dynamic quantization of the text decoder collapses grounding quality: on the same 50-image subset parse_rate 0.28 (invalid 36/50), acc@0.5 0.02, mIoU 0.02225, versus fp32 merged parse_rate 1.0, acc@0.5 0.0, mIoU 0.06750",
+      "evidence": {
+        "int8_latency_report": "results/deploy_latency_torch_int8.json",
+        "fp32_latency_report": "results/deploy_latency_fp32.json",
+        "int8_smoke_report": "results/deploy_quantize_torch_int8.json",
+        "mlp_only_probe": "results/deploy_quantize_torch_int8_mlp_probe.json",
+        "selected_ids_digest": "949320384680ff6e74f98262ef9e616a149f7675e56a03803f48316540c23117",
+        "same_threads": 2,
+        "fp32_diagnostic": {
+          "acc@0.5": 0.0,
+          "mIoU": 0.06749723459633851,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "int8_diagnostic": {
+          "acc@0.5": 0.02,
+          "mIoU": 0.02224578360299098,
+          "parse_rate": 0.28,
+          "invalid": 36
+        },
+        "mlp_only_probe_note": "5/5 outputs differ from fp32; only 2/5 parseable; MLP-only quantization is not a fix",
+        "int8_latency_mean_seconds": 1.937984361993149,
+        "fp32_latency_mean_seconds": 1.570195675981231
+      },
+      "root_cause": "the 256M SmolVLM text decoder is sensitive to qint8 dynamic weight quantization; small-model activation ranges make dynamic INT8 unreliable",
+      "improvement": "do not deploy INT8 dynamic; deployment uses CPU fp32 merged checkpoint. Any future quantization must be tested for accuracy first (e.g. GGUF Q4_K_M via llama.cpp or a separate pinned optimum-onnx environment) and reported as a negative result if it drops",
+      "artifacts_withdrawn": false,
+      "next_check": "CPU fp32 latency + demo used as the deployment path; quantized table row not_run"
+    },
+    {
+      "id": "DEPLOY-F4",
+      "date": "2026-11-10",
+      "phase": "T14 GGUF Q4_K_M route",
+      "status": "blocked_external_tooling",
+      "what_happened": "GGUF Q4_K_M cannot be produced: no llama.cpp toolchain (convert_hf_to_gguf.py, llama-quantize, llama-mtmd-cli), no cmake/MSVC compiler, and the prebuilt-release download was not approved by the Lead",
+      "evidence": {
+        "prep_environment_report": "results/deploy_prep.json",
+        "llama_cpp_available": false,
+        "missing_tools": [
+          "convert_hf_to_gguf.py",
+          "llama-quantize",
+          "llama-mtmd-cli"
+        ],
+        "cmake": null,
+        "compiler": null
+      },
+      "root_cause": "toolchain absent and download not authorized; building requires cmake+MSVC which are absent",
+      "improvement": "obtain a prebuilt llama.cpp Windows release with an explicit approval and re-run python -m src.deploy.quantize --route gguf; until then no 4-bit artifact exists",
+      "weights_rolled_back": false,
+      "next_check": "none; GGUF remains not_run/blocked and must not be claimed"
+    },
+    {
+      "id": "DEPLOY-F5",
+      "date": "2026-11-11",
+      "phase": "T14 4-bit / GGUF route re-probe (全补档 P8)",
+      "status": "resolved_official_eval_completed",
+      "what_happened": "4-bit GGUF route re-checked: python packages llama_cpp / gguf / optimum / onnxruntime are absent (onnxruntime present only), no cmake/MSVC llama.cpp toolchain confirmed by DEPLOY-F4, and downloading a prebuilt llama.cpp release requires network egress + explicit approval. No 4-bit artifact was produced; route remains blocked. Time budget was reallocated to T7-C seed43/44 replication instead.",
+      "evidence": {
+        "probe": "python -c import llama_cpp/gguf/optimum -> ImportError; Get-Command llama-cli/llama-quantize -> none; Get-Command cmake -> none (F4)",
+        "related": "results/deploy_failure_ledger.json#DEPLOY-F4",
+        "toolchain": "absent",
+        "artifact": null
+      },
+      "follow_up": "If the user approves a llama.cpp prebuilt download (github release) or installs VS Build Tools + cmake, convert adapters/merged/sft_v1_merged to GGUF Q4_K_M and add the Table 1 +4bit row; until then keep not_run/blocked and never fill placeholder numbers.",
+      "resolution": {
+        "date": "2026-11-11",
+        "what_changed": "llama.cpp b12282 Windows CPU prebuilt + repo-matched gguf-py + cp314 sentencepiece were obtainable via mirrors; SmolVLM is natively supported by conversion/smolvlm.py.",
+        "artifacts": [
+          "adapters/quantized/gguf/sft_v1_merged-Q4_K_M.gguf",
+          "adapters/quantized/gguf/mmproj-sft_v1_merged-Q8_0.gguf"
+        ],
+        "limits": {
+          "status": "completed",
+          "reason": "official-protocol evaluation finished for both datasets (1,000 images each), independently verified; the Table 1 +4bit row is now filled with these numbers.",
+          "table1_row_rule": "+4-bit row may only be filled after an official 1,000-image evaluation with summary + details + validation; a 50/20-image CLI diagnostic cannot be used.",
+          "backend_caveat": "llama.cpp backend differs from the transformers evaluator and the run is single-seed, so the row is annotated and remains no strict quantization A/B / significance claim."
+        },
+        "official_eval": {
+          "date": "2026-11-11",
+          "protocol": "official 1,000 images per dataset; llama.cpp b12282 CLI backend; one process per image, 8 workers x 2 threads",
+          "successor": "src/eval/run_zeroshot_gguf.py + src/eval/verify_gguf_eval.py",
+          "synthetic": {
+            "acc@0.5": 0.029,
+            "mIoU": 0.07924666146485937,
+            "parse_rate": 0.972,
+            "invalid": 28,
+            "summary": "results/zeroshot_gguf_q4km_synthetic_v1.json",
+            "verify": "results/verify_gguf_eval_synthetic.json"
+          },
+          "refcoco": {
+            "acc@0.5": 0.048,
+            "mIoU": 0.10947699754132284,
+            "parse_rate": 0.52,
+            "invalid": 480,
+            "summary": "results/zeroshot_gguf_q4km_refcoco_v1.json",
+            "verify": "results/verify_gguf_eval_refcoco.json"
+          },
+          "caveats": [
+            "backend is llama.cpp, not the transformers evaluator: not a strict quantization A/B",
+            "single seed; do not claim significance",
+            "RefCOCO invalid is dominated by a 5-number output-contract failure (frozen parser needs exactly 4), not a scorer bug"
+          ]
+        }
+      }
+    }
+  ],
+  "updated_at": "2026-11-11T19:06:43+08:00"
+}

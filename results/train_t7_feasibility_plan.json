@@ -1,0 +1,125 @@
+{
+  "task": "task-8 / T7 · coordinate-representation ablation",
+  "status": "cpu_preparation_complete_pending_gpu_lease",
+  "gpu_used": false,
+  "training_artifacts_written": false,
+  "single_seed_pilot": true,
+  "not_3_seed_main_table": true,
+  "representations": {
+    "A": {
+      "name": "normalized_decimal",
+      "prompt_id": "p1",
+      "prompt": "frozen src/eval/prompts.py PROMPT_TEMPLATE (unchanged)",
+      "answer_example": "[0.3490, 0.0365, 0.5859, 0.2734]",
+      "answer_encoding": "normalized coordinates rounded to 4 decimals",
+      "parse_for_metrics": "frozen src.eval.grounding.parse_box (unchanged)",
+      "evaluator_dependency": "none; frozen evaluator p1 unchanged",
+      "config": "configs/t7_a_normalized.json",
+      "config_sha256": "ad4b8b999786b9947c90c3966ca5b3894f93d0360c9a3c3aa74a061c07c88e5a",
+      "run_name": "sft_t7_a_norm_s42",
+      "adapter_out": "adapters/sft_t7_a_norm"
+    },
+    "B": {
+      "name": "bin1000_integer",
+      "prompt_id": "p1_bin1000",
+      "prompt": "Locate the object described below in the image. Description: {question} Answer with the bounding box as integer coordinates [x1, y1, x2, y2] in the 0-1000 range, where 1000 corresponds to the image width or height.",
+      "answer_example": "[349, 36, 586, 273]",
+      "answer_encoding": "round(normalized * 1000) integers in [0, 1000]",
+      "parse_for_metrics": "frozen src.eval.grounding.parse_box; it already divides integers in [0,1000] by 1000",
+      "evaluator_dependency": "prompt variant p1_bin1000 must be added by eval-keeper; metric code unchanged",
+      "config": "configs/t7_b_bin1000.json",
+      "config_sha256": "b54168d4e0ff71b11eed2414071d95cf22f239acae21c3f726ba776186a8152e",
+      "run_name": "sft_t7_b_bin1000_s42",
+      "adapter_out": "adapters/sft_t7_b_bin1000"
+    },
+    "C": {
+      "name": "pixel_xyxy",
+      "prompt_id": "p1_pixel",
+      "prompt": "Locate the object described below in the image. Description: {question} Answer with the bounding box as pixel coordinates [x1, y1, x2, y2] using the image width and height.",
+      "answer_example": "[134, 14, 225, 105]",
+      "answer_encoding": "dataset raw_bbox pixel integers (x1,y1,x2,y2); validated against width/height",
+      "parse_for_metrics": "independent conversion required: parse pixel ints, validate 0<=x1<x2<=width and 0<=y1<y2<=height, divide by width/height, then use frozen metric functions (iou/Acc@0.5/mIoU/parse semantics unchanged)",
+      "evaluator_dependency": "prompt variant p1_pixel + pixel->normalized conversion must be implemented by eval-keeper; frozen metric code must not be changed; trainer cannot modify src/eval",
+      "config": "configs/t7_c_pixel.json",
+      "config_sha256": "aa9ae82fe1157be653db6bf0fceace93b25b262290f62d279ceab5e686f687d1",
+      "run_name": "sft_t7_c_pixel_s42",
+      "adapter_out": "adapters/sft_t7_c_pixel"
+    }
+  },
+  "shared_fixed_contract": {
+    "train_records": 10000,
+    "train_files": ["data/synthetic_train.jsonl (5000)", "data/refcoco_train.jsonl (5000)"],
+    "val_files": ["data/synthetic_eval.jsonl (1000)", "data/refcoco_val.jsonl (1000)"],
+    "num_epochs": 1,
+    "total_optimizer_steps": 1250,
+    "micro_batches": 10000,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "learning_rate": 1e-4,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "true_accumulation": true,
+    "image_size": 384,
+    "image_seq_len": 36,
+    "dtype": "bfloat16",
+    "freeze_vision_tower": true,
+    "seed": 42,
+    "gradient_checkpointing": true,
+    "eos_token_id": 49279,
+    "pad_token_id": 2,
+    "save_every_steps": 200,
+    "probe": {"n": 20, "max_new_tokens": 64, "do_sample": false},
+    "train_val_id_intersection": 0
+  },
+  "cpu_evidence": {
+    "cpu_tests": {
+      "path": "results/train_t5_cpu_tests.json",
+      "tests_run": 20,
+      "failures": 0,
+      "errors": 0,
+      "gpu_used": false,
+      "sha256": "f410cc85d6470de7eb793d0ca3bbd959b27c779358e08fa09d7a393f1d7b782f",
+      "new_test": "test_20_coordinate_representation_variants verifies prompt/encode/parse consistency for A/B/C, B evaluator-parseable roundtrip <=0.0005, C pixel conversion exactly matches GT, C boundary/ordering rejection, and that C must not be scored through the frozen parser directly"
+    },
+    "dry_runs": {
+      "A": {"path": "results/train_t7_dryrun_plan_a.json", "sha256": "0493c3bbeb8a66e92d9fd56f4b2363d972c1acd56c481c7ae3e85005641b3798", "status": "preflight_passed", "train_records": 10000, "steps": 1250, "gpu_used": false, "id_intersection": 0, "placeholders": [36, 36], "representation": "normalized_decimal", "prompt_id": "p1", "sample_answer": "[0.3490, 0.0365, 0.5859, 0.2734]"},
+      "B": {"path": "results/train_t7_dryrun_plan_b.json", "sha256": "87ffa405c64f6b5a0d4656ebf48bb419ef44fbc8c0e7f4c5261f4f2a55dd2ecd", "status": "preflight_passed", "train_records": 10000, "steps": 1250, "gpu_used": false, "id_intersection": 0, "placeholders": [36, 36], "representation": "bin1000_integer", "prompt_id": "p1_bin1000", "sample_answer": "[349, 36, 586, 273]"},
+      "C": {"path": "results/train_t7_dryrun_plan_c.json", "sha256": "f347142c2ceb2aa7688c066400f0cf0edb1c656f911e2ea0404b6cb86bf7b96f", "status": "preflight_passed", "train_records": 10000, "steps": 1250, "gpu_used": false, "id_intersection": 0, "placeholders": [36, 36], "representation": "pixel_xyxy", "prompt_id": "p1_pixel", "sample_answer": "[134, 14, 225, 105]"}
+    },
+    "implementation": {
+      "module": "src/train/coordinate_variants.py",
+      "sha256": "4cb9f14bfa02008c960d343d53460f34b4017820a93ded014c6f384ad622e2e7",
+      "notes": "read-only imports from src/eval grounding/prompts; trainer never modifies frozen evaluator files"
+    }
+  },
+  "evaluator_coordination": {
+    "A": "no change",
+    "B": "eval-keeper adds prompt variant p1_bin1000; metric parser unchanged",
+    "C": "eval-keeper adds prompt variant p1_pixel AND an independent pixel->normalized conversion layer before the frozen metric functions; metric semantics (Acc@0.5=IoU>=0.5, mIoU, parse_rate, invalid in denominator) unchanged; conversion must reject out-of-bounds/reversed boxes; spec/test oracle is src/train/coordinate_variants.py",
+    "independence": "official G4 metrics remain eval-keeper-owned; trainer only supplies training-side encoding and a CPU conversion specification/test oracle"
+  },
+  "timing_estimate": {
+    "measured_basis": {
+      "training_seed42_full_sft": "61.2 min",
+      "training_seed44_full_sft": "71.3 min",
+      "eval_one_seed_two_full_sets": "1347 s + 1359 s = 45.1 min (eval_g3_summary, seed42)"
+    },
+    "per_representation": {"training_minutes": "61-72", "eval_minutes": "46-50"},
+    "three_representations": {"training_minutes": "183-216 (3.1-3.6 h)", "eval_minutes": "138-150 (2.3-2.5 h)", "coordination_buffer": "60-90 min", "total_hours": "7.0-7.8"},
+    "deadline_context": "now 2026-11-10 01:43 UTC+8; remaining to 13:00 approximately 11.3 h; GPU currently used by deployment, release time unknown",
+    "feasible_full_three_rep_if": "GPU becomes available by approximately 05:30-06:00 UTC+8, leaving enough time for sequential A->B->C training and 2-set evaluation per rep",
+    "minimal_viable_subsets_if_late": [
+      {"name": "A+B only, full eval", "training_minutes": "122-144", "eval_minutes": "92-100", "total_hours": "3.7-4.1", "reason": "no C evaluator conversion dependency; both use frozen parser semantics (A p1, B prompt variant only)"},
+      {"name": "A/B/C but synthetic_eval only (1000 each)", "training_minutes": "183-216", "eval_minutes": "66-75", "total_hours": "4.3-4.9", "reason": "still needs C conversion layer; reduces eval budget, report as reduced-budget pilot"},
+      {"name": "A/B/C with 500 samples per set", "training_minutes": "183-216", "eval_minutes": "69-75", "total_hours": "4.3-5.0", "reason": "same eval budget across reps, but weaker statistical power; must state n=500"}
+    ],
+    "recommendation": "If GPU is free by ~06:00, run all three reps with full 2x1000 eval; otherwise run A+B full-eval pilot and defer C (or run C only after eval-keeper conversion is verified). Do not silently reduce eval samples; record any budget reduction explicitly in the G4 table."
+  },
+  "safety": {
+    "gpu_started": false,
+    "deployment_owns_gpu": true,
+    "no_data_or_result_training_artifacts": true,
+    "next_gpu_action": "pending Lead deployment release + explicit GPU lease; trainer will not start GPU on its own"
+  },
+  "created_at": "2026-11-10T01:44:00+08:00"
+}

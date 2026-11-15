@@ -1,0 +1,498 @@
+{
+  "schema": "t10_verifier_noise/v1",
+  "generated_at": "2026-11-11T05:46:08+08:00",
+  "tau": 0.5,
+  "noise_model": "symmetric accept/reject flip with probability p on each recorded generation decision",
+  "trials_per_level": 200,
+  "seed": 42,
+  "rounds": {
+    "r1": {
+      "audit": "data/rest/r1_pool_audit.jsonl",
+      "audit_rows": 4000,
+      "generations": 4000,
+      "noise_levels": [
+        {
+          "noise_p": 0.0,
+          "trials": 200,
+          "true_verifier_reference": {
+            "pool_size": 191,
+            "by_dataset": {
+              "synthetic": 41,
+              "refcoco": 150
+            },
+            "contamination_rate": 0.0,
+            "false_accepts": 0,
+            "false_rejects": 0,
+            "lost_good_rate": 0.0,
+            "pool_acc_at_0_5": 1.0,
+            "pool_miou": 0.5954930666837929
+          },
+          "pool_size": {
+            "mean": 191.0,
+            "std": 0.0,
+            "min": 191,
+            "max": 191
+          },
+          "contamination_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "pool_acc_at_0_5": {
+            "mean": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "pool_miou": {
+            "mean": 0.5954930666837929,
+            "std": 0.0,
+            "min": 0.5954930666837929,
+            "max": 0.5954930666837929
+          },
+          "false_accepts": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0,
+            "max": 0
+          },
+          "false_rejects": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0,
+            "max": 0
+          },
+          "lost_good_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          }
+        },
+        {
+          "noise_p": 0.1,
+          "trials": 200,
+          "true_verifier_reference": {
+            "pool_size": 191,
+            "by_dataset": {
+              "synthetic": 41,
+              "refcoco": 150
+            },
+            "contamination_rate": 0.0,
+            "false_accepts": 0,
+            "false_rejects": 0,
+            "lost_good_rate": 0.0,
+            "pool_acc_at_0_5": 1.0,
+            "pool_miou": 0.5954930666837929
+          },
+          "pool_size": {
+            "mean": 550.405,
+            "std": 18.35459002538602,
+            "min": 494,
+            "max": 598
+          },
+          "contamination_rate": {
+            "mean": 0.688302764892292,
+            "std": 0.011884691607845709,
+            "min": 0.6525096525096525,
+            "max": 0.7241379310344828
+          },
+          "pool_acc_at_0_5": {
+            "mean": 0.31169723510770786,
+            "std": 0.011884691607845709,
+            "min": 0.27586206896551724,
+            "max": 0.3474903474903475
+          },
+          "pool_miou": {
+            "mean": 0.2613565788863774,
+            "std": 0.0072666669373985145,
+            "min": 0.2392607269586421,
+            "max": 0.2821953648659265
+          },
+          "false_accepts": {
+            "mean": 379.015,
+            "std": 18.14896071404641,
+            "min": 324,
+            "max": 425
+          },
+          "false_rejects": {
+            "mean": 19.61,
+            "std": 4.167481253707088,
+            "min": 10,
+            "max": 31
+          },
+          "lost_good_rate": {
+            "mean": 0.10267015706806283,
+            "std": 0.02181927357961826,
+            "min": 0.05235602094240838,
+            "max": 0.16230366492146597
+          }
+        },
+        {
+          "noise_p": 0.2,
+          "trials": 200,
+          "true_verifier_reference": {
+            "pool_size": 191,
+            "by_dataset": {
+              "synthetic": 41,
+              "refcoco": 150
+            },
+            "contamination_rate": 0.0,
+            "false_accepts": 0,
+            "false_rejects": 0,
+            "lost_good_rate": 0.0,
+            "pool_acc_at_0_5": 1.0,
+            "pool_miou": 0.5954930666837929
+          },
+          "pool_size": {
+            "mean": 912.94,
+            "std": 25.409769774635897,
+            "min": 812,
+            "max": 982
+          },
+          "contamination_rate": {
+            "mean": 0.8327050905412428,
+            "std": 0.006541381156921771,
+            "min": 0.8147295742232451,
+            "max": 0.8504772004241782
+          },
+          "pool_acc_at_0_5": {
+            "mean": 0.16729490945875725,
+            "std": 0.006541381156921769,
+            "min": 0.14952279957582185,
+            "max": 0.1852704257767549
+          },
+          "pool_miou": {
+            "mean": 0.19122526371075935,
+            "std": 0.004580328224743623,
+            "min": 0.17987402272854838,
+            "max": 0.20345102510786153
+          },
+          "false_accepts": {
+            "mean": 760.305,
+            "std": 24.990837821089553,
+            "min": 668,
+            "max": 818
+          },
+          "false_rejects": {
+            "mean": 38.365,
+            "std": 4.972099657086531,
+            "min": 25,
+            "max": 50
+          },
+          "lost_good_rate": {
+            "mean": 0.20086387434554975,
+            "std": 0.026031935377416392,
+            "min": 0.13089005235602094,
+            "max": 0.2617801047120419
+          }
+        },
+        {
+          "noise_p": 0.3,
+          "trials": 200,
+          "true_verifier_reference": {
+            "pool_size": 191,
+            "by_dataset": {
+              "synthetic": 41,
+              "refcoco": 150
+            },
+            "contamination_rate": 0.0,
+            "false_accepts": 0,
+            "false_rejects": 0,
+            "lost_good_rate": 0.0,
+            "pool_acc_at_0_5": 1.0,
+            "pool_miou": 0.5954930666837929
+          },
+          "pool_size": {
+            "mean": 1274.51,
+            "std": 26.6208546068679,
+            "min": 1188,
+            "max": 1343
+          },
+          "contamination_rate": {
+            "mean": 0.894875733909356,
+            "std": 0.004636219634222391,
+            "min": 0.8804713804713805,
+            "max": 0.9072948328267477
+          },
+          "pool_acc_at_0_5": {
+            "mean": 0.10512426609064397,
+            "std": 0.004636219634222392,
+            "min": 0.09270516717325228,
+            "max": 0.11952861952861953
+          },
+          "pool_miou": {
+            "mean": 0.16085209023873348,
+            "std": 0.003868280164615162,
+            "min": 0.15027632220430623,
+            "max": 0.17060915164829185
+          },
+          "false_accepts": {
+            "mean": 1140.57,
+            "std": 26.3904357675276,
+            "min": 1046,
+            "max": 1200
+          },
+          "false_rejects": {
+            "mean": 57.06,
+            "std": 5.6094919556052485,
+            "min": 41,
+            "max": 72
+          },
+          "lost_good_rate": {
+            "mean": 0.2987434554973822,
+            "std": 0.02936906783039397,
+            "min": 0.21465968586387435,
+            "max": 0.3769633507853403
+          }
+        }
+      ]
+    },
+    "r2": {
+      "audit": "data/rest/r2_pool_audit.jsonl",
+      "audit_rows": 4000,
+      "generations": 4000,
+      "noise_levels": [
+        {
+          "noise_p": 0.0,
+          "trials": 200,
+          "true_verifier_reference": {
+            "pool_size": 163,
+            "by_dataset": {
+              "synthetic": 28,
+              "refcoco": 135
+            },
+            "contamination_rate": 0.0,
+            "false_accepts": 0,
+            "false_rejects": 0,
+            "lost_good_rate": 0.0,
+            "pool_acc_at_0_5": 1.0,
+            "pool_miou": 0.6020631085956546
+          },
+          "pool_size": {
+            "mean": 163.0,
+            "std": 0.0,
+            "min": 163,
+            "max": 163
+          },
+          "contamination_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "pool_acc_at_0_5": {
+            "mean": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "pool_miou": {
+            "mean": 0.6020631085956546,
+            "std": 0.0,
+            "min": 0.6020631085956546,
+            "max": 0.6020631085956546
+          },
+          "false_accepts": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0,
+            "max": 0
+          },
+          "false_rejects": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0,
+            "max": 0
+          },
+          "lost_good_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          }
+        },
+        {
+          "noise_p": 0.1,
+          "trials": 200,
+          "true_verifier_reference": {
+            "pool_size": 163,
+            "by_dataset": {
+              "synthetic": 28,
+              "refcoco": 135
+            },
+            "contamination_rate": 0.0,
+            "false_accepts": 0,
+            "false_rejects": 0,
+            "lost_good_rate": 0.0,
+            "pool_acc_at_0_5": 1.0,
+            "pool_miou": 0.6020631085956546
+          },
+          "pool_size": {
+            "mean": 529.075,
+            "std": 18.58438524676025,
+            "min": 483,
+            "max": 578
+          },
+          "contamination_rate": {
+            "mean": 0.7223780203460026,
+            "std": 0.011243252817128898,
+            "min": 0.6873706004140787,
+            "max": 0.7517482517482518
+          },
+          "pool_acc_at_0_5": {
+            "mean": 0.2776219796539974,
+            "std": 0.011243252817128898,
+            "min": 0.24825174825174826,
+            "max": 0.31262939958592134
+          },
+          "pool_miou": {
+            "mean": 0.24499737406194,
+            "std": 0.0072725421164844505,
+            "min": 0.2277494628794857,
+            "max": 0.27013294605630245
+          },
+          "false_accepts": {
+            "mean": 382.35,
+            "std": 18.322595340180385,
+            "min": 332,
+            "max": 430
+          },
+          "false_rejects": {
+            "mean": 16.275,
+            "std": 3.9088841118661986,
+            "min": 5,
+            "max": 28
+          },
+          "lost_good_rate": {
+            "mean": 0.09984662576687116,
+            "std": 0.02398088412187852,
+            "min": 0.03067484662576687,
+            "max": 0.17177914110429449
+          }
+        },
+        {
+          "noise_p": 0.2,
+          "trials": 200,
+          "true_verifier_reference": {
+            "pool_size": 163,
+            "by_dataset": {
+              "synthetic": 28,
+              "refcoco": 135
+            },
+            "contamination_rate": 0.0,
+            "false_accepts": 0,
+            "false_rejects": 0,
+            "lost_good_rate": 0.0,
+            "pool_acc_at_0_5": 1.0,
+            "pool_miou": 0.6020631085956546
+          },
+          "pool_size": {
+            "mean": 896.07,
+            "std": 25.133147435209942,
+            "min": 814,
+            "max": 947
+          },
+          "contamination_rate": {
+            "mean": 0.85461180407181,
+            "std": 0.006691667489021872,
+            "min": 0.8325301204819278,
+            "max": 0.8724324324324324
+          },
+          "pool_acc_at_0_5": {
+            "mean": 0.14538819592819002,
+            "std": 0.0066916674890218734,
+            "min": 0.12756756756756757,
+            "max": 0.1674698795180723
+          },
+          "pool_miou": {
+            "mean": 0.17979259673367068,
+            "std": 0.004962514433752866,
+            "min": 0.1658922976856465,
+            "max": 0.1937530173735661
+          },
+          "false_accepts": {
+            "mean": 765.87,
+            "std": 24.770609600895977,
+            "min": 683,
+            "max": 814
+          },
+          "false_rejects": {
+            "mean": 32.8,
+            "std": 5.3563046963368315,
+            "min": 15,
+            "max": 47
+          },
+          "lost_good_rate": {
+            "mean": 0.20122699386503068,
+            "std": 0.03286076500820142,
+            "min": 0.09202453987730061,
+            "max": 0.2883435582822086
+          }
+        },
+        {
+          "noise_p": 0.3,
+          "trials": 200,
+          "true_verifier_reference": {
+            "pool_size": 163,
+            "by_dataset": {
+              "synthetic": 28,
+              "refcoco": 135
+            },
+            "contamination_rate": 0.0,
+            "false_accepts": 0,
+            "false_rejects": 0,
+            "lost_good_rate": 0.0,
+            "pool_acc_at_0_5": 1.0,
+            "pool_miou": 0.6020631085956546
+          },
+          "pool_size": {
+            "mean": 1262.85,
+            "std": 27.244219570396947,
+            "min": 1164,
+            "max": 1323
+          },
+          "contamination_rate": {
+            "mean": 0.9096184942289435,
+            "std": 0.004576509276665801,
+            "min": 0.8957996768982229,
+            "max": 0.9224270353302612
+          },
+          "pool_acc_at_0_5": {
+            "mean": 0.09038150577105653,
+            "std": 0.004576509276665802,
+            "min": 0.07757296466973887,
+            "max": 0.10420032310177706
+          },
+          "pool_miou": {
+            "mean": 0.15257914356829075,
+            "std": 0.0037111406356084772,
+            "min": 0.14268538122724467,
+            "max": 0.16331696987419508
+          },
+          "false_accepts": {
+            "mean": 1148.74,
+            "std": 26.679625184773492,
+            "min": 1048,
+            "max": 1208
+          },
+          "false_rejects": {
+            "mean": 48.89,
+            "std": 5.736540769488177,
+            "min": 28,
+            "max": 67
+          },
+          "lost_good_rate": {
+            "mean": 0.2999386503067485,
+            "std": 0.0351935016533017,
+            "min": 0.17177914110429449,
+            "max": 0.4110429447852761
+          }
+        }
+      ]
+    }
+  },
+  "scope_red_line": "Replay of verifier decisions on recorded audits (CPU only). Downstream model accuracy after retraining on a noisy pool is NOT measured; no training was run. Paper must state this.",
+  "license_note": "single-seed pilot context; pool-quality deltas are not significance claims"
+}

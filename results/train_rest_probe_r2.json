@@ -1,0 +1,156 @@
+{
+  "status": "completed",
+  "gpu_used": false,
+  "mode": "sampled",
+  "tag": "probe_r2",
+  "pilot_scope": "single-seed pilot (seed 42); NOT a 3-seed main table and NOT a G5 verdict",
+  "adapter_dir": "adapters/rest_r1/adapter",
+  "identity": {
+    "checks": {
+      "summary_config_fingerprint_matches_config": true,
+      "training_results_config_fingerprint_matches_config": true,
+      "summary_and_results_fingerprints_equal": true,
+      "seed_is_42": true,
+      "lora_r_is_16": true,
+      "lora_alpha_is_32": true,
+      "task_type_is_causal_lm": true,
+      "adapter_is_for_causal_lm": true,
+      "model_path_matches": true
+    },
+    "config_fingerprint": "b9a9699d6ad8c81ddbd36d69c0d223d861bada65675b450f4e4aed62e533b729",
+    "config_path": "configs/rest_r1.json",
+    "config_sha256": "01e225ad7ce3dad9fbe3804b87e1714c1bcf3daecb8d928fbe43f633b723309e",
+    "training_summary_config_fingerprint": "b9a9699d6ad8c81ddbd36d69c0d223d861bada65675b450f4e4aed62e533b729",
+    "training_results_config_fingerprint": "b9a9699d6ad8c81ddbd36d69c0d223d861bada65675b450f4e4aed62e533b729",
+    "adapter_config_sha256": "3885218760b7c1085f6a6064915d0b413bbcb277044bd1f7e42a15a1c5dcaa6a",
+    "adapter_model_sha256": "d7431d7fcfacb2c688dddfdbf9fb352d58a325842a0358152158ef57899adbae",
+    "adapter_saved_target_modules_count": 91,
+    "adapter_config_note": "PEFT 0.21 persisted a truncated-looking target_modules list in adapter_config.json (91 entries), but PeftModel.from_pretrained resolves all 120 text decoder q/k/v/o LoRA modules from the 240 adapter weight tensors; this is recorded as a display/serialisation anomaly, not a failed load."
+  },
+  "records_available": 10191,
+  "prompts_selected": 200,
+  "prompt_ids_head": [
+    "refcoco_train_r044389_s126207",
+    "synthetic_train_000001",
+    "refcoco_train_r007121_s020278",
+    "synthetic_train_000002",
+    "refcoco_train_r005989_s017048"
+  ],
+  "k": 4,
+  "tau": 0.5,
+  "expected_generations": 800,
+  "sampling": {
+    "do_sample": true,
+    "temperature": 0.8,
+    "top_p": 0.95,
+    "num_return_sequences": 4,
+    "max_new_tokens": 64,
+    "seed": 42,
+    "num_beams": 1
+  },
+  "dataset_mix": {
+    "refcoco": 100,
+    "synthetic": 100
+  },
+  "train_dataset_evidence": [
+    {
+      "path": "data/synthetic_train.jsonl",
+      "source": "synthetic",
+      "split": "train",
+      "limit": null,
+      "rows_loaded": 5000,
+      "sha256": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88"
+    },
+    {
+      "path": "data/refcoco_train.jsonl",
+      "source": "refcoco",
+      "split": "train",
+      "limit": null,
+      "rows_loaded": 5000,
+      "sha256": "95dda7c3a6a1ab555cec0c8e6fff48fb0adf2c16200371a2bfa6ec97b1a58137"
+    },
+    {
+      "path": "data/rest/r1_pool.jsonl",
+      "source": "rest",
+      "split": "train",
+      "limit": null,
+      "rows_loaded": 191,
+      "sha256": "bcf4275f204275445bdb57815217a10ab5e9f80a70f0e1c2e0b289fe7fd35494"
+    }
+  ],
+  "image_seq_len": 36,
+  "generated_at": "2026-11-11T00:48:28.575185+08:00",
+  "pool": {
+    "path": "data/rest/probe_r2_pool.jsonl",
+    "records": 32,
+    "sha256": "306cf4f38592f5a52934ea2cf2aad2f01d87e27e0b681c578a53e69582618a7a",
+    "schema": {
+      "id": "str, 池内唯一（原文 id + '#k{i}'）",
+      "image": "str, 与训练数据同一相对路径",
+      "question": "str, 原 prompt 文本",
+      "answer": "list[float], 模型自身预测框的 4 个归一化坐标（训练目标）",
+      "raw_bbox": "list[float], 由 answer 推导的像素坐标（= answer × [w,h]，浮点不取整）",
+      "width": "int, 原图像宽（train_sft.py 视觉 token 预检必需）",
+      "height": "int, 原图像高（同上）",
+      "source": "str, 数据来源 synthetic/refcoco（train_sft 的 split 校验用）"
+    },
+    "resume_progress": "data/rest/probe_r2_pool_progress.jsonl",
+    "audit": "data/rest/probe_r2_pool_audit.jsonl"
+  },
+  "survival": {
+    "generations": 800,
+    "accepted": 32,
+    "survival_rate": 0.04,
+    "prompts_total": 200,
+    "prompts_with_at_least_one_accept": 26,
+    "accepted_by_dataset": {
+      "refcoco": 28,
+      "synthetic": 4
+    },
+    "generated_by_dataset": {
+      "refcoco": 400,
+      "synthetic": 400
+    },
+    "iou_buckets": {
+      "lt_0.25": 631,
+      "0.25_to_0.5": 137,
+      "0.5_to_0.75": 31,
+      "ge_0.75": 1
+    },
+    "parse_failures": 0,
+    "hit_max_new_tokens": 0
+  },
+  "resume": {
+    "skipped_prompts": 0,
+    "done_prompts_this_run": 200
+  },
+  "runtime": {
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "gpu_lease_id": "GPU-LEASE-REST-R2-PROBE-20261111-01",
+    "nvidia_smi_memory_before_mib": 684,
+    "nvidia_smi_memory_after_adapter_load_mib": 1329,
+    "nvidia_smi_memory_after_sampling_mib": 1409,
+    "torch_peak_memory_allocated_mib": 540.30078125,
+    "torch_peak_memory_reserved_mib": 568.0,
+    "elapsed_seconds": 334.1407839001622,
+    "seconds_per_generation": 0.4176759798752028
+  },
+  "processor_geometry": {
+    "do_image_splitting": false,
+    "size": {
+      "longest_edge": 384
+    },
+    "max_image_size": {
+      "longest_edge": 384
+    }
+  },
+  "source_sha256": {
+    "src/train/rest_sample.py": "1024a58915e586be85b37a0c05c3bd1941bcdf3ff863b7205fc7d6fd2a1035f6",
+    "src/train/sft_data.py": "e0ad312d6c12598ec36e6683bb44b29c3bdf9f5c7be0892ff7fe343f0102efcb",
+    "src/train/probe_only.py": "54ca0a15f896b8bed071b827823ac6b794c5e3a1219ca08e7a2df4c9b45c71c7",
+    "src/eval/grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113"
+  },
+  "design_deviation": null,
+  "note": "ReST sampling pool only. Diagnostic pilot data; not an evaluation, not a G5 verdict. Accepted samples are the model's own predictions whose geometric IoU >= tau against ground truth, stored as normalised box coordinates (the trainer's supervised target)."
+}

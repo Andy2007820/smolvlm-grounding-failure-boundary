@@ -1,0 +1,168 @@
+{
+  "request_id": "GPU-LEASE-REQ-T5-20261109-03",
+  "supersedes": "GPU-LEASE-REQ-T5-20261109-02 (approved; attempt 1 failed before training, see attempt1_failure)",
+  "requester": "train-runner (replacement for gpu-trainer)",
+  "task": "task-6 / T5 · SFT script + 100-record overfit test",
+  "status": "attempt2_completed_lease_released",
+  "attempt1_failure": {
+    "lease_id": "GPU-LEASE-T5-20261109-02",
+    "exit_code": 1,
+    "duration_seconds": 8,
+    "stage": "after model weight load, inside build_lora_model LoRA target validation; before optimizer/forward/checkpoints",
+    "error": "RuntimeError: LoRA target discovery mismatch; missing=[] extra=[]",
+    "root_cause": "order-sensitive list comparison of two identical LoRA target sets (discovery sorts leaves alphabetically, expectation uses config order)",
+    "fix": "src/train/train_sft.py: lora_targets_match() sorted-set comparison + regression assertion; 15/15 CPU tests passed after fix",
+    "gpu_memory_before_mib": 1186,
+    "gpu_memory_after_exit_mib": 1186,
+    "artifacts_written": "none (no training JSONL, no results, no adapter/checkpoint)",
+    "evidence": [
+      "logs/train/sft_overfit100_attempt1_failure.log",
+      "results/train_t5_gpu_failure_attempt1.json",
+      "results/train_t5_cpu_tests.json",
+      "results/train_t5_dryrun_plan_v4.json"
+    ],
+    "second_gpu_start": false
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB",
+  "objective": "Run the 100-record overfit short SFT exactly as configured (LoRA r=16/alpha=32, lr=1e-4, batch=1 with TRUE gradient accumulation x8 -> effective batch 8, image 384 no-split, bf16, frozen vision tower, seed 42, gradient checkpointing, explicit answer EOS=49279) and keep auditable checkpoints + a diagnostic probe.",
+  "training_loop_semantics": {
+    "true_accumulation": true,
+    "micro_batch_size": 1,
+    "micro_batches_per_optimizer_step": 8,
+    "per_optimizer_step": {
+      "separate_batch_1_forward_passes": 8,
+      "separate_backward_passes": 8,
+      "micro_loss_scaling": "loss / 8 before backward",
+      "clip_grad_norm_calls": 1,
+      "optimizer_step_calls": 1,
+      "scheduler_step_calls": 1,
+      "zero_grad_calls": 1
+    },
+    "samples_seen_increments_per": "micro-batch (one sample per micro-batch)",
+    "global_step_increments_per": "optimizer step",
+    "checkpoint_resume_unit": "optimizer step, with samples_seen used for deterministic stream replay",
+    "expected_run_totals": {
+      "micro_forward_calls": 1600,
+      "micro_backward_calls": 1600,
+      "optimizer_steps": 200,
+      "clip_grad_norm_calls": 200,
+      "scheduler_step_calls": 200,
+      "zero_grad_calls": 200,
+      "samples_seen": 1600,
+      "checkpoints": ["checkpoint-000100", "checkpoint-000200 plus final adapter"]
+    },
+    "cpu_regression_evidence": {
+      "path": "results/train_t5_cpu_tests.json",
+      "tests": "15/15 passed",
+      "one_step": {
+        "micro_batch_sizes_observed": [1, 1, 1, 1, 1, 1, 1, 1],
+        "forward_calls": 8,
+        "backward_calls": 8,
+        "optimizer_step_calls": 1,
+        "clip_calls": 1,
+        "scheduler_step_calls": 1,
+        "zero_grad_calls": 1,
+        "loss_scale": 0.125,
+        "accumulated_gradient": 4.5,
+        "buggy_double_scaled_gradient_rejected": 0.5625,
+        "weight_after_step": 0.55
+      },
+      "two_steps": {"gradients": [4.5, 12.5], "weight_after_two_steps": -0.7},
+      "partial_final_group": {"micro_batches": 5, "gradient": 1.875, "flagged_partial": true},
+      "max_steps_stop": {"forward_calls": 8, "optimizer_steps": 1, "stop_reason": "max_steps"},
+      "resume_replay": {"next_optimizer_step": 2, "samples_seen": 16, "gradient": 12.5}
+    }
+  },
+  "current_cpu_evidence": {
+    "cpu_unit_tests": {
+      "path": "results/train_t5_cpu_tests.json",
+      "status": "passed",
+      "tests_run": 15,
+      "failures": 0,
+      "errors": 0,
+      "gpu_used": false,
+      "elapsed_seconds": 4.18
+    },
+    "cpu_dry_run_plan": {
+      "path": "results/train_t5_dryrun_plan_v4.json",
+      "status": "preflight_passed",
+      "train_records": 100,
+      "num_epochs": 16,
+      "micro_forwards_total": 1600,
+      "micro_batches_per_optimizer_step": 8,
+      "total_optimizer_steps": 200,
+      "effective_batch_size": 8,
+      "checkpoint_steps": [100, 200],
+      "train_val_id_intersection": 0,
+      "visual_token_placeholders": 36,
+      "processor_config_default_image_seq_len": 64,
+      "runtime_image_seq_len": 36,
+      "true_accumulation": true,
+      "source_manifest_includes_accumulation_py": true,
+      "accumulation_py_sha256": "daedbb5a2d9abcdd7718fc833b71bb5cba539aa5e1462df24d764ff3281d708e",
+      "all_source_hashes_match_current_files": true
+    }
+  },
+  "exact_commands": {
+    "preflight_repeat_cpu": "python -m src.train.test_t5_cpu --report results/train_t5_cpu_tests.json",
+    "gpu_run": [
+      "$env:PYTHONIOENCODING='utf-8'",
+      "$env:HF_HUB_OFFLINE='1'; $env:TRANSFORMERS_OFFLINE='1'; $env:TOKENIZERS_PARALLELISM='false'",
+      "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | Tee-Object -FilePath logs/train/sft_overfit100_gpu.log -Append",
+      "python -m src.train.train_sft --config configs/sft_overfit100.json --device cuda --gpu-lease-id GPU-LEASE-T5-20261109-02 --max-steps 200 --profile-steps 25",
+      "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | Tee-Object -FilePath logs/train/sft_overfit100_gpu.log -Append"
+    ],
+    "resume_if_interrupted": "python -m src.train.train_sft --config configs/sft_overfit100.json --device cuda --gpu-lease-id GPU-LEASE-T5-20261109-02 --max-steps 200 --profile-steps 25 --resume latest",
+    "read_only_baseline_check": "nvidia-smi --query-gpu=memory.used --format=csv"
+  },
+  "expected_duration": {
+    "estimate_minutes": "15-30",
+    "hard_cap_minutes": 40,
+    "basis": "1600 separate batch=1 forward+backward micro-passes (8 per optimizer step) + 200 clip/step/scheduler/zero sequences + 2 adapter checkpoint writes + ~20 diagnostic generations; model load ~10-20 s; CPU precompute of 100 cached examples ~5-10 s. No GPU measurement exists yet for this workload.",
+    "measured_extrapolation_rule": "At optimizer step 25 the script records seconds/optimizer-step, nvidia-smi memory and torch peaks (event=profile) and projects total time. If the projection exceeds the approved window, stop at the next checkpoint and request a resume/extend instead of running over the lease."
+  },
+  "expected_memory": {
+    "model_weights_bf16_mib": 489,
+    "lora_trainable_parameters": 1843200,
+    "optimizer_states_estimate_mib": 30,
+    "micro_batch_activation_note": "only ONE sample is active per forward (true batch=1), so activation peaks are lower than a batch-8 forward; gradient checkpointing keeps stored activations small",
+    "torch_process_estimate_mib": "1200-2000 including CUDA context/workspace and single-sample activation peaks",
+    "gui_baseline_mib": "1000-1300 (DeepSeek Harness GUI; not zero, measured in earlier phases)",
+    "total_estimate_mib": "2500-3500",
+    "abort_threshold_mib": 7500,
+    "note": "Must verify after model load and at step 25. Process-internal peaks are recorded separately; the after-exit shell value is not claimed as in-process memory."
+  },
+  "nvidia_smi_logging": {
+    "shell_log": "logs/train/sft_overfit100_gpu.log",
+    "method": "append CSV memory.used before process start and after process exit from the calling shell; the script additionally records before-load, after-load, step-25 profile, after-training and after-cleanup values in results/train_sft_overfit100_s42_training.json and logs/train/sft_overfit100.jsonl",
+    "torch_peaks": "torch.cuda.max_memory_allocated() and max_memory_reserved() recorded at profile step and after training"
+  },
+  "deliverables_if_approved": {
+    "adapters": "adapters/sft_overfit100/adapter/ and adapters/sft_overfit100/checkpoint-000100/ (adapter + optimizer/scheduler/RNG + checkpoint_meta.json)",
+    "logs": "logs/train/sft_overfit100.jsonl (per-optimizer-step loss/lr/grad_norm + accumulation counters), logs/train/sft_overfit100_gpu.log",
+    "results": [
+      "results/train_sft_overfit100_s42_training.json",
+      "results/train_sft_overfit100_s42_probe.json"
+    ],
+    "training_summary": "adapters/sft_overfit100/training_summary.json"
+  },
+  "acceptance_checks": [
+    "200/200 optimizer steps completed with finite loss; checkpoint-000100 and final adapter saved",
+    "accumulation counters must read: forward_calls=1600, backward_calls=1600, optimizer_steps=200, clip_calls=200, scheduler_step_calls=200, zero_grad_calls=200, micro_batches_seen=1600, samples_seen=1600",
+    "every optimizer step records exactly 8 micro-batches with micro_batch_sizes [1,1,1,1,1,1,1,1]; no batch-8 forward exists",
+    "probe parse_rate / diagnostic acc@0.5 / mIoU recorded on the 100 overfit records (training diagnostic, NOT official evaluation)",
+    "answer EOS=49279 and pad=2 evidence retained in checkpoint metadata; visual-token contract 36 placeholders per image re-asserted during training",
+    "nvidia-smi memory never exceeds 7500 MiB; no competing game/training process observed",
+    "after-exit nvidia-smi confirms the Python process released its memory",
+    "no modification to src/eval/, data/, or GT; official evaluation remains eval-keeper's job"
+  ],
+  "stop_conditions": [
+    "nvidia-smi memory.used > 7500 MiB at any check",
+    "competing game or training process appears",
+    "CUDA device-side assert, OOM, or non-finite loss",
+    "projected total time exceeds the approved lease window"
+  ],
+  "concurrency": "This lease must be exclusive: no other member may run GPU work (no evaluation, no ScreenSpot, no teacher model) during the window.",
+  "notes": "No GPU work has been started. The CPU phase refused any non-dry-run training and refused CUDA without a lease id; see src/train/README.md and src/train/train_sft.py:assert_execution_mode. The previous pseudo-accumulation issue reported by the Lead is fixed in src/train/accumulation.py and covered by three executable regression tests.",
+  "created_at": "2026-11-09T14:58:30+08:00"
+}

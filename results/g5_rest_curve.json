@@ -1,0 +1,455 @@
+{
+  "schema": "g5_rest_curve/v1",
+  "generated_at": "2026-11-11T03:16:57+08:00",
+  "stage_order": [
+    "sft_s42",
+    "rest_r1",
+    "rest_r2"
+  ],
+  "datasets": [
+    "synthetic",
+    "refcoco"
+  ],
+  "metric_keys": [
+    "acc@0.5",
+    "mIoU",
+    "parse_rate",
+    "invalid"
+  ],
+  "stages": [
+    {
+      "stage": "sft_s42",
+      "label": "初始 SFT（seed42 基线）",
+      "datasets": {
+        "synthetic": {
+          "summary": "results/zeroshot_sft_v1_s42_synthetic_v1.json",
+          "run_id": "sft_v1_s42_synthetic_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.011,
+            "mIoU": 0.06743763938552531,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_sft_v1_s42_synthetic_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        },
+        "refcoco": {
+          "summary": "results/zeroshot_sft_v1_s42_refcoco_v1.json",
+          "run_id": "sft_v1_s42_refcoco_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.095,
+            "mIoU": 0.21124828873091464,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_sft_v1_s42_refcoco_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        }
+      },
+      "complete": true
+    },
+    {
+      "stage": "rest_r1",
+      "label": "ReST 第 1 轮",
+      "datasets": {
+        "synthetic": {
+          "summary": "results/zeroshot_rest_r1_s42_synthetic_v1.json",
+          "run_id": "rest_r1_s42_synthetic_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.02,
+            "mIoU": 0.07348886560381905,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_rest_r1_s42_synthetic_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        },
+        "refcoco": {
+          "summary": "results/zeroshot_rest_r1_s42_refcoco_v1.json",
+          "run_id": "rest_r1_s42_refcoco_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.102,
+            "mIoU": 0.21502137946413766,
+            "parse_rate": 0.999,
+            "invalid": 1
+          },
+          "validation": {
+            "path": "results/eval_rest_r1_s42_refcoco_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        }
+      },
+      "complete": true,
+      "delta_vs_previous": {
+        "synthetic": {
+          "acc@0.5": {
+            "previous": 0.011,
+            "current": 0.02,
+            "delta": 0.009000000000000001
+          },
+          "mIoU": {
+            "previous": 0.06743763938552531,
+            "current": 0.07348886560381905,
+            "delta": 0.006051226218293737
+          }
+        },
+        "refcoco": {
+          "acc@0.5": {
+            "previous": 0.095,
+            "current": 0.102,
+            "delta": 0.006999999999999992
+          },
+          "mIoU": {
+            "previous": 0.21124828873091464,
+            "current": 0.21502137946413766,
+            "delta": 0.003773090733223017
+          }
+        }
+      },
+      "delta_vs_baseline": {
+        "synthetic": {
+          "acc@0.5": {
+            "baseline": 0.011,
+            "current": 0.02,
+            "delta": 0.009000000000000001
+          },
+          "mIoU": {
+            "baseline": 0.06743763938552531,
+            "current": 0.07348886560381905,
+            "delta": 0.006051226218293737
+          }
+        },
+        "refcoco": {
+          "acc@0.5": {
+            "baseline": 0.095,
+            "current": 0.102,
+            "delta": 0.006999999999999992
+          },
+          "mIoU": {
+            "baseline": 0.21124828873091464,
+            "current": 0.21502137946413766,
+            "delta": 0.003773090733223017
+          }
+        }
+      }
+    },
+    {
+      "stage": "rest_r2",
+      "label": "ReST 第 2 轮",
+      "datasets": {
+        "synthetic": {
+          "summary": "results/zeroshot_rest_r2_s42_synthetic_v1.json",
+          "run_id": "rest_r2_s42_synthetic_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.019,
+            "mIoU": 0.06590766735396848,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_rest_r2_s42_synthetic_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        },
+        "refcoco": {
+          "summary": "results/zeroshot_rest_r2_s42_refcoco_v1.json",
+          "run_id": "rest_r2_s42_refcoco_v1",
+          "n": 1000,
+          "status": "completed",
+          "metrics": {
+            "acc@0.5": 0.099,
+            "mIoU": 0.2146825400408837,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "validation": {
+            "path": "results/eval_rest_r2_s42_refcoco_v1_validation.json",
+            "status": "passed",
+            "errors": [],
+            "n": 1000
+          }
+        }
+      },
+      "complete": true,
+      "delta_vs_previous": {
+        "synthetic": {
+          "acc@0.5": {
+            "previous": 0.02,
+            "current": 0.019,
+            "delta": -0.0010000000000000009
+          },
+          "mIoU": {
+            "previous": 0.07348886560381905,
+            "current": 0.06590766735396848,
+            "delta": -0.007581198249850568
+          }
+        },
+        "refcoco": {
+          "acc@0.5": {
+            "previous": 0.102,
+            "current": 0.099,
+            "delta": -0.002999999999999989
+          },
+          "mIoU": {
+            "previous": 0.21502137946413766,
+            "current": 0.2146825400408837,
+            "delta": -0.0003388394232539671
+          }
+        }
+      },
+      "delta_vs_baseline": {
+        "synthetic": {
+          "acc@0.5": {
+            "baseline": 0.011,
+            "current": 0.019,
+            "delta": 0.008
+          },
+          "mIoU": {
+            "baseline": 0.06743763938552531,
+            "current": 0.06590766735396848,
+            "delta": -0.001529972031556831
+          }
+        },
+        "refcoco": {
+          "acc@0.5": {
+            "baseline": 0.095,
+            "current": 0.099,
+            "delta": 0.0040000000000000036
+          },
+          "mIoU": {
+            "baseline": 0.21124828873091464,
+            "current": 0.2146825400408837,
+            "delta": 0.0034342513099690497
+          }
+        }
+      }
+    }
+  ],
+  "survival": {
+    "rest_r1": {
+      "sample_summary": "results/train_rest_sample_r1.json",
+      "pool": {
+        "path": "data/rest/r1_pool.jsonl",
+        "records": 191,
+        "sha256": "2f6df8768c374698ceec476da7d474563199cb27999f8ff4f95724b3a093bc1c",
+        "schema": {
+          "id": "str, 池内唯一（原文 id + '#k{i}'）",
+          "image": "str, 与训练数据同一相对路径",
+          "question": "str, 原 prompt 文本",
+          "answer": "list[float], 模型自身预测框的 4 个归一化坐标（训练目标）"
+        },
+        "resume_progress": "data/rest/r1_pool_progress.jsonl",
+        "audit": "data/rest/r1_pool_audit.jsonl"
+      },
+      "generations": 4000,
+      "accepted": 191,
+      "survival_rate": 0.04775,
+      "prompts_total": 1000,
+      "prompts_with_accept": null,
+      "accepted_by_dataset": {
+        "refcoco": 150,
+        "synthetic": 41
+      },
+      "parse_failures": 9,
+      "hit_max_new_tokens": 0,
+      "pool_manifest": "results/train_rest_pool_r1.json",
+      "pool_manifest_records": 191,
+      "tau_sweep": {
+        "0.1": {
+          "pool_records": 1680,
+          "by_dataset": {
+            "refcoco": 1235,
+            "synthetic": 445
+          }
+        },
+        "0.25": {
+          "pool_records": 928,
+          "by_dataset": {
+            "refcoco": 717,
+            "synthetic": 211
+          }
+        },
+        "0.3": {
+          "pool_records": 707,
+          "by_dataset": {
+            "refcoco": 549,
+            "synthetic": 158
+          }
+        },
+        "0.5": {
+          "pool_records": 191,
+          "by_dataset": {
+            "refcoco": 150,
+            "synthetic": 41
+          }
+        },
+        "0.75": {
+          "pool_records": 13,
+          "by_dataset": {
+            "refcoco": 11,
+            "synthetic": 2
+          }
+        }
+      },
+      "pool_validation": {
+        "validator": "src.eval.dataset.validate_record",
+        "check_image": true,
+        "rows": 191,
+        "passed": 191,
+        "failed": 0,
+        "failures": [],
+        "all_passed": true
+      }
+    },
+    "rest_r2": {
+      "sample_summary": "results/train_rest_sample_r2.json",
+      "pool": {
+        "path": "data/rest/r2_pool.jsonl",
+        "records": 163,
+        "sha256": "6c3ec940986fcab526d75329f8a9d27607a8acd3865b5764b58011417c7cf387",
+        "schema": {
+          "id": "str, 池内唯一（原文 id + '#k{i}'）",
+          "image": "str, 与训练数据同一相对路径",
+          "question": "str, 原 prompt 文本",
+          "answer": "list[float], 模型自身预测框的 4 个归一化坐标（训练目标）",
+          "raw_bbox": "list[float], 由 answer 推导的像素坐标（= answer × [w,h]，浮点不取整）",
+          "width": "int, 原图像宽（train_sft.py 视觉 token 预检必需）",
+          "height": "int, 原图像高（同上）",
+          "source": "str, 数据来源 synthetic/refcoco（train_sft 的 split 校验用）"
+        },
+        "resume_progress": "data/rest/r2_pool_progress.jsonl",
+        "audit": "data/rest/r2_pool_audit.jsonl"
+      },
+      "generations": 4000,
+      "accepted": 163,
+      "survival_rate": 0.04075,
+      "prompts_total": 1000,
+      "prompts_with_accept": null,
+      "accepted_by_dataset": {
+        "refcoco": 135,
+        "synthetic": 28
+      },
+      "parse_failures": 4,
+      "hit_max_new_tokens": 0,
+      "pool_manifest": "results/train_rest_pool_r2.json",
+      "pool_manifest_records": 163,
+      "tau_sweep": {
+        "0.1": {
+          "pool_records": 1646,
+          "by_dataset": {
+            "refcoco": 1222,
+            "synthetic": 424
+          }
+        },
+        "0.25": {
+          "pool_records": 863,
+          "by_dataset": {
+            "refcoco": 682,
+            "synthetic": 181
+          }
+        },
+        "0.3": {
+          "pool_records": 658,
+          "by_dataset": {
+            "refcoco": 529,
+            "synthetic": 129
+          }
+        },
+        "0.5": {
+          "pool_records": 163,
+          "by_dataset": {
+            "refcoco": 135,
+            "synthetic": 28
+          }
+        },
+        "0.75": {
+          "pool_records": 11,
+          "by_dataset": {
+            "refcoco": 9,
+            "synthetic": 2
+          }
+        }
+      },
+      "pool_validation": {
+        "validator": "src.eval.dataset.validate_record",
+        "check_image": true,
+        "rows": 163,
+        "passed": 163,
+        "failed": 0,
+        "failures": [],
+        "all_passed": true
+      }
+    }
+  },
+  "gate": {
+    "g5_requires_three_points": true,
+    "points_present": [
+      "sft_s42",
+      "rest_r1",
+      "rest_r2"
+    ],
+    "r2_present": true,
+    "all_validations_passed": true,
+    "verdict_r1_to_r2": "两集一致下降（负结果，照实报）",
+    "verdict_detail": {
+      "synthetic.acc@0.5": {
+        "r1": 0.02,
+        "r2": 0.019,
+        "delta": -0.0010000000000000009,
+        "sign": -1
+      },
+      "synthetic.mIoU": {
+        "r1": 0.07348886560381905,
+        "r2": 0.06590766735396848,
+        "delta": -0.007581198249850568,
+        "sign": -1
+      },
+      "refcoco.acc@0.5": {
+        "r1": 0.102,
+        "r2": 0.099,
+        "delta": -0.002999999999999989,
+        "sign": -1
+      },
+      "refcoco.mIoU": {
+        "r1": 0.21502137946413766,
+        "r2": 0.2146825400408837,
+        "delta": -0.0003388394232539671,
+        "sign": -1
+      }
+    },
+    "g5_passed": true,
+    "significance_claim": false,
+    "scope": "single-seed pilot (seed 42); never a 3-seed main-table row and never a significance claim"
+  },
+  "notes": [
+    "三点曲线 = 初始 SFT(seed42) -> ReST 第1轮 -> ReST 第2轮；每点均来自官方评测器 + validation，非训练内 probe。",
+    "single-seed pilot：所有差值均不得表述为“ReST 有效/显著提升”。",
+    "存活率与 τ sweep 来自采样 summary / 池 manifest，仅描述数据池构造，不是精度指标。"
+  ]
+}

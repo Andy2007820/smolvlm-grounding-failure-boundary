@@ -1,0 +1,11 @@
+models/
+adapters/
+data/images/
+data/raw/
+logs/
+archive/
+report/
+artifacts/
+.cache/
+__pycache__/
+*.pyc

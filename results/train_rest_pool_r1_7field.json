@@ -1,0 +1,70 @@
+{
+  "status": "completed",
+  "stage": "rest_pool_from_audit",
+  "tag": "r1",
+  "pool": {
+    "path": "data/rest/r1_pool.jsonl",
+    "records": 191,
+    "sha256": "dfce6bf0e3ddca9c814a0c6e96af450d029dafdc9144e9bcf3a7ba68ca9beb3a"
+  },
+  "note": "Pool rebuilt offline from a sampling audit; no GPU used. Records are the model's own predictions (normalised box) that passed the tau filter. Trainer-ready 4-field rows.",
+  "audit": "data/rest/r1_pool_audit.jsonl",
+  "audit_sha256": "6522528f88f2fb71b2493796829482efc694eedd0abd575567c33353f158058c",
+  "audit_rows": 4000,
+  "tau": 0.5,
+  "tau_sweep": {
+    "0.1": {
+      "pool_records": 1680,
+      "by_dataset": {
+        "refcoco": 1235,
+        "synthetic": 445
+      }
+    },
+    "0.25": {
+      "pool_records": 928,
+      "by_dataset": {
+        "refcoco": 717,
+        "synthetic": 211
+      }
+    },
+    "0.3": {
+      "pool_records": 707,
+      "by_dataset": {
+        "refcoco": 549,
+        "synthetic": 158
+      }
+    },
+    "0.5": {
+      "pool_records": 191,
+      "by_dataset": {
+        "refcoco": 150,
+        "synthetic": 41
+      }
+    },
+    "0.75": {
+      "pool_records": 13,
+      "by_dataset": {
+        "refcoco": 11,
+        "synthetic": 2
+      }
+    }
+  },
+  "pool_records": 191,
+  "by_dataset": {
+    "refcoco": {
+      "generations": 2000,
+      "accepted": 150,
+      "survival_rate": 0.075,
+      "prompts_with_accept": 116
+    },
+    "synthetic": {
+      "generations": 2000,
+      "accepted": 41,
+      "survival_rate": 0.0205,
+      "prompts_with_accept": 38
+    }
+  },
+  "prompts_total": 1000,
+  "prompts_with_accept": 154,
+  "generated_at": "2026-11-10T19:00:14.947425+08:00"
+}

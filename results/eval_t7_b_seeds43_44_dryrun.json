@@ -1,0 +1,147 @@
+{
+  "format": "eval-t7-b-seeds43-44-dryrun-v1",
+  "timestamp": "2026-11-10T08:56:55.526813+08:00",
+  "gpu_used": false,
+  "plan": "results/eval_t7_b_seeds43_44_plan.json",
+  "dry_runs": {
+    "t7_b_s43_synthetic_v1": {
+      "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+      "dataset": "synthetic",
+      "exit_code": 0,
+      "wall_seconds": 0.4513335998635739,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "dryrun_t7_b_s43_synthetic_v1",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "ea72ac3d618c1663e193e81aa69a4df21f0118c522f57eca81d27aceaac9d5ea",
+        "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+        "adapter_model_sha256": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "adapter_model_sha256": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc",
+      "adapter_config_sha256": "c8fa67f3ee30eb0ba3ddadee94070ccf529246b421c9b1368bf4e298228f67a1"
+    },
+    "t7_b_s43_refcoco_v1": {
+      "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+      "dataset": "refcoco",
+      "exit_code": 0,
+      "wall_seconds": 0.45193049986846745,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "dryrun_t7_b_s43_refcoco_v1",
+        "dataset": "refcoco",
+        "split": "val",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "8e211b30804af3b0d4ff88dd8faeba52ec6dd9ce21425fc4053c60bc6ee1cfb4",
+        "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+        "adapter_model_sha256": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "adapter_model_sha256": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc",
+      "adapter_config_sha256": "c8fa67f3ee30eb0ba3ddadee94070ccf529246b421c9b1368bf4e298228f67a1"
+    },
+    "t7_b_s44_synthetic_v1": {
+      "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+      "dataset": "synthetic",
+      "exit_code": 0,
+      "wall_seconds": 0.459947100142017,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "dryrun_t7_b_s44_synthetic_v1",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "176e6a14e51a2eeb7b1750c99b1be88d2b058397e7245ed394ea503f54c23dbf",
+        "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+        "adapter_model_sha256": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "adapter_model_sha256": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151",
+      "adapter_config_sha256": "358b3d709d8fc1bd6c2ba41b5e5925367daeb89668822a2baf3af99a2cc55580"
+    },
+    "t7_b_s44_refcoco_v1": {
+      "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+      "dataset": "refcoco",
+      "exit_code": 0,
+      "wall_seconds": 0.44349069986492395,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "dryrun_t7_b_s44_refcoco_v1",
+        "dataset": "refcoco",
+        "split": "val",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "5dc8c110ee31dfe59085b9e06a92f77fa8829353952f9a1e94570459c9132d26",
+        "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+        "adapter_model_sha256": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "adapter_model_sha256": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151",
+      "adapter_config_sha256": "358b3d709d8fc1bd6c2ba41b5e5925367daeb89668822a2baf3af99a2cc55580"
+    }
+  },
+  "expected_adapter_hashes": {
+    "adapters/sft_t7_b_bin1000_s43/adapter": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc",
+    "adapters/sft_t7_b_bin1000_s44/adapter": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151"
+  },
+  "training_summaries": {
+    "s43": {
+      "complete": true,
+      "step": 1250,
+      "samples_seen": 10000,
+      "seed": 43
+    },
+    "s44": {
+      "complete": true,
+      "step": 1250,
+      "samples_seen": 10000,
+      "seed": 44
+    }
+  },
+  "note": "CPU preflight only; B seed43/44 GPU runs require the approved evaluation lease."
+}

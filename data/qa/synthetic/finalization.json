@@ -1,0 +1,38 @@
+{
+  "finalized_at": "2026-11-09T04:51:47.089085+00:00",
+  "visual_review_status": "passed",
+  "train_records": 5000,
+  "eval_records": 1000,
+  "outputs": {
+    "synthetic_train.jsonl": {
+      "bytes": 1412769,
+      "sha256": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88"
+    },
+    "synthetic_eval.jsonl": {
+      "bytes": 279387,
+      "sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854"
+    }
+  },
+  "quality_checks": {
+    "train_eval_id_intersection_count": 0,
+    "train_eval_image_intersection_count": 0,
+    "train_eval_scene_signature_intersection_count": 0,
+    "train_eval_image_sha256_intersection_count": 0,
+    "train_duplicate_id_count": 0,
+    "eval_duplicate_id_count": 0,
+    "train_duplicate_scene_signature_count": 0,
+    "eval_duplicate_scene_signature_count": 0
+  },
+  "review": {
+    "status": "passed",
+    "reviewed_at": "2026-11-09T04:51:47.080048+00:00",
+    "reviewer": "data-engineer; vision-assisted inspection through the configured fallback vision model (not a human review)",
+    "notes": "Reviewed both final 10-sample contact sheets and individually rechecked three heavily overlapping scenes. Boxes matched the referred full-drawn objects; partially occluded targets intentionally retain their complete pre-occlusion GT boxes. No coordinate swap, scale error, shape/color mismatch, or image-size mismatch was observed. Vision-assisted review, not human relabeling.",
+    "sample_count": 20,
+    "contact_sheets": [
+      "data/qa/synthetic/train_contact_sheet.png",
+      "data/qa/synthetic/eval_contact_sheet.png"
+    ],
+    "review_type": "vision-assisted overlay review; contact sheets remain available for independent human inspection"
+  }
+}

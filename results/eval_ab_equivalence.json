@@ -1,0 +1,91 @@
+{
+  "format": "eval-ab-equivalence-v1",
+  "timestamp": "2026-11-09T20:52:01.348807+08:00",
+  "lease_id": "GPU-LEASE-T6EVAL3-20261109-09",
+  "adapter": "adapters/sft_v1/adapter",
+  "subset": "synthetic_eval first 20 records (--limit 20)",
+  "commands": {
+    "batch1": "python -m src.eval.run_zeroshot --run-id ab_batch1_s42_20 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_ab_batch1_s42_20.json --details-output results/eval_ab_batch1_s42_20_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --limit 20",
+    "batch8": "python -m src.eval.run_zeroshot --run-id ab_batch8_s42_20 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_ab_batch8_s42_20.json --details-output results/eval_ab_batch8_s42_20_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8 --limit 20"
+  },
+  "runs": [
+    {
+      "run_id": "ab_batch1_s42_20",
+      "exit_code": 0,
+      "wall_seconds": 77.54429159988649,
+      "memory_before_mib": 1289,
+      "memory_after_mib": 1289
+    },
+    {
+      "run_id": "ab_batch8_s42_20",
+      "exit_code": 0,
+      "wall_seconds": 31.524892200017348,
+      "memory_before_mib": 1289,
+      "memory_after_mib": 1289
+    }
+  ],
+  "comparison": {
+    "rows_a": 20,
+    "rows_b": 20,
+    "ids_equal": true,
+    "field_equal_counts": {
+      "raw_output": 5,
+      "output_text": 5,
+      "predicted_box": 5,
+      "parse_error": 20,
+      "iou": 10,
+      "correct@0.5": 18,
+      "generated_tokens": 20,
+      "input_tokens": 20,
+      "hit_max_new_tokens": 20
+    },
+    "all_equal": false,
+    "sha256_a": "c6af24c08cc7bf3681ce3c48a7f38142b7714379b4fd480f421d7fddc7a619c6",
+    "sha256_b": "a7658ecf533d51c11db2bfa9f387299a554f1834c8c58d08e23f92ff547e0706"
+  },
+  "old_batch1_advisory_comparison": {
+    "reference": "results/eval_sft_v1_s42_synthetic_v1_details.jsonl (old official code batch1, first 20 rows)",
+    "rows": 20,
+    "raw_output_equal": 20,
+    "output_text_equal": 20,
+    "note": "advisory only; the batch1-vs-batch8 comparison governs"
+  },
+  "pass_rule": "ids equal and every listed field equal for all 20 rows",
+  "passed": false,
+  "gpu_logs": [
+    "results/eval_ab_batch1_s42_20_gpu.log",
+    "results/eval_ab_batch8_s42_20_gpu.log"
+  ],
+  "status": "failed",
+  "verdict": "FAILED - batch8 raw_output differs from batch1 on GPU bf16",
+  "failure_analysis": {
+    "rows": 20,
+    "raw_output_equal_count": 5,
+    "raw_output_diff_count": 15,
+    "iou_equal_count": 10,
+    "correct@0.5_equal_count": 18,
+    "max_iou_abs_diff": 0.4468460720679418,
+    "mean_iou_abs_diff": 0.043732431384518,
+    "old_official_batch1_vs_new_batch1_equal_count": 20,
+    "diff_indices": [
+      0,
+      2,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "production_runs_started": 0,
+  "fallback": "batch1 only; no mixing",
+  "failure_record": "results/eval_batch8_ab_failure.json"
+}

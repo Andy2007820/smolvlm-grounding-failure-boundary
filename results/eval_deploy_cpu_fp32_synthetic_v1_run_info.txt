@@ -1,0 +1,13 @@
+run_id=deploy_cpu_fp32_synthetic_v1
+python_exit_code=0
+in_process_started_at=2026-11-10T10:00:17.905391+08:00
+in_process_finished_at=2026-11-10T10:54:03.842037+08:00
+in_process_elapsed_seconds_including_load=3230.827245999826
+wrapper_wall_seconds=3236.63
+cpu_threads_requested=2
+torch_num_threads_effective=2
+OMP_NUM_THREADS=2
+MKL_NUM_THREADS=2
+CUDA_VISIBLE_DEVICES=empty
+gpu_used=false
+note=host CPU contention caused one 1556s sample stall; median 1.465s/sample

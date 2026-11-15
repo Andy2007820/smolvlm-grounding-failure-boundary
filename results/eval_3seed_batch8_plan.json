@@ -1,0 +1,243 @@
+{
+  "format": "eval-3seed-batch8-plan-v1",
+  "task": {
+    "id": "task-20",
+    "revision": 2,
+    "owner": "eval-closer",
+    "subject": "T6c · 3-seed 独立评测与主表"
+  },
+  "status": "cpu_prepared_waiting_for_lead_lease",
+  "gpu_used": false,
+  "timestamp": "2026-11-09T19:39:00+08:00",
+  "prerequisites": {
+    "seed42_adapter": {
+      "adapter": "adapters/sft_v1/adapter",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+      "adapter_config_sha256": "60522337b799eb240509cc1e2a1019bab782351dfbac6d77828eb77a8114ba3f"
+    },
+    "seed43_adapter": {
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+      "adapter_config_sha256": "119d511452442a063d8382fd3588d3637111a2532a643c5f0a10d21f0c328a5c"
+    },
+    "seed44_adapter": {
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+      "adapter_config_sha256": "496578fd0bf49fa5d1377e5ba29d79978a594378993e9f6d87a2ab46aafac291",
+      "confirmed_at": "2026-11-09T20:46:49+08:00",
+      "training": {
+        "run_id": "sft_v1_s44",
+        "step": 1250,
+        "samples_seen": 10000,
+        "stop_reason": "max_steps",
+        "training_seconds": 4202.808293899987
+      },
+      "probe_diagnostic_only": {
+        "n": 20,
+        "acc@0.5": 0.1,
+        "mIoU": 0.1442754872034147,
+        "parse_rate": 1.0,
+        "official_eval": false
+      }
+    },
+    "no_gpu_until_lead_lease": true,
+    "cpu_ab_evidence": {
+      "n": 20,
+      "raw_output_identical": "20/20",
+      "all_compared_fields_identical": "20/20",
+      "batch1_details": "results/eval_batch_cpu_20_b1_details.jsonl",
+      "batch8_details": "results/eval_batch_cpu_20_b8_details.jsonl",
+      "report": "results/eval_batch_dryrun.json"
+    },
+    "seed44_ready": true,
+    "gpu_idle_observed": {
+      "timestamp": "2026-11-09T20:48:39+08:00",
+      "memory_used_mib": 1294,
+      "python_compute_process": false
+    }
+  },
+  "ab_gate": {
+    "purpose": "GPU bf16 equivalence before any batched production run",
+    "batch1": {
+      "run_id": "ab_batch1_s42_20",
+      "command": "python -m src.eval.run_zeroshot --run-id ab_batch1_s42_20 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_ab_batch1_s42_20.json --details-output results/eval_ab_batch1_s42_20_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --limit 20",
+      "output": "results/zeroshot_ab_batch1_s42_20.json",
+      "details": "results/eval_ab_batch1_s42_20_details.jsonl",
+      "gpu_log": "results/eval_ab_batch1_s42_20_gpu.log",
+      "stdout_log": "results/eval_ab_batch1_s42_20_stdout.log",
+      "stderr_log": "results/eval_ab_batch1_s42_20_stderr.log"
+    },
+    "batch8": {
+      "run_id": "ab_batch8_s42_20",
+      "command": "python -m src.eval.run_zeroshot --run-id ab_batch8_s42_20 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_ab_batch8_s42_20.json --details-output results/eval_ab_batch8_s42_20_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8 --limit 20",
+      "output": "results/zeroshot_ab_batch8_s42_20.json",
+      "details": "results/eval_ab_batch8_s42_20_details.jsonl",
+      "gpu_log": "results/eval_ab_batch8_s42_20_gpu.log",
+      "stdout_log": "results/eval_ab_batch8_s42_20_stdout.log",
+      "stderr_log": "results/eval_ab_batch8_s42_20_stderr.log"
+    },
+    "compare_fields": [
+      "raw_output",
+      "output_text",
+      "predicted_box",
+      "parse_error",
+      "iou",
+      "correct@0.5",
+      "generated_tokens",
+      "input_tokens",
+      "hit_max_new_tokens"
+    ],
+    "pass_rule": "both runs exit 0 with 20 detail rows; all compared fields identical 20/20 (raw_output byte-identical)",
+    "extra_check": "new batch1 raw_output vs first 20 rows of results/eval_sft_v1_s42_synthetic_v1_details.jsonl (old official batch1); record result but only batch1-vs-batch8 governs",
+    "evidence_output": "results/eval_ab_equivalence.json",
+    "on_failure": "stop immediately, no batched production runs, fall back to batch1 permanently, append handoff/TRAINING-FAILURE-LEDGER.md and archive manifest"
+  },
+  "production_runs": [
+    {
+      "seed": "seed42",
+      "dataset": "synthetic",
+      "split": "eval",
+      "run_id": "sft_v1_s42_synthetic_b8_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+      "command": "python -m src.eval.run_zeroshot --run-id sft_v1_s42_synthetic_b8_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_sft_v1_s42_synthetic_b8_v1.json --details-output results/eval_sft_v1_s42_synthetic_b8_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8",
+      "output": "results/zeroshot_sft_v1_s42_synthetic_b8_v1.json",
+      "details": "results/eval_sft_v1_s42_synthetic_b8_v1_details.jsonl",
+      "validation": "results/eval_sft_v1_s42_synthetic_b8_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_sft_v1_s42_synthetic_b8_v1.json --report results/eval_sft_v1_s42_synthetic_b8_v1_validation.json --expected-run-id sft_v1_s42_synthetic_b8_v1 --expected-dataset synthetic --expected-split eval --expected-n 1000 --expected-adapter adapters/sft_v1/adapter",
+      "gpu_log": "results/eval_sft_v1_s42_synthetic_b8_v1_gpu.log",
+      "stdout_log": "results/eval_sft_v1_s42_synthetic_b8_v1_stdout.log",
+      "stderr_log": "results/eval_sft_v1_s42_synthetic_b8_v1_stderr.log"
+    },
+    {
+      "seed": "seed42",
+      "dataset": "refcoco",
+      "split": "val",
+      "run_id": "sft_v1_s42_refcoco_b8_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+      "command": "python -m src.eval.run_zeroshot --run-id sft_v1_s42_refcoco_b8_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_sft_v1_s42_refcoco_b8_v1.json --details-output results/eval_sft_v1_s42_refcoco_b8_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8",
+      "output": "results/zeroshot_sft_v1_s42_refcoco_b8_v1.json",
+      "details": "results/eval_sft_v1_s42_refcoco_b8_v1_details.jsonl",
+      "validation": "results/eval_sft_v1_s42_refcoco_b8_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_sft_v1_s42_refcoco_b8_v1.json --report results/eval_sft_v1_s42_refcoco_b8_v1_validation.json --expected-run-id sft_v1_s42_refcoco_b8_v1 --expected-dataset refcoco --expected-split val --expected-n 1000 --expected-adapter adapters/sft_v1/adapter",
+      "gpu_log": "results/eval_sft_v1_s42_refcoco_b8_v1_gpu.log",
+      "stdout_log": "results/eval_sft_v1_s42_refcoco_b8_v1_stdout.log",
+      "stderr_log": "results/eval_sft_v1_s42_refcoco_b8_v1_stderr.log"
+    },
+    {
+      "seed": "seed43",
+      "dataset": "synthetic",
+      "split": "eval",
+      "run_id": "sft_v1_s43_synthetic_b8_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+      "command": "python -m src.eval.run_zeroshot --run-id sft_v1_s43_synthetic_b8_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_sft_v1_s43_synthetic_b8_v1.json --details-output results/eval_sft_v1_s43_synthetic_b8_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1_s43/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8",
+      "output": "results/zeroshot_sft_v1_s43_synthetic_b8_v1.json",
+      "details": "results/eval_sft_v1_s43_synthetic_b8_v1_details.jsonl",
+      "validation": "results/eval_sft_v1_s43_synthetic_b8_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_sft_v1_s43_synthetic_b8_v1.json --report results/eval_sft_v1_s43_synthetic_b8_v1_validation.json --expected-run-id sft_v1_s43_synthetic_b8_v1 --expected-dataset synthetic --expected-split eval --expected-n 1000 --expected-adapter adapters/sft_v1_s43/adapter",
+      "gpu_log": "results/eval_sft_v1_s43_synthetic_b8_v1_gpu.log",
+      "stdout_log": "results/eval_sft_v1_s43_synthetic_b8_v1_stdout.log",
+      "stderr_log": "results/eval_sft_v1_s43_synthetic_b8_v1_stderr.log"
+    },
+    {
+      "seed": "seed43",
+      "dataset": "refcoco",
+      "split": "val",
+      "run_id": "sft_v1_s43_refcoco_b8_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+      "command": "python -m src.eval.run_zeroshot --run-id sft_v1_s43_refcoco_b8_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_sft_v1_s43_refcoco_b8_v1.json --details-output results/eval_sft_v1_s43_refcoco_b8_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1_s43/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8",
+      "output": "results/zeroshot_sft_v1_s43_refcoco_b8_v1.json",
+      "details": "results/eval_sft_v1_s43_refcoco_b8_v1_details.jsonl",
+      "validation": "results/eval_sft_v1_s43_refcoco_b8_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_sft_v1_s43_refcoco_b8_v1.json --report results/eval_sft_v1_s43_refcoco_b8_v1_validation.json --expected-run-id sft_v1_s43_refcoco_b8_v1 --expected-dataset refcoco --expected-split val --expected-n 1000 --expected-adapter adapters/sft_v1_s43/adapter",
+      "gpu_log": "results/eval_sft_v1_s43_refcoco_b8_v1_gpu.log",
+      "stdout_log": "results/eval_sft_v1_s43_refcoco_b8_v1_stdout.log",
+      "stderr_log": "results/eval_sft_v1_s43_refcoco_b8_v1_stderr.log"
+    },
+    {
+      "seed": "seed44",
+      "dataset": "synthetic",
+      "split": "eval",
+      "run_id": "sft_v1_s44_synthetic_b8_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+      "command": "python -m src.eval.run_zeroshot --run-id sft_v1_s44_synthetic_b8_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_sft_v1_s44_synthetic_b8_v1.json --details-output results/eval_sft_v1_s44_synthetic_b8_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1_s44/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8",
+      "output": "results/zeroshot_sft_v1_s44_synthetic_b8_v1.json",
+      "details": "results/eval_sft_v1_s44_synthetic_b8_v1_details.jsonl",
+      "validation": "results/eval_sft_v1_s44_synthetic_b8_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_sft_v1_s44_synthetic_b8_v1.json --report results/eval_sft_v1_s44_synthetic_b8_v1_validation.json --expected-run-id sft_v1_s44_synthetic_b8_v1 --expected-dataset synthetic --expected-split eval --expected-n 1000 --expected-adapter adapters/sft_v1_s44/adapter",
+      "gpu_log": "results/eval_sft_v1_s44_synthetic_b8_v1_gpu.log",
+      "stdout_log": "results/eval_sft_v1_s44_synthetic_b8_v1_stdout.log",
+      "stderr_log": "results/eval_sft_v1_s44_synthetic_b8_v1_stderr.log"
+    },
+    {
+      "seed": "seed44",
+      "dataset": "refcoco",
+      "split": "val",
+      "run_id": "sft_v1_s44_refcoco_b8_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+      "command": "python -m src.eval.run_zeroshot --run-id sft_v1_s44_refcoco_b8_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_sft_v1_s44_refcoco_b8_v1.json --details-output results/eval_sft_v1_s44_refcoco_b8_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1_s44/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8",
+      "output": "results/zeroshot_sft_v1_s44_refcoco_b8_v1.json",
+      "details": "results/eval_sft_v1_s44_refcoco_b8_v1_details.jsonl",
+      "validation": "results/eval_sft_v1_s44_refcoco_b8_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_sft_v1_s44_refcoco_b8_v1.json --report results/eval_sft_v1_s44_refcoco_b8_v1_validation.json --expected-run-id sft_v1_s44_refcoco_b8_v1 --expected-dataset refcoco --expected-split val --expected-n 1000 --expected-adapter adapters/sft_v1_s44/adapter",
+      "gpu_log": "results/eval_sft_v1_s44_refcoco_b8_v1_gpu.log",
+      "stdout_log": "results/eval_sft_v1_s44_refcoco_b8_v1_stdout.log",
+      "stderr_log": "results/eval_sft_v1_s44_refcoco_b8_v1_stderr.log"
+    }
+  ],
+  "execution_order": [
+    "ab_batch1_s42_20",
+    "ab_batch8_s42_20",
+    "compare -> if pass",
+    "sft_v1_s42_synthetic_b8_v1",
+    "sft_v1_s42_refcoco_b8_v1",
+    "sft_v1_s43_synthetic_b8_v1",
+    "sft_v1_s43_refcoco_b8_v1",
+    "sft_v1_s44_synthetic_b8_v1",
+    "sft_v1_s44_refcoco_b8_v1",
+    "validations (CPU, six)",
+    "3-seed summary + table"
+  ],
+  "execution_notes": {
+    "wrapper": "use cmd.exe wrapper to capture the real python exit code: cmd /c \"python ... 1> stdout.log 2> stderr.log\"; before/after nvidia-smi appended to gpu_log",
+    "resume": "same run_id plus --resume only for an interrupted run; never change batch size for that run_id (config fingerprint covers batch_size)",
+    "abort": ">7500 MiB, competing GPU job, assert/OOM/non-finite loss: stop and report",
+    "no_parallel_gpu": "one run at a time; validations are CPU-only",
+    "preserve": "results/zeroshot_sft_v1_s42_{synthetic,refcoco}_v1.json + validation + details remain untouched; batch8 reruns use new run IDs"
+  },
+  "timing_estimate": {
+    "ab_minutes": "1.5-2.5 (2 x 20 samples with model load)",
+    "production_per_run_minutes_range": [
+      4.2,
+      6.7
+    ],
+    "six_runs_minutes_range": [
+      25,
+      34
+    ],
+    "validations_minutes": "6 x ~1-2 (CPU)",
+    "total_lease_needed_minutes": "40 (requested), with stop rule to finish current run and report if over"
+  },
+  "lease_request": {
+    "proposed_id": "GPU-LEASE-T6EVAL3-20261109-09",
+    "holder": "eval-closer",
+    "exclusive": true,
+    "max_minutes": 40,
+    "window": "immediately after train-runner releases GPU-LEASE-T6SEEDS-20261109-08 and seed44 adapter is final (expected 21:00-21:40)",
+    "scope": "only the A/B pair and the listed six batch8 run_zeroshot commands (same-run_id --resume allowed); no other GPU work",
+    "fallback_if_seed44_delayed": "Lead may grant a first short lease for A/B + seed42/seed43 four runs; seed44 two runs in a second lease"
+  },
+  "final_deliverables": {
+    "per_run": "summary JSON + details JSONL + validation JSON for six batch8 runs",
+    "ab_equivalence": "results/eval_ab_equivalence.json (field-by-field counts, hashes, commands, GPU logs)",
+    "three_seed_summary": "results/eval_sft_v1_3seed_summary.json (per seed + mean, sample std ddof=1, min, max; per dataset and pooled; seed42 G3 weak-positive flagged)",
+    "three_seed_table": "report/tables/t6_sft_3seed_metrics.csv (dataset, seed, run_id, adapter sha256, n, acc@0.5, mIoU, parse_rate, invalid; plus mean±std rows)",
+    "policy": "report all three seeds; do not pick the best; batch1 seed42 stays as reference; negative or failed A/B goes to the failure ledger"
+  },
+  "naming_note": "production run IDs follow the existing batch-1 convention sft_v1_s{42,43,44}_{synthetic,refcoco}_b8_v1; distinct from the batch-1 run IDs sft_v1_s{42,43,44}_{synthetic,refcoco}_v1"
+}

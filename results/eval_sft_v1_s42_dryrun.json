@@ -1,0 +1,117 @@
+{
+  "format": "eval-sft-v1-dryrun-v1",
+  "timestamp": "2026-11-09T17:14:48.459251+08:00",
+  "gpu_used": false,
+  "dry_run": true,
+  "adapter": "adapters/sft_v1/adapter",
+  "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+  "model_path": "models/SmolVLM-256M-Instruct",
+  "fixed_contract": {
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len": 36,
+    "max_new_tokens": 64,
+    "seed": 42,
+    "do_sample": false,
+    "num_beams": 1,
+    "expected_n": 1000,
+    "dataset_sha256": {
+      "synthetic": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+      "refcoco": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316"
+    }
+  },
+  "cases": [
+    {
+      "name": "synthetic_eval",
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id sft_v1_s42_synthetic_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_sft_v1_s42_synthetic_v1.json --details-output results/eval_sft_v1_s42_synthetic_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --dry-run",
+      "dry_run_wall_seconds": 0.5517549000214785,
+      "run_id": "sft_v1_s42_synthetic_v1",
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "sft_v1_s42_synthetic_v1",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 1000,
+        "resume_rows": 0,
+        "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "config_fingerprint": "b4b35f31b911192ca55f47a9a720aebd094f608a873ff3d97d443fdfb886a06f",
+        "adapter": "adapters/sft_v1/adapter",
+        "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "estimate_basis": {
+        "b0_first25_path": "results/eval_zeroshot_b0_synthetic_s42_v1_first25.json",
+        "b0_steady_mean_seconds_per_sample": 1.875829600020855,
+        "b0_first25_generated_tokens_per_sample": 40.72,
+        "adapter_probe_mean_generated_tokens": 33.0
+      },
+      "estimate_seconds_conservative_b0_rate": 1875.829600020855,
+      "estimate_minutes_conservative_b0_rate": 31.26382666701425,
+      "estimate_seconds_token_adjusted": 1520.1958939265278,
+      "estimate_minutes_token_adjusted": 25.336598232108795
+    },
+    {
+      "name": "refcoco_val",
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id sft_v1_s42_refcoco_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_sft_v1_s42_refcoco_v1.json --details-output results/eval_sft_v1_s42_refcoco_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --dry-run",
+      "dry_run_wall_seconds": 0.5520212999545038,
+      "run_id": "sft_v1_s42_refcoco_v1",
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "sft_v1_s42_refcoco_v1",
+        "dataset": "refcoco",
+        "split": "val",
+        "n": 1000,
+        "resume_rows": 0,
+        "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "config_fingerprint": "3ab8debe290c55002067e92ef0bb4e72efcceef9f09b5021fd09ccc74d4990c9",
+        "adapter": "adapters/sft_v1/adapter",
+        "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "estimate_basis": {
+        "b0_first25_path": "results/eval_zeroshot_b0_refcoco_s42_v1_first25.json",
+        "b0_steady_mean_seconds_per_sample": 0.9885531833278947,
+        "b0_first25_generated_tokens_per_sample": 33.48,
+        "adapter_probe_mean_generated_tokens": 33.0
+      },
+      "estimate_seconds_conservative_b0_rate": 988.5531833278947,
+      "estimate_minutes_conservative_b0_rate": 16.475886388798244,
+      "estimate_seconds_token_adjusted": 974.3803778321543,
+      "estimate_minutes_token_adjusted": 16.23967296386924
+    }
+  ],
+  "projected_total_seconds_conservative_b0_rate": 2864.3827833487494,
+  "projected_total_minutes_conservative_b0_rate": 47.73971305581249,
+  "projected_total_seconds_token_adjusted": 2494.576271758682,
+  "projected_total_minutes_token_adjusted": 41.57627119597804,
+  "projected_includes": "steady-state generation only; add ~30-60 s per run for model+adapter load/startup",
+  "probe_note": "adapter probe is a 20-sample training diagnostic (official_eval=false), used only for a token-count-based timing adjustment; it is NOT a G3 result",
+  "memory_expectation_mib": {
+    "b0_observed_after_load_range": [
+      1869,
+      1918
+    ],
+    "b0_observed_after_generation_range": [
+      1933,
+      1951
+    ],
+    "b0_torch_peak_allocated_mib": 521.7353515625,
+    "b0_torch_peak_reserved_mib": 550.0,
+    "adapter_weights_bytes": 7407008,
+    "expected_after_load_mib_upper_bound": 2100,
+    "hard_abort_threshold_mib": 7500
+  },
+  "exact_commands_note": "commands shown without --dry-run are the GPU commands that require a Lead-issued lease; these dry-runs removed --dry-run only for the record (dry-run flag included above).",
+  "gpu_commands": [
+    "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id sft_v1_s42_synthetic_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_sft_v1_s42_synthetic_v1.json --details-output results/eval_sft_v1_s42_synthetic_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda",
+    "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id sft_v1_s42_refcoco_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_sft_v1_s42_refcoco_v1.json --details-output results/eval_sft_v1_s42_refcoco_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda"
+  ]
+}

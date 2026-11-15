@@ -1,0 +1,33 @@
+{
+  "run_id": "validation_zeroshot_b0_refcoco_s42_v1",
+  "validated_run_id": "zeroshot_b0_refcoco_s42_v1",
+  "dataset": "refcoco",
+  "split": "val",
+  "n": 1000,
+  "timestamp": "2026-11-09T14:25:19.890176+08:00",
+  "status": "passed",
+  "result_path": "results/zeroshot_refcoco.json",
+  "checks": {
+    "details_rows": 1000,
+    "recomputed_metrics": {
+      "acc@0.5": 0.0,
+      "mIoU": 0.0002031602971321504,
+      "parse_rate": 0.002,
+      "invalid": 998
+    },
+    "invalid_in_n_verified": true,
+    "raw_outputs_present": true,
+    "unique_detail_ids": 1000,
+    "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+    "details_sha256": "b95265e3b5b2d4777ad636fa907b55dfec3c67c936cc53d897b7d3c1772d49b1",
+    "recorded_source_sha256": {
+      "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+      "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+      "prompts.py": "5138231de07ef8e1cc371ff556a354ba7f941d7b6ec545b91035fe512ceb79f3",
+      "run_zeroshot.py": "a3c7eb2e39469b4f07a37acbab93979de8b14cf07ec540335c084a1347491b85"
+    },
+    "recorded_source_matches_current": true
+  },
+  "errors": [],
+  "gpu_used": false
+}

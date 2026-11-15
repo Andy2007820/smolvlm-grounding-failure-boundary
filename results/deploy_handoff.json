@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "document": "results/deploy_handoff.json",
+  "generated_at": "2026-11-10T01:58:13.082843+08:00",
+  "purpose": "hand-off from deploy-runner to eval-closer for independent evaluation of the deployed checkpoint",
+  "provisional": true,
+  "provisional_reason": "deployment candidate is the seed42 SFT adapter merged provisionally; T12/KD was not run and the Lead has not frozen a final adapter",
+  "deployment_artifact": {
+    "kind": "merged_fp32_checkpoint",
+    "path": "adapters/merged/sft_v1_merged",
+    "model_safetensors": {
+      "path": "adapters/merged/sft_v1_merged/model.safetensors",
+      "bytes": 1025998224,
+      "sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2",
+      "dtype": "float32"
+    },
+    "modality_files": {
+      "config.json": "from merge",
+      "processor_config.json": "copied verbatim from base model: image_seq_len=64",
+      "preprocessor_config.json": "copied verbatim from base model: size/max_image_size 2048, do_image_splitting=true",
+      "tokenizer files": "copied verbatim from base model"
+    },
+    "packaging_note": "runtime overrides (image_size=384, do_image_splitting=false, image_seq_len=36) are applied by inference code per call; the on-disk defaults stay at the shipped values",
+    "verification": {
+      "verify_only": {
+        "report": "results/deploy_merge_verify.json",
+        "status": "verified",
+        "ok": true
+      },
+      "equivalence": {
+        "report": "results/deploy_merge_equivalence.json",
+        "passed": true,
+        "samples": 5,
+        "mismatch_count": 0,
+        "contract": "base+adapter and merged checkpoint must produce byte-identical output_text for the same image/question"
+      }
+    }
+  },
+  "inference_contract": {
+    "prompt_id": "p1",
+    "prompt_source": "src.eval.prompts.build_messages",
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len_runtime": 36,
+    "processor_config_on_disk_image_seq_len": 64,
+    "max_new_tokens": 64,
+    "do_sample": false,
+    "num_beams": 1,
+    "seed": 42,
+    "parser": "src.eval.grounding.parse_box_with_error",
+    "dtype": "float32 (CPU)"
+  },
+  "official_evaluation_commands": [
+    "python -m src.eval.run_zeroshot --run-id <RUN_ID> --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_<RUN_ID>.json --details-output results/eval_<RUN_ID>_details.jsonl --expected-n 1000 --model-path adapters/merged/sft_v1_merged --image-size 384 --max-new-tokens 64 --batch-size 1 --seed 42 --device cpu",
+    "python -m src.eval.run_zeroshot --run-id <RUN_ID> --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_<RUN_ID>.json --details-output results/eval_<RUN_ID>_details.jsonl --expected-n 1000 --model-path adapters/merged/sft_v1_merged --image-size 384 --max-new-tokens 64 --batch-size 1 --seed 42 --device cpu"
+  ],
+  "official_evaluation_note": "the frozen evaluator loads any full checkpoint through --model-path, so the merged deployment candidate is scored without touching evaluator code. CPU throughput: ~1.55 s/image at 2 threads on the 50-image benchmark, so one 1000-image set is ~26 min on an unloaded CPU (slower while T7 training shares CPU). GPU must not be used for this while T7 holds it.",
+  "latency_evidence": {
+    "cpu_fp32": {
+      "report": "results/deploy_latency_fp32.json",
+      "canonical_copy_of": "results/deploy_latency_hf_cpu_fp32.json",
+      "n": 50,
+      "warmup": 5,
+      "cpu_threads": 2,
+      "selected_ids_digest": "949320384680ff6e74f98262ef9e616a149f7675e56a03803f48316540c23117",
+      "latency": {
+        "n": 50.0,
+        "mean_seconds": 1.570195675981231,
+        "median_seconds": 1.5550357999745756,
+        "stdev_seconds": 0.07118840332218128,
+        "min_seconds": 1.5099933999590576,
+        "max_seconds": 1.9866789001971483,
+        "p95_seconds": 1.6440343998838216,
+        "p99_seconds": 1.9866789001971483
+      },
+      "diagnostic_metrics": {
+        "acc@0.5": 0.0,
+        "mIoU": 0.06749723459633851,
+        "parse_rate": 1.0,
+        "invalid": 0
+      }
+    },
+    "cpu_int8_dynamic": {
+      "report": "results/deploy_latency_torch_int8.json",
+      "status": "negative_result_do_not_deploy",
+      "selected_ids_digest": "949320384680ff6e74f98262ef9e616a149f7675e56a03803f48316540c23117",
+      "latency": {
+        "n": 50.0,
+        "mean_seconds": 1.937984361993149,
+        "median_seconds": 1.8446024000877514,
+        "stdev_seconds": 0.47243034895926983,
+        "min_seconds": 0.7143443999812007,
+        "max_seconds": 2.5052174997981638,
+        "p95_seconds": 2.478194700088352,
+        "p99_seconds": 2.5052174997981638
+      },
+      "diagnostic_metrics": {
+        "acc@0.5": 0.02,
+        "mIoU": 0.02224578360299098,
+        "parse_rate": 0.28,
+        "invalid": 36
+      }
+    },
+    "gpu_bf16": {
+      "status": "not_run",
+      "reason": "GPU leased to T7 training; Lead instructed CPU-only T14/T15",
+      "diagnostic_reference_only": "existing SFT evaluation details recorded ~1.33 s/image elapsed_seconds_diagnostic (not a warmed 50-image benchmark; must not be copied into Table 3 as measured)"
+    },
+    "comparability": "fp32 and int8 used the same 50 selected ids (digest recorded) and warmup=5"
+  },
+  "quantized_routes": {
+    "gguf_q4_k_m": {
+      "status": "blocked_external_tooling",
+      "artifact": null,
+      "evidence": "results/deploy_failure_ledger.json DEPLOY-F4",
+      "claim": "not_run; no 4-bit artifact exists"
+    },
+    "onnx_int8": {
+      "status": "blocked_incompatible_dependency",
+      "artifact": null,
+      "evidence": "results/deploy_quantize_onnx.json",
+      "claim": "not_run; optimum-onnx requires transformers<4.58 while the project is frozen at 5.19.0"
+    },
+    "torch_int8_dynamic": {
+      "status": "executed_negative",
+      "artifact": null,
+      "artifact_type": "runtime_only (in-memory, no file)",
+      "evidence": "results/deploy_quantize_torch_int8.json + results/deploy_latency_torch_int8.json",
+      "claim": "not a deployment candidate; quality collapse"
+    }
+  },
+  "table_implications": {
+    "table1_plus_quantized_row": "not_run (no viable quantized artifact); must not be filled with int8 dynamic numbers",
+    "table3_deployment": {
+      "cpu_fp32_latency": "measured and reproducible",
+      "cpu_int8_latency": "measured but negative accuracy; keep as a negative result, not a deployment claim",
+      "gpu_bf16_latency": "not_run (no GPU lease)"
+    }
+  },
+  "demo_evidence": {
+    "gradio_version": "6.31.0",
+    "install_method": "pip is blocked by the session sandbox (temp dir denied); wheels were resolved manually into .cache/deploy_pkgs and used via PYTHONPATH. Documented in results/deploy_execution_summary.json.",
+    "real_model_smoke": {
+      "report": "results/deploy_demo_smoke.json",
+      "status": "passed",
+      "engine": "hf-cpu",
+      "annotated_output": "demo/artifacts/deploy_demo_smoke_output.png",
+      "api_round_trip": {
+        "status": "completed",
+        "returned_types": [
+          "str",
+          "str"
+        ],
+        "text": "**归一化框 [x1, y1, x2, y2]**：`[0.4000, 0.3500, 0.6100, 0.5500]`\n**像素框**：`(128, 112, 195, 176)`\n**延迟（含图像预处理）**：`1.917 s`\n\n**模型原始输出**：\n```text\n[0.4000, 0.3500, 0.6100, 0.5500]\n```"
+      }
+    },
+    "fake_plumbing_smoke": {
+      "report": "results/deploy_demo_smoke_fake.json",
+      "status": "passed",
+      "is_fake_predictor": true,
+      "note": "UI plumbing only; never a model result"
+    },
+    "server": "stopped after smoke (port 7860 has no listener)",
+    "browser_confirmation": "pending Lead human confirmation; agent evidence is HTTP+API round-trip only"
+  },
+  "claims": {
+    "merged_checkpoint_created": true,
+    "merge_equivalence_passed": true,
+    "cpu_fp32_latency_measured": true,
+    "cpu_int8_latency_measured": true,
+    "cpu_int8_quality_usable": false,
+    "gguf_artifact_created": false,
+    "onnx_artifact_created": false,
+    "gradio_demo_http_api_verified": true,
+    "gradio_browser_human_verified": false,
+    "official_metrics_produced_by_deploy": false
+  },
+  "reproduce": [
+    "python -m src.deploy.check_env --force --print-summary",
+    "python -m src.deploy.merge_lora --adapter adapters/sft_v1/adapter --output adapters/merged/sft_v1_merged --dtype float32 --report results/deploy_merge_report.json",
+    "python -m src.deploy.merge_lora --verify-only --artifact adapters/merged/sft_v1_merged --report results/deploy_merge_verify.json",
+    "python -m src.deploy.merge_lora --verify-equivalence --artifact adapters/merged/sft_v1_merged --report results/deploy_merge_equivalence.json",
+    "python -m src.deploy.bench_latency --engine hf-cpu --artifact adapters/merged/sft_v1_merged --n 50 --warmup 5 --seed 42 --threads 2 --output results/deploy_latency_fp32.json",
+    "python -m src.deploy.bench_latency --engine torch-int8 --artifact adapters/merged/sft_v1_merged --n 50 --warmup 5 --seed 42 --threads 2 --output results/deploy_latency_torch_int8.json",
+    "PYTHONPATH=.cache/deploy_pkgs python -m demo.app --engine hf-cpu --artifact adapters/merged/sft_v1_merged --smoke"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "run_id": "deploy_cpu_fp32_synthetic_v1",
+  "model": "SmolVLM-256M-Instruct",
+  "adapter": null,
+  "dataset": "synthetic",
+  "split": "eval",
+  "n": 1000,
+  "batch_size": 1,
+  "prompt_id": "p1",
+  "representation": "normalized_decimal",
+  "metrics": {
+    "acc@0.5": 0.017,
+    "mIoU": 0.08376013366688331,
+    "parse_rate": 1.0,
+    "invalid": 0
+  },
+  "config": {
+    "image_size": 384,
+    "max_new_tokens": 64,
+    "batch_size": 1,
+    "cpu_threads": 2,
+    "prompt_id": "p1",
+    "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+    "prompt_template": "Locate the object described below in the image.\nDescription: {question}\nAnswer with the bounding box as normalized coordinates [x1, y1, x2, y2], each between 0 and 1.",
+    "representation": "normalized_decimal",
+    "coordinate_conversion": {
+      "applied": false,
+      "rule": "frozen parse_box path unchanged"
+    },
+    "seed": 42,
+    "do_sample": false,
+    "num_beams": 1,
+    "decoding": "deterministic_greedy",
+    "device": "cpu",
+    "dtype": "float32",
+    "do_image_splitting": false,
+    "vision_patch_size": 16,
+    "vision_scale_factor": 4,
+    "image_seq_len": 36,
+    "image_processor_size": {
+      "longest_edge": 384
+    },
+    "image_processor_max_image_size": {
+      "longest_edge": 384
+    },
+    "model_path": "adapters/merged/sft_v1_merged",
+    "model_files": {
+      "model.safetensors": {
+        "sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2",
+        "bytes": 1025998224
+      },
+      "config.json": {
+        "sha256": "4b2f35ded89f67e188013871f37ee39d0f46958c6083171bdd8480971f51b3d2",
+        "bytes": 5482
+      },
+      "generation_config.json": {
+        "sha256": "067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636",
+        "bytes": 136
+      },
+      "preprocessor_config.json": {
+        "sha256": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7",
+        "bytes": 486
+      },
+      "processor_config.json": {
+        "sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+        "bytes": 68
+      },
+      "chat_template.json": {
+        "sha256": "a68ad1a42681ae44eacd109ff8dd56a840f761c03d72f4ff4c515d092f882168",
+        "bytes": 429
+      },
+      "tokenizer.json": {
+        "sha256": "5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a",
+        "bytes": 3548256
+      }
+    },
+    "adapter": null,
+    "dataset_path": "data/synthetic_eval.jsonl",
+    "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+    "selected_ids_sha256": "6aeb2540629f504f0f592f554b05fbcb1f8dcb3b0faf30dd011d755c7cbeb80f",
+    "source_sha256": {
+      "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+      "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+      "prompts.py": "57cab7f86584efc940bd40d8e85549cf993918ece87e3b75ace99eb4c53de0a5",
+      "pixel_convert.py": "4d6aa2295ea930f297c8b3cc8de53c9116c891341b2451ffef9b05d0e4c4bf9e",
+      "run_zeroshot.py": "cbeb2216eaf67c112fae09d9655cfcf0a37a82886932e4c455569fdd44a77483"
+    },
+    "local_files_only": true,
+    "config_fingerprint": "759c0e71e7c2a8dfa10835651d0ad84ea2893e9738a9fa9e4db68a21ffa88fc0"
+  },
+  "git_commit": "ab8b1cc3eac0eefaac5f0fa39d9ce518a4ca2eb1",
+  "git_commit_status": "available",
+  "timestamp": "2026-11-10T10:54:03.842079+08:00",
+  "status": "completed",
+  "details_path": "results/eval_deploy_cpu_fp32_synthetic_v1_details.jsonl",
+  "details_sha256": "9427f6c2feb056701a5767e3d6f0a1635916131bb9bc3a8fe2336ce46fae27e3",
+  "details_rows": 1000,
+  "model_class": "Idefics3ForConditionalGeneration",
+  "adapter_load": null,
+  "batch_contract": {
+    "batch_size": 1,
+    "left_padding": false,
+    "generated_start_index": "padded input length",
+    "per_sample_prompt_length": "attention mask sum",
+    "eos_trim_inclusive": false,
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64
+  },
+  "coordinate_contract": {
+    "prompt_id": "p1",
+    "representation": "normalized_decimal",
+    "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+    "conversion_required": false,
+    "conversion_rule": "frozen parse_box path unchanged",
+    "frozen_metric_code_unchanged": true,
+    "invalid_predictions_remain_in_n": true
+  },
+  "aggregate_contract": "invalid predictions remain in n; Acc@0.5 uses IoU>=0.5; invalid IoU=0; mIoU and parse_rate use n",
+  "ground_truth_contract": "data/GT errors abort with dataset/split/id; synthetic occlusion boxes are pre-occlusion full-object GT",
+  "environment": {
+    "python": "3.14.8",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "gpu_name": null,
+    "torch_num_threads": 2,
+    "cpu_threads_requested": 2
+  },
+  "runtime": {
+    "started_at": "2026-11-10T10:00:17.905391+08:00",
+    "finished_at": "2026-11-10T10:54:03.842037+08:00",
+    "elapsed_seconds_including_load": 3230.827245999826,
+    "nvidia_smi_memory_before_mib": null,
+    "nvidia_smi_memory_after_model_load_mib": null,
+    "nvidia_smi_memory_after_generation_mib": null,
+    "torch_peak_memory_allocated_mib": null,
+    "torch_peak_memory_reserved_mib": null,
+    "nvidia_smi_memory_after_cleanup_mib": null,
+    "cpu_threads_requested": 2,
+    "torch_num_threads_effective": 2,
+    "post_process_exit_check": "recorded by the calling shell, not claimed by this in-process value",
+    "timing_caveat": "Diagnostic single-run wall time, not the Table 3 warmed latency benchmark."
+  }
+}

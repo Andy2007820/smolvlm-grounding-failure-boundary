@@ -1,0 +1,1519 @@
+{
+  "schema_version": 1,
+  "document": "results/deploy_prep.json",
+  "phase": "prep",
+  "status": "prep_complete",
+  "purpose": "T14/T15 CPU-only preparation: verified environment, executable code skeletons, planned commands, realistic time estimates, risks and fallbacks. Executed only after the Lead releases the evaluation GPU and issues the CPU/GPU lease.",
+  "generated_at": "2026-11-11T14:32:05.171862+08:00",
+  "deadline": {
+    "local": "2026-11-10T13:00:00+08:00",
+    "remaining_minutes_at_prep": 0.0,
+    "hard_boundary_note": "no heavy step may run before the Lead announces the evaluation lease ended"
+  },
+  "execution_gate": {
+    "current_gpu_state": {
+      "available": true,
+      "command": "nvidia-smi --query-gpu=name,memory.used,memory.total,utilization.gpu --format=csv,noheader,nounits",
+      "captured_at": "2026-11-11T14:32:05.284236+08:00",
+      "raw": "NVIDIA GeForce RTX 5060 Laptop GPU, 834, 8151, 3",
+      "gpu_compute_started_by_this_module": false,
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "memory_used_mib": 834,
+      "memory_total_mib": 8151,
+      "utilization_gpu_percent": 3,
+      "state": "idle_or_small_context",
+      "interpretation": "read-only snapshot captured during prep; a busy state means a leased evaluation may be running and this prep process must not touch the GPU"
+    },
+    "rule": "prep must not load a model, start CUDA work, download large files or run heavy CPU tests",
+    "release_condition": "Lead message that the seed44/3-seed evaluation finished and the GPU lease is released"
+  },
+  "environment": {
+    "captured_at": "2026-11-11T14:32:05.171862+08:00",
+    "host": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.14.8",
+      "python_executable": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+      "cpu_count": 18,
+      "project_root": "D:\\Deepseek Harness\\final-project",
+      "working_directory": "D:\\Deepseek Harness\\final-project",
+      "captured_at": "2026-11-11T14:32:05.210473+08:00"
+    },
+    "packages": {
+      "torch": {
+        "module": "torch",
+        "distribution": "torch",
+        "role": "model execution / merge / int8 dynamic quantization",
+        "available": true,
+        "version": "2.11.0+cu128",
+        "expected_in_project": "2.11.0+cu128",
+        "status": "ok"
+      },
+      "transformers": {
+        "module": "transformers",
+        "distribution": "transformers",
+        "role": "AutoModelForImageTextToText / AutoProcessor",
+        "available": true,
+        "version": "5.19.0",
+        "expected_in_project": "5.19.0",
+        "status": "ok"
+      },
+      "peft": {
+        "module": "peft",
+        "distribution": "peft",
+        "role": "LoRA adapter merge",
+        "available": true,
+        "version": "0.21.2",
+        "expected_in_project": "0.21.2",
+        "status": "ok"
+      },
+      "onnxruntime": {
+        "module": "onnxruntime",
+        "distribution": "onnxruntime",
+        "role": "ONNX CPU inference + dynamic quantization",
+        "available": true,
+        "version": "1.31.0",
+        "expected_in_project": "not yet used",
+        "status": "ok"
+      },
+      "onnx": {
+        "module": "onnx",
+        "distribution": "onnx",
+        "role": "graph loading for ONNX quantization",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      },
+      "optimum": {
+        "module": "optimum",
+        "distribution": "optimum",
+        "role": "ONNX export fallback (Idefics3 support unverified)",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      },
+      "gguf": {
+        "module": "gguf",
+        "distribution": "gguf",
+        "role": "llama.cpp GGUF writer dependency",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      },
+      "gradio": {
+        "module": "gradio",
+        "distribution": "gradio",
+        "role": "T15 demo UI",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      },
+      "bitsandbytes": {
+        "module": "bitsandbytes",
+        "distribution": "bitsandbytes",
+        "role": "optional GPU 4-bit reference only",
+        "available": true,
+        "version": "0.50.2",
+        "expected_in_project": "not yet used",
+        "status": "ok"
+      },
+      "accelerate": {
+        "module": "accelerate",
+        "distribution": "accelerate",
+        "role": "optional device placement helper",
+        "available": true,
+        "version": "1.15.0",
+        "expected_in_project": "not yet used",
+        "status": "ok"
+      },
+      "safetensors": {
+        "module": "safetensors",
+        "distribution": "safetensors",
+        "role": "weight I/O",
+        "available": true,
+        "version": "0.8.0",
+        "expected_in_project": "0.8.0",
+        "status": "ok"
+      },
+      "PIL": {
+        "module": "PIL",
+        "distribution": "pillow",
+        "role": "image loading / box drawing",
+        "available": true,
+        "version": "12.3.0",
+        "expected_in_project": "12.3.0",
+        "status": "ok"
+      },
+      "sentencepiece": {
+        "module": "sentencepiece",
+        "distribution": "sentencepiece",
+        "role": "possible llama.cpp tokenizer conversion dep",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      }
+    },
+    "tools": {
+      "llama_cpp": {
+        "available": false,
+        "home": null,
+        "convert_script": null,
+        "binaries": {
+          "llama-quantize": {
+            "path": null,
+            "source": null
+          },
+          "llama-mtmd-cli": {
+            "path": null,
+            "source": null
+          },
+          "llama-cli": {
+            "path": null,
+            "source": null
+          },
+          "convert_hf_to_gguf.py": {
+            "path": null,
+            "source": null
+          }
+        },
+        "missing": [
+          "convert_hf_to_gguf.py",
+          "llama-quantize",
+          "llama-mtmd-cli"
+        ],
+        "build_tools": {
+          "cmake": null,
+          "compilers": {
+            "cl": null,
+            "gcc": null,
+            "g++": null,
+            "clang": null,
+            "clang++": null
+          },
+          "can_build_from_source": false
+        },
+        "acquisition_note": "No llama.cpp toolchain is installed. GGUF needs either (a) a prebuilt Windows CPU release unpacked under third_party/llama.cpp or PATH, or (b) a source checkout plus cmake/MSVC. Both require a download/build that is out of scope for this CPU-only prep run.",
+        "policy_note": "never downloads or builds anything during prep"
+      },
+      "git": {
+        "name": "git",
+        "found": true,
+        "path": "C:\\Program Files\\Git\\cmd\\git.EXE",
+        "version": "git version 2.56.0.windows.2",
+        "probe": "git version 2.56.0.windows.2"
+      },
+      "cmake": {
+        "name": "cmake",
+        "found": false,
+        "path": null,
+        "version": null,
+        "probe": null
+      },
+      "nvidia_smi": {
+        "name": "nvidia-smi",
+        "found": true,
+        "path": "C:\\windows\\system32\\nvidia-smi.EXE",
+        "version": "NVIDIA System Management Interface -- v617.14",
+        "probe": "NVIDIA System Management Interface -- v617.14"
+      }
+    },
+    "gpu": {
+      "available": true,
+      "command": "nvidia-smi --query-gpu=name,memory.used,memory.total,utilization.gpu --format=csv,noheader,nounits",
+      "captured_at": "2026-11-11T14:32:05.284236+08:00",
+      "raw": "NVIDIA GeForce RTX 5060 Laptop GPU, 834, 8151, 3",
+      "gpu_compute_started_by_this_module": false,
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "memory_used_mib": 834,
+      "memory_total_mib": 8151,
+      "utilization_gpu_percent": 3,
+      "state": "idle_or_small_context",
+      "interpretation": "read-only snapshot captured during prep; a busy state means a leased evaluation may be running and this prep process must not touch the GPU"
+    },
+    "disk": {
+      "path": "D:\\Deepseek Harness\\final-project",
+      "available": true,
+      "total_gb": 360.47,
+      "free_gb": 196.42,
+      "used_gb": 164.06
+    },
+    "deadline": {
+      "local": "2026-11-10T13:00:00+08:00",
+      "remaining_minutes_at_capture": 0.0
+    },
+    "prep_policy": {
+      "gpu_compute_used": false,
+      "model_loaded": false,
+      "downloads_performed": false,
+      "torch_imported_by_detection": false
+    },
+    "probe_seconds": 0.153
+  },
+  "tool_availability": {
+    "packages": {
+      "torch": {
+        "module": "torch",
+        "distribution": "torch",
+        "role": "model execution / merge / int8 dynamic quantization",
+        "available": true,
+        "version": "2.11.0+cu128",
+        "expected_in_project": "2.11.0+cu128",
+        "status": "ok"
+      },
+      "transformers": {
+        "module": "transformers",
+        "distribution": "transformers",
+        "role": "AutoModelForImageTextToText / AutoProcessor",
+        "available": true,
+        "version": "5.19.0",
+        "expected_in_project": "5.19.0",
+        "status": "ok"
+      },
+      "peft": {
+        "module": "peft",
+        "distribution": "peft",
+        "role": "LoRA adapter merge",
+        "available": true,
+        "version": "0.21.2",
+        "expected_in_project": "0.21.2",
+        "status": "ok"
+      },
+      "onnxruntime": {
+        "module": "onnxruntime",
+        "distribution": "onnxruntime",
+        "role": "ONNX CPU inference + dynamic quantization",
+        "available": true,
+        "version": "1.31.0",
+        "expected_in_project": "not yet used",
+        "status": "ok"
+      },
+      "onnx": {
+        "module": "onnx",
+        "distribution": "onnx",
+        "role": "graph loading for ONNX quantization",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      },
+      "optimum": {
+        "module": "optimum",
+        "distribution": "optimum",
+        "role": "ONNX export fallback (Idefics3 support unverified)",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      },
+      "gguf": {
+        "module": "gguf",
+        "distribution": "gguf",
+        "role": "llama.cpp GGUF writer dependency",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      },
+      "gradio": {
+        "module": "gradio",
+        "distribution": "gradio",
+        "role": "T15 demo UI",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      },
+      "bitsandbytes": {
+        "module": "bitsandbytes",
+        "distribution": "bitsandbytes",
+        "role": "optional GPU 4-bit reference only",
+        "available": true,
+        "version": "0.50.2",
+        "expected_in_project": "not yet used",
+        "status": "ok"
+      },
+      "accelerate": {
+        "module": "accelerate",
+        "distribution": "accelerate",
+        "role": "optional device placement helper",
+        "available": true,
+        "version": "1.15.0",
+        "expected_in_project": "not yet used",
+        "status": "ok"
+      },
+      "safetensors": {
+        "module": "safetensors",
+        "distribution": "safetensors",
+        "role": "weight I/O",
+        "available": true,
+        "version": "0.8.0",
+        "expected_in_project": "0.8.0",
+        "status": "ok"
+      },
+      "PIL": {
+        "module": "PIL",
+        "distribution": "pillow",
+        "role": "image loading / box drawing",
+        "available": true,
+        "version": "12.3.0",
+        "expected_in_project": "12.3.0",
+        "status": "ok"
+      },
+      "sentencepiece": {
+        "module": "sentencepiece",
+        "distribution": "sentencepiece",
+        "role": "possible llama.cpp tokenizer conversion dep",
+        "available": false,
+        "version": null,
+        "expected_in_project": "not yet used",
+        "status": "missing"
+      }
+    },
+    "llama_cpp": {
+      "available": false,
+      "home": null,
+      "convert_script": null,
+      "binaries": {
+        "llama-quantize": {
+          "path": null,
+          "source": null
+        },
+        "llama-mtmd-cli": {
+          "path": null,
+          "source": null
+        },
+        "llama-cli": {
+          "path": null,
+          "source": null
+        },
+        "convert_hf_to_gguf.py": {
+          "path": null,
+          "source": null
+        }
+      },
+      "missing": [
+        "convert_hf_to_gguf.py",
+        "llama-quantize",
+        "llama-mtmd-cli"
+      ],
+      "build_tools": {
+        "cmake": null,
+        "compilers": {
+          "cl": null,
+          "gcc": null,
+          "g++": null,
+          "clang": null,
+          "clang++": null
+        },
+        "can_build_from_source": false
+      },
+      "acquisition_note": "No llama.cpp toolchain is installed. GGUF needs either (a) a prebuilt Windows CPU release unpacked under third_party/llama.cpp or PATH, or (b) a source checkout plus cmake/MSVC. Both require a download/build that is out of scope for this CPU-only prep run.",
+      "policy_note": "never downloads or builds anything during prep"
+    },
+    "missing_and_blocked": {
+      "gradio": {
+        "available": false,
+        "blocks": "T15 demo launch",
+        "install_hint": "python -m pip install gradio"
+      },
+      "optimum": {
+        "available": false,
+        "blocks": "ONNX export fallback",
+        "install_hint": "python -m pip install optimum[onnxruntime] onnx"
+      },
+      "onnx": {
+        "available": false,
+        "blocks": "ONNX graph quantization",
+        "install_hint": "python -m pip install onnx"
+      },
+      "gguf": {
+        "available": false,
+        "blocks": "llama.cpp convert_hf_to_gguf.py import",
+        "install_hint": "python -m pip install gguf"
+      },
+      "llama_cpp": {
+        "available": false,
+        "blocks": "GGUF Q4_K_M export + llama.cpp CPU inference",
+        "missing": [
+          "convert_hf_to_gguf.py",
+          "llama-quantize",
+          "llama-mtmd-cli"
+        ],
+        "install_hint": "unpack a prebuilt Windows llama.cpp release (with llama-quantize/llama-mtmd-cli) or build from source"
+      },
+      "onnxruntime": {
+        "available": true,
+        "blocks": "ONNX CPU inference",
+        "install_hint": "already installed"
+      },
+      "torch_int8": {
+        "available": true,
+        "blocks": "n/a (built into torch)",
+        "install_hint": "already installed; fallback quantizer needs no export"
+      }
+    },
+    "onnxruntime_providers_note": "onnxruntime 1.31 CPU available; GPU providers not required for T14"
+  },
+  "assets": {
+    "model": {
+      "path": "models/SmolVLM-256M-Instruct",
+      "exists": true,
+      "required_files": {
+        "model.safetensors": true,
+        "config.json": true,
+        "generation_config.json": true,
+        "preprocessor_config.json": true,
+        "processor_config.json": true,
+        "chat_template.json": true,
+        "tokenizer.json": true,
+        "tokenizer_config.json": true,
+        "special_tokens_map.json": true
+      },
+      "missing_required_files": [],
+      "architecture": "Idefics3ForConditionalGeneration",
+      "model_type": "idefics3",
+      "image_token_id": 49190,
+      "vocab_size": 49280,
+      "torch_dtype": "bfloat16",
+      "vision_patch_size": 16,
+      "vision_scale_factor": 4,
+      "vision_hidden_size": 768,
+      "vision_layers": 12,
+      "text_hidden_size": 576,
+      "text_layers": 30,
+      "text_lora_targets_scope": "model.text_model",
+      "generation_eos_token_id": 49279,
+      "generation_pad_token_id": 2,
+      "processor_default_image_seq_len": 64,
+      "expected_runtime_image_seq_len": 36,
+      "processor_default_matches_384_no_split": false,
+      "preprocessor_do_image_splitting": true,
+      "preprocessor_size": {
+        "longest_edge": 2048
+      },
+      "preprocessor_max_image_size": {
+        "longest_edge": 512
+      },
+      "weights": {
+        "path": "models/SmolVLM-256M-Instruct/model.safetensors",
+        "exists": true,
+        "bytes": 513028808,
+        "sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e"
+      },
+      "approx_parameters_millions": 256.51,
+      "all_required_files_present": true
+    },
+    "adapter": {
+      "path": "adapters/sft_v1/adapter",
+      "exists": true,
+      "required_files": {
+        "adapter_config.json": true,
+        "adapter_model.safetensors": true
+      },
+      "missing_required_files": [],
+      "peft_type": "LORA",
+      "task_type": "CAUSAL_LM",
+      "r": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "bias": "none",
+      "use_dora": false,
+      "base_model_name_or_path": "D:\\Deepseek Harness\\final-project\\models\\SmolVLM-256M-Instruct",
+      "base_model_matches_project_model": true,
+      "target_module_count": 91,
+      "target_module_sample": [
+        "12.self_attn.k_proj",
+        "12.self_attn.q_proj",
+        "12.self_attn.v_proj",
+        "13.self_attn.k_proj",
+        "13.self_attn.q_proj",
+        "13.self_attn.v_proj"
+      ],
+      "target_modules_include_q_proj": true,
+      "target_modules_include_o_proj": true,
+      "adapter_config": {
+        "path": "adapters/sft_v1/adapter/adapter_config.json",
+        "exists": true,
+        "bytes": 4313,
+        "sha256": "60522337b799eb240509cc1e2a1019bab782351dfbac6d77828eb77a8114ba3f"
+      },
+      "adapter_weights": {
+        "path": "adapters/sft_v1/adapter/adapter_model.safetensors",
+        "exists": true,
+        "bytes": 7407008,
+        "sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d"
+      },
+      "peft_version_recorded": "0.21.2",
+      "all_required_files_present": true
+    },
+    "merged": {
+      "path": "adapters/merged/sft_v1_merged",
+      "exists": true,
+      "files": {
+        "model.safetensors": {
+          "path": "adapters/merged/sft_v1_merged/model.safetensors",
+          "exists": true,
+          "bytes": 1025998224
+        },
+        "config.json": {
+          "path": "adapters/merged/sft_v1_merged/config.json",
+          "exists": true,
+          "bytes": 5482
+        },
+        "generation_config.json": {
+          "path": "adapters/merged/sft_v1_merged/generation_config.json",
+          "exists": true,
+          "bytes": 136
+        },
+        "preprocessor_config.json": {
+          "path": "adapters/merged/sft_v1_merged/preprocessor_config.json",
+          "exists": true,
+          "bytes": 486
+        },
+        "processor_config.json": {
+          "path": "adapters/merged/sft_v1_merged/processor_config.json",
+          "exists": true,
+          "bytes": 68
+        },
+        "tokenizer.json": {
+          "path": "adapters/merged/sft_v1_merged/tokenizer.json",
+          "exists": true,
+          "bytes": 3548256
+        },
+        "tokenizer_config.json": {
+          "path": "adapters/merged/sft_v1_merged/tokenizer_config.json",
+          "exists": true,
+          "bytes": 28249
+        },
+        "chat_template.json": {
+          "path": "adapters/merged/sft_v1_merged/chat_template.json",
+          "exists": true,
+          "bytes": 429
+        },
+        "special_tokens_map.json": {
+          "path": "adapters/merged/sft_v1_merged/special_tokens_map.json",
+          "exists": true,
+          "bytes": 1069
+        }
+      },
+      "missing_required_files": []
+    },
+    "quantized": {
+      "root": "adapters/quantized",
+      "exists": true,
+      "artifacts": [
+        {
+          "path": "adapters/quantized/gguf/mmproj-sft_v1_merged-Q8_0.gguf",
+          "bytes": 103768640,
+          "suffix": ".gguf"
+        },
+        {
+          "path": "adapters/quantized/gguf/sft_v1_merged-Q4_K_M.gguf",
+          "bytes": 125051904,
+          "suffix": ".gguf"
+        }
+      ],
+      "status": "has_artifacts"
+    },
+    "upstream_onnx": {
+      "dir": "models/SmolVLM-256M-Instruct/onnx",
+      "exists": true,
+      "files": [
+        {
+          "name": "decoder_model_merged.onnx",
+          "bytes": 540640302,
+          "carries_project_lora": false
+        },
+        {
+          "name": "decoder_model_merged_bnb4.onnx",
+          "bytes": 78154897,
+          "carries_project_lora": false
+        },
+        {
+          "name": "decoder_model_merged_fp16.onnx",
+          "bytes": 270414183,
+          "carries_project_lora": false
+        },
+        {
+          "name": "decoder_model_merged_int8.onnx",
+          "bytes": 137221530,
+          "carries_project_lora": false
+        },
+        {
+          "name": "decoder_model_merged_q4.onnx",
+          "bytes": 86562901,
+          "carries_project_lora": false
+        },
+        {
+          "name": "decoder_model_merged_q4f16.onnx",
+          "bytes": 77034560,
+          "carries_project_lora": false
+        },
+        {
+          "name": "decoder_model_merged_quantized.onnx",
+          "bytes": 137221644,
+          "carries_project_lora": false
+        },
+        {
+          "name": "decoder_model_merged_uint8.onnx",
+          "bytes": 137221644,
+          "carries_project_lora": false
+        },
+        {
+          "name": "embed_tokens.onnx",
+          "bytes": 113541419,
+          "carries_project_lora": false
+        },
+        {
+          "name": "embed_tokens_bnb4.onnx",
+          "bytes": 113541438,
+          "carries_project_lora": false
+        },
+        {
+          "name": "embed_tokens_fp16.onnx",
+          "bytes": 56770946,
+          "carries_project_lora": false
+        },
+        {
+          "name": "embed_tokens_int8.onnx",
+          "bytes": 28385824,
+          "carries_project_lora": false
+        },
+        {
+          "name": "embed_tokens_q4.onnx",
+          "bytes": 113541438,
+          "carries_project_lora": false
+        },
+        {
+          "name": "embed_tokens_q4f16.onnx",
+          "bytes": 56770965,
+          "carries_project_lora": false
+        },
+        {
+          "name": "embed_tokens_quantized.onnx",
+          "bytes": 28385824,
+          "carries_project_lora": false
+        },
+        {
+          "name": "embed_tokens_uint8.onnx",
+          "bytes": 28385824,
+          "carries_project_lora": false
+        },
+        {
+          "name": "vision_encoder.onnx",
+          "bytes": 374316497,
+          "carries_project_lora": false
+        },
+        {
+          "name": "vision_encoder_bnb4.onnx",
+          "bytes": 58034739,
+          "carries_project_lora": false
+        },
+        {
+          "name": "vision_encoder_fp16.onnx",
+          "bytes": 187294693,
+          "carries_project_lora": false
+        },
+        {
+          "name": "vision_encoder_int8.onnx",
+          "bytes": 94247927,
+          "carries_project_lora": false
+        },
+        {
+          "name": "vision_encoder_q4.onnx",
+          "bytes": 63784987,
+          "carries_project_lora": false
+        },
+        {
+          "name": "vision_encoder_q4f16.onnx",
+          "bytes": 55037584,
+          "carries_project_lora": false
+        },
+        {
+          "name": "vision_encoder_quantized.onnx",
+          "bytes": 94247969,
+          "carries_project_lora": false
+        },
+        {
+          "name": "vision_encoder_uint8.onnx",
+          "bytes": 94247969,
+          "carries_project_lora": false
+        }
+      ],
+      "total_bytes": 3025007704,
+      "carries_project_lora": false,
+      "scientific_note": "upstream transformers.js export of the BASE SmolVLM-256M-Instruct; the project LoRA adapter is not baked in, so these files cannot produce the +量化 accuracy row. They are at most a runtime smoke asset.",
+      "total_gb": 2.817,
+      "variants_seen": [
+        "bnb4",
+        "fp16",
+        "fp32",
+        "int8",
+        "q4",
+        "q4f16",
+        "quantized",
+        "uint8"
+      ],
+      "has_split_pipeline": true
+    },
+    "datasets": {
+      "synthetic_eval": {
+        "path": "data/synthetic_eval.jsonl",
+        "exists": true,
+        "bytes": 279387,
+        "lines": 1000
+      },
+      "refcoco_val": {
+        "path": "data/refcoco_val.jsonl",
+        "exists": true,
+        "bytes": 286845,
+        "lines": 1000
+      },
+      "screenspot": {
+        "path": "data/screenspot.jsonl",
+        "exists": true,
+        "bytes": 387222,
+        "lines": 1272
+      }
+    },
+    "write_scopes": {
+      "allowed_in_prep": [
+        "src/deploy",
+        "demo",
+        "results/deploy_*",
+        "adapters/quantized"
+      ],
+      "needed_for_execution": [
+        "adapters/merged",
+        "results/deploy_*",
+        "adapters/quantized",
+        "demo",
+        "src/deploy"
+      ],
+      "forbidden": [
+        "data",
+        "src/train",
+        "src/eval",
+        "results/eval_*",
+        "results/train_*",
+        "report"
+      ]
+    }
+  },
+  "deployment_candidate": {
+    "path": "adapters/sft_v1/adapter",
+    "status": "provisional",
+    "reason": "T12/KD not run; Lead has not frozen the final adapter",
+    "inference_contract": {
+      "prompt_id": "p1 (src.eval.prompts)",
+      "image_size": 384,
+      "do_image_splitting": false,
+      "image_seq_len": 36,
+      "max_new_tokens": 64,
+      "do_sample": false,
+      "num_beams": 1,
+      "seed": 42,
+      "parser": "src.eval.grounding.parse_box_with_error (frozen)",
+      "metric_contract": "src.eval.grounding.metrics_from_scores (invalid in n)"
+    }
+  },
+  "routes": {
+    "gguf": {
+      "route": "gguf",
+      "title": "llama.cpp GGUF Q4_K_M (+ mmproj)",
+      "status": "needs_tooling_and_download",
+      "missing": [
+        "convert_hf_to_gguf.py",
+        "llama-quantize",
+        "llama-mtmd-cli",
+        "python package gguf",
+        "python package sentencepiece (convert script may need it)"
+      ],
+      "gpu_required": false,
+      "download_required": true,
+      "download_note": "prebuilt llama.cpp Windows CPU release (approval needed) + pip gguf/sentencepiece",
+      "reason": "preferred route per TEAM-BOOTSTRAP; Q4_K_M with a correct mmproj"
+    },
+    "onnx": {
+      "route": "onnx",
+      "title": "ONNX export + dynamic quantization",
+      "status": "conditional",
+      "missing": [
+        "optimum",
+        "onnx"
+      ],
+      "gpu_required": false,
+      "download_required": true,
+      "download_note": "pip install optimum[onnxruntime] onnx",
+      "reason": "official fallback, but Idefics3 ONNX export support under transformers 5.19/optimum is unverified; a 10-minute export smoke must pass before promising this route"
+    },
+    "torch-int8": {
+      "route": "torch-int8",
+      "title": "PyTorch INT8 dynamic quantization (CPU, no export)",
+      "status": "ready",
+      "missing": [],
+      "gpu_required": false,
+      "download_required": false,
+      "download_note": "none; torch.ao.quantization is bundled",
+      "reason": "real INT8 dynamic quantization of the merged model without an export step; artifact is runtime-only (in-memory), openly labelled as such"
+    },
+    "hf-fp32": {
+      "route": "hf-fp32",
+      "title": "CPU fp32 HuggingFace fallback (no quantization)",
+      "status": "ready",
+      "missing": [],
+      "gpu_required": false,
+      "download_required": false,
+      "download_note": "none",
+      "reason": "final fallback: runnable but slow; 4-bit speed-up goes to Limitations"
+    }
+  },
+  "fallback_chain": [
+    "gguf",
+    "onnx",
+    "torch-int8",
+    "hf-fp32"
+  ],
+  "fallback_chain_note": "try in order; a route that is missing or fails is recorded as not_run/blocked with the real error. ONNX is marked conditional because Idefics3 export support is unverified.",
+  "steps": [
+    {
+      "id": "S1",
+      "title": "Merge LoRA adapter into a standalone fp32 CPU checkpoint",
+      "owner": "deploy-runner",
+      "depends_on": [],
+      "requires_gpu": false,
+      "requires_model_load": true,
+      "requires_download": false,
+      "requires_write_scope": [
+        "adapters/merged",
+        "results/deploy_merge_report.json"
+      ],
+      "estimated_minutes": 6,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.merge_lora",
+          "--adapter",
+          "adapters/sft_v1/adapter",
+          "--output",
+          "adapters/merged/sft_v1_merged",
+          "--dtype",
+          "float32",
+          "--report",
+          "results/deploy_merge_report.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.merge_lora --adapter adapters/sft_v1/adapter --output adapters/merged/sft_v1_merged --dtype float32 --report results/deploy_merge_report.json"
+      },
+      "dry_run_command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.merge_lora",
+          "--adapter",
+          "adapters/sft_v1/adapter",
+          "--output",
+          "adapters/merged/sft_v1_merged",
+          "--dry-run"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.merge_lora --adapter adapters/sft_v1/adapter --output adapters/merged/sft_v1_merged --dry-run"
+      },
+      "acceptance": [
+        "report status=completed with adapter + base hashes",
+        "merged dir has model.safetensors + config + processor/tokenizer files",
+        "no remaining lora_* modules in the merged checkpoint config",
+        "model.safetensors size is ~2x the bf16 base weight size (fp32 merge)"
+      ],
+      "artifacts": [
+        "adapters/merged/sft_v1_merged",
+        "results/deploy_merge_report.json"
+      ],
+      "on_failure": "stop; report blocker; never fabricate a merged artifact",
+      "blocking_scope_note": "adapters/merged is outside this prep task's write scope; the Lead must confirm the T14 write scope before execution",
+      "estimated_seconds": 360
+    },
+    {
+      "id": "S2",
+      "title": "Merge equivalence: base+adapter vs merged must generate identical boxes",
+      "owner": "deploy-runner",
+      "depends_on": [
+        "S1"
+      ],
+      "requires_gpu": false,
+      "requires_model_load": true,
+      "requires_download": false,
+      "estimated_minutes": 8,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.merge_lora",
+          "--verify-equivalence",
+          "--artifact",
+          "adapters/merged/sft_v1_merged",
+          "--report",
+          "results/deploy_merge_equivalence.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.merge_lora --verify-equivalence --artifact adapters/merged/sft_v1_merged --report results/deploy_merge_equivalence.json"
+      },
+      "acceptance": [
+        "5 fixed synthetic_eval samples produce byte-identical output_text",
+        "parse_rate 1.0 on those 5 samples",
+        "any mismatch is reported as merge_failed, not averaged away"
+      ],
+      "artifacts": [
+        "results/deploy_merge_equivalence.json"
+      ],
+      "on_failure": "do not deploy the merged model; investigate dtype/merge target mismatch",
+      "estimated_seconds": 480
+    },
+    {
+      "id": "S3",
+      "title": "GGUF Q4_K_M export smoke (preferred route)",
+      "owner": "deploy-runner",
+      "depends_on": [
+        "S1",
+        "S2"
+      ],
+      "requires_gpu": false,
+      "requires_model_load": false,
+      "requires_download": true,
+      "estimated_minutes": 35,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.quantize",
+          "--route",
+          "gguf",
+          "--merged",
+          "adapters/merged/sft_v1_merged",
+          "--output",
+          "adapters/quantized/sft_v1_q4_k_m",
+          "--report",
+          "results/deploy_quantize_gguf.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.quantize --route gguf --merged adapters/merged/sft_v1_merged --output adapters/quantized/sft_v1_q4_k_m --report results/deploy_quantize_gguf.json"
+      },
+      "plan_only_command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.quantize",
+          "--route",
+          "gguf",
+          "--plan-only",
+          "--merged",
+          "adapters/merged/sft_v1_merged"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.quantize --route gguf --plan-only --merged adapters/merged/sft_v1_merged"
+      },
+      "acceptance": [
+        "convert_hf_to_gguf.py produced an F16 GGUF and a *mmproj*.gguf",
+        "llama-quantize produced a Q4_K_M GGUF",
+        "llama-mtmd-cli on one fixed image emits 4 parseable box numbers",
+        "file sizes and sha256 recorded in results/deploy_quantize_gguf.json"
+      ],
+      "artifacts": [
+        "adapters/quantized/sft_v1_q4_k_m",
+        "results/deploy_quantize_gguf.json"
+      ],
+      "on_failure": "capture the exact error, then fall through to S4 (ONNX) or S5 (torch INT8)",
+      "setup_note": "first 10 minutes are a tool/protocol smoke (convert --help, mmproj naming, mtmd-cli flags) because llama.cpp CLI names drift between releases",
+      "estimated_seconds": 2100
+    },
+    {
+      "id": "S4",
+      "title": "ONNX export + dynamic quantization (conditional fallback)",
+      "owner": "deploy-runner",
+      "depends_on": [
+        "S3"
+      ],
+      "requires_gpu": false,
+      "requires_model_load": false,
+      "requires_download": true,
+      "estimated_minutes": 25,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.quantize",
+          "--route",
+          "onnx",
+          "--merged",
+          "adapters/merged/sft_v1_merged",
+          "--output",
+          "adapters/quantized/sft_v1_onnx",
+          "--report",
+          "results/deploy_quantize_onnx.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.quantize --route onnx --merged adapters/merged/sft_v1_merged --output adapters/quantized/sft_v1_onnx --report results/deploy_quantize_onnx.json"
+      },
+      "acceptance": [
+        "optimum-cli export onnx succeeds for Idefics3 (else route recorded blocked)",
+        "quantize_dynamic halves or better the decoder artifact size",
+        "onnxruntime CPU session loads the quantized graph"
+      ],
+      "artifacts": [
+        "adapters/quantized/sft_v1_onnx",
+        "results/deploy_quantize_onnx.json"
+      ],
+      "on_failure": "record blocked_tool_missing / unsupported_architecture and fall through to S5",
+      "scientific_note": "the ONNX files already present under models/SmolVLM-256M-Instruct/onnx are the upstream BASE model (no project LoRA); they must not be presented as our quantized model",
+      "estimated_seconds": 1500
+    },
+    {
+      "id": "S5",
+      "title": "PyTorch INT8 dynamic quantization (export-free fallback)",
+      "owner": "deploy-runner",
+      "depends_on": [
+        "S4"
+      ],
+      "requires_gpu": false,
+      "requires_model_load": true,
+      "requires_download": false,
+      "estimated_minutes": 8,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.quantize",
+          "--route",
+          "torch-int8",
+          "--merged",
+          "adapters/merged/sft_v1_merged",
+          "--report",
+          "results/deploy_quantize_torch_int8.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.quantize --route torch-int8 --merged adapters/merged/sft_v1_merged --report results/deploy_quantize_torch_int8.json"
+      },
+      "acceptance": [
+        "quantize_dynamic on the text decoder succeeds and generate() returns a parseable box",
+        "runtime label recorded as int8-dynamic-cpu (in-memory artifact, no file)"
+      ],
+      "artifacts": [
+        "results/deploy_quantize_torch_int8.json"
+      ],
+      "on_failure": "fall through to S6 CPU fp32; report quantization as not achieved",
+      "estimated_seconds": 480
+    },
+    {
+      "id": "S6",
+      "title": "CPU latency benchmark: merged fp32 (50 images, 5 warmups)",
+      "owner": "deploy-runner",
+      "depends_on": [
+        "S1",
+        "S2"
+      ],
+      "requires_gpu": false,
+      "requires_model_load": true,
+      "requires_download": false,
+      "estimated_minutes": 2.0,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.bench_latency",
+          "--engine",
+          "hf-cpu",
+          "--artifact",
+          "adapters/merged/sft_v1_merged",
+          "--n",
+          "50",
+          "--warmup",
+          "5",
+          "--seed",
+          "42",
+          "--output",
+          "results/deploy_latency_hf_cpu_fp32.json",
+          "--details-output",
+          "results/deploy_latency_hf_cpu_fp32_details.jsonl"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.bench_latency --engine hf-cpu --artifact adapters/merged/sft_v1_merged --n 50 --warmup 5 --seed 42 --output results/deploy_latency_hf_cpu_fp32.json --details-output results/deploy_latency_hf_cpu_fp32_details.jsonl"
+      },
+      "plan_only_command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.bench_latency",
+          "--engine",
+          "hf-cpu",
+          "--artifact",
+          "adapters/merged/sft_v1_merged",
+          "--plan-only",
+          "--output",
+          "results/deploy_latency_plan_hf_cpu.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.bench_latency --engine hf-cpu --artifact adapters/merged/sft_v1_merged --plan-only --output results/deploy_latency_plan_hf_cpu.json"
+      },
+      "acceptance": [
+        "n=50, warmup=5, deterministic id digest",
+        "mean/median/p95/p99/min/max + peak RSS recorded",
+        "parse_rate and diagnostic accuracy recorded (official metrics remain eval-closer's)"
+      ],
+      "artifacts": [
+        "results/deploy_latency_hf_cpu_fp32.json"
+      ],
+      "on_failure": "record not_run with the error; no invented latency numbers",
+      "estimated_seconds": 117
+    },
+    {
+      "id": "S7",
+      "title": "CPU latency benchmark: quantized and/or GGUF engine on the same 50 ids",
+      "owner": "deploy-runner",
+      "depends_on": [
+        "S3",
+        "S5",
+        "S6"
+      ],
+      "requires_gpu": false,
+      "requires_model_load": false,
+      "requires_download": false,
+      "estimated_minutes": 6,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.bench_latency",
+          "--engine",
+          "gguf-q4",
+          "--artifact",
+          "adapters/quantized/sft_v1_q4_k_m",
+          "--n",
+          "50",
+          "--warmup",
+          "5",
+          "--seed",
+          "42",
+          "--output",
+          "results/deploy_latency_gguf_q4.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.bench_latency --engine gguf-q4 --artifact adapters/quantized/sft_v1_q4_k_m --n 50 --warmup 5 --seed 42 --output results/deploy_latency_gguf_q4.json"
+      },
+      "acceptance": [
+        "same selected_ids digest as S6 so the CPU/quantized columns are comparable",
+        "per-run backend version and artifact sha256 recorded"
+      ],
+      "artifacts": [
+        "results/deploy_latency_gguf_q4.json"
+      ],
+      "on_failure": "benchmark whatever quantized engine actually exists; list the missing route as not_run",
+      "estimated_seconds": 360
+    },
+    {
+      "id": "S8",
+      "title": "GPU bf16 baseline latency (requires Lead GPU lease)",
+      "owner": "deploy-runner",
+      "depends_on": [
+        "S6"
+      ],
+      "requires_gpu": true,
+      "requires_model_load": true,
+      "requires_download": false,
+      "estimated_minutes": 10,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.bench_latency",
+          "--engine",
+          "hf-cuda",
+          "--artifact",
+          "adapters/merged/sft_v1_merged",
+          "--device",
+          "cuda",
+          "--gpu-lease-id",
+          "<LEASE-ID>",
+          "--n",
+          "50",
+          "--warmup",
+          "5",
+          "--output",
+          "results/deploy_latency_hf_cuda_bf16.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.bench_latency --engine hf-cuda --artifact adapters/merged/sft_v1_merged --device cuda --gpu-lease-id <LEASE-ID> --n 50 --warmup 5 --output results/deploy_latency_hf_cuda_bf16.json"
+      },
+      "acceptance": [
+        "lease id recorded; nvidia-smi before/after; abort if >7500 MiB or a competing task appears",
+        "same 50 ids as S6/S7 for a fair Table 3 row"
+      ],
+      "artifacts": [
+        "results/deploy_latency_hf_cuda_bf16.json"
+      ],
+      "on_failure": "skip the GPU column; never report an unmeasured number",
+      "gating_note": "blocked until the Lead announces the current evaluation lease is released",
+      "estimated_seconds": 600
+    },
+    {
+      "id": "S9",
+      "title": "Gradio demo: install, launch, real API round-trip, screenshot evidence",
+      "owner": "deploy-runner",
+      "depends_on": [
+        "S6"
+      ],
+      "requires_gpu": false,
+      "requires_model_load": true,
+      "requires_download": true,
+      "estimated_minutes": 20,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "demo.app",
+          "--engine",
+          "hf-cpu",
+          "--artifact",
+          "adapters/merged/sft_v1_merged",
+          "--port",
+          "7860",
+          "--smoke"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m demo.app --engine hf-cpu --artifact adapters/merged/sft_v1_merged --port 7860 --smoke"
+      },
+      "acceptance": [
+        "gradio installed (needs approval) and server answers HTTP 200",
+        "gradio_client round-trip on a real image returns an annotated image and a box string",
+        "results/deploy_demo_smoke.json + saved annotated PNG under demo/artifacts/",
+        "screenshot/browser confirmation recorded by the Lead (agent cannot claim a human-visible UI without it)"
+      ],
+      "artifacts": [
+        "demo/app.py",
+        "results/deploy_demo_smoke.json",
+        "demo/artifacts/"
+      ],
+      "on_failure": "fallback: CLI predictor script + annotated PNG (still honest, but G7 demo part not passed)",
+      "gating_note": "requires `python -m pip install gradio` approval (network download)",
+      "estimated_seconds": 1200
+    },
+    {
+      "id": "S10",
+      "title": "Hand-off document for independent deployment evaluation",
+      "owner": "deploy-runner -> eval-closer",
+      "depends_on": [
+        "S3",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "requires_gpu": false,
+      "requires_model_load": false,
+      "requires_download": false,
+      "estimated_minutes": 10,
+      "command": {
+        "argv": [
+          "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+          "-m",
+          "src.deploy.quantize",
+          "--route",
+          "gguf",
+          "--emit-handoff",
+          "--output",
+          "results/deploy_handoff.json"
+        ],
+        "display": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.deploy.quantize --route gguf --emit-handoff --output results/deploy_handoff.json"
+      },
+      "acceptance": [
+        "artifact paths + sha256 + exact inference command + prompt id p1 + image_seq_len 36 documented",
+        "eval-closer can rerun 1000-image sets without reading deploy code",
+        "official +量化 metrics are produced by eval-closer, not by deploy code"
+      ],
+      "artifacts": [
+        "results/deploy_handoff.json"
+      ],
+      "on_failure": "block G7; paper must mark deployment row not_run",
+      "estimated_seconds": 600
+    }
+  ],
+  "estimated_total_minutes": {
+    "primary_gguf_path": 87.0,
+    "fallback_onnx_path": 79.0,
+    "benchmark_50_images_one_engine": 2.0,
+    "official_eval_per_1000_image_set": 40,
+    "note": "estimates exclude waiting for Lead lease/download approval"
+  },
+  "time_estimates_detail": {
+    "benchmark_50_images_one_engine": {
+      "basis": "prior CPU fp32+adapter diagnostic (upper bound, includes load)",
+      "per_sample_seconds_prior": 1.9484653100022116,
+      "estimated_minutes": 2.0,
+      "note": "warmup 5 + 50 measured samples, CPU fp32; a quantized/GGUF engine should be faster"
+    },
+    "merge_cpu_fp32": {
+      "estimated_minutes": 6,
+      "basis": "load 513 MB bf16 base on CPU, merge 7.4 MB adapter, save ~1.0 GB fp32 safetensors"
+    },
+    "merge_equivalence_check_5_samples": {
+      "estimated_minutes": 8,
+      "basis": "two CPU model loads + 5 greedy generations each"
+    },
+    "gguf_q4_k_m": {
+      "estimated_minutes": 35,
+      "basis": "tool acquisition 15-20 min (if approved), convert+quantize 5-10 min, smoke 5 min",
+      "conditional": "requires llama.cpp binaries/convert script + gguf/sentencepiece packages"
+    },
+    "onnx_dynamic_quant": {
+      "estimated_minutes": 25,
+      "basis": "optimum export (may fail for Idefics3) + quantize_dynamic + session smoke",
+      "conditional": "requires optimum + onnx; export support unverified"
+    },
+    "torch_int8_dynamic": {
+      "estimated_minutes": 8,
+      "basis": "in-process torch.ao.quantization.quantize_dynamic on the text decoder, no export"
+    },
+    "gradio_demo_install_and_verify": {
+      "estimated_minutes": 20,
+      "basis": "pip install gradio (needs approval), launch, HTTP/API round-trip with a real image",
+      "conditional": "requires gradio install"
+    },
+    "official_deployment_eval_by_eval_closer": {
+      "estimated_minutes_per_1000_image_set": 40,
+      "basis": "CPU fp32 upper bound ~1.95 s/image measured on 20 samples; 1000 images ~32.5 min + load",
+      "note": "official Table 3/Table 1 +量化 numbers are produced by eval-closer, not by this package"
+    }
+  },
+  "risks": [
+    {
+      "id": "R1",
+      "risk": "llama.cpp conversion does not support SmolVLM/Idefics3 in the available release, or mmproj flags differ",
+      "probability": "medium",
+      "impact": "high (preferred route lost)",
+      "mitigation": "10-minute convert smoke first; record exact error; fall back to ONNX then torch-int8 then CPU fp32",
+      "owner": "deploy-runner"
+    },
+    {
+      "id": "R2",
+      "risk": "no llama.cpp binaries / cmake / MSVC compiler on the machine",
+      "probability": "high (confirmed missing)",
+      "impact": "high",
+      "mitigation": "unpack a prebuilt Windows CPU release (needs approval) or skip GGUF; do not silently claim 4-bit",
+      "owner": "Lead (download approval) + deploy-runner"
+    },
+    {
+      "id": "R3",
+      "risk": "ONNX export of Idefics3 via optimum fails under transformers 5.19",
+      "probability": "medium-high",
+      "impact": "medium",
+      "mitigation": "record blocked status; use torch INT8 dynamic quantization (real quantization, no export) as the next fallback",
+      "owner": "deploy-runner"
+    },
+    {
+      "id": "R4",
+      "risk": "the pre-existing ONNX files are the BASE model without our LoRA and could be mistaken for the deployed model",
+      "probability": "low (guarded in code)",
+      "impact": "high (scientific integrity)",
+      "mitigation": "inventory marks carries_project_lora=false; quantize route refuses to use them for Table rows",
+      "owner": "deploy-runner"
+    },
+    {
+      "id": "R5",
+      "risk": "CPU fp32 is NOT faster than the GPU bf16 baseline (prior CPU ~1.78-1.95 s/img vs measured GPU ~1.33 s/img)",
+      "probability": "high",
+      "impact": "medium (deployment story becomes size/memory, not speed)",
+      "mitigation": "report honestly as a negative result; 4-bit reduces size and enables CPU-only execution; do not fake a speed-up",
+      "owner": "deploy-runner + paper-scribe"
+    },
+    {
+      "id": "R6",
+      "risk": "gradio is missing and installing it needs a network download/approval",
+      "probability": "high (confirmed missing)",
+      "impact": "medium (T15 cannot be verified)",
+      "mitigation": "request approval; meanwhile deliver CLI predictor + annotated PNG fallback; never present an unlaunched UI as working",
+      "owner": "Lead (approval) + deploy-runner"
+    },
+    {
+      "id": "R7",
+      "risk": "adapters/merged is outside the current prep write scope",
+      "probability": "certain",
+      "impact": "low (execution blocker only)",
+      "mitigation": "Lead confirms T14 write scope before S1; prep writes nothing outside src/deploy, demo, results/deploy_*, adapters/quantized",
+      "owner": "Lead"
+    },
+    {
+      "id": "R8",
+      "risk": "deployment candidate is provisional (T12/KD not run; seed44 evaluation in flight)",
+      "probability": "certain",
+      "impact": "medium",
+      "mitigation": "label every artifact 'provisional sft_v1 seed42'; re-merge if the Lead freezes a different adapter",
+      "owner": "Lead"
+    },
+    {
+      "id": "R9",
+      "risk": "quantized CPU benchmark competes for CPU with an in-flight GPU evaluation driver",
+      "probability": "low",
+      "impact": "low",
+      "mitigation": "wait for the Lead's explicit 'evaluation finished' message before any model load or 50-image benchmark",
+      "owner": "Lead + deploy-runner"
+    },
+    {
+      "id": "R10",
+      "risk": "RAM/disk pressure: fp32 merge ~1.0 GB + GGUF f16 ~0.5 GB + ONNX/quantized copies",
+      "probability": "low (206 GB free measured)",
+      "impact": "low",
+      "mitigation": "record sizes/hashes; delete only clearly redundant intermediates after the report is written",
+      "owner": "deploy-runner"
+    }
+  ],
+  "claims": {
+    "merged_model_created": "not_run",
+    "quantized_model_created": "not_run",
+    "cpu_latency_measured": "not_run",
+    "gpu_latency_measured": "not_run",
+    "demo_launched": "not_run",
+    "demo_browser_verified": "not_run",
+    "official_deployment_metrics": "not_run (must be produced by eval-closer)",
+    "gpu_used_during_prep": false,
+    "model_loaded_during_prep": false,
+    "downloads_during_prep": false
+  },
+  "gaps": [
+    "llama.cpp toolchain absent -> GGUF route needs approval to download a prebuilt release or is blocked",
+    "gradio missing -> T15 demo cannot be launched until `pip install gradio` is approved",
+    "optimum/onnx missing -> ONNX fallback needs installation before it can be attempted",
+    "adapters/merged write scope not yet confirmed by the Lead",
+    "T12/KD not run -> deployment candidate is provisional sft_v1 seed42 adapter",
+    "seed44 independent evaluation in flight -> final model choice may change",
+    "no merged/quantized artifact exists yet; every deployment claim is not_run"
+  ],
+  "cpu_test_plan": {
+    "runner": "python -m src.deploy.run_cpu_tests",
+    "output": "results/deploy_cpu_tests.json",
+    "modules": [
+      "src.deploy.test_deploy_cpu",
+      "demo.test_demo_cpu"
+    ],
+    "constraints": [
+      "CUDA_VISIBLE_DEVICES='' so no CUDA context can be created",
+      "no model weights loaded, no torch/transformers import",
+      "no network, no download, no subprocess that trains"
+    ],
+    "covered": [
+      "plan schema, fallback order, positive estimates",
+      "environment detection uses importlib.metadata only (assert torch not imported)",
+      "adapter identity/hash checks against the real adapter",
+      "merge input validation + merged-directory verification on temp dirs",
+      "GGUF/ONNX/torch-int8 plan construction and blocked-route reasons",
+      "upstream ONNX inventory cannot carry LoRA",
+      "deterministic benchmark subset + latency statistics",
+      "box drawing and demo handler with a fake predictor",
+      "deploy_prep.json schema and honest not_run claims"
+    ],
+    "not_covered_here": [
+      "actual model load / merge / generate (needs the post-evaluation lease)",
+      "gradio UI launch (gradio not installed)",
+      "quantization conversion (llama.cpp/optimum missing)"
+    ]
+  },
+  "next_actions_for_lead": [
+    "release notification: tell deploy-runner when the in-flight evaluation ends",
+    "confirm write scope for adapters/merged (T14 execution)",
+    "approve `python -m pip install gradio` (~download) for T15",
+    "approve acquisition of a prebuilt llama.cpp Windows CPU release, or accept GGUF as blocked",
+    "decide whether the provisional sft_v1 seed42 adapter is the model to deploy or wait for KD/seed freeze"
+  ],
+  "output_path": "results/deploy_prep.json",
+  "written_at": "2026-11-11T14:32:05.171862+08:00"
+}

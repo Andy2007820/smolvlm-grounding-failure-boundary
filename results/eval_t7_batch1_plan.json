@@ -1,0 +1,195 @@
+{
+  "format": "eval-t7-batch1-plan-v1",
+  "task": {
+    "id": "task-24",
+    "subject": "T7-eval · B/C 坐标表示独立评测"
+  },
+  "created_at": "2026-11-10T01:49:41.642056+08:00",
+  "gpu_used": false,
+  "status": "cpu_prepared_waiting_training_and_lease",
+  "training_dependency": "T7 A/B/C training (adapters/sft_t7_b_bin1000, adapters/sft_t7_c_pixel) expected by about 04:30; A reuses existing T6 seed42 results.",
+  "variants": {
+    "A": {
+      "representation": "normalized_decimal",
+      "prompt_id": "p1",
+      "adapter": "adapters/sft_v1/adapter",
+      "reference_runs": {
+        "synthetic": {
+          "run_id": "sft_v1_s42_synthetic_v1",
+          "summary": "results/zeroshot_sft_v1_s42_synthetic_v1.json",
+          "validation": "results/eval_sft_v1_s42_synthetic_v1_validation.json"
+        },
+        "refcoco": {
+          "run_id": "sft_v1_s42_refcoco_v1",
+          "summary": "results/zeroshot_sft_v1_s42_refcoco_v1.json",
+          "validation": "results/eval_sft_v1_s42_refcoco_v1_validation.json"
+        }
+      },
+      "note": "A reuses the already-validated seed42 batch1 T6 results; no rerun."
+    },
+    "B": {
+      "representation": "bin1000_integer",
+      "prompt_id": "p1_bin1000",
+      "adapter": "adapters/sft_t7_b_bin1000/adapter",
+      "runs": {
+        "synthetic": {
+          "run_id": "t7_b_synthetic_v1",
+          "command": "python -m src.eval.run_zeroshot --run-id t7_b_synthetic_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_b_synthetic_v1.json --details-output results/eval_t7_b_synthetic_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_b_bin1000/adapter --prompt-id p1_bin1000 --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+          "output": "results/zeroshot_t7_b_synthetic_v1.json",
+          "details": "results/eval_t7_b_synthetic_v1_details.jsonl",
+          "validation": "results/eval_t7_b_synthetic_v1_validation.json",
+          "validation_command": "python -m src.eval.validate_results --result results/zeroshot_t7_b_synthetic_v1.json --report results/eval_t7_b_synthetic_v1_validation.json --expected-run-id t7_b_synthetic_v1 --expected-dataset synthetic --expected-split eval --expected-n 1000 --expected-adapter adapters/sft_t7_b_bin1000/adapter --expected-prompt-id p1_bin1000",
+          "gpu_log": "results/eval_t7_b_synthetic_v1_gpu.log",
+          "stdout_log": "results/eval_t7_b_synthetic_v1_stdout.log",
+          "stderr_log": "results/eval_t7_b_synthetic_v1_stderr.log"
+        },
+        "refcoco": {
+          "run_id": "t7_b_refcoco_v1",
+          "command": "python -m src.eval.run_zeroshot --run-id t7_b_refcoco_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_t7_b_refcoco_v1.json --details-output results/eval_t7_b_refcoco_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_b_bin1000/adapter --prompt-id p1_bin1000 --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+          "output": "results/zeroshot_t7_b_refcoco_v1.json",
+          "details": "results/eval_t7_b_refcoco_v1_details.jsonl",
+          "validation": "results/eval_t7_b_refcoco_v1_validation.json",
+          "validation_command": "python -m src.eval.validate_results --result results/zeroshot_t7_b_refcoco_v1.json --report results/eval_t7_b_refcoco_v1_validation.json --expected-run-id t7_b_refcoco_v1 --expected-dataset refcoco --expected-split val --expected-n 1000 --expected-adapter adapters/sft_t7_b_bin1000/adapter --expected-prompt-id p1_bin1000",
+          "gpu_log": "results/eval_t7_b_refcoco_v1_gpu.log",
+          "stdout_log": "results/eval_t7_b_refcoco_v1_stdout.log",
+          "stderr_log": "results/eval_t7_b_refcoco_v1_stderr.log"
+        }
+      },
+      "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933",
+      "adapter_config_sha256": "8c293eaf0d56f54138e7998d3ca5a18d33e37e8f2553480333f5bc2179227341",
+      "training": {
+        "run_id": "sft_t7_b_bin1000_s42",
+        "complete": true,
+        "step": 1250,
+        "samples_seen": 10000,
+        "seed": 42,
+        "training_seconds": 3709.221395399887
+      },
+      "cpu_evidence": {
+        "dryrun": "results/eval_t7_cpu_dryrun.json",
+        "e2e_validation": "results/eval_t7_b_cpu_e2e_validation.json",
+        "cpu_e2e_metrics": {
+          "acc@0.5": 0.05,
+          "mIoU": 0.14023610846279924,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "note": "CPU float32 plumbing test with the real B adapter; not an official GPU metric"
+      }
+    },
+    "C": {
+      "representation": "pixel_xyxy",
+      "prompt_id": "p1_pixel",
+      "adapter": "adapters/sft_t7_c_pixel/adapter",
+      "runs": {
+        "synthetic": {
+          "run_id": "t7_c_synthetic_v1",
+          "command": "python -m src.eval.run_zeroshot --run-id t7_c_synthetic_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_c_synthetic_v1.json --details-output results/eval_t7_c_synthetic_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_c_pixel/adapter --prompt-id p1_pixel --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+          "output": "results/zeroshot_t7_c_synthetic_v1.json",
+          "details": "results/eval_t7_c_synthetic_v1_details.jsonl",
+          "validation": "results/eval_t7_c_synthetic_v1_validation.json",
+          "validation_command": "python -m src.eval.validate_results --result results/zeroshot_t7_c_synthetic_v1.json --report results/eval_t7_c_synthetic_v1_validation.json --expected-run-id t7_c_synthetic_v1 --expected-dataset synthetic --expected-split eval --expected-n 1000 --expected-adapter adapters/sft_t7_c_pixel/adapter --expected-prompt-id p1_pixel",
+          "gpu_log": "results/eval_t7_c_synthetic_v1_gpu.log",
+          "stdout_log": "results/eval_t7_c_synthetic_v1_stdout.log",
+          "stderr_log": "results/eval_t7_c_synthetic_v1_stderr.log"
+        },
+        "refcoco": {
+          "run_id": "t7_c_refcoco_v1",
+          "command": "python -m src.eval.run_zeroshot --run-id t7_c_refcoco_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_t7_c_refcoco_v1.json --details-output results/eval_t7_c_refcoco_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_c_pixel/adapter --prompt-id p1_pixel --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+          "output": "results/zeroshot_t7_c_refcoco_v1.json",
+          "details": "results/eval_t7_c_refcoco_v1_details.jsonl",
+          "validation": "results/eval_t7_c_refcoco_v1_validation.json",
+          "validation_command": "python -m src.eval.validate_results --result results/zeroshot_t7_c_refcoco_v1.json --report results/eval_t7_c_refcoco_v1_validation.json --expected-run-id t7_c_refcoco_v1 --expected-dataset refcoco --expected-split val --expected-n 1000 --expected-adapter adapters/sft_t7_c_pixel/adapter --expected-prompt-id p1_pixel",
+          "gpu_log": "results/eval_t7_c_refcoco_v1_gpu.log",
+          "stdout_log": "results/eval_t7_c_refcoco_v1_stdout.log",
+          "stderr_log": "results/eval_t7_c_refcoco_v1_stderr.log"
+        }
+      },
+      "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+      "adapter_config_sha256": "f9bea9ea83b5a879aae0eecbe25d8e4d41de8a30883b66f2a3798f360db1f9e1",
+      "training": {
+        "run_id": "sft_t7_c_pixel_s42",
+        "complete": true,
+        "step": 1250,
+        "samples_seen": 10000,
+        "seed": 42,
+        "training_seconds": 3645.595650100149
+      },
+      "cpu_evidence": {
+        "dryrun": "results/eval_t7_cpu_dryrun.json",
+        "e2e_validation": "results/eval_t7_c_cpu_e2e_validation.json",
+        "cpu_e2e_metrics": {
+          "acc@0.5": 0.1,
+          "mIoU": 0.08154322127466049,
+          "parse_rate": 1.0,
+          "invalid": 0
+        }
+      }
+    }
+  },
+  "execution_order": [
+    "t7_b_synthetic_v1",
+    "t7_b_refcoco_v1",
+    "t7_c_synthetic_v1",
+    "t7_c_refcoco_v1",
+    "validations (4, CPU)",
+    "G4 summary + table"
+  ],
+  "fixed_contract": {
+    "n": 1000,
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len": 36,
+    "max_new_tokens": 64,
+    "seed": 42,
+    "do_sample": false,
+    "num_beams": 1,
+    "batch_size": 1,
+    "batch8": "permanently forbidden",
+    "prompt_ids": {
+      "A": "p1",
+      "B": "p1_bin1000",
+      "C": "p1_pixel"
+    }
+  },
+  "conversion_contract": {
+    "B": "frozen src.eval.grounding.parse_box integer/1000 branch unchanged",
+    "C": "src.eval.pixel_convert: independent bracket grammar -> finite-integer, bounds/order validation against width/height -> divide -> frozen iou/Score/metrics; parse_box never called",
+    "frozen_metrics_touched": false
+  },
+  "evidence": {
+    "cpu_tests": "results/eval_t7_variants_cpu_tests.json",
+    "cpu_dryrun": "results/eval_t7_cpu_dryrun.json",
+    "cpu_e2e_validations": [
+      "results/eval_t7_bin1000_cpu_e2e_validation.json",
+      "results/eval_t7_pixel_cpu_e2e_validation.json"
+    ]
+  },
+  "timing_estimate": {
+    "observed_batch1_rate_seconds_per_sample_range": [
+      1.3,
+      2.7
+    ],
+    "per_1000_run_minutes_range": [
+      22,
+      45
+    ],
+    "four_runs_minutes_range": [
+      88,
+      150
+    ],
+    "note": "request a single exclusive lease long enough for four sequential batch1 runs plus four CPU validations; stop after the current run if the lease deadline is reached"
+  },
+  "final_deliverables": {
+    "g4_summary": "results/eval_t7_g4_summary.json",
+    "g4_csv": "report/tables/table_g4_coordinate_variants.csv",
+    "g4_md": "report/tables/table_g4_coordinate_variants.md",
+    "scope": "single-seed pilot (A/B/C, seed42), not a 3-seed main table"
+  },
+  "notes": [
+    "B/C adapters do not exist yet; CPU dry-run of those exact adapter paths will be rerun before requesting the GPU lease.",
+    "A is the existing T6 seed42 batch1 result and is not regenerated.",
+    "Each B/C run gets its own validation report with --expected-prompt-id and --expected-adapter."
+  ],
+  "updated_at": "2026-11-10T04:00:33.780739+08:00"
+}

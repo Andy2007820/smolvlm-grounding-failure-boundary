@@ -1,0 +1,134 @@
+{
+  "format": "eval-t7-b-seeds43-44-plan-v1",
+  "created_at": "2026-11-10T06:53:19.012577+08:00",
+  "task": {
+    "id": "task-27",
+    "subject": "T7b · B(bin1000) 补 seed43/44"
+  },
+  "gpu_used": false,
+  "status": "cpu_plan_waiting_training_and_lease",
+  "dependency": {
+    "training_lease": "GPU-LEASE-T7BSEEDS-20261110-05 (train-runner, 06:55-09:05)",
+    "configs": [
+      "configs/t7_b_bin1000_s43.json",
+      "configs/t7_b_bin1000_s44.json"
+    ],
+    "expected_adapters": [
+      "adapters/sft_t7_b_bin1000_s43/adapter",
+      "adapters/sft_t7_b_bin1000_s44/adapter"
+    ],
+    "note": "wait for both adapters final, then CPU dry-run, then request a separate evaluation lease"
+  },
+  "fixed_contract": {
+    "prompt_id": "p1_bin1000",
+    "representation": "bin1000_integer",
+    "n": 1000,
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len": 36,
+    "max_new_tokens": 64,
+    "seed": 42,
+    "do_sample": false,
+    "num_beams": 1,
+    "batch_size": 1,
+    "batch8": "forbidden",
+    "expected_source": {
+      "synthetic": "synthetic",
+      "refcoco": "refcoco"
+    }
+  },
+  "runs": [
+    {
+      "seed": 43,
+      "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+      "dataset": "synthetic",
+      "split": "eval",
+      "run_id": "t7_b_s43_synthetic_v1",
+      "command": "python -m src.eval.run_zeroshot --run-id t7_b_s43_synthetic_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_b_s43_synthetic_v1.json --details-output results/eval_t7_b_s43_synthetic_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_b_bin1000_s43/adapter --prompt-id p1_bin1000 --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_t7_b_s43_synthetic_v1.json --report results/eval_t7_b_s43_synthetic_v1_validation.json --expected-run-id t7_b_s43_synthetic_v1 --expected-dataset synthetic --expected-split eval --expected-n 1000 --expected-adapter adapters/sft_t7_b_bin1000_s43/adapter --expected-prompt-id p1_bin1000",
+      "output": "results/zeroshot_t7_b_s43_synthetic_v1.json",
+      "details": "results/eval_t7_b_s43_synthetic_v1_details.jsonl",
+      "validation": "results/eval_t7_b_s43_synthetic_v1_validation.json",
+      "gpu_log": "results/eval_t7_b_s43_synthetic_v1_gpu.log",
+      "stdout_log": "results/eval_t7_b_s43_synthetic_v1_stdout.log",
+      "stderr_log": "results/eval_t7_b_s43_synthetic_v1_stderr.log"
+    },
+    {
+      "seed": 43,
+      "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+      "dataset": "refcoco",
+      "split": "val",
+      "run_id": "t7_b_s43_refcoco_v1",
+      "command": "python -m src.eval.run_zeroshot --run-id t7_b_s43_refcoco_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_t7_b_s43_refcoco_v1.json --details-output results/eval_t7_b_s43_refcoco_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_b_bin1000_s43/adapter --prompt-id p1_bin1000 --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_t7_b_s43_refcoco_v1.json --report results/eval_t7_b_s43_refcoco_v1_validation.json --expected-run-id t7_b_s43_refcoco_v1 --expected-dataset refcoco --expected-split val --expected-n 1000 --expected-adapter adapters/sft_t7_b_bin1000_s43/adapter --expected-prompt-id p1_bin1000",
+      "output": "results/zeroshot_t7_b_s43_refcoco_v1.json",
+      "details": "results/eval_t7_b_s43_refcoco_v1_details.jsonl",
+      "validation": "results/eval_t7_b_s43_refcoco_v1_validation.json",
+      "gpu_log": "results/eval_t7_b_s43_refcoco_v1_gpu.log",
+      "stdout_log": "results/eval_t7_b_s43_refcoco_v1_stdout.log",
+      "stderr_log": "results/eval_t7_b_s43_refcoco_v1_stderr.log"
+    },
+    {
+      "seed": 44,
+      "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+      "dataset": "synthetic",
+      "split": "eval",
+      "run_id": "t7_b_s44_synthetic_v1",
+      "command": "python -m src.eval.run_zeroshot --run-id t7_b_s44_synthetic_v1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_b_s44_synthetic_v1.json --details-output results/eval_t7_b_s44_synthetic_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_b_bin1000_s44/adapter --prompt-id p1_bin1000 --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_t7_b_s44_synthetic_v1.json --report results/eval_t7_b_s44_synthetic_v1_validation.json --expected-run-id t7_b_s44_synthetic_v1 --expected-dataset synthetic --expected-split eval --expected-n 1000 --expected-adapter adapters/sft_t7_b_bin1000_s44/adapter --expected-prompt-id p1_bin1000",
+      "output": "results/zeroshot_t7_b_s44_synthetic_v1.json",
+      "details": "results/eval_t7_b_s44_synthetic_v1_details.jsonl",
+      "validation": "results/eval_t7_b_s44_synthetic_v1_validation.json",
+      "gpu_log": "results/eval_t7_b_s44_synthetic_v1_gpu.log",
+      "stdout_log": "results/eval_t7_b_s44_synthetic_v1_stdout.log",
+      "stderr_log": "results/eval_t7_b_s44_synthetic_v1_stderr.log"
+    },
+    {
+      "seed": 44,
+      "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+      "dataset": "refcoco",
+      "split": "val",
+      "run_id": "t7_b_s44_refcoco_v1",
+      "command": "python -m src.eval.run_zeroshot --run-id t7_b_s44_refcoco_v1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_t7_b_s44_refcoco_v1.json --details-output results/eval_t7_b_s44_refcoco_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_b_bin1000_s44/adapter --prompt-id p1_bin1000 --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_t7_b_s44_refcoco_v1.json --report results/eval_t7_b_s44_refcoco_v1_validation.json --expected-run-id t7_b_s44_refcoco_v1 --expected-dataset refcoco --expected-split val --expected-n 1000 --expected-adapter adapters/sft_t7_b_bin1000_s44/adapter --expected-prompt-id p1_bin1000",
+      "output": "results/zeroshot_t7_b_s44_refcoco_v1.json",
+      "details": "results/eval_t7_b_s44_refcoco_v1_details.jsonl",
+      "validation": "results/eval_t7_b_s44_refcoco_v1_validation.json",
+      "gpu_log": "results/eval_t7_b_s44_refcoco_v1_gpu.log",
+      "stdout_log": "results/eval_t7_b_s44_refcoco_v1_stdout.log",
+      "stderr_log": "results/eval_t7_b_s44_refcoco_v1_stderr.log"
+    }
+  ],
+  "order": [
+    "t7_b_s43_synthetic_v1",
+    "t7_b_s43_refcoco_v1",
+    "t7_b_s44_synthetic_v1",
+    "t7_b_s44_refcoco_v1"
+  ],
+  "cpu_preparation_steps": [
+    "verify adapter identity (LORA r16/a32, base model path, is_trainable=false) and training_summary complete/step1250",
+    "dry-run both seeds x both datasets with --prompt-id p1_bin1000 (CPU only, no torch model load)",
+    "report adapter sha + dry-run evidence to Lead, then request the evaluation GPU lease"
+  ],
+  "timing_estimate": {
+    "measured_b_seed42_walls_seconds": {
+      "synthetic": 876.9,
+      "refcoco": 856.7
+    },
+    "four_runs_minutes_range": [
+      55,
+      70
+    ],
+    "lease_request_draft": {
+      "max_minutes": 75,
+      "window": "after training lease release (~09:05), e.g. 09:10-10:25"
+    }
+  },
+  "final_deliverables": {
+    "per_run": "summary + details + validation for four runs",
+    "g4_3seed_summary": "results/eval_t7_g4_summary_3seed.json",
+    "g4_3seed_csv": "report/tables/table_g4_coordinate_variants_3seed.csv",
+    "g4_3seed_md": "report/tables/table_g4_coordinate_variants_3seed.md",
+    "table2_note": "A: 3-seed mean±std (T6 s42/s43/s44 batch1); B: 3-seed mean±std after this plan; C: single-seed pilot (seed42)"
+  }
+}

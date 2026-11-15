@@ -1,0 +1,16 @@
+{
+  "run_id": "zeroshot_b0_refcoco_s42_v1",
+  "first25_total_seconds": 40.78583259996958,
+  "first25_samples_per_second": 0.612957941675528,
+  "first25_mean_seconds_per_sample": 1.6314333039987832,
+  "steady_samples_2_to_25_seconds": 23.725276399869472,
+  "steady_samples_per_second": 1.011579363523539,
+  "steady_mean_seconds_per_sample": 0.9885531833278947,
+  "first25_generated_tokens": 837,
+  "first25_parse_rate": 0.0,
+  "first25_invalid": 25,
+  "rows_at_measurement": 90,
+  "projected_remaining_seconds": 899.5833968283841,
+  "projected_remaining_minutes": 14.993056613806402,
+  "projected_finish_local": "2026-11-09T14:23:44.220822+08:00"
+}

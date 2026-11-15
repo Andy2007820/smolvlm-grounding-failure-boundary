@@ -1,0 +1,55 @@
+{
+  "run_id": "validation_t7_c_cpu_e2e",
+  "validated_run_id": "t7_c_cpu_e2e",
+  "dataset": "synthetic",
+  "split": "eval",
+  "n": 20,
+  "timestamp": "2026-11-10T04:00:33.750235+08:00",
+  "status": "passed",
+  "result_path": "results/zeroshot_t7_c_cpu_e2e.json",
+  "checks": {
+    "prompt_variant": {
+      "prompt_id": "p1_pixel",
+      "prompt_sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+      "prompt_sha256_matches": true,
+      "prompt_template_matches": true,
+      "representation": "pixel_xyxy",
+      "representation_matches": true,
+      "conversion_required": true
+    },
+    "adapter": {
+      "path": "adapters/sft_t7_c_pixel/adapter",
+      "expected_path": "adapters/sft_t7_c_pixel/adapter",
+      "path_matches": true,
+      "is_trainable": false,
+      "is_trainable_false": true,
+      "adapter_config_sha256": "f9bea9ea83b5a879aae0eecbe25d8e4d41de8a30883b66f2a3798f360db1f9e1",
+      "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+      "adapter_files_present": true,
+      "adapter_config_sha256_matches": true,
+      "adapter_model_sha256_matches": true
+    },
+    "details_rows": 20,
+    "recomputed_metrics": {
+      "acc@0.5": 0.1,
+      "mIoU": 0.08154322127466049,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "invalid_in_n_verified": true,
+    "raw_outputs_present": true,
+    "unique_detail_ids": 20,
+    "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+    "details_sha256": "8f816a9c1de144dc539bbb349807e3f4a06aa2ed46c9a0c0b816d3990eb69b58",
+    "recorded_source_sha256": {
+      "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+      "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+      "prompts.py": "57cab7f86584efc940bd40d8e85549cf993918ece87e3b75ace99eb4c53de0a5",
+      "pixel_convert.py": "4d6aa2295ea930f297c8b3cc8de53c9116c891341b2451ffef9b05d0e4c4bf9e",
+      "run_zeroshot.py": "8cfda8daef628477444bda5e162915186bedc05dc17ab88baebc7111d48df7a1"
+    },
+    "recorded_source_matches_current": true
+  },
+  "errors": [],
+  "gpu_used": false
+}

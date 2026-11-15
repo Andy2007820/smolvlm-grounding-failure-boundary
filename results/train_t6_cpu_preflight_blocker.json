@@ -1,0 +1,31 @@
+{
+  "run_id": "sft_v1_s43/sft_v1_s44 CPU preflight",
+  "stage": "CPU-only dry-run config validation, before any data/model processing or GPU launch",
+  "timestamp": "2026-11-09T18:11:41+08:00",
+  "root_cause": "src/train/config.py validate_config enforced seed == FIXED_SEED(42); the new multi-seed configs sft_v1_s43/sft_v1_s44 were rejected with ConfigError: seed must be 42, got 43/44",
+  "impact": {
+    "gpu_used": false,
+    "training_started": false,
+    "artifacts_contaminated": false,
+    "dry_run_plans_created_by_failed_attempt": false,
+    "details": "both dry-runs aborted in load_config before reading data; no adapters, checkpoints, logs/train JSONL, or results were produced by the failed attempt"
+  },
+  "fix": {
+    "code": "src/train/config.py: added ALLOWED_SEEDS=(42,43,44); validate_config accepts only these seeds while all other T5/T6 fixed contract checks remain unchanged",
+    "tests": "test_t5_cpu.py: tamper case seed changed 43->41; new test_19 validates s43/s44 configs differ only in seed/run_name/output/log and inherit the full fixed contract",
+    "verification": "both s43/s44 dry-runs then passed preflight (10000 records, 1250 steps, ID intersection 0, 36 placeholders); 19/19 CPU tests passed"
+  },
+  "evidence": [
+    "logs/train/sft_v1_s43_dryrun_attempt1_stderr.log",
+    "logs/train/sft_v1_s44_dryrun_attempt1_stderr.log",
+    "configs/sft_v1_s43.json",
+    "configs/sft_v1_s44.json",
+    "results/train_t6_dryrun_plan_s43.json",
+    "results/train_t6_dryrun_plan_s44.json",
+    "results/train_t5_cpu_tests.json",
+    "src/train/config.py",
+    "src/train/test_t5_cpu.py"
+  ],
+  "severity": "preflight blocker, resolved before GPU; no failed/negative training result",
+  "created_at": "2026-11-09T18:20:00+08:00"
+}

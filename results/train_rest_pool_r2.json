@@ -1,0 +1,91 @@
+{
+  "status": "completed",
+  "stage": "rest_pool_from_audit",
+  "tag": "r2",
+  "pool": {
+    "path": "data/rest/r2_pool.jsonl",
+    "records": 163,
+    "sha256": "70d94f0796475a000f79db069e6492ea0ec33790ed5160215fed5b0c798d4ff0"
+  },
+  "pool_schema": {
+    "fields": 8,
+    "raw_bbox": "derived_from_predicted_box_pixels_float",
+    "source": "rest (pipeline label required by configs/rest_r1.json data.train; origin datasets kept in by_dataset/audit)"
+  },
+  "pool_validation": {
+    "validator": "src.eval.dataset.validate_record",
+    "check_image": true,
+    "rows": 163,
+    "passed": 163,
+    "failed": 0,
+    "failures": [],
+    "all_passed": true
+  },
+  "design_deviation": [
+    {
+      "field": "raw_bbox",
+      "rule": "raw_bbox = predicted_box * [width, height] as float pixel coordinates",
+      "reason": "ReST pool rows are model predictions, not GT. The frozen contract requires answer == raw_bbox / (width, height); copying the GT raw_bbox would conflict with the supervised prediction and leak GT into the pool."
+    }
+  ],
+  "note": "Pool rebuilt offline from a sampling audit; no GPU used. Records are the model's own predictions (normalised box) that passed the tau filter. Trainer-ready eight-field rows.",
+  "audit": "data/rest/r2_pool_audit.jsonl",
+  "audit_sha256": "68c10ed7daff48f60c3b3cc218a23dcca4eb816b9b3ddc650231a86a485d204e",
+  "audit_rows": 4000,
+  "tau": 0.5,
+  "tau_sweep": {
+    "0.1": {
+      "pool_records": 1646,
+      "by_dataset": {
+        "refcoco": 1222,
+        "synthetic": 424
+      }
+    },
+    "0.25": {
+      "pool_records": 863,
+      "by_dataset": {
+        "refcoco": 682,
+        "synthetic": 181
+      }
+    },
+    "0.3": {
+      "pool_records": 658,
+      "by_dataset": {
+        "refcoco": 529,
+        "synthetic": 129
+      }
+    },
+    "0.5": {
+      "pool_records": 163,
+      "by_dataset": {
+        "refcoco": 135,
+        "synthetic": 28
+      }
+    },
+    "0.75": {
+      "pool_records": 11,
+      "by_dataset": {
+        "refcoco": 9,
+        "synthetic": 2
+      }
+    }
+  },
+  "pool_records": 163,
+  "by_dataset": {
+    "refcoco": {
+      "generations": 2000,
+      "accepted": 135,
+      "survival_rate": 0.0675,
+      "prompts_with_accept": 110
+    },
+    "synthetic": {
+      "generations": 2000,
+      "accepted": 28,
+      "survival_rate": 0.014,
+      "prompts_with_accept": 25
+    }
+  },
+  "prompts_total": 1000,
+  "prompts_with_accept": 135,
+  "generated_at": "2026-11-11T01:15:30.018945+08:00"
+}

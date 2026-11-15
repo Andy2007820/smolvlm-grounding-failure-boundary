@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "document": "results/deploy_demo_browser.json",
+  "task": "task-30 · T15b Gradio 浏览器确认",
+  "captured_at": "2026-11-10T10:54:19.648096+08:00",
+  "status": "passed_headless_browser_render",
+  "evidence_kind": "headless browser render + real-model HTTP/API round-trip; NOT human subjective confirmation",
+  "url": "http://127.0.0.1:7860",
+  "http": {
+    "status_before_stop": 200,
+    "html_bytes": 26247,
+    "probe_latency_ms": 54,
+    "probe_at": "2026-11-10T10:53:49+08:00",
+    "title_in_page": "SmolVLM-256M 指代定位演示",
+    "no_error_banner_observed": true
+  },
+  "server": {
+    "pid": 37492,
+    "parent_pid": 47228,
+    "job_id": "pwsh-e1324b400a964ff7",
+    "started_at": "2026-11-10T10:52:09+08:00",
+    "startup_to_http_ready_seconds": 11.0,
+    "stopped_at": "2026-11-10T10:53:53+08:00",
+    "stop_command": "Stop-Process -Id 37492 -Force",
+    "engine": "hf-cpu",
+    "is_fake_predictor": false,
+    "gradio_version": "6.31.0",
+    "pythonpath": ".cache/deploy_pkgs",
+    "cpu_threads_env": {
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2"
+    },
+    "model_artifact": "adapters/merged/sft_v1_merged",
+    "model_safetensors_sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2",
+    "model_safetensors_bytes": 1025998224,
+    "model_label": "provisional_seed42 (T6 SFT seed42 adapter, merged fp32; not KD-final)"
+  },
+  "screenshot": {
+    "path": "demo/artifacts/demo_browser_20261110.png",
+    "bytes": 47037,
+    "sha256": "c0c53ac76fd14b1a98edbc30a46f00114cacd3f6d264d2ad5356b35f49e4b2d3",
+    "lead_reported_sha256": "C0C53AC76FD14B1A98EDBC30A46F00114CACD3F6D264D2AD5356B35F49E4B2D3",
+    "sha256_matches_lead_report": true,
+    "dimensions": {
+      "width": 1280,
+      "height": 900
+    },
+    "mtime": "2026-11-10T10:53:14.361320+08:00",
+    "captured_by": "Lead (Edge headless)",
+    "edge_command": "not_captured_in_handoff_message",
+    "edge_command_reconstructed_example": "msedge.exe --headless=new --disable-gpu --window-size=1280,900 --screenshot=\"demo\\artifacts\\demo_browser_20261110.png\" http://127.0.0.1:7860/",
+    "edge_note": "Lead reported Edge headless succeeded but required danger-full-access because of the mojo/named-pipe sandbox restriction; exact argv was not included in the hand-off message and is requested for verbatim recording."
+  },
+  "render_observation": {
+    "reported_by_lead": [
+      "页面显示标题",
+      "引擎 hf-cpu",
+      "模型 adapters/merged/sft_v1_merged",
+      "上传框",
+      "指代表达输入框",
+      "定位按钮",
+      "Examples 示例区",
+      "无报错"
+    ],
+    "verified_by_agent_image_read": [
+      "标题: SmolVLM-256M 指代定位演示（T15）",
+      "引擎: hf-cpu",
+      "模型: adapters/merged/sft_v1_merged",
+      "推理契约: prompt p1 / image_size 384 / no-split / image_seq_len 36 / max_new_tokens 64 / greedy",
+      "解析器: src.eval.grounding.parse_box_with_error（与独立评测器一致）",
+      "上传区、指代表达输入框（占位 the red cup）、定位按钮、Examples（the purple triangle / the yellow diamond above the red pentagon）均正常渲染",
+      "页面无错误横幅/异常文本"
+    ],
+    "screenshot_scope": "initial page render; no prediction was executed inside the browser during the screenshot"
+  },
+  "model_inference_evidence": {
+    "source": "results/deploy_demo_smoke.json",
+    "note": "real merged model, HTTP 200 + gradio_client API round-trip (is_fake_predictor=false), returned normalized box [0.4000, 0.3500, 0.6100, 0.5500] identical to the fp32 50-image benchmark; screenshot itself only proves page rendering"
+  },
+  "limitations": [
+    "This is a headless browser render plus API round-trip, not a human subjective confirmation.",
+    "The screenshot captures the initial page; the model prediction evidence comes from deploy_demo_smoke.json.",
+    "Gradio was installed in the workspace-local .cache/deploy_pkgs (not the project Python environment); PYTHONPATH is required to reproduce."
+  ],
+  "post_stop": {
+    "pid_37492_alive": false,
+    "port_7860_listener": false,
+    "http_after_stop": "connection failed (expected)"
+  },
+  "task29_note": "The task-29 CPU evaluation processes (PID 42320/54852) were not touched; no GPU was used by task-30."
+}

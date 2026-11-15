@@ -1,0 +1,175 @@
+{
+  "run_id": "screenspot_sft_s43_v1",
+  "model": "SmolVLM-256M-Instruct",
+  "adapter": "adapters/sft_v1_s43/adapter",
+  "dataset": "screenspot",
+  "split": "test",
+  "n": 1272,
+  "batch_size": 1,
+  "prompt_id": "p1",
+  "representation": "normalized_decimal",
+  "metrics": {
+    "acc@0.5": 0.0,
+    "mIoU": 0.0173761340058079,
+    "parse_rate": 0.9968553459119497,
+    "invalid": 4
+  },
+  "config": {
+    "image_size": 384,
+    "max_new_tokens": 64,
+    "batch_size": 1,
+    "prompt_id": "p1",
+    "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+    "prompt_template": "Locate the object described below in the image.\nDescription: {question}\nAnswer with the bounding box as normalized coordinates [x1, y1, x2, y2], each between 0 and 1.",
+    "representation": "normalized_decimal",
+    "coordinate_conversion": {
+      "applied": false,
+      "rule": "frozen parse_box path unchanged"
+    },
+    "seed": 42,
+    "do_sample": false,
+    "num_beams": 1,
+    "decoding": "deterministic_greedy",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "do_image_splitting": false,
+    "vision_patch_size": 16,
+    "vision_scale_factor": 4,
+    "image_seq_len": 36,
+    "image_processor_size": {
+      "longest_edge": 384
+    },
+    "image_processor_max_image_size": {
+      "longest_edge": 384
+    },
+    "model_path": "models/SmolVLM-256M-Instruct",
+    "model_files": {
+      "model.safetensors": {
+        "sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "bytes": 513028808
+      },
+      "config.json": {
+        "sha256": "b70fb4bfde88df9eeebc9d8ff523733b8bf70d6c9b06c610325960e06ae9db52",
+        "bytes": 7353
+      },
+      "generation_config.json": {
+        "sha256": "067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636",
+        "bytes": 136
+      },
+      "preprocessor_config.json": {
+        "sha256": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7",
+        "bytes": 486
+      },
+      "processor_config.json": {
+        "sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+        "bytes": 68
+      },
+      "chat_template.json": {
+        "sha256": "a68ad1a42681ae44eacd109ff8dd56a840f761c03d72f4ff4c515d092f882168",
+        "bytes": 429
+      },
+      "tokenizer.json": {
+        "sha256": "5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a",
+        "bytes": 3548256
+      }
+    },
+    "adapter": {
+      "path": "adapters/sft_v1_s43/adapter",
+      "adapter_config_sha256": "119d511452442a063d8382fd3588d3637111a2532a643c5f0a10d21f0c328a5c",
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+      "adapter_model_bytes": 7407008,
+      "peft_type": "LORA",
+      "task_type": "CAUSAL_LM",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "base_model_name_or_path": "D:\\Deepseek Harness\\final-project\\models\\SmolVLM-256M-Instruct",
+      "peft_version": "0.21.2",
+      "is_trainable": false
+    },
+    "dataset_path": "data/screenspot.jsonl",
+    "dataset_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+    "selected_ids_sha256": "1a3b019c214232b7510f962039ee11f1d1457c35ebd3c3dcc71b58896e01db82",
+    "source_sha256": {
+      "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+      "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+      "prompts.py": "57cab7f86584efc940bd40d8e85549cf993918ece87e3b75ace99eb4c53de0a5",
+      "pixel_convert.py": "4d6aa2295ea930f297c8b3cc8de53c9116c891341b2451ffef9b05d0e4c4bf9e",
+      "run_zeroshot.py": "8cfda8daef628477444bda5e162915186bedc05dc17ab88baebc7111d48df7a1"
+    },
+    "local_files_only": true,
+    "config_fingerprint": "20a26f7a9381df222ed97d285b3da2c6606452a16035ab2d69993fd700ec90e6"
+  },
+  "git_commit": "ab8b1cc3eac0eefaac5f0fa39d9ce518a4ca2eb1",
+  "git_commit_status": "available",
+  "timestamp": "2026-11-10T06:21:48.990886+08:00",
+  "status": "completed",
+  "details_path": "results/eval_screenspot_sft_s43_v1_details.jsonl",
+  "details_sha256": "bc1fed17e4738f278717c1e067202d1cfabed7b172fbe99243156dc013701d02",
+  "details_rows": 1272,
+  "model_class": "PeftModelForCausalLM",
+  "adapter_load": {
+    "loaded": true,
+    "is_trainable": false,
+    "torch_device": "cuda",
+    "lora_module_count": 120,
+    "trainable_parameter_count": 0,
+    "base_model_class": "Idefics3ForConditionalGeneration",
+    "wrapped_model_class": "PeftModelForCausalLM",
+    "adapter_metadata": {
+      "path": "adapters/sft_v1_s43/adapter",
+      "adapter_config_sha256": "119d511452442a063d8382fd3588d3637111a2532a643c5f0a10d21f0c328a5c",
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+      "adapter_model_bytes": 7407008,
+      "peft_type": "LORA",
+      "task_type": "CAUSAL_LM",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "base_model_name_or_path": "D:\\Deepseek Harness\\final-project\\models\\SmolVLM-256M-Instruct",
+      "peft_version": "0.21.2",
+      "is_trainable": false
+    }
+  },
+  "batch_contract": {
+    "batch_size": 1,
+    "left_padding": false,
+    "generated_start_index": "padded input length",
+    "per_sample_prompt_length": "attention mask sum",
+    "eos_trim_inclusive": false,
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64
+  },
+  "coordinate_contract": {
+    "prompt_id": "p1",
+    "representation": "normalized_decimal",
+    "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+    "conversion_required": false,
+    "conversion_rule": "frozen parse_box path unchanged",
+    "frozen_metric_code_unchanged": true,
+    "invalid_predictions_remain_in_n": true
+  },
+  "aggregate_contract": "invalid predictions remain in n; Acc@0.5 uses IoU>=0.5; invalid IoU=0; mIoU and parse_rate use n",
+  "ground_truth_contract": "data/GT errors abort with dataset/split/id; synthetic occlusion boxes are pre-occlusion full-object GT",
+  "environment": {
+    "python": "3.14.8",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU"
+  },
+  "runtime": {
+    "started_at": "2026-11-10T05:52:22.712550+08:00",
+    "finished_at": "2026-11-10T06:21:48.990850+08:00",
+    "elapsed_seconds_including_load": 1766.2783319998998,
+    "nvidia_smi_memory_before_mib": 1110,
+    "nvidia_smi_memory_after_model_load_mib": 1755,
+    "nvidia_smi_memory_after_generation_mib": 1792,
+    "torch_peak_memory_allocated_mib": 528.7666015625,
+    "torch_peak_memory_reserved_mib": 554.0,
+    "nvidia_smi_memory_after_cleanup_mib": 1260,
+    "post_process_exit_check": "recorded by the calling shell, not claimed by this in-process value",
+    "timing_caveat": "Diagnostic single-run wall time, not the Table 3 warmed latency benchmark."
+  }
+}

@@ -1,0 +1,803 @@
+{
+  "dataset": "refcoco",
+  "generated_at": "2026-11-09T04:30:18.218616+00:00",
+  "elapsed_seconds": 2282.4687147000805,
+  "source": {
+    "repo_id": "jxu124/refcoco",
+    "repo_url": "https://huggingface.co/datasets/jxu124/refcoco",
+    "mirror_url": "https://hf-mirror.com/datasets/jxu124/refcoco",
+    "revision": "9fba8200c5326e996f789191f095bd464ef1d09e",
+    "files": {
+      "train": {
+        "path": "data/raw/refcoco/jxu124/data/train-00000-of-00001-94431d5f4bd5b93f.parquet",
+        "source_file": "data/train-00000-of-00001-94431d5f4bd5b93f.parquet",
+        "bytes": 32969552,
+        "sha256": "66ff9a728b7ee45b8a2d72061d244685a75ba4c90956e0640b0165e71cd5afaa",
+        "rows": 42404,
+        "schema_fields": [
+          "sent_ids",
+          "file_name",
+          "ann_id",
+          "ref_id",
+          "image_id",
+          "split",
+          "sentences",
+          "category_id",
+          "raw_anns",
+          "raw_image_info",
+          "raw_sentences",
+          "image_path",
+          "bbox",
+          "captions",
+          "global_image_id",
+          "anns_id"
+        ],
+        "arrow_schema": "sent_ids: list<item: int64>\n  child 0, item: int64\nfile_name: string\nann_id: int64\nref_id: int64\nimage_id: int64\nsplit: string\nsentences: list<item: struct<raw: string, sent: string, sent_id: int64, tokens: list<item: string>>>\n  child 0, item: struct<raw: string, sent: string, sent_id: int64, tokens: list<item: string>>\n      child 0, raw: string\n      child 1, sent: string\n      child 2, sent_id: int64\n      child 3, tokens: list<item: string>\n          child 0, item: string\ncategory_id: int64\nraw_anns: string\nraw_image_info: string\nraw_sentences: string\nimage_path: string\nbbox: list<item: double>\n  child 0, item: double\ncaptions: list<item: string>\n  child 0, item: string\nglobal_image_id: string\nanns_id: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"sent_ids\": {\"feature\": {\"dtype\": \"i' + 1082"
+      },
+      "val": {
+        "path": "data/raw/refcoco/jxu124/data/validation-00000-of-00001-bfeafdc84ca37aa2.parquet",
+        "source_file": "data/validation-00000-of-00001-bfeafdc84ca37aa2.parquet",
+        "bytes": 2998472,
+        "sha256": "df03b1b16873f92727f3df010afb3c7260e8396a86592d3c4fee053daca08c05",
+        "rows": 3811,
+        "schema_fields": [
+          "sent_ids",
+          "file_name",
+          "ann_id",
+          "ref_id",
+          "image_id",
+          "split",
+          "sentences",
+          "category_id",
+          "raw_anns",
+          "raw_image_info",
+          "raw_sentences",
+          "image_path",
+          "bbox",
+          "captions",
+          "global_image_id",
+          "anns_id"
+        ],
+        "arrow_schema": "sent_ids: list<item: int64>\n  child 0, item: int64\nfile_name: string\nann_id: int64\nref_id: int64\nimage_id: int64\nsplit: string\nsentences: list<item: struct<raw: string, sent: string, sent_id: int64, tokens: list<item: string>>>\n  child 0, item: struct<raw: string, sent: string, sent_id: int64, tokens: list<item: string>>\n      child 0, raw: string\n      child 1, sent: string\n      child 2, sent_id: int64\n      child 3, tokens: list<item: string>\n          child 0, item: string\ncategory_id: int64\nraw_anns: string\nraw_image_info: string\nraw_sentences: string\nimage_path: string\nbbox: list<item: double>\n  child 0, item: double\ncaptions: list<item: string>\n  child 0, item: string\nglobal_image_id: string\nanns_id: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"sent_ids\": {\"feature\": {\"dtype\": \"i' + 1082"
+      }
+    },
+    "image_url_pattern": "http://images.cocodataset.org/{train2014|val2014}/{raw_image_info.file_name}"
+  },
+  "config": {
+    "train_size": 5000,
+    "val_size": 1000,
+    "seed": 42,
+    "workers": 4,
+    "selection_algorithm": "refcoco-image-disjoint-v1",
+    "one_expression_per_ref": true,
+    "train_excludes_all_official_val_image_ids": true,
+    "selection_download_rounds": 2
+  },
+  "candidate_processing": {
+    "train_source_rows": 42404,
+    "val_source_rows": 3811,
+    "train_valid_candidates_before_val_image_exclusion": 42404,
+    "train_candidates_excluded_by_official_val_images": 0,
+    "train_valid_candidates_after_val_image_exclusion": 42404,
+    "val_valid_candidates": 3811,
+    "train_invalid_or_skipped": {},
+    "val_invalid_or_skipped": {}
+  },
+  "splits": {
+    "train": {
+      "records": 5000,
+      "unique_images": 4439,
+      "unique_ref_ids": 5000,
+      "unique_sent_ids": 5000,
+      "unique_ann_ids": 5000,
+      "expression_word_count": {
+        "min": 1,
+        "max": 27,
+        "mean": 3.5414,
+        "median": 3.0
+      },
+      "expression_char_count": {
+        "min": 2,
+        "max": 137,
+        "mean": 17.9594,
+        "median": 15.0
+      },
+      "duplicate_question_text_records": 1048,
+      "normalized_bbox_area": {
+        "min": 0.0330447770095028,
+        "max": 0.99739583,
+        "mean": 0.2063716645907371,
+        "median": 0.1563485944866146
+      },
+      "normalized_bbox_width": {
+        "min": 0.049250000000000016,
+        "max": 1.0,
+        "mean": 0.358302339234,
+        "median": 0.31337405999999995
+      },
+      "normalized_bbox_height": {
+        "min": 0.09664062000000001,
+        "max": 1.0,
+        "mean": 0.5585080057240001,
+        "median": 0.54705194
+      },
+      "normalized_bbox_area_histogram": {
+        "edges": [
+          0.0,
+          0.01,
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "counts": [
+          0,
+          88,
+          1213,
+          2385,
+          1020,
+          222,
+          72
+        ]
+      },
+      "bbox_clipped_record_count": 0,
+      "top_level_bbox_mismatch_over_0_05px_count": 0
+    },
+    "val": {
+      "records": 1000,
+      "unique_images": 777,
+      "unique_ref_ids": 1000,
+      "unique_sent_ids": 1000,
+      "unique_ann_ids": 1000,
+      "expression_word_count": {
+        "min": 1,
+        "max": 15,
+        "mean": 3.616,
+        "median": 3.0
+      },
+      "expression_char_count": {
+        "min": 2,
+        "max": 78,
+        "mean": 18.376,
+        "median": 16.0
+      },
+      "duplicate_question_text_records": 114,
+      "normalized_bbox_area": {
+        "min": 0.0325353296424324,
+        "max": 0.99791498,
+        "mean": 0.2040457996270417,
+        "median": 0.15313757167070208
+      },
+      "normalized_bbox_width": {
+        "min": 0.09349999999999997,
+        "max": 1.0,
+        "mean": 0.35271938222,
+        "median": 0.310210935
+      },
+      "normalized_bbox_height": {
+        "min": 0.08933007000000004,
+        "max": 1.0,
+        "mean": 0.55682764909,
+        "median": 0.5436197899999999
+      },
+      "normalized_bbox_area_histogram": {
+        "edges": [
+          0.0,
+          0.01,
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "counts": [
+          0,
+          28,
+          258,
+          446,
+          216,
+          40,
+          12
+        ]
+      },
+      "bbox_clipped_record_count": 0,
+      "top_level_bbox_mismatch_over_0_05px_count": 0
+    }
+  },
+  "quality_checks": {
+    "train_duplicate_id_count": 0,
+    "val_duplicate_id_count": 0,
+    "train_duplicate_source_record_count": 0,
+    "val_duplicate_source_record_count": 0,
+    "train_duplicate_image_ann_question_count": 0,
+    "val_duplicate_image_ann_question_count": 0,
+    "train_val_id_intersection_count": 0,
+    "train_val_sent_id_intersection_count": 0,
+    "train_val_ref_id_intersection_count": 0,
+    "train_val_image_id_intersection_count": 0,
+    "train_val_image_path_intersection_count": 0,
+    "train_val_exact_image_ann_question_intersection_count": 0,
+    "train_missing_image_count": 0,
+    "val_missing_image_count": 0,
+    "train_image_dimension_mismatch_count": 0,
+    "val_image_dimension_mismatch_count": 0,
+    "train_invalid_answer_count": 0,
+    "val_invalid_answer_count": 0
+  },
+  "downloads": {
+    "final_unique_images": 5216,
+    "network_download_result_count": 5216,
+    "cached_result_count": 5202,
+    "network_bytes_downloaded": 908364722,
+    "failed_image_result_count": 15,
+    "download_log": "data/raw/refcoco/download_log.jsonl",
+    "download_failures": "data/raw/refcoco/download_failures.jsonl",
+    "result_status_counts": {
+      "cached": 5202,
+      "downloaded": 5216,
+      "failed": 15
+    },
+    "http_attempt_count_excluding_cache_hits": 5281,
+    "retry_attempt_count_after_first_attempt": 50,
+    "result_with_retry_count": 25,
+    "successful_download_with_retry_count": 10,
+    "failed_after_retries_result_count": 15,
+    "final_selected_unique_image_count": 5216,
+    "final_selected_missing_image_count": 0,
+    "final_selected_missing_images": [],
+    "failure_semantics": "failed results are historical attempts; deterministic replacement rounds exclude those images. Final missing count must be zero."
+  },
+  "outputs": {
+    "refcoco_train.jsonl": {
+      "bytes": 1440026,
+      "sha256": "95dda7c3a6a1ab555cec0c8e6fff48fb0adf2c16200371a2bfa6ec97b1a58137"
+    },
+    "refcoco_val.jsonl": {
+      "bytes": 286845,
+      "sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316"
+    }
+  },
+  "qa": {
+    "samples_per_split": 10,
+    "sample_manifest": "data/qa/refcoco/sample_manifest.json",
+    "train_contact_sheet": "data/qa/refcoco/train_contact_sheet.png",
+    "val_contact_sheet": "data/qa/refcoco/val_contact_sheet.png",
+    "sample_count": 20,
+    "visual_review": {
+      "status": "passed",
+      "reviewed_at": "2026-11-09T04:32:55.315852+00:00",
+      "reviewer": "data-engineer; vision-assisted inspection through the configured fallback vision model (not a human review)",
+      "notes": "Reviewed both 10-sample contact sheets and individually rechecked five ambiguous or occluded cases. No xywh/xyxy swap, coordinate flip, image-size mismatch, or normalization error was observed. Source COCO visible-region and occlusion boxes were not relabeled; this is vision-assisted review, not human annotation.",
+      "sample_count": 20,
+      "contact_sheets": [
+        "data/qa/refcoco/train_contact_sheet.png",
+        "data/qa/refcoco/val_contact_sheet.png"
+      ],
+      "review_type": "vision-assisted overlay review; contact sheets remain available for independent human inspection"
+    }
+  },
+  "synthetic": {
+    "dataset": "synthetic",
+    "generator_version": "synthetic-grounding-v2",
+    "derived_from": "hw6_rsi_localize.py draw_scene/render/make_dataset; extended without importing torch",
+    "generated_at": "2026-11-09T04:49:33.376687+00:00",
+    "elapsed_seconds": 73.69866140000522,
+    "config": {
+      "seed": 42,
+      "train_split_seed": 42,
+      "eval_split_seed": 43,
+      "train_size": 5000,
+      "eval_size": 1000,
+      "colors": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange"
+      ],
+      "shapes": [
+        "circle",
+        "square",
+        "triangle",
+        "diamond",
+        "pentagon"
+      ],
+      "resolutions": [
+        [
+          256,
+          256
+        ],
+        [
+          320,
+          320
+        ],
+        [
+          384,
+          384
+        ],
+        [
+          448,
+          448
+        ],
+        [
+          512,
+          512
+        ],
+        [
+          320,
+          256
+        ],
+        [
+          384,
+          256
+        ],
+        [
+          448,
+          320
+        ],
+        [
+          512,
+          384
+        ],
+        [
+          256,
+          320
+        ],
+        [
+          320,
+          384
+        ],
+        [
+          384,
+          512
+        ]
+      ],
+      "object_count": "1 with 8% probability in non-occlusion scenes, otherwise 2-6",
+      "occlusion": "every third sample requests a target with 55%-90% visible area; exact mask visibility recorded",
+      "question_uniqueness": "at most one object per color/shape combination per scene"
+    },
+    "splits": {
+      "train": {
+        "records": 5000,
+        "unique_images": 5000,
+        "resolution_counts": {
+          "256x256": 430,
+          "256x320": 408,
+          "320x256": 432,
+          "320x320": 416,
+          "320x384": 390,
+          "384x256": 417,
+          "384x384": 389,
+          "384x512": 423,
+          "448x320": 450,
+          "448x448": 404,
+          "512x384": 420,
+          "512x512": 421
+        },
+        "object_count_distribution": {
+          "1": 256,
+          "2": 1014,
+          "3": 937,
+          "4": 944,
+          "5": 995,
+          "6": 854
+        },
+        "target_shape_counts": {
+          "circle": 1056,
+          "diamond": 935,
+          "pentagon": 1022,
+          "square": 1029,
+          "triangle": 958
+        },
+        "target_color_counts": {
+          "blue": 804,
+          "green": 888,
+          "orange": 818,
+          "purple": 794,
+          "red": 846,
+          "yellow": 850
+        },
+        "question_template_counts": {
+          "color_shape": 2590,
+          "occlusion": 81,
+          "quadrant": 1035,
+          "relation": 816,
+          "relative_size": 478
+        },
+        "requested_target_occlusion_count": 1667,
+        "target_at_least_10pct_occluded_count": 2001,
+        "target_fully_visible_count": 2736,
+        "target_visible_fraction": {
+          "min": 0.5500177999288003,
+          "max": 1.0,
+          "mean": 0.8876988309588167,
+          "median": 1.0
+        },
+        "normalized_bbox_area": {
+          "min": 0.010416666249999998,
+          "max": 0.11111111222222221,
+          "mean": 0.049743264897918166,
+          "median": 0.046875
+        },
+        "expression_word_count": {
+          "min": 3,
+          "max": 10,
+          "mean": 4.8986,
+          "median": 3.0
+        },
+        "image_bytes_total": 12147032
+      },
+      "eval": {
+        "records": 1000,
+        "unique_images": 1000,
+        "resolution_counts": {
+          "256x256": 75,
+          "256x320": 79,
+          "320x256": 93,
+          "320x320": 79,
+          "320x384": 81,
+          "384x256": 89,
+          "384x384": 96,
+          "384x512": 86,
+          "448x320": 82,
+          "448x448": 68,
+          "512x384": 80,
+          "512x512": 92
+        },
+        "object_count_distribution": {
+          "1": 51,
+          "2": 189,
+          "3": 218,
+          "4": 201,
+          "5": 154,
+          "6": 187
+        },
+        "target_shape_counts": {
+          "circle": 216,
+          "diamond": 191,
+          "pentagon": 195,
+          "square": 208,
+          "triangle": 190
+        },
+        "target_color_counts": {
+          "blue": 164,
+          "green": 180,
+          "orange": 166,
+          "purple": 164,
+          "red": 163,
+          "yellow": 163
+        },
+        "question_template_counts": {
+          "color_shape": 534,
+          "occlusion": 19,
+          "quadrant": 184,
+          "relation": 173,
+          "relative_size": 90
+        },
+        "requested_target_occlusion_count": 334,
+        "target_at_least_10pct_occluded_count": 411,
+        "target_fully_visible_count": 543,
+        "target_visible_fraction": {
+          "min": 0.550125313283208,
+          "max": 1.0,
+          "mean": 0.8847386732267266,
+          "median": 1.0
+        },
+        "normalized_bbox_area": {
+          "min": 0.011077880859375,
+          "max": 0.11111111555555563,
+          "mean": 0.049134089771305685,
+          "median": 0.04515625000000001
+        },
+        "expression_word_count": {
+          "min": 3,
+          "max": 10,
+          "mean": 4.849,
+          "median": 3.0
+        },
+        "image_bytes_total": 2414459
+      }
+    },
+    "generation_counters": {
+      "train": {
+        "attempts": 7392,
+        "generated": 5000,
+        "occlusion_or_visibility_rejections": 2392
+      },
+      "eval": {
+        "attempts": 1443,
+        "generated": 1000,
+        "occlusion_or_visibility_rejections": 443
+      }
+    },
+    "quality_checks": {
+      "train_eval_id_intersection_count": 0,
+      "train_eval_image_intersection_count": 0,
+      "train_eval_scene_signature_intersection_count": 0,
+      "train_eval_image_sha256_intersection_count": 0,
+      "train_duplicate_id_count": 0,
+      "eval_duplicate_id_count": 0,
+      "train_duplicate_scene_signature_count": 0,
+      "eval_duplicate_scene_signature_count": 0
+    },
+    "outputs": {
+      "synthetic_train.jsonl": {
+        "bytes": 1412769,
+        "sha256": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88"
+      },
+      "synthetic_eval.jsonl": {
+        "bytes": 279387,
+        "sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854"
+      }
+    },
+    "qa": {
+      "samples_per_split": 10,
+      "sample_count": 20,
+      "sample_manifest": "data/qa/synthetic/sample_manifest.json",
+      "train_contact_sheet": "data/qa/synthetic/train_contact_sheet.png",
+      "eval_contact_sheet": "data/qa/synthetic/eval_contact_sheet.png",
+      "visual_review": "passed",
+      "review": {
+        "status": "passed",
+        "reviewed_at": "2026-11-09T04:51:47.080048+00:00",
+        "reviewer": "data-engineer; vision-assisted inspection through the configured fallback vision model (not a human review)",
+        "notes": "Reviewed both final 10-sample contact sheets and individually rechecked three heavily overlapping scenes. Boxes matched the referred full-drawn objects; partially occluded targets intentionally retain their complete pre-occlusion GT boxes. No coordinate swap, scale error, shape/color mismatch, or image-size mismatch was observed. Vision-assisted review, not human relabeling.",
+        "sample_count": 20,
+        "contact_sheets": [
+          "data/qa/synthetic/train_contact_sheet.png",
+          "data/qa/synthetic/eval_contact_sheet.png"
+        ],
+        "review_type": "vision-assisted overlay review; contact sheets remain available for independent human inspection"
+      }
+    }
+  },
+  "screenspot": {
+    "dataset": "screenspot",
+    "generated_at": "2026-11-09T05:04:09.711657+00:00",
+    "elapsed_seconds": 42.94997980003245,
+    "source": {
+      "repo_id": "bevaya/ScreenSpot",
+      "revision": "0be08781e2e188582f6131625ae1598d443b4d5d",
+      "split": "test_only",
+      "repo_url": "https://huggingface.co/datasets/bevaya/ScreenSpot",
+      "mirror_url": "https://hf-mirror.com/datasets/bevaya/ScreenSpot",
+      "bbox_semantics": "source bbox is normalized [x1,y1,x2,y2]; verified on pinned Parquet and probe images",
+      "files": [
+        {
+          "file": "data/test-00000-of-00003.parquet",
+          "expected_bytes": 134512659,
+          "expected_sha256": "ff06d312270eecc9d9ac968a51ceb0bc54f80cfda691ccccb8ebf4b4e5faa8fb",
+          "status": "cached_validated",
+          "attempts": 0,
+          "errors": [],
+          "local_path": "data/raw/screenspot/bevaya/data/test-00000-of-00003.parquet",
+          "actual_bytes": 134512659,
+          "actual_sha256": "ff06d312270eecc9d9ac968a51ceb0bc54f80cfda691ccccb8ebf4b4e5faa8fb",
+          "rows": 424,
+          "row_groups": 5,
+          "arrow_schema": "file_name: string\nbbox: list<element: double>\n  child 0, element: double\ninstruction: string\ndata_type: string\ndata_source: string\nimage: struct<bytes: binary, path: string>\n  child 0, bytes: binary\n  child 1, path: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"file_name\": {\"dtype\": \"string\", \"_t' + 288",
+          "elapsed_seconds": 0.07639250019565225
+        },
+        {
+          "file": "data/test-00001-of-00003.parquet",
+          "expected_bytes": 198971508,
+          "expected_sha256": "d48b8275f9dcff56f9c1bfedafbeb018cc200cbb649f8a92299cba0a9130891a",
+          "status": "cached_validated",
+          "attempts": 0,
+          "errors": [],
+          "local_path": "data/raw/screenspot/bevaya/data/test-00001-of-00003.parquet",
+          "actual_bytes": 198971508,
+          "actual_sha256": "d48b8275f9dcff56f9c1bfedafbeb018cc200cbb649f8a92299cba0a9130891a",
+          "rows": 424,
+          "row_groups": 5,
+          "arrow_schema": "file_name: string\nbbox: list<element: double>\n  child 0, element: double\ninstruction: string\ndata_type: string\ndata_source: string\nimage: struct<bytes: binary, path: string>\n  child 0, bytes: binary\n  child 1, path: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"file_name\": {\"dtype\": \"string\", \"_t' + 288",
+          "elapsed_seconds": 0.11000680015422404
+        },
+        {
+          "file": "data/test-00002-of-00003.parquet",
+          "expected_bytes": 268832649,
+          "expected_sha256": "a28a1e9f027003730c1375550bfdd3b212d0c0b5c24b338140309a2af3674e5b",
+          "status": "cached_validated",
+          "attempts": 0,
+          "errors": [],
+          "local_path": "data/raw/screenspot/bevaya/data/test-00002-of-00003.parquet",
+          "actual_bytes": 268832649,
+          "actual_sha256": "a28a1e9f027003730c1375550bfdd3b212d0c0b5c24b338140309a2af3674e5b",
+          "rows": 424,
+          "row_groups": 5,
+          "arrow_schema": "file_name: string\nbbox: list<element: double>\n  child 0, element: double\ninstruction: string\ndata_type: string\ndata_source: string\nimage: struct<bytes: binary, path: string>\n  child 0, bytes: binary\n  child 1, path: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"file_name\": {\"dtype\": \"string\", \"_t' + 288",
+          "elapsed_seconds": 0.15385680017061532
+        }
+      ]
+    },
+    "config": {
+      "seed": 42,
+      "role": "transfer_evaluation_only",
+      "raw_bbox": "unclipped source normalized xyxy times actual image dimensions, rounded to 6 decimals"
+    },
+    "processing_audit": {
+      "source_rows_read": 1272,
+      "final_records": 1272,
+      "invalid_rows_skipped": 0,
+      "duplicate_exact_content_records_removed": 0,
+      "conflicting_same_image_instruction_count": 1,
+      "sanitized_file_name_count": 0,
+      "same_name_different_image_collision_count": 0,
+      "unique_images": 610,
+      "unique_image_hashes": 606
+    },
+    "distribution": {
+      "records": 1272,
+      "unique_images": 610,
+      "data_source_counts": {
+        "android": 247,
+        "forum": 89,
+        "gitlab": 89,
+        "ios": 255,
+        "macos": 172,
+        "shop": 119,
+        "tool": 139,
+        "windows": 162
+      },
+      "data_type_counts": {
+        "icon": 575,
+        "text": 697
+      },
+      "resolution_counts": {
+        "1080x2400": 247,
+        "1098x620": 2,
+        "1098x698": 3,
+        "1116x648": 2,
+        "1130x952": 3,
+        "1158x1402": 2,
+        "1164x1398": 1,
+        "1170x2532": 195,
+        "1178x650": 2,
+        "1196x927": 4,
+        "1198x822": 1,
+        "1198x934": 4,
+        "1199x933": 3,
+        "1200x934": 3,
+        "1202x932": 2,
+        "1202x934": 2,
+        "1202x935": 3,
+        "1203x932": 2,
+        "1246x758": 2,
+        "1268x1310": 2,
+        "1268x1312": 2,
+        "1272x1042": 4,
+        "1316x1050": 3,
+        "1332x1268": 4,
+        "1334x1000": 2,
+        "1334x1076": 2,
+        "1334x1174": 2,
+        "1334x1454": 2,
+        "1336x1020": 2,
+        "1336x1218": 2,
+        "1336x1314": 1,
+        "1336x1454": 2,
+        "1338x1002": 2,
+        "1338x1064": 4,
+        "1338x1254": 2,
+        "1338x1268": 2,
+        "1338x1362": 5,
+        "1338x894": 3,
+        "1340x1156": 4,
+        "1340x1424": 4,
+        "1380x1244": 2,
+        "1462x1042": 2,
+        "1462x686": 1,
+        "1478x1288": 2,
+        "1478x1294": 2,
+        "1524x940": 2,
+        "1574x1262": 1,
+        "1598x894": 2,
+        "1598x898": 2,
+        "1600x1116": 3,
+        "1600x898": 1,
+        "1658x1382": 2,
+        "1708x1556": 2,
+        "1708x1558": 2,
+        "1710x1554": 2,
+        "1710x1558": 4,
+        "1712x1560": 2,
+        "1714x1556": 2,
+        "1714x1558": 2,
+        "1774x1392": 2,
+        "1776x1392": 2,
+        "1800x1400": 2,
+        "1802x1398": 4,
+        "1802x1402": 2,
+        "1906x1340": 2,
+        "1910x1340": 2,
+        "1920x1080": 6,
+        "1972x1382": 1,
+        "1996x1298": 2,
+        "1998x1370": 4,
+        "2000x1372": 3,
+        "2052x1642": 4,
+        "2154x1514": 2,
+        "2190x1696": 2,
+        "2190x1706": 2,
+        "2192x1704": 1,
+        "2292x1590": 3,
+        "2300x1590": 2,
+        "2360x1640": 60,
+        "2560x1440": 436,
+        "2648x1730": 2,
+        "3024x1964": 7,
+        "362x313": 2,
+        "399x454": 2,
+        "456x491": 2,
+        "480x531": 2,
+        "504x1250": 2,
+        "606x744": 2,
+        "645x635": 3,
+        "780x634": 3,
+        "790x1080": 3,
+        "839x638": 4,
+        "853x541": 2,
+        "955x662": 3,
+        "960x540": 110,
+        "970x1340": 2
+      },
+      "image_width": {
+        "min": 362,
+        "max": 3024,
+        "mean": 1718.6155660377358,
+        "median": 1324.0
+      },
+      "image_height": {
+        "min": 313,
+        "max": 2532,
+        "mean": 1677.071540880503,
+        "median": 1440.0
+      },
+      "normalized_bbox_area": {
+        "min": 0.0001809354405381992,
+        "max": 0.9115749129229149,
+        "mean": 0.02132004139750544,
+        "median": 0.007289470060480202
+      },
+      "expression_word_count": {
+        "min": 1,
+        "max": 12,
+        "mean": 3.4205974842767297,
+        "median": 3.0
+      },
+      "bbox_clipped_record_count": 0,
+      "image_format_counts": {
+        "JPEG": 223,
+        "PNG": 1049
+      },
+      "image_bytes_total": 1357726117
+    },
+    "quality_checks": {
+      "duplicate_id_count": 0,
+      "duplicate_exact_content_count_after_cleaning": 0,
+      "invalid_answer_count": 0,
+      "missing_image_count": 0,
+      "screenspot_train_id_intersection_count": 0,
+      "screenspot_train_image_path_intersection_count": 0,
+      "screenspot_train_image_sha256_intersection_count": 0,
+      "source_annotation_variation_group_count": 1
+    },
+    "outputs": {
+      "screenspot.jsonl": {
+        "bytes": 387222,
+        "sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42"
+      }
+    },
+    "qa": {
+      "sample_count": 10,
+      "sample_manifest": "data/qa/screenspot/sample_manifest.json",
+      "contact_sheet": "data/qa/screenspot/contact_sheet.png",
+      "visual_review": "passed",
+      "visual_review_details": "data/qa/screenspot/finalization.json"
+    }
+  }
+}

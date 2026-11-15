@@ -1,0 +1,128 @@
+{
+  "status": "verified",
+  "mode": "verify_only",
+  "started_at": "2026-11-10T01:40:26.624124+08:00",
+  "verification": {
+    "artifact": "adapters/merged/sft_v1_merged",
+    "dtype": "float32",
+    "ok": true,
+    "checks": [
+      {
+        "check": "directory_exists",
+        "passed": true,
+        "detail": "D:\\Deepseek Harness\\final-project\\adapters\\merged\\sft_v1_merged"
+      },
+      {
+        "check": "required_files_present",
+        "passed": true,
+        "detail": {
+          "missing": []
+        }
+      },
+      {
+        "check": "architecture_is_idefics3",
+        "passed": true,
+        "detail": "Idefics3ForConditionalGeneration"
+      },
+      {
+        "check": "config_has_no_peft_block",
+        "passed": true,
+        "detail": [
+          "architectures",
+          "dtype",
+          "image_token_id",
+          "model_type",
+          "pad_token_id",
+          "scale_factor",
+          "text_config",
+          "tie_word_embeddings"
+        ]
+      },
+      {
+        "check": "model_type_preserved",
+        "passed": true,
+        "detail": "idefics3"
+      },
+      {
+        "check": "weights_present_and_nonempty",
+        "passed": true,
+        "detail": {
+          "path": "adapters/merged/sft_v1_merged/model.safetensors",
+          "exists": true,
+          "bytes": 1025998224,
+          "sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2"
+        }
+      },
+      {
+        "check": "processor_default_image_seq_len_untouched",
+        "passed": true,
+        "detail": {
+          "on_disk": 64,
+          "runtime_expected": 36
+        }
+      },
+      {
+        "check": "classified_as_merged",
+        "passed": true,
+        "detail": "merged"
+      }
+    ],
+    "files": {
+      "model.safetensors": {
+        "path": "adapters/merged/sft_v1_merged/model.safetensors",
+        "exists": true,
+        "bytes": 1025998224,
+        "sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2"
+      },
+      "config.json": {
+        "path": "adapters/merged/sft_v1_merged/config.json",
+        "exists": true,
+        "bytes": 5482,
+        "sha256": "4b2f35ded89f67e188013871f37ee39d0f46958c6083171bdd8480971f51b3d2"
+      },
+      "generation_config.json": {
+        "path": "adapters/merged/sft_v1_merged/generation_config.json",
+        "exists": true,
+        "bytes": 136,
+        "sha256": "067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636"
+      },
+      "preprocessor_config.json": {
+        "path": "adapters/merged/sft_v1_merged/preprocessor_config.json",
+        "exists": true,
+        "bytes": 486,
+        "sha256": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7"
+      },
+      "processor_config.json": {
+        "path": "adapters/merged/sft_v1_merged/processor_config.json",
+        "exists": true,
+        "bytes": 68,
+        "sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46"
+      },
+      "tokenizer.json": {
+        "path": "adapters/merged/sft_v1_merged/tokenizer.json",
+        "exists": true,
+        "bytes": 3548256,
+        "sha256": "5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a"
+      },
+      "tokenizer_config.json": {
+        "path": "adapters/merged/sft_v1_merged/tokenizer_config.json",
+        "exists": true,
+        "bytes": 28249,
+        "sha256": "36c6fd44d07d10fd8180ee6b46dcccf69fb7c06753968ff0d7e17b8bfe17b777"
+      },
+      "chat_template.json": {
+        "path": "adapters/merged/sft_v1_merged/chat_template.json",
+        "exists": true,
+        "bytes": 429,
+        "sha256": "a68ad1a42681ae44eacd109ff8dd56a840f761c03d72f4ff4c515d092f882168"
+      },
+      "special_tokens_map.json": {
+        "path": "adapters/merged/sft_v1_merged/special_tokens_map.json",
+        "exists": true,
+        "bytes": 1069,
+        "sha256": "aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09"
+      }
+    }
+  },
+  "provisional": true
+}

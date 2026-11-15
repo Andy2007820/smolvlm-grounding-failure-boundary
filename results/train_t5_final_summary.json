@@ -1,0 +1,128 @@
+{
+  "milestone": "T5 · SFT implementation + 100-record overfit study",
+  "task": "task-6",
+  "final_status": "completed_at_lead_request",
+  "decision": "T5 implementation and diagnostics complete. G3 is DEFERRED to T6 independent evaluation; G3 is NOT claimed as passed (100-record overfit did not achieve localization).",
+  "verified_by": "train-runner; Lead independently re-ran 18/18 CPU tests, checked dry-runs and documented run evidence",
+  "implementation_contract": {
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "learning_rate": 1e-4,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "true_micro_batch_accumulation": true,
+    "effective_batch_size": 8,
+    "image_size": 384,
+    "image_seq_len": 36,
+    "do_image_splitting": false,
+    "dtype": "bfloat16",
+    "freeze_vision_tower": true,
+    "seed": 42,
+    "gradient_checkpointing": true,
+    "answer_eos_token_id": 49279,
+    "pad_token_id": 2,
+    "train_val_id_intersection": 0
+  },
+  "cpu_phase": {
+    "cpu_tests": {
+      "path": "results/train_t5_cpu_tests.json",
+      "tests_run": 18,
+      "failures": 0,
+      "errors": 0,
+      "gpu_used": false,
+      "sha256": "a1b9734f63e624cc31cedef224ccf171ee6b2023d60cc382b377d71e3fa5435d"
+    },
+    "true_accumulation_evidence": {
+      "one_step": {"micro_batch_sizes": [1,1,1,1,1,1,1,1], "forward": 8, "backward": 8, "clip": 1, "optimizer_step": 1, "scheduler_step": 1, "zero_grad": 1, "loss_scale": 0.125, "gradient": 4.5, "buggy_double_scaled": 0.5625, "weight_after": 0.55},
+      "two_step_gradients": [4.5, 12.5],
+      "partial_group_gradient": 1.875,
+      "resume_replay": {"optimizer_step": 2, "samples_seen": 16, "gradient": 12.5}
+    },
+    "dry_runs": {
+      "T5_100": "results/train_t5_dryrun_plan_v4.json",
+      "e48": "results/train_t5_dryrun_plan_e48.json",
+      "single_sample": "results/train_t5_dryrun_plan_overfit1.json"
+    }
+  },
+  "format_pass": {
+    "result": "PASS",
+    "200_step_100_records": {"parse_rate": 1.0, "invalid": 0},
+    "600_step_100_records": {"parse_rate": 1.0, "invalid": 0},
+    "single_sample_200_steps": {"parse_rate": 1.0, "invalid": 0, "eos_reached": true, "truncated": false}
+  },
+  "localization_negative_100_records": {
+    "result": "NEGATIVE / real negative result (capacity-budget limitation; not falsified)",
+    "200_step": {"run_id": "sft_overfit100_s42", "acc@0.5": 0.0, "mIoU": 0.030300934597406952, "parse_rate": 1.0, "details": "results/train_sft_overfit100_s42_probe_maxtok64.json"},
+    "600_step": {"run_id": "sft_overfit100_e48_s42", "acc@0.5": 0.0, "mIoU": 0.08421838906564025, "max_iou": 0.42513110212983096, "count_iou_ge_0.5": 0, "parse_rate": 1.0, "details": "results/train_sft_overfit100_e48_s42_probe.json"},
+    "miou_gain_200_to_600": 0.053917454468233296,
+    "alignment_audit": {
+      "path": "results/train_t5_e48_alignment_audit.json",
+      "records_checked": 100,
+      "answer_matches_raw_bbox": "100/100",
+      "answer_text_parseable": "100/100",
+      "labels_mask_prompt": "100/100",
+      "decoded_labels_equal_gt_answer_plus_eos": "100/100",
+      "eos_token_49279": "100/100",
+      "image_placeholders_36": "100/100",
+      "conclusion": "No label/image/answer misalignment; no coordinate-convention transform explains the predictions."
+    }
+  },
+  "single_sample_positive_control": {
+    "result": "PASS (pipeline positive control)",
+    "run_id": "sft_overfit1_e1600_s42",
+    "config": "configs/sft_overfit1_e1600.json",
+    "record": "synthetic_train_000001",
+    "steps": 200,
+    "loss": {"step_1": 1.5421942472457886, "step_100": 0.0004137482501391787, "step_200": 0.0002953782859549392},
+    "probe": {"n": 1, "acc@0.5": 1.0, "mIoU": 0.9995609092739585, "parse_rate": 1.0, "invalid": 0, "eos_reached": true, "truncated": false, "predicted_box": [0.2891, 0.75, 0.4883, 0.9094], "ground_truth": [0.2890625, 0.75, 0.48828125, 0.909375], "generated_tokens": 33},
+    "interpretation": "The model can memorize a single sample and emit the exact GT box with proper format/EOS; vision-feature injection, processor/pixel_values passing, label masking and the loss path are functional. The 100-record failure is an optimization/capacity/data-scale limitation, not a pipeline or alignment failure."
+  },
+  "g3_status": {
+    "decision": "DEFERRED to T6 independent evaluation (eval-keeper)",
+    "claimed_passed": false,
+    "reason": "T5 100-record overfit: parse_rate=1.0 but acc@0.5=0.0 (same as B0), so G3 (parse_rate>80% AND acc@0.5 above zero-shot) does not pass in T5. Only full-data T6 SFT with independent evaluation can decide G3."
+  },
+  "gpu_runs": [
+    {"lease": "GPU-LEASE-T5-20261109-02", "purpose": "100-record overfit", "attempt_1": "failed before training (LoRA target order bug), no artifacts, memory 1186->1186", "attempt_2": "200 steps, exit 0, 548.9 s, peak 2090 MiB, after-exit 1191 MiB, results/train_sft_overfit100_s42_training.json"},
+    {"lease": "GPU-LEASE-T5-20261109-04", "purpose": "e48 600-step extension", "status": "completed exit 0, 1581.8 s, peak 2101 MiB, after-exit 1196 MiB, results/train_sft_overfit100_e48_s42_training.json"},
+    {"lease": "GPU-LEASE-T5-20261109-05", "purpose": "single-sample learnability control", "status": "completed exit 0, ~548 s, peak 2021 MiB, after-exit 1190 MiB, results/train_sft_overfit1_e1600_s42_training.json"}
+  ],
+  "gpu_released": {
+    "final_nvidia_smi_mib": 1381,
+    "compute_processes": ["DeepSeek Harness.exe", "msedge.exe"],
+    "python_compute_process": false,
+    "note": "No GPU work is running; no further GPU task has been started."
+  },
+  "evidence_index": {
+    "cpu_tests": "results/train_t5_cpu_tests.json",
+    "total_t5_training_200": "results/train_sft_overfit100_s42_training.json",
+    "total_t5_probe_200": "results/train_sft_overfit100_s42_probe_maxtok64.json",
+    "total_t5_probe_truncated_at_16": "results/train_sft_overfit100_s42_probe_truncated_at_16.json",
+    "total_t5_alignment_audit": "results/train_t5_e48_alignment_audit.json",
+    "e48_training": "results/train_sft_overfit100_e48_s42_training.json",
+    "e48_probe": "results/train_sft_overfit100_e48_s42_probe.json",
+    "e48_probe_analysis": "results/train_t5_e48_probe_analysis.json",
+    "single_training": "results/train_sft_overfit1_e1600_s42_training.json",
+    "single_probe": "results/train_sft_overfit1_e1600_s42_probe.json",
+    "gpu_run_reports": [
+      "results/train_t5_gpu_run_report.json",
+      "results/train_t5_gpu_run_report_e48.json",
+      "results/train_t5_gpu_run_report_overfit1.json"
+    ],
+    "lease_requests": [
+      "results/train_t5_gpu_lease_request.json",
+      "results/train_t5_gpu_lease_request_e48.json",
+      "results/train_t5_gpu_lease_request_overfit1.json"
+    ]
+  },
+  "integrity": {
+    "data_modified": false,
+    "src_data_modified": false,
+    "src_eval_modified": false,
+    "ground_truth_modified": false,
+    "existing_results_overwritten": false,
+    "negative_results_reported": true
+  },
+  "next": "T6 full SFT v1 (task-7): 5000 synthetic + 5000 RefCOCO, 1 epoch = 1250 optimizer steps, probe max_new_tokens=64, independent evaluation by eval-keeper; GPU lease required.",
+  "created_at": "2026-11-09T16:01:00+08:00"
+}

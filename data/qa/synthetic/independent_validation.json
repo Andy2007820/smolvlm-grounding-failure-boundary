@@ -1,0 +1,30 @@
+{
+  "validated_at": "2026-11-11T06:30:43.558616+00:00",
+  "status": "passed",
+  "expected_counts": {
+    "train": 5000,
+    "eval": 1000
+  },
+  "eval_actual_records": 1000,
+  "eval_duplicate_id_count": 0,
+  "eval_duplicate_image_count": 0,
+  "eval_duplicate_image_sha256_count": 0,
+  "eval_duplicate_scene_signature_count": 0,
+  "eval_unique_images": 1000,
+  "train_actual_records": 5000,
+  "train_duplicate_id_count": 0,
+  "train_duplicate_image_count": 0,
+  "train_duplicate_image_sha256_count": 0,
+  "train_duplicate_scene_signature_count": 0,
+  "train_eval_id_intersection_count": 0,
+  "train_eval_image_intersection_count": 0,
+  "train_eval_image_sha256_intersection_count": 0,
+  "train_eval_scene_signature_intersection_count": 0,
+  "train_unique_images": 5000,
+  "output_sha256": {
+    "synthetic_train.jsonl": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88",
+    "synthetic_eval.jsonl": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854"
+  },
+  "qa_sample_count": 20,
+  "errors": []
+}

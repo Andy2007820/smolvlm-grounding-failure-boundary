@@ -1,0 +1,40 @@
+{
+  "format": "eval-partial-abort-v1",
+  "run_id": "sft_v1_s43_synthetic_v1",
+  "dataset": "synthetic",
+  "split": "eval",
+  "n_target": 1000,
+  "timestamp": "2026-11-09T21:38:09.421682+08:00",
+  "partial_rows_at_abort": 998,
+  "summary_written_at_abort": false,
+  "validation_written_at_abort": false,
+  "metrics_produced_at_abort": false,
+  "root_cause": "the orchestration driver used subprocess.run(timeout=2400s); run1 needed ~2403s (2.4 s/sample after a slow phase) so the child was killed at 998/1000. This is a driver timeout, not a data/model/evaluator failure and not the lease boundary (the lease had been extended).",
+  "improvement": "for short leases never use a fixed subprocess timeout near the run estimate; on any partial stop, resume with the same run_id/config (--resume, no limit) and gate completion on summary + validation, not on the driver exit alone.",
+  "recovery": {
+    "command": "same run_zeroshot command plus --resume",
+    "exit_code": 0,
+    "wall_seconds": 31.1,
+    "final_rows": 1000,
+    "summary": "results/zeroshot_sft_v1_s43_synthetic_v1.json",
+    "summary_metrics": {
+      "acc@0.5": 0.004,
+      "mIoU": 0.05225551852880544,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "details_sha256": "b601397e2264fa82f04e759772e7200d9b6f1ca34312bc0976ee96069d2d61c9",
+    "validation": "results/eval_sft_v1_s43_synthetic_v1_validation.json",
+    "validation_status": "passed",
+    "validation_errors": []
+  },
+  "contamination": "none: the aborted partial produced no summary/metrics; the resumed run covers the full 1000 rows and passed validation",
+  "evidence": [
+    "results/eval_sft_v1_s43_synthetic_v1_gpu.log",
+    "results/eval_sft_v1_s43_synthetic_v1_stdout.log",
+    "results/eval_sft_v1_s43_synthetic_v1_stderr.log",
+    "results/eval_sft_v1_s43_synthetic_v1_validation.json",
+    "results/zeroshot_sft_v1_s43_synthetic_v1.json"
+  ],
+  "ledger": "handoff/TRAINING-FAILURE-LEDGER.md"
+}

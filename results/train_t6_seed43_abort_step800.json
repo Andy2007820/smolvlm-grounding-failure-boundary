@@ -1,0 +1,29 @@
+{
+  "run_id": "sft_v1_s43",
+  "stage": "seed43 training, after optimizer step 800 (18:53:45), before checkpoint-000800 was completed",
+  "timestamp": "2026-11-09T18:53:45+08:00",
+  "observed_state": {
+    "last_logged_step": 800,
+    "last_complete_checkpoint": "adapters/sft_v1_s43/checkpoint-000600",
+    "checkpoint_600_step": 600,
+    "checkpoint_600_samples_seen": 4800,
+    "training_summary_created": false,
+    "python_exception_in_stderr": false,
+    "gpu_memory_after_disappearance_mib": 1394,
+    "python_compute_process_after_disappearance": false,
+    "oom_or_competing_process": false
+  },
+  "root_cause_suspected": "execution wrapper / session lifecycle terminated the child python process after step 800; not OOM, not a CUDA assert, not a non-finite loss, and no competing training process was observed. No Python traceback was written to stderr.",
+  "classification": "infrastructure/wrapper abort, not a model/data/evaluator bug",
+  "valid_metrics_produced": false,
+  "contaminated_artifacts": false,
+  "resume_action": "resumed with the same lease GPU-LEASE-T6SEEDS-20261109-08 and the same config/output/log via --resume latest (from checkpoint-000600), keeping the turn alive with job_output polling",
+  "improvement": "for long runs keep the turn/session alive with job_output monitoring (no early deactivation); treat 200-step checkpoints as recovery points; resume is deterministic and verifies config fingerprint/seed/model/data hashes",
+  "evidence": [
+    "logs/train/sft_v1_s43_gpu.log",
+    "logs/train/sft_v1_s43_stderr.log",
+    "logs/train/sft_v1_s43.jsonl",
+    "adapters/sft_v1_s43/checkpoint-000600/checkpoint_meta.json"
+  ],
+  "created_at": "2026-11-09T19:04:00+08:00"
+}

@@ -1,0 +1,164 @@
+{
+  "run_id": "deploy_latency_torch_int8",
+  "started_at": "2026-11-10T01:47:11.124354+08:00",
+  "elapsed_seconds": 110.44000149983913,
+  "plan": {
+    "status": "plan_only",
+    "engine": "torch-int8",
+    "device": "cpu",
+    "artifact": {
+      "kind": "merged",
+      "usable": true,
+      "checkpoint": {
+        "path": "adapters/merged/sft_v1_merged",
+        "exists": true,
+        "kind": "merged",
+        "usable": true,
+        "required_files": [
+          "model.safetensors",
+          "config.json",
+          "generation_config.json",
+          "preprocessor_config.json",
+          "processor_config.json",
+          "tokenizer.json",
+          "tokenizer_config.json",
+          "chat_template.json",
+          "special_tokens_map.json"
+        ],
+        "missing_required_files": [],
+        "files": {
+          "model.safetensors": {
+            "path": "adapters/merged/sft_v1_merged/model.safetensors",
+            "exists": true,
+            "bytes": 1025998224
+          },
+          "config.json": {
+            "path": "adapters/merged/sft_v1_merged/config.json",
+            "exists": true,
+            "bytes": 5482
+          }
+        },
+        "architecture": "Idefics3ForConditionalGeneration",
+        "has_lora_in_config": false,
+        "requires_base_model": false
+      }
+    },
+    "dataset": {
+      "path": "data/synthetic_eval.jsonl",
+      "rows": 1000
+    },
+    "selection": {
+      "n": 50,
+      "warmup": 5,
+      "seed": 42,
+      "selected_ids_digest": "949320384680ff6e74f98262ef9e616a149f7675e56a03803f48316540c23117",
+      "first_ids": [
+        "synthetic_eval_000007",
+        "synthetic_eval_000026",
+        "synthetic_eval_000028",
+        "synthetic_eval_000031",
+        "synthetic_eval_000033"
+      ]
+    },
+    "inference": {
+      "image_size": 384,
+      "image_seq_len": 36,
+      "max_new_tokens": 64,
+      "prompt_id": "p1",
+      "do_sample": false,
+      "num_beams": 1,
+      "quantization": {
+        "scope": "model.model.text_model Linear -> qint8 dynamic (runtime-only)",
+        "artifact_type": "runtime_only",
+        "dtype": "qint8"
+      },
+      "torch_threads_requested": 2
+    },
+    "gpu": {
+      "required": false,
+      "gpu_lease_id": null,
+      "snapshot_before": null
+    },
+    "estimate": {
+      "per_sample_seconds_prior": 1.9484653100022116,
+      "warm_seconds_upper_bound": 107.16559205012163,
+      "load_seconds_estimate": 10.0,
+      "total_seconds_upper_bound": 117.16559205012163,
+      "n": 50,
+      "warmup": 5,
+      "basis": "prior CPU fp32+adapter diagnostic wall time divided by n; conservative upper bound because it includes the one-off model load",
+      "caveat": "replace with measured warm latencies after the benchmark actually runs"
+    },
+    "output": "results/deploy_latency_torch_int8.json",
+    "details_output": "results/deploy_latency_torch_int8_details.jsonl",
+    "plan_note": "official accuracy metrics are eval-closer's; this benchmark records diagnostics only",
+    "run_id": "deploy_latency_torch_int8"
+  },
+  "details_rows": 50,
+  "environment": {
+    "python": "3.14.8",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "onnxruntime": "1.31.0"
+  },
+  "peak_process_memory_mib": null,
+  "cpu_threads": 2,
+  "status": "completed",
+  "engine": "torch-int8",
+  "device": "cpu",
+  "n": 50,
+  "warmup": 5,
+  "latency": {
+    "n": 50.0,
+    "mean_seconds": 1.937984361993149,
+    "median_seconds": 1.8446024000877514,
+    "stdev_seconds": 0.47243034895926983,
+    "min_seconds": 0.7143443999812007,
+    "max_seconds": 2.5052174997981638,
+    "p95_seconds": 2.478194700088352,
+    "p99_seconds": 2.5052174997981638
+  },
+  "throughput_images_per_second": 0.5160000357131546,
+  "diagnostic_metrics": {
+    "acc@0.5": 0.02,
+    "mIoU": 0.02224578360299098,
+    "parse_rate": 0.28,
+    "invalid": 36
+  },
+  "diagnostic_metric_note": "computed with the frozen parser/metric code for deployment sanity only; official Acc@0.5/mIoU remain eval-closer's independent results",
+  "generated_tokens": {
+    "mean": 46.88,
+    "hit_max_new_tokens_count": 20
+  },
+  "load_report": {
+    "status": "loaded",
+    "device": "cpu",
+    "dtype": "float32",
+    "image_size": 384,
+    "image_seq_len": 36,
+    "max_new_tokens": 64,
+    "source": "adapters/merged/sft_v1_merged",
+    "merged": "adapters/merged/sft_v1_merged",
+    "adapter": null,
+    "adapter_load": null,
+    "model_class": "Idefics3ForConditionalGeneration",
+    "base_model_class": "Idefics3ForConditionalGeneration",
+    "torch_threads": 2,
+    "load_seconds": 3.2708369998726994,
+    "local_files_only": true,
+    "quantization": {
+      "scope": "model.model.text_model Linear -> qint8 dynamic (runtime-only)",
+      "artifact_type": "runtime_only",
+      "dtype": "qint8",
+      "linear_modules_before": 210,
+      "dynamic_quantized_modules": 420,
+      "quantize_seconds": 0.8913515000604093,
+      "note": "torch.ao.quantization is deprecated in torch 2.11; kept for a comparable INT8 baseline"
+    }
+  },
+  "gpu": {
+    "required": false,
+    "gpu_lease_id": null,
+    "snapshot_before": null
+  }
+}

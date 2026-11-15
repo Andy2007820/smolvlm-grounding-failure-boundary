@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "deploy_demo_smoke",
+  "captured_at": "2026-11-10T01:55:30.877738+08:00",
+  "engine": "hf-cpu",
+  "artifact": "adapters/merged/sft_v1_merged",
+  "is_fake_predictor": false,
+  "gradio_version": "6.31.0",
+  "url": "http://127.0.0.1:7860",
+  "http_probe": {
+    "status": 200,
+    "url": "http://127.0.0.1:7860/",
+    "content_length": 26504
+  },
+  "api_round_trip": {
+    "status": "completed",
+    "returned_types": [
+      "str",
+      "str"
+    ],
+    "text": "**归一化框 [x1, y1, x2, y2]**：`[0.4000, 0.3500, 0.6100, 0.5500]`\n**像素框**：`(128, 112, 195, 176)`\n**延迟（含图像预处理）**：`1.917 s`\n\n**模型原始输出**：\n```text\n[0.4000, 0.3500, 0.6100, 0.5500]\n```"
+  },
+  "annotated_output": "demo/artifacts/deploy_demo_smoke_output.png",
+  "elapsed_seconds": 8.828417000127956,
+  "evidence_note": "fake predictor = UI plumbing only, never a model result; real-model smoke requires the post-evaluation lease and a browser confirmation by the Lead for the G7 demo claim",
+  "status": "passed"
+}

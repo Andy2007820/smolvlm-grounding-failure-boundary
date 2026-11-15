@@ -1,0 +1,86 @@
+{
+  "config_version": 1,
+  "run_name": "sft_overfit100_s42",
+  "seed": 42,
+  "model": {
+    "path": "models/SmolVLM-256M-Instruct",
+    "dtype": "bfloat16",
+    "freeze_vision_tower": true,
+    "gradient_checkpointing": true,
+    "local_files_only": true
+  },
+  "lora": {
+    "r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj"],
+    "target_scope": "model.text_model",
+    "task_type": "CAUSAL_LM",
+    "bias": "none"
+  },
+  "image": {
+    "image_size": 384,
+    "do_image_splitting": false,
+    "patch_size": 16,
+    "scale_factor": 4,
+    "expected_image_seq_len": 36
+  },
+  "answer": {
+    "format": "[{x1}, {y1}, {x2}, {y2}]",
+    "precision": 4,
+    "eos_token_id": 49279,
+    "pad_token_id": 2
+  },
+  "data": {
+    "train": [
+      {
+        "path": "data/synthetic_train.jsonl",
+        "source": "synthetic",
+        "split": "train",
+        "limit": 100,
+        "select": "first"
+      }
+    ],
+    "val": [
+      {
+        "path": "data/synthetic_eval.jsonl",
+        "source": "synthetic",
+        "split": "eval",
+        "limit": null
+      },
+      {
+        "path": "data/refcoco_val.jsonl",
+        "source": "refcoco",
+        "split": "val",
+        "limit": null
+      }
+    ],
+    "id_intersection_must_be_zero": true,
+    "example_cache_max": 200
+  },
+  "training": {
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "effective_batch_size": 8,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "num_epochs": 16,
+    "save_every_steps": 100,
+    "log_every_steps": 1,
+    "lr_scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "max_grad_norm": 1.0,
+    "max_steps": null
+  },
+  "probe": {
+    "records": "train",
+    "n": 20,
+    "max_new_tokens": 16,
+    "do_sample": false
+  },
+  "output": {
+    "dir": "adapters/sft_overfit100",
+    "log": "logs/train/sft_overfit100.jsonl"
+  },
+  "notes": "T5 100-record overfit test: 100 synthetic train records x 16 epochs = 1600 micro-batches = 200 optimizer steps (effective batch 8). Checkpoints every 100 steps (checkpoint-000100, final adapter). Purpose: prove format/answer-EOS/location learning and the CPU-preflight visual-token contract before any full SFT. GPU execution requires an explicit Lead lease."
+}

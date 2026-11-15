@@ -1,0 +1,237 @@
+{
+  "generated_at": "2026-11-09T05:04:09.683257+00:00",
+  "seed": 42,
+  "sampling": "one random sample per data_source, then random fill without replacement",
+  "sample_count": 10,
+  "samples": [
+    {
+      "id": "screenspot_test_000713",
+      "image": "data/images/screenspot/mobile_aacb7bd4-e54a-4798-876a-eef079e17b2d.png",
+      "question": "turn off rule-based mode",
+      "answer": [
+        0.07222222,
+        0.49333333,
+        0.43333333,
+        0.5325
+      ],
+      "raw_bbox": [
+        78.0,
+        1184.0,
+        468.0,
+        1278.0
+      ],
+      "width": 1080,
+      "height": 2400,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_000713.png"
+    },
+    {
+      "id": "screenspot_test_001011",
+      "image": "data/images/screenspot/web_843805d1-f33a-400f-bcdd-901a9ae91329.png",
+      "question": "sort based on most commented",
+      "answer": [
+        0.21523438,
+        0.525,
+        0.334375,
+        0.57916667
+      ],
+      "raw_bbox": [
+        551.0,
+        756.0,
+        856.0,
+        834.0
+      ],
+      "width": 2560,
+      "height": 1440,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_001011.png"
+    },
+    {
+      "id": "screenspot_test_000840",
+      "image": "data/images/screenspot/web_e40f1b3f-0f26-4313-a6a2-d79e1047951b.png",
+      "question": "add a new one",
+      "answer": [
+        0.68476563,
+        0.00555556,
+        0.72851562,
+        0.05902778
+      ],
+      "raw_bbox": [
+        1753.0,
+        8.0,
+        1865.0,
+        85.0
+      ],
+      "width": 2560,
+      "height": 1440,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_000840.png"
+    },
+    {
+      "id": "screenspot_test_000653",
+      "image": "data/images/screenspot/mobile_c9c47c96-1b18-45dd-8e88-f0b48c54617d.png",
+      "question": "check the wallet",
+      "answer": [
+        0.35641026,
+        0.19628752,
+        0.64358974,
+        0.29818325
+      ],
+      "raw_bbox": [
+        417.0,
+        497.0,
+        753.0,
+        755.0
+      ],
+      "width": 1170,
+      "height": 2532,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_000653.png"
+    },
+    {
+      "id": "screenspot_test_000233",
+      "image": "data/images/screenspot/pc_514bf9d5-ca63-4d33-94cb-dc1b11994199.png",
+      "question": "allow notifications",
+      "answer": [
+        0.43787425,
+        0.22627235,
+        0.50973054,
+        0.27097662
+      ],
+      "raw_bbox": [
+        585.0,
+        329.0,
+        681.0,
+        394.0
+      ],
+      "width": 1336,
+      "height": 1454,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_000233.png"
+    },
+    {
+      "id": "screenspot_test_000957",
+      "image": "data/images/screenspot/web_f4ee1ae3-a244-40f8-90cb-e68411f00636.png",
+      "question": "delete carnation breakfast essentials nutritional drink",
+      "answer": [
+        0.95625,
+        0.48611111,
+        0.98554688,
+        0.55
+      ],
+      "raw_bbox": [
+        2448.0,
+        700.0,
+        2523.0,
+        792.0
+      ],
+      "width": 2560,
+      "height": 1440,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_000957.png"
+    },
+    {
+      "id": "screenspot_test_001143",
+      "image": "data/images/screenspot/web_df166734-1f33-4e1d-887f-292ee9c21502.png",
+      "question": "check wikipedia",
+      "answer": [
+        0.65117187,
+        0.93263889,
+        0.7046875,
+        0.95763889
+      ],
+      "raw_bbox": [
+        1667.0,
+        1343.0,
+        1804.0,
+        1379.0
+      ],
+      "width": 2560,
+      "height": 1440,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_001143.png"
+    },
+    {
+      "id": "screenspot_test_000036",
+      "image": "data/images/screenspot/pc_eb0b756c-e471-40eb-bfaa-06b432094ac6.png",
+      "question": "open account protection",
+      "answer": [
+        0.0,
+        0.19444444,
+        0.33020833,
+        0.26851852
+      ],
+      "raw_bbox": [
+        0.0,
+        105.0,
+        317.0,
+        145.0
+      ],
+      "width": 960,
+      "height": 540,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_000036.png"
+    },
+    {
+      "id": "screenspot_test_000211",
+      "image": "data/images/screenspot/pc_be3ea55b-e1f3-478a-8982-a05f37cc910f.png",
+      "question": "back to previous page",
+      "answer": [
+        0.13527653,
+        0.02237136,
+        0.18535127,
+        0.09284116
+      ],
+      "raw_bbox": [
+        181.0,
+        20.0,
+        248.0,
+        83.0
+      ],
+      "width": 1338,
+      "height": 894,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_000211.png"
+    },
+    {
+      "id": "screenspot_test_001124",
+      "image": "data/images/screenspot/web_0558c1f4-c05b-49a8-8479-04b1575779d2.png",
+      "question": "sign up",
+      "answer": [
+        0.92539063,
+        0.01597222,
+        0.990625,
+        0.06527778
+      ],
+      "raw_bbox": [
+        2369.0,
+        23.0,
+        2536.0,
+        94.0
+      ],
+      "width": 2560,
+      "height": 1440,
+      "source": "screenspot",
+      "qa_image": "data/qa/screenspot/samples/screenspot_test_001124.png"
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "reviewer": "deepseek-flash via image_understand fallback; coordinates assessed by data-engineer",
+    "reviewed_at": "2026-11-09T05:11:24.869787+00:00",
+    "full_resolution_samples_reviewed": 10,
+    "observations": {
+      "screenspot_test_000713": "box encloses the selected Rule-based mode control",
+      "screenspot_test_001011": "box encloses the Most commented sorting option",
+      "screenspot_test_000840": "box encloses the GitLab add-new plus/dropdown control",
+      "screenspot_test_000653": "box encloses the Wallet action",
+      "screenspot_test_000233": "box encloses the Allow Notifications toggle",
+      "screenspot_test_000957": "box encloses the Carnation Breakfast Essentials delete/trash icon",
+      "screenspot_test_001143": "box encloses the Wikipedia footer link",
+      "screenspot_test_000036": "box encloses Account protection in Windows Security navigation",
+      "screenspot_test_000211": "box encloses the macOS Bluetooth back arrow",
+      "screenspot_test_001124": "box encloses the OpenStreetMap Sign Up button"
+    },
+    "human_relabeling": false
+  }
+}

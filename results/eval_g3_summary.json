@@ -1,0 +1,260 @@
+{
+  "format": "eval-g3-sft-v1-v1",
+  "gate": "G3",
+  "criterion": "parse_rate > 0.80 且 acc@0.5 高于零样本 B0；判据只用独立评测器在完整 n=1000/集的 synthetic_eval 与 RefCOCO val 上产生的结果，20 条训练内 probe 不作官方结论",
+  "status": "passed",
+  "timestamp": "2026-11-09T18:07:00+08:00",
+  "model": "SmolVLM-256M-Instruct + adapters/sft_v1/adapter",
+  "adapter": {
+    "path": "adapters/sft_v1/adapter",
+    "adapter_config_sha256": "60522337b799eb240509cc1e2a1019bab782351dfbac6d77828eb77a8114ba3f",
+    "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+    "adapter_model_bytes": 7407008,
+    "peft_type": "LORA",
+    "task_type": "CAUSAL_LM",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "peft_version": "0.21.2",
+    "is_trainable": false,
+    "load_evidence": {
+      "loaded": true,
+      "is_trainable": false,
+      "lora_module_count": 120,
+      "trainable_parameter_count": 0,
+      "base_model_class": "Idefics3ForConditionalGeneration",
+      "wrapped_model_class": "PeftModelForCausalLM"
+    }
+  },
+  "comparison": {
+    "synthetic": {
+      "b0": {
+        "run_id": "zeroshot_b0_synthetic_s42_v1",
+        "n": 1000,
+        "acc@0.5": 0.0,
+        "mIoU": 0.00010114397437500003,
+        "parse_rate": 0.004,
+        "invalid": 996,
+        "summary": "results/zeroshot_synthetic.json",
+        "validation": "results/eval_zeroshot_b0_synthetic_s42_v1_validation.json"
+      },
+      "sft": {
+        "run_id": "sft_v1_s42_synthetic_v1",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 1000,
+        "acc@0.5": 0.011,
+        "mIoU": 0.06743763938552531,
+        "parse_rate": 1.0,
+        "invalid": 0,
+        "correct_count": 11,
+        "summary": "results/zeroshot_sft_v1_s42_synthetic_v1.json",
+        "details": "results/eval_sft_v1_s42_synthetic_v1_details.jsonl",
+        "details_sha256": "4663be71c26e451aebd64f535968b3caa069f1396c2e7468f84d25325a4544bd",
+        "details_rows": 1000,
+        "validation": "results/eval_sft_v1_s42_synthetic_v1_validation.json",
+        "validation_status": "passed",
+        "validation_errors": []
+      },
+      "delta_vs_b0": {
+        "acc@0.5": 0.011,
+        "mIoU": 0.06733649541115032,
+        "parse_rate": 0.996,
+        "invalid": -996
+      }
+    },
+    "refcoco": {
+      "b0": {
+        "run_id": "zeroshot_b0_refcoco_s42_v1",
+        "n": 1000,
+        "acc@0.5": 0.0,
+        "mIoU": 0.0002031602971321504,
+        "parse_rate": 0.002,
+        "invalid": 998,
+        "summary": "results/zeroshot_refcoco.json",
+        "validation": "results/eval_zeroshot_b0_refcoco_s42_v1_validation.json"
+      },
+      "sft": {
+        "run_id": "sft_v1_s42_refcoco_v1",
+        "dataset": "refcoco",
+        "split": "val",
+        "n": 1000,
+        "acc@0.5": 0.095,
+        "mIoU": 0.21124828873091464,
+        "parse_rate": 1.0,
+        "invalid": 0,
+        "correct_count": 95,
+        "summary": "results/zeroshot_sft_v1_s42_refcoco_v1.json",
+        "details": "results/eval_sft_v1_s42_refcoco_v1_details.jsonl",
+        "details_sha256": "bd811877375c437dbbb23edfeed13b365285d19e9afc8c04930a67e5e1b84131",
+        "details_rows": 1000,
+        "validation": "results/eval_sft_v1_s42_refcoco_v1_validation.json",
+        "validation_status": "passed",
+        "validation_errors": []
+      },
+      "delta_vs_b0": {
+        "acc@0.5": 0.095,
+        "mIoU": 0.21104512843378248,
+        "parse_rate": 0.998,
+        "invalid": -998
+      }
+    },
+    "aggregate_2000": {
+      "n": 2000,
+      "b0_acc@0.5": 0.0,
+      "sft_acc@0.5": 0.053,
+      "sft_correct_count": 106,
+      "sft_mIoU": 0.13934296405821998,
+      "sft_parse_rate": 1.0,
+      "sft_invalid": 0
+    }
+  },
+  "gate_checks": {
+    "synthetic_parse_rate_gt_0.80": true,
+    "synthetic_acc_gt_b0": true,
+    "refcoco_parse_rate_gt_0.80": true,
+    "refcoco_acc_gt_b0": true,
+    "g3_passed": true
+  },
+  "independent_verification": {
+    "method": "fresh recalculation from the 1000-row details JSONL of each run (predicted_box null => invalid; IoU from details; correct@0.5 from details), plus SHA256 recomputation and cross-check against summary and validation report",
+    "synthetic": {
+      "metrics_match_summary": true,
+      "details_rows_match_summary": true,
+      "details_sha256_matches_summary_and_validation": true,
+      "unique_ids": 1000,
+      "invalid_in_n": true,
+      "invalid_iou_zero": true,
+      "dataset_sha256_matches": true,
+      "source_sha256_matches": true,
+      "adapter_sha256_matches": true,
+      "hit_max_new_tokens_count": 0,
+      "generated_tokens_min": 33,
+      "generated_tokens_max": 33,
+      "generated_tokens_mean": 33.0
+    },
+    "refcoco": {
+      "metrics_match_summary": true,
+      "details_rows_match_summary": true,
+      "details_sha256_matches_summary_and_validation": true,
+      "unique_ids": 1000,
+      "invalid_in_n": true,
+      "invalid_iou_zero": true,
+      "dataset_sha256_matches": true,
+      "source_sha256_matches": true,
+      "adapter_sha256_matches": true,
+      "hit_max_new_tokens_count": 0,
+      "generated_tokens_min": 33,
+      "generated_tokens_max": 33,
+      "generated_tokens_mean": 33.0
+    },
+    "no_truncation": true
+  },
+  "gpu_execution": {
+    "lease_id": "GPU-LEASE-T6EVAL-20261109-07",
+    "lease_window_local": "2026-11-09 17:20-18:10 UTC+8 (max 50 min, exclusive)",
+    "exclusive": true,
+    "runs": [
+      {
+        "run_id": "sft_v1_s42_synthetic_v1",
+        "started_at": "2026-11-09T17:20:39.809367+08:00",
+        "finished_at": "2026-11-09T17:43:06.812703+08:00",
+        "elapsed_seconds_including_load": 1347.0033692999277,
+        "nvidia_smi_memory_before_mib": 1510,
+        "nvidia_smi_memory_after_model_load_mib": 2155,
+        "nvidia_smi_memory_after_generation_mib": 2186,
+        "torch_peak_allocated_mib": 528.7666015625,
+        "torch_peak_reserved_mib": 554.0,
+        "nvidia_smi_memory_after_cleanup_mib": 1654,
+        "gpu_log": "results/eval_sft_v1_s42_synthetic_gpu.log",
+        "stdout_log": "results/eval_sft_v1_s42_synthetic_stdout.log",
+        "stderr_log": "results/eval_sft_v1_s42_synthetic_stderr.log"
+      },
+      {
+        "run_id": "sft_v1_s42_refcoco_v1",
+        "started_at": "2026-11-09T17:43:21.561191+08:00",
+        "finished_at": "2026-11-09T18:06:00.428108+08:00",
+        "elapsed_seconds_including_load": 1358.8669571999926,
+        "nvidia_smi_memory_before_mib": 1517,
+        "nvidia_smi_memory_after_model_load_mib": 2161,
+        "nvidia_smi_memory_after_generation_mib": 1974,
+        "torch_peak_allocated_mib": 528.7666015625,
+        "torch_peak_reserved_mib": 554.0,
+        "nvidia_smi_memory_after_cleanup_mib": 1440,
+        "gpu_log": "results/eval_sft_v1_s42_refcoco_gpu.log",
+        "stdout_log": "results/eval_sft_v1_s42_refcoco_stdout.log",
+        "stderr_log": "results/eval_sft_v1_s42_refcoco_stderr.log"
+      }
+    ],
+    "gpu_released": true,
+    "gpu_release_evidence": {
+      "synthetic_log_after_process_exit_mib": 1504,
+      "refcoco_log_after_process_exit_mib": 1287,
+      "live_nvidia_smi_after_both_runs_mib": 1291,
+      "python_compute_process_after_release": false,
+      "live_compute_apps": [
+        "DeepSeek Harness.exe",
+        "msedge.exe"
+      ],
+      "note": "both runs ended before the 18:10 lease end; no other GPU work was started"
+    },
+    "threshold_mib": 7500,
+    "threshold_crossed": false
+  },
+  "launch_failure_attempt1": {
+    "stage": "synthetic_eval GPU launch attempt1, 17:20:00 UTC+8",
+    "root_cause": "PowerShell wrapper aborted the child at model-load time because $ErrorActionPreference='Stop' turned the transformers pad_token_id stderr warning into a terminating NativeCommandError; this is a launcher bug, not a model/data/evaluator failure",
+    "valid_metrics": false,
+    "samples_generated": 0,
+    "details_created": false,
+    "summary_created": false,
+    "gpu_released_immediately": true,
+    "gpu_memory_before_after_mib": {
+      "before": 1505,
+      "after_abort": 1504
+    },
+    "fix": "attempt2 used Start-Process with explicit stdout/stderr file redirection and no Stop error preference; the same approved command then completed",
+    "evidence": [
+      "results/eval_sft_v1_s42_synthetic_gpu_attempt1.log",
+      "results/eval_sft_v1_s42_synthetic_stderr_attempt1.log",
+      "results/eval_sft_v1_s42_synthetic_stdout.log",
+      "results/eval_sft_v1_s42_synthetic_stderr.log",
+      "results/eval_sft_v1_s42_synthetic_gpu.log"
+    ],
+    "ledger": "handoff/TRAINING-FAILURE-LEDGER.md appended"
+  },
+  "evaluator_change": {
+    "change": "read-only --adapter support in src/eval/run_zeroshot.py plus --expected-adapter in src/eval/validate_results.py",
+    "metric_code_changed": false,
+    "documented_in": "src/eval/CHANGELOG.md (v1.1.0-preG3)",
+    "b0_rerun": false,
+    "b0_note": "old B0 JSON/validation reports preserved and remain authoritative; their recorded source_sha256 refers to the pre-change run_zeroshot.py, so re-validating those old files would now report source drift by design"
+  },
+  "probe_not_used": {
+    "path": "results/train_sft_v1_s42_probe.json",
+    "n": 20,
+    "official_eval": false,
+    "metrics": {
+      "parse_rate": 1.0,
+      "acc@0.5": 0.05,
+      "mIoU": 0.15435572937621833
+    },
+    "note": "training diagnostic only; it is not a G3 result and was used only as a sanity check that the frozen adapter emits the expected 33-token format"
+  },
+  "caveats": [
+    "G3 is a gate criterion (parse>80%, acc above zero-shot), not a strong-performance claim: synthetic acc@0.5 is only 0.011 (11/1000) and mIoU 0.0674, so the synthetic effect is weak even though it is above B0=0.0.",
+    "RefCOCO val gains are clearer: acc@0.5 0.095 (95/1000) and mIoU 0.2112 vs B0 0.0/0.000203.",
+    "Only seed42 full SFT was trained; the main table still requires >=3 seeds under separate leases.",
+    "All 2000 outputs are exactly 33 generated tokens with 0 hit_max_new_tokens and 0 invalid, i.e. the measured gains are not a truncation or parse artifact.",
+    "B0 results were not recomputed; comparisons use the already-validated B0 JSON (G1 passed)."
+  ],
+  "recommendation": {
+    "g3": "PASS on the literal gate: parse_rate=1.0 on both full sets and acc@0.5 0.011 (synthetic) / 0.095 (RefCOCO) are both strictly above B0=0.0.",
+    "scientific_read": "The SFT adapter learned the answer format perfectly and improved mean IoU ~667x on synthetic and ~1040x on RefCOCO, but absolute localization is still far from usable on synthetic (1.1% Acc@0.5) and modest on RefCOCO (9.5%). Report as a weak-but-real positive with explicit effect sizes, not as a strong success.",
+    "next_steps": [
+      "Run the remaining >=2 seeds of T6 under new leases before the main table (do not report only seed42).",
+      "Proceed to T7 coordinate-representation ablation as planned; the synthetic Acc@0.5 weakness is the main open question.",
+      "Keep the 20-sample probe labeled diagnostic_only in all later tables."
+    ]
+  }
+}

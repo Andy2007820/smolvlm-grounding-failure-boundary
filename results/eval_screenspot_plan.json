@@ -1,0 +1,134 @@
+{
+  "format": "eval-screenspot-plan-v1",
+  "created_at": "2026-11-10T02:01:36.500816+08:00",
+  "task": {
+    "id": "task-25",
+    "subject": "T3b · ScreenSpot 迁移独立评测"
+  },
+  "gpu_used": false,
+  "status": "cpu_prepared_waiting_lease",
+  "priority": "T7 B/C four-run evaluation has priority once its training finishes (~04:20); ScreenSpot runs after that under a separate/continued lease.",
+  "dataset": {
+    "path": "data/screenspot.jsonl",
+    "sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+    "split": "test",
+    "n": 1272,
+    "unique_image_paths": 610,
+    "source": "screenspot",
+    "normalization_note": "source bbox already normalized once; answer used unchanged, no second normalization; audit results/eval_screenspot_data_audit.json",
+    "known_annotation_note": "one disclosed same-image same-instruction pair with differing boxes (IoU=0.7792577287) kept as-is; no GT modified"
+  },
+  "fixed_contract": {
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len": 36,
+    "prompt_id": "p1",
+    "max_new_tokens": 64,
+    "seed": 42,
+    "do_sample": false,
+    "num_beams": 1,
+    "batch_size": 1,
+    "batch8": "forbidden",
+    "expected_source": "screenspot",
+    "n": 1272
+  },
+  "order": [
+    "screenspot_b0_base_v1",
+    "screenspot_sft_s42_v1",
+    "screenspot_sft_s43_v1",
+    "screenspot_sft_s44_v1"
+  ],
+  "cases": [
+    {
+      "key": "b0_base",
+      "run_id": "screenspot_b0_base_v1",
+      "adapter": null,
+      "label": "B0 base SmolVLM-256M-Instruct (zero-shot)",
+      "gpu_command": "python -m src.eval.run_zeroshot --run-id screenspot_b0_base_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_b0_base_v1.json --details-output results/eval_screenspot_b0_base_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+      "output": "results/zeroshot_screenspot_b0_base_v1.json",
+      "details": "results/eval_screenspot_b0_base_v1_details.jsonl",
+      "validation": "results/eval_screenspot_b0_base_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_screenspot_b0_base_v1.json --report results/eval_screenspot_b0_base_v1_validation.json --expected-run-id screenspot_b0_base_v1 --expected-dataset screenspot --expected-split test --expected-n 1272 --expected-prompt-id p1",
+      "gpu_log": "results/eval_screenspot_b0_base_v1_gpu.log",
+      "stdout_log": "results/eval_screenspot_b0_base_v1_stdout.log",
+      "stderr_log": "results/eval_screenspot_b0_base_v1_stderr.log"
+    },
+    {
+      "key": "sft_s42",
+      "run_id": "screenspot_sft_s42_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "label": "SFT v1 seed42",
+      "gpu_command": "python -m src.eval.run_zeroshot --run-id screenspot_sft_s42_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s42_v1.json --details-output results/eval_screenspot_sft_s42_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1/adapter",
+      "output": "results/zeroshot_screenspot_sft_s42_v1.json",
+      "details": "results/eval_screenspot_sft_s42_v1_details.jsonl",
+      "validation": "results/eval_screenspot_sft_s42_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_screenspot_sft_s42_v1.json --report results/eval_screenspot_sft_s42_v1_validation.json --expected-run-id screenspot_sft_s42_v1 --expected-dataset screenspot --expected-split test --expected-n 1272 --expected-prompt-id p1 --expected-adapter adapters/sft_v1/adapter",
+      "gpu_log": "results/eval_screenspot_sft_s42_v1_gpu.log",
+      "stdout_log": "results/eval_screenspot_sft_s42_v1_stdout.log",
+      "stderr_log": "results/eval_screenspot_sft_s42_v1_stderr.log"
+    },
+    {
+      "key": "sft_s43",
+      "run_id": "screenspot_sft_s43_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "label": "SFT v1 seed43",
+      "gpu_command": "python -m src.eval.run_zeroshot --run-id screenspot_sft_s43_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s43_v1.json --details-output results/eval_screenspot_sft_s43_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1_s43/adapter",
+      "output": "results/zeroshot_screenspot_sft_s43_v1.json",
+      "details": "results/eval_screenspot_sft_s43_v1_details.jsonl",
+      "validation": "results/eval_screenspot_sft_s43_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_screenspot_sft_s43_v1.json --report results/eval_screenspot_sft_s43_v1_validation.json --expected-run-id screenspot_sft_s43_v1 --expected-dataset screenspot --expected-split test --expected-n 1272 --expected-prompt-id p1 --expected-adapter adapters/sft_v1_s43/adapter",
+      "gpu_log": "results/eval_screenspot_sft_s43_v1_gpu.log",
+      "stdout_log": "results/eval_screenspot_sft_s43_v1_stdout.log",
+      "stderr_log": "results/eval_screenspot_sft_s43_v1_stderr.log"
+    },
+    {
+      "key": "sft_s44",
+      "run_id": "screenspot_sft_s44_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "label": "SFT v1 seed44",
+      "gpu_command": "python -m src.eval.run_zeroshot --run-id screenspot_sft_s44_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s44_v1.json --details-output results/eval_screenspot_sft_s44_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1_s44/adapter",
+      "output": "results/zeroshot_screenspot_sft_s44_v1.json",
+      "details": "results/eval_screenspot_sft_s44_v1_details.jsonl",
+      "validation": "results/eval_screenspot_sft_s44_v1_validation.json",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_screenspot_sft_s44_v1.json --report results/eval_screenspot_sft_s44_v1_validation.json --expected-run-id screenspot_sft_s44_v1 --expected-dataset screenspot --expected-split test --expected-n 1272 --expected-prompt-id p1 --expected-adapter adapters/sft_v1_s44/adapter",
+      "gpu_log": "results/eval_screenspot_sft_s44_v1_gpu.log",
+      "stdout_log": "results/eval_screenspot_sft_s44_v1_stdout.log",
+      "stderr_log": "results/eval_screenspot_sft_s44_v1_stderr.log"
+    }
+  ],
+  "cpu_evidence": {
+    "data_audit": "results/eval_screenspot_data_audit.json",
+    "dryrun": "results/eval_screenspot_dryrun.json"
+  },
+  "timing_estimate": {
+    "runs": 4,
+    "samples_per_run": 1272,
+    "batch1_seconds_per_sample_range_from_prior_runs": {
+      "low": 1.3,
+      "high": 2.7
+    },
+    "per_run_minutes_range": [
+      27.560000000000002,
+      57.24
+    ],
+    "four_runs_minutes_range": [
+      110.24000000000001,
+      228.96
+    ],
+    "note": "ScreenSpot screenshots are larger on the CPU image path; refine after the first 25 rows of the first run. Request a lease window based on measured throughput and stop after the current run if the lease deadline is reached."
+  },
+  "execution_notes": {
+    "wrapper": "each run uses cmd.exe wrapper capturing the real exit code; nvidia-smi before/after into eval_*_gpu.log; stdout/stderr logs",
+    "resume": "same run_id plus --resume only for an interrupted run",
+    "abort": ">7500 MiB, competing GPU job, assert/OOM, non-finite loss: stop and report",
+    "no_parallel_gpu": true,
+    "batch8": "forbidden"
+  },
+  "deliverables": {
+    "per_run": "summary JSON + details JSONL + validation JSON for four runs",
+    "summary": "results/eval_screenspot_summary.json",
+    "table1_column": "report/tables/table1_screenspot_column.csv",
+    "table1_column_md": "report/tables/table1_screenspot_column.md",
+    "failure_ledger": "handoff/TRAINING-FAILURE-LEDGER.md if any run fails or is partial"
+  }
+}

@@ -1,0 +1,461 @@
+{
+  "format": "eval-t7-g4-summary-v1",
+  "task": {
+    "id": "task-24",
+    "subject": "T7-eval · B/C 坐标表示独立评测"
+  },
+  "created_at": "2026-11-10T05:00:30.269365+08:00",
+  "scope": "single-seed pilot (seed42); NOT a 3-seed main table",
+  "method": "independent frozen evaluator; n=1000 per dataset; batch_size=1; greedy p1-family prompt 384/no-split/seq36/max64; A reused from T6 seed42",
+  "variants": {
+    "A": {
+      "representation": "normalized_decimal",
+      "prompt_id": "p1",
+      "adapter": "adapters/sft_v1/adapter"
+    },
+    "B": {
+      "representation": "bin1000_integer",
+      "prompt_id": "p1_bin1000",
+      "adapter": "adapters/sft_t7_b_bin1000/adapter"
+    },
+    "C": {
+      "representation": "pixel_xyxy",
+      "prompt_id": "p1_pixel",
+      "adapter": "adapters/sft_t7_c_pixel/adapter"
+    }
+  },
+  "runs": [
+    {
+      "variant": "A",
+      "dataset": "synthetic",
+      "split": "eval",
+      "run_id": "sft_v1_s42_synthetic_v1",
+      "reused": "T6 seed42 batch1 official result",
+      "adapter": "adapters/sft_v1/adapter",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+      "prompt_id": "p1",
+      "representation": "normalized_decimal",
+      "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+      "summary": "results\\zeroshot_sft_v1_s42_synthetic_v1.json",
+      "details": "results/eval_sft_v1_s42_synthetic_v1_details.jsonl",
+      "details_sha256": "4663be71c26e451aebd64f535968b3caa069f1396c2e7468f84d25325a4544bd",
+      "validation": "results\\eval_sft_v1_s42_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.011,
+        "mIoU": 0.06743763938552531,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.011,
+        "mIoU": 0.06743763938552531,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 1347.0033692999277
+    },
+    {
+      "variant": "A",
+      "dataset": "refcoco",
+      "split": "val",
+      "run_id": "sft_v1_s42_refcoco_v1",
+      "reused": "T6 seed42 batch1 official result",
+      "adapter": "adapters/sft_v1/adapter",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+      "prompt_id": "p1",
+      "representation": "normalized_decimal",
+      "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+      "summary": "results\\zeroshot_sft_v1_s42_refcoco_v1.json",
+      "details": "results/eval_sft_v1_s42_refcoco_v1_details.jsonl",
+      "details_sha256": "bd811877375c437dbbb23edfeed13b365285d19e9afc8c04930a67e5e1b84131",
+      "validation": "results\\eval_sft_v1_s42_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.095,
+        "mIoU": 0.21124828873091464,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.095,
+        "mIoU": 0.21124828873091464,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 1358.8669571999926
+    },
+    {
+      "variant": "B",
+      "dataset": "synthetic",
+      "split": "eval",
+      "run_id": "t7_b_synthetic_v1",
+      "reused": null,
+      "adapter": "adapters/sft_t7_b_bin1000/adapter",
+      "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933",
+      "prompt_id": "p1_bin1000",
+      "representation": "bin1000_integer",
+      "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+      "summary": "results\\zeroshot_t7_b_synthetic_v1.json",
+      "details": "results/eval_t7_b_synthetic_v1_details.jsonl",
+      "details_sha256": "45a724bb7bee68379b75992e2b5637c2c727ee1b0e6b0b8d9e3142f4b87058f5",
+      "validation": "results\\eval_t7_b_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.03,
+        "mIoU": 0.08110781507976045,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.03,
+        "mIoU": 0.08110781507976045,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 871.579760099994
+    },
+    {
+      "variant": "B",
+      "dataset": "refcoco",
+      "split": "val",
+      "run_id": "t7_b_refcoco_v1",
+      "reused": null,
+      "adapter": "adapters/sft_t7_b_bin1000/adapter",
+      "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933",
+      "prompt_id": "p1_bin1000",
+      "representation": "bin1000_integer",
+      "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+      "summary": "results\\zeroshot_t7_b_refcoco_v1.json",
+      "details": "results/eval_t7_b_refcoco_v1_details.jsonl",
+      "details_sha256": "1d4d6d9ce428bc6f1cb12c9e891d8c6ba4f03da1ec697516dd94abb85fa3cfa2",
+      "validation": "results\\eval_t7_b_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.113,
+        "mIoU": 0.22896690196474548,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.113,
+        "mIoU": 0.22896690196474548,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 851.4778966000304
+    },
+    {
+      "variant": "C",
+      "dataset": "synthetic",
+      "split": "eval",
+      "run_id": "t7_c_synthetic_v1",
+      "reused": null,
+      "adapter": "adapters/sft_t7_c_pixel/adapter",
+      "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+      "prompt_id": "p1_pixel",
+      "representation": "pixel_xyxy",
+      "prompt_sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+      "summary": "results\\zeroshot_t7_c_synthetic_v1.json",
+      "details": "results/eval_t7_c_synthetic_v1_details.jsonl",
+      "details_sha256": "e78937db621fa3717d38c8831e6fa828a91ef5472acd2af649cfaaa262f14f2a",
+      "validation": "results\\eval_t7_c_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.014,
+        "mIoU": 0.05516290278650977,
+        "parse_rate": 0.994,
+        "invalid": 6
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.014,
+        "mIoU": 0.05516290278650977,
+        "parse_rate": 0.994,
+        "invalid": 6
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 864.0129899000749
+    },
+    {
+      "variant": "C",
+      "dataset": "refcoco",
+      "split": "val",
+      "run_id": "t7_c_refcoco_v1",
+      "reused": null,
+      "adapter": "adapters/sft_t7_c_pixel/adapter",
+      "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+      "prompt_id": "p1_pixel",
+      "representation": "pixel_xyxy",
+      "prompt_sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+      "summary": "results\\zeroshot_t7_c_refcoco_v1.json",
+      "details": "results/eval_t7_c_refcoco_v1_details.jsonl",
+      "details_sha256": "38a422d6774cc0335dd4e8f7b1ce701b8eb8724a19870fbdaebacd3d4150e387",
+      "validation": "results\\eval_t7_c_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.043,
+        "mIoU": 0.13519229729249985,
+        "parse_rate": 0.929,
+        "invalid": 71
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.043,
+        "mIoU": 0.13519229729249985,
+        "parse_rate": 0.929,
+        "invalid": 71
+      },
+      "hit_max_new_tokens": 0,
+      "elapsed_seconds_including_load": 842.6854280000553
+    }
+  ],
+  "per_variant": {
+    "A": {
+      "synthetic": {
+        "variant": "A",
+        "dataset": "synthetic",
+        "split": "eval",
+        "run_id": "sft_v1_s42_synthetic_v1",
+        "reused": "T6 seed42 batch1 official result",
+        "adapter": "adapters/sft_v1/adapter",
+        "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+        "prompt_id": "p1",
+        "representation": "normalized_decimal",
+        "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+        "summary": "results\\zeroshot_sft_v1_s42_synthetic_v1.json",
+        "details": "results/eval_sft_v1_s42_synthetic_v1_details.jsonl",
+        "details_sha256": "4663be71c26e451aebd64f535968b3caa069f1396c2e7468f84d25325a4544bd",
+        "validation": "results\\eval_sft_v1_s42_synthetic_v1_validation.json",
+        "validation_status": "passed",
+        "metrics": {
+          "acc@0.5": 0.011,
+          "mIoU": 0.06743763938552531,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "recomputed": {
+          "n": 1000,
+          "acc@0.5": 0.011,
+          "mIoU": 0.06743763938552531,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "hit_max_new_tokens": 0,
+        "elapsed_seconds_including_load": 1347.0033692999277
+      },
+      "refcoco": {
+        "variant": "A",
+        "dataset": "refcoco",
+        "split": "val",
+        "run_id": "sft_v1_s42_refcoco_v1",
+        "reused": "T6 seed42 batch1 official result",
+        "adapter": "adapters/sft_v1/adapter",
+        "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+        "prompt_id": "p1",
+        "representation": "normalized_decimal",
+        "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+        "summary": "results\\zeroshot_sft_v1_s42_refcoco_v1.json",
+        "details": "results/eval_sft_v1_s42_refcoco_v1_details.jsonl",
+        "details_sha256": "bd811877375c437dbbb23edfeed13b365285d19e9afc8c04930a67e5e1b84131",
+        "validation": "results\\eval_sft_v1_s42_refcoco_v1_validation.json",
+        "validation_status": "passed",
+        "metrics": {
+          "acc@0.5": 0.095,
+          "mIoU": 0.21124828873091464,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "recomputed": {
+          "n": 1000,
+          "acc@0.5": 0.095,
+          "mIoU": 0.21124828873091464,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "hit_max_new_tokens": 0,
+        "elapsed_seconds_including_load": 1358.8669571999926
+      }
+    },
+    "B": {
+      "synthetic": {
+        "variant": "B",
+        "dataset": "synthetic",
+        "split": "eval",
+        "run_id": "t7_b_synthetic_v1",
+        "reused": null,
+        "adapter": "adapters/sft_t7_b_bin1000/adapter",
+        "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933",
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "summary": "results\\zeroshot_t7_b_synthetic_v1.json",
+        "details": "results/eval_t7_b_synthetic_v1_details.jsonl",
+        "details_sha256": "45a724bb7bee68379b75992e2b5637c2c727ee1b0e6b0b8d9e3142f4b87058f5",
+        "validation": "results\\eval_t7_b_synthetic_v1_validation.json",
+        "validation_status": "passed",
+        "metrics": {
+          "acc@0.5": 0.03,
+          "mIoU": 0.08110781507976045,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "recomputed": {
+          "n": 1000,
+          "acc@0.5": 0.03,
+          "mIoU": 0.08110781507976045,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "hit_max_new_tokens": 0,
+        "elapsed_seconds_including_load": 871.579760099994
+      },
+      "refcoco": {
+        "variant": "B",
+        "dataset": "refcoco",
+        "split": "val",
+        "run_id": "t7_b_refcoco_v1",
+        "reused": null,
+        "adapter": "adapters/sft_t7_b_bin1000/adapter",
+        "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933",
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "summary": "results\\zeroshot_t7_b_refcoco_v1.json",
+        "details": "results/eval_t7_b_refcoco_v1_details.jsonl",
+        "details_sha256": "1d4d6d9ce428bc6f1cb12c9e891d8c6ba4f03da1ec697516dd94abb85fa3cfa2",
+        "validation": "results\\eval_t7_b_refcoco_v1_validation.json",
+        "validation_status": "passed",
+        "metrics": {
+          "acc@0.5": 0.113,
+          "mIoU": 0.22896690196474548,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "recomputed": {
+          "n": 1000,
+          "acc@0.5": 0.113,
+          "mIoU": 0.22896690196474548,
+          "parse_rate": 1.0,
+          "invalid": 0
+        },
+        "hit_max_new_tokens": 0,
+        "elapsed_seconds_including_load": 851.4778966000304
+      }
+    },
+    "C": {
+      "synthetic": {
+        "variant": "C",
+        "dataset": "synthetic",
+        "split": "eval",
+        "run_id": "t7_c_synthetic_v1",
+        "reused": null,
+        "adapter": "adapters/sft_t7_c_pixel/adapter",
+        "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+        "prompt_id": "p1_pixel",
+        "representation": "pixel_xyxy",
+        "prompt_sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+        "summary": "results\\zeroshot_t7_c_synthetic_v1.json",
+        "details": "results/eval_t7_c_synthetic_v1_details.jsonl",
+        "details_sha256": "e78937db621fa3717d38c8831e6fa828a91ef5472acd2af649cfaaa262f14f2a",
+        "validation": "results\\eval_t7_c_synthetic_v1_validation.json",
+        "validation_status": "passed",
+        "metrics": {
+          "acc@0.5": 0.014,
+          "mIoU": 0.05516290278650977,
+          "parse_rate": 0.994,
+          "invalid": 6
+        },
+        "recomputed": {
+          "n": 1000,
+          "acc@0.5": 0.014,
+          "mIoU": 0.05516290278650977,
+          "parse_rate": 0.994,
+          "invalid": 6
+        },
+        "hit_max_new_tokens": 0,
+        "elapsed_seconds_including_load": 864.0129899000749
+      },
+      "refcoco": {
+        "variant": "C",
+        "dataset": "refcoco",
+        "split": "val",
+        "run_id": "t7_c_refcoco_v1",
+        "reused": null,
+        "adapter": "adapters/sft_t7_c_pixel/adapter",
+        "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+        "prompt_id": "p1_pixel",
+        "representation": "pixel_xyxy",
+        "prompt_sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+        "summary": "results\\zeroshot_t7_c_refcoco_v1.json",
+        "details": "results/eval_t7_c_refcoco_v1_details.jsonl",
+        "details_sha256": "38a422d6774cc0335dd4e8f7b1ce701b8eb8724a19870fbdaebacd3d4150e387",
+        "validation": "results\\eval_t7_c_refcoco_v1_validation.json",
+        "validation_status": "passed",
+        "metrics": {
+          "acc@0.5": 0.043,
+          "mIoU": 0.13519229729249985,
+          "parse_rate": 0.929,
+          "invalid": 71
+        },
+        "recomputed": {
+          "n": 1000,
+          "acc@0.5": 0.043,
+          "mIoU": 0.13519229729249985,
+          "parse_rate": 0.929,
+          "invalid": 71
+        },
+        "hit_max_new_tokens": 0,
+        "elapsed_seconds_including_load": 842.6854280000553
+      }
+    }
+  },
+  "macro_average_two_datasets": {
+    "A": {
+      "acc@0.5": 0.053,
+      "mIoU": 0.13934296405821997,
+      "parse_rate": 1.0,
+      "note": "macro average of the two dataset metrics (not a pooled-n metric)"
+    },
+    "B": {
+      "acc@0.5": 0.07150000000000001,
+      "mIoU": 0.15503735852225298,
+      "parse_rate": 1.0,
+      "note": "macro average of the two dataset metrics (not a pooled-n metric)"
+    },
+    "C": {
+      "acc@0.5": 0.028499999999999998,
+      "mIoU": 0.0951776000395048,
+      "parse_rate": 0.9615,
+      "note": "macro average of the two dataset metrics (not a pooled-n metric)"
+    }
+  },
+  "notes": [
+    "B uses the frozen parse_box 1000-bin branch; C uses the independent pixel conversion layer then frozen IoU/Acc/metrics.",
+    "All six validations passed; hit_max_new_tokens totals are recorded per run.",
+    "A/B/C were trained under the same budget/seed as a single-seed pilot; main table still needs 3 seeds."
+  ],
+  "c_invalid_reasons": {
+    "t7_c_synthetic_v1": {
+      "pixel_box_outside_or_reversed": 6
+    },
+    "t7_c_refcoco_v1": {
+      "pixel_box_outside_or_reversed": 71
+    }
+  },
+  "caveats": [
+    "Single-seed pilot (seed42) for all three representations; this is a G4 ablation table, not a 3-seed main table.",
+    "A reuses the already-validated T6 seed42 batch1 results; B and C are new T7 batch1 runs.",
+    "C (pixel) is strict by contract: out-of-bounds or reversed pixel boxes are invalid with no repair, so its parse_rate is 0.994 (synthetic) and 0.929 (RefCOCO); B's frozen 1000-bin path parses 1.0 on both.",
+    "All four new runs produced n=1000 rows, hit_max_new_tokens=0, and passed independent validation; batch8 was not used.",
+    "The execution driver initially exited 1 only because the G4 builder needed compatibility for the legacy A summaries (no top-level prompt_id/batch_size fields); the builder was fixed and the four GPU runs themselves all exited 0 with validations passed."
+  ]
+}

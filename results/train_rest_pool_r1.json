@@ -1,0 +1,101 @@
+{
+  "status": "completed",
+  "stage": "rest_pool_from_audit",
+  "tag": "r1",
+  "pool": {
+    "path": "data/rest/r1_pool.jsonl",
+    "records": 191,
+    "sha256": "bcf4275f204275445bdb57815217a10ab5e9f80a70f0e1c2e0b289fe7fd35494"
+  },
+  "pool_schema": {
+    "fields": 8,
+    "raw_bbox": "derived_from_predicted_box_pixels_float",
+    "source": "rest (pipeline label required by configs/rest_r1.json data.train; origin datasets kept in by_dataset/audit)"
+  },
+  "pool_validation": {
+    "validator": "src.eval.dataset.validate_record",
+    "check_image": true,
+    "rows": 191,
+    "passed": 191,
+    "failed": 0,
+    "failures": [],
+    "all_passed": true
+  },
+  "design_deviation": [
+    {
+      "field": "raw_bbox",
+      "rule": "raw_bbox = predicted_box * [width, height] as float pixel coordinates",
+      "reason": "ReST pool rows are model predictions, not GT. The frozen contract requires answer == raw_bbox / (width, height); copying the GT raw_bbox would conflict with the supervised prediction and leak GT into the pool."
+    }
+  ],
+  "note": "Pool rebuilt offline from a sampling audit; no GPU used. Records are the model's own predictions (normalised box) that passed the tau filter. Trainer-ready eight-field rows.",
+  "audit": "data/rest/r1_pool_audit.jsonl",
+  "audit_sha256": "6522528f88f2fb71b2493796829482efc694eedd0abd575567c33353f158058c",
+  "audit_rows": 4000,
+  "tau": 0.5,
+  "tau_sweep": {
+    "0.1": {
+      "pool_records": 1680,
+      "by_dataset": {
+        "refcoco": 1235,
+        "synthetic": 445
+      }
+    },
+    "0.25": {
+      "pool_records": 928,
+      "by_dataset": {
+        "refcoco": 717,
+        "synthetic": 211
+      }
+    },
+    "0.3": {
+      "pool_records": 707,
+      "by_dataset": {
+        "refcoco": 549,
+        "synthetic": 158
+      }
+    },
+    "0.5": {
+      "pool_records": 191,
+      "by_dataset": {
+        "refcoco": 150,
+        "synthetic": 41
+      }
+    },
+    "0.75": {
+      "pool_records": 13,
+      "by_dataset": {
+        "refcoco": 11,
+        "synthetic": 2
+      }
+    }
+  },
+  "pool_records": 191,
+  "by_dataset": {
+    "refcoco": {
+      "generations": 2000,
+      "accepted": 150,
+      "survival_rate": 0.075,
+      "prompts_with_accept": 116
+    },
+    "synthetic": {
+      "generations": 2000,
+      "accepted": 41,
+      "survival_rate": 0.0205,
+      "prompts_with_accept": 38
+    }
+  },
+  "prompts_total": 1000,
+  "prompts_with_accept": 154,
+  "generated_at": "2026-11-10T19:02:38.519603+08:00",
+  "superseded": {
+    "sampler_pool_sha256": "2f6df8768c374698ceec476da7d474563199cb27999f8ff4f95724b3a093bc1c",
+    "sampler_pool_file": "data/rest/r1_pool_sampler_raw.jsonl",
+    "sampler_pool_note": "old 4-field sampler pool (id/image/question/answer); superseded by the 8-field rebuild, kept as audit trail",
+    "seven_field_pool_sha256": "dfce6bf0e3ddca9c814a0c6e96af450d029dafdc9144e9bcf3a7ba68ca9beb3a",
+    "seven_field_pool_file": "data/rest/r1_pool_7field.jsonl",
+    "seven_field_pool_note": "intermediate 7-field rebuild rejected by src/eval/dataset.py REQUIRED_KEYS (missing raw_bbox); renamed, not deleted",
+    "reason": "4-field sampler pool and 7-field rebuild are both superseded by the current 8-field pool; old files kept as audit trail and must not be cited as the formal pool",
+    "formal_pool_sha256": "bcf4275f204275445bdb57815217a10ab5e9f80a70f0e1c2e0b289fe7fd35494"
+  }
+}

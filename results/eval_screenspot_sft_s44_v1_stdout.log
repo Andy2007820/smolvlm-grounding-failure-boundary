@@ -1,0 +1,105 @@
+{"run_id": "screenspot_sft_s44_v1", "completed": 1, "n": 1272, "elapsed_seconds": 19.16397379990667, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.0, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 25, "n": 1272, "elapsed_seconds": 50.48182139988057, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.02877633416980702, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 50, "n": 1272, "elapsed_seconds": 83.04153389995918, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.03305444315243911, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 75, "n": 1272, "elapsed_seconds": 116.37155849998817, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.02877185404596707, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 100, "n": 1272, "elapsed_seconds": 149.98940159985796, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.030513732822020714, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 125, "n": 1272, "elapsed_seconds": 183.56770149990916, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.027490267302145953, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 150, "n": 1272, "elapsed_seconds": 216.6856836997904, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.028202321440483367, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 175, "n": 1272, "elapsed_seconds": 250.64755209977739, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.02680269937848797, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 200, "n": 1272, "elapsed_seconds": 285.6749110999517, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.02393482467771383, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 225, "n": 1272, "elapsed_seconds": 319.49459859984927, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.023072540776594163, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 250, "n": 1272, "elapsed_seconds": 353.47606399981305, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.021444007376262335, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 275, "n": 1272, "elapsed_seconds": 388.05060769990087, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.020976851675370632, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 300, "n": 1272, "elapsed_seconds": 422.4981429998297, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.01975867606285547, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 325, "n": 1272, "elapsed_seconds": 456.6733643999323, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.018968903636974423, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 350, "n": 1272, "elapsed_seconds": 491.05948199983686, "running_metrics": {"acc@0.5": 0.002857142857142857, "mIoU": 0.01962490348958766, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 375, "n": 1272, "elapsed_seconds": 526.0210864997935, "running_metrics": {"acc@0.5": 0.0026666666666666666, "mIoU": 0.019130824650053706, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 400, "n": 1272, "elapsed_seconds": 560.3334435999859, "running_metrics": {"acc@0.5": 0.0025, "mIoU": 0.019161880512598713, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 425, "n": 1272, "elapsed_seconds": 595.2531374997925, "running_metrics": {"acc@0.5": 0.002352941176470588, "mIoU": 0.01886891359901856, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 450, "n": 1272, "elapsed_seconds": 629.9061628999189, "running_metrics": {"acc@0.5": 0.0022222222222222222, "mIoU": 0.018730784873308353, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 475, "n": 1272, "elapsed_seconds": 664.5197547997814, "running_metrics": {"acc@0.5": 0.002105263157894737, "mIoU": 0.01884192737311887, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 500, "n": 1272, "elapsed_seconds": 698.7151298997924, "running_metrics": {"acc@0.5": 0.002, "mIoU": 0.019683856632957776, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 525, "n": 1272, "elapsed_seconds": 733.3178253998049, "running_metrics": {"acc@0.5": 0.0019047619047619048, "mIoU": 0.019660857746769702, "parse_rate": 0.9980952380952381, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 550, "n": 1272, "elapsed_seconds": 767.5008637998253, "running_metrics": {"acc@0.5": 0.0018181818181818182, "mIoU": 0.019644776832589046, "parse_rate": 0.9981818181818182, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 575, "n": 1272, "elapsed_seconds": 802.1488256999291, "running_metrics": {"acc@0.5": 0.0017391304347826088, "mIoU": 0.021049529517700012, "parse_rate": 0.9982608695652174, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 600, "n": 1272, "elapsed_seconds": 836.6271696998738, "running_metrics": {"acc@0.5": 0.0016666666666666668, "mIoU": 0.02122642850523398, "parse_rate": 0.9983333333333333, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 625, "n": 1272, "elapsed_seconds": 871.9409390999936, "running_metrics": {"acc@0.5": 0.0016, "mIoU": 0.020578183020920845, "parse_rate": 0.9984, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 650, "n": 1272, "elapsed_seconds": 906.566335399868, "running_metrics": {"acc@0.5": 0.0015384615384615385, "mIoU": 0.020402852407403325, "parse_rate": 0.9984615384615385, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 675, "n": 1272, "elapsed_seconds": 941.245708799921, "running_metrics": {"acc@0.5": 0.0014814814814814814, "mIoU": 0.021131355647902826, "parse_rate": 0.9985185185185185, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 700, "n": 1272, "elapsed_seconds": 975.6120021999814, "running_metrics": {"acc@0.5": 0.0014285714285714286, "mIoU": 0.02121486657963239, "parse_rate": 0.9985714285714286, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 725, "n": 1272, "elapsed_seconds": 1010.0028967999388, "running_metrics": {"acc@0.5": 0.001379310344827586, "mIoU": 0.02102737285737934, "parse_rate": 0.9986206896551724, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 750, "n": 1272, "elapsed_seconds": 1044.5309253998566, "running_metrics": {"acc@0.5": 0.0013333333333333333, "mIoU": 0.021306522061467527, "parse_rate": 0.9986666666666667, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 775, "n": 1272, "elapsed_seconds": 1078.8850436999928, "running_metrics": {"acc@0.5": 0.0012903225806451613, "mIoU": 0.02117303941086771, "parse_rate": 0.9987096774193548, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 800, "n": 1272, "elapsed_seconds": 1113.171335999854, "running_metrics": {"acc@0.5": 0.00125, "mIoU": 0.021085742196110337, "parse_rate": 0.99875, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 825, "n": 1272, "elapsed_seconds": 1147.8013594998047, "running_metrics": {"acc@0.5": 0.0012121212121212121, "mIoU": 0.021392410989452746, "parse_rate": 0.9987878787878788, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 850, "n": 1272, "elapsed_seconds": 1182.4880589998793, "running_metrics": {"acc@0.5": 0.001176470588235294, "mIoU": 0.021068632277263095, "parse_rate": 0.9988235294117647, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 875, "n": 1272, "elapsed_seconds": 1217.222628599964, "running_metrics": {"acc@0.5": 0.001142857142857143, "mIoU": 0.020677928224420706, "parse_rate": 0.9988571428571429, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 900, "n": 1272, "elapsed_seconds": 1252.2335055998992, "running_metrics": {"acc@0.5": 0.0011111111111111111, "mIoU": 0.02078966090354896, "parse_rate": 0.9988888888888889, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 925, "n": 1272, "elapsed_seconds": 1287.2951098999474, "running_metrics": {"acc@0.5": 0.001081081081081081, "mIoU": 0.020307787838145772, "parse_rate": 0.9989189189189189, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 950, "n": 1272, "elapsed_seconds": 1322.2628194999415, "running_metrics": {"acc@0.5": 0.0010526315789473684, "mIoU": 0.02018624793450069, "parse_rate": 0.9989473684210526, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 975, "n": 1272, "elapsed_seconds": 1357.439540399937, "running_metrics": {"acc@0.5": 0.0010256410256410256, "mIoU": 0.019795774559271083, "parse_rate": 0.9989743589743589, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1000, "n": 1272, "elapsed_seconds": 1392.6938305997755, "running_metrics": {"acc@0.5": 0.001, "mIoU": 0.019396988585081744, "parse_rate": 0.999, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1025, "n": 1272, "elapsed_seconds": 1427.5229736999609, "running_metrics": {"acc@0.5": 0.000975609756097561, "mIoU": 0.019503817256474622, "parse_rate": 0.9990243902439024, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1050, "n": 1272, "elapsed_seconds": 1462.4981822997797, "running_metrics": {"acc@0.5": 0.0009523809523809524, "mIoU": 0.01926741326675851, "parse_rate": 0.9990476190476191, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1075, "n": 1272, "elapsed_seconds": 1497.1170093999244, "running_metrics": {"acc@0.5": 0.0009302325581395349, "mIoU": 0.01925818639549728, "parse_rate": 0.9990697674418605, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1100, "n": 1272, "elapsed_seconds": 1532.2403464999516, "running_metrics": {"acc@0.5": 0.0009090909090909091, "mIoU": 0.01893472972930548, "parse_rate": 0.9990909090909091, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1125, "n": 1272, "elapsed_seconds": 1567.5346982998308, "running_metrics": {"acc@0.5": 0.0008888888888888889, "mIoU": 0.01903655668731943, "parse_rate": 0.9991111111111111, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1150, "n": 1272, "elapsed_seconds": 1602.5003506999929, "running_metrics": {"acc@0.5": 0.0008695652173913044, "mIoU": 0.018684406557363767, "parse_rate": 0.9991304347826087, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1175, "n": 1272, "elapsed_seconds": 1637.3561578998342, "running_metrics": {"acc@0.5": 0.000851063829787234, "mIoU": 0.018625643015519847, "parse_rate": 0.9991489361702127, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1200, "n": 1272, "elapsed_seconds": 1672.363663099939, "running_metrics": {"acc@0.5": 0.0008333333333333334, "mIoU": 0.018812048996753383, "parse_rate": 0.9991666666666666, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1225, "n": 1272, "elapsed_seconds": 1707.279119799845, "running_metrics": {"acc@0.5": 0.0008163265306122449, "mIoU": 0.01867120752998551, "parse_rate": 0.9991836734693877, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1250, "n": 1272, "elapsed_seconds": 1742.3660778999329, "running_metrics": {"acc@0.5": 0.0008, "mIoU": 0.018396238006492805, "parse_rate": 0.9992, "invalid": 1}}
+{"run_id": "screenspot_sft_s44_v1", "completed": 1272, "n": 1272, "elapsed_seconds": 1772.9858347999398, "running_metrics": {"acc@0.5": 0.0007861635220125787, "mIoU": 0.01821966983689426, "parse_rate": 0.9992138364779874, "invalid": 1}}
+{
+  "status": "completed",
+  "run_id": "screenspot_sft_s44_v1",
+  "output": "results/zeroshot_screenspot_sft_s44_v1.json",
+  "details": "results/eval_screenspot_sft_s44_v1_details.jsonl",
+  "n": 1272,
+  "batch_size": 1,
+  "prompt_id": "p1",
+  "representation": "normalized_decimal",
+  "adapter": "adapters/sft_v1_s44/adapter",
+  "adapter_load": {
+    "loaded": true,
+    "is_trainable": false,
+    "torch_device": "cuda",
+    "lora_module_count": 120,
+    "trainable_parameter_count": 0,
+    "base_model_class": "Idefics3ForConditionalGeneration",
+    "wrapped_model_class": "PeftModelForCausalLM",
+    "adapter_metadata": {
+      "path": "adapters/sft_v1_s44/adapter",
+      "adapter_config_sha256": "496578fd0bf49fa5d1377e5ba29d79978a594378993e9f6d87a2ab46aafac291",
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+      "adapter_model_bytes": 7407008,
+      "peft_type": "LORA",
+      "task_type": "CAUSAL_LM",
+      "lora_r": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "base_model_name_or_path": "D:\\Deepseek Harness\\final-project\\models\\SmolVLM-256M-Instruct",
+      "peft_version": "0.21.2",
+      "is_trainable": false
+    }
+  },
+  "metrics": {
+    "acc@0.5": 0.0007861635220125787,
+    "mIoU": 0.01821966983689426,
+    "parse_rate": 0.9992138364779874,
+    "invalid": 1
+  },
+  "runtime": {
+    "started_at": "2026-11-10T06:21:55.069388+08:00",
+    "finished_at": "2026-11-10T06:51:28.308654+08:00",
+    "elapsed_seconds_including_load": 1773.2393005997874,
+    "nvidia_smi_memory_before_mib": 1028,
+    "nvidia_smi_memory_after_model_load_mib": 1673,
+    "nvidia_smi_memory_after_generation_mib": 1787,
+    "torch_peak_memory_allocated_mib": 528.7666015625,
+    "torch_peak_memory_reserved_mib": 554.0,
+    "nvidia_smi_memory_after_cleanup_mib": 1255,
+    "post_process_exit_check": "recorded by the calling shell, not claimed by this in-process value",
+    "timing_caveat": "Diagnostic single-run wall time, not the Table 3 warmed latency benchmark."
+  }
+}

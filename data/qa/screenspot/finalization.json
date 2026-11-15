@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "review": {
+    "status": "passed",
+    "reviewer": "deepseek-flash via image_understand fallback; coordinates assessed by data-engineer",
+    "reviewed_at": "2026-11-09T05:11:24.869787+00:00",
+    "full_resolution_samples_reviewed": 10,
+    "observations": {
+      "screenspot_test_000713": "box encloses the selected Rule-based mode control",
+      "screenspot_test_001011": "box encloses the Most commented sorting option",
+      "screenspot_test_000840": "box encloses the GitLab add-new plus/dropdown control",
+      "screenspot_test_000653": "box encloses the Wallet action",
+      "screenspot_test_000233": "box encloses the Allow Notifications toggle",
+      "screenspot_test_000957": "box encloses the Carnation Breakfast Essentials delete/trash icon",
+      "screenspot_test_001143": "box encloses the Wikipedia footer link",
+      "screenspot_test_000036": "box encloses Account protection in Windows Security navigation",
+      "screenspot_test_000211": "box encloses the macOS Bluetooth back arrow",
+      "screenspot_test_001124": "box encloses the OpenStreetMap Sign Up button"
+    },
+    "human_relabeling": false
+  },
+  "conflict_review": {
+    "status": "passed_with_source_annotation_variation",
+    "observation": "both boxes surround the same Done button on an identical payment-success screenshot; box extents differ",
+    "reviewer": "deepseek-flash via image_understand fallback; coordinates assessed by data-engineer",
+    "disposition": "retain both original source annotations; not exact duplicates; no relabeling",
+    "ids": [
+      "screenspot_test_000559",
+      "screenspot_test_000740"
+    ],
+    "bbox_iou": 0.7792577287012425
+  },
+  "screenspot_jsonl_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+  "data_files_changed": false,
+  "source_images_changed": false
+}

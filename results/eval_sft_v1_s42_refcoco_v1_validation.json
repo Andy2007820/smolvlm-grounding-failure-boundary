@@ -1,0 +1,45 @@
+{
+  "run_id": "validation_sft_v1_s42_refcoco_v1",
+  "validated_run_id": "sft_v1_s42_refcoco_v1",
+  "dataset": "refcoco",
+  "split": "val",
+  "n": 1000,
+  "timestamp": "2026-11-09T18:06:17.765515+08:00",
+  "status": "passed",
+  "result_path": "results/zeroshot_sft_v1_s42_refcoco_v1.json",
+  "checks": {
+    "adapter": {
+      "path": "adapters/sft_v1/adapter",
+      "expected_path": "adapters/sft_v1/adapter",
+      "path_matches": true,
+      "is_trainable": false,
+      "is_trainable_false": true,
+      "adapter_config_sha256": "60522337b799eb240509cc1e2a1019bab782351dfbac6d77828eb77a8114ba3f",
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+      "adapter_files_present": true,
+      "adapter_config_sha256_matches": true,
+      "adapter_model_sha256_matches": true
+    },
+    "details_rows": 1000,
+    "recomputed_metrics": {
+      "acc@0.5": 0.095,
+      "mIoU": 0.21124828873091464,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "invalid_in_n_verified": true,
+    "raw_outputs_present": true,
+    "unique_detail_ids": 1000,
+    "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+    "details_sha256": "bd811877375c437dbbb23edfeed13b365285d19e9afc8c04930a67e5e1b84131",
+    "recorded_source_sha256": {
+      "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+      "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+      "prompts.py": "5138231de07ef8e1cc371ff556a354ba7f941d7b6ec545b91035fe512ceb79f3",
+      "run_zeroshot.py": "92b209f6b1c41649ba604108892817664bb064da6a84e9d720a0f9e61e396585"
+    },
+    "recorded_source_matches_current": true
+  },
+  "errors": [],
+  "gpu_used": false
+}

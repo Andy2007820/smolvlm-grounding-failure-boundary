@@ -1,0 +1,335 @@
+{
+  "format": "eval-t7-cpu-evidence-v1",
+  "timestamp": "2026-11-10T04:00:33.774102+08:00",
+  "gpu_used": false,
+  "task": {
+    "id": "task-24",
+    "subject": "T7-eval · B/C 坐标表示独立评测"
+  },
+  "prompt_variants": {
+    "p1": {
+      "representation": "normalized_decimal",
+      "sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0"
+    },
+    "p1_bin1000": {
+      "representation": "bin1000_integer",
+      "sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4"
+    },
+    "p1_pixel": {
+      "representation": "pixel_xyxy",
+      "sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f"
+    }
+  },
+  "dry_runs_with_adapter_A": {
+    "p1": {
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id t7_cpu_dryrun_a_p1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_cpu_dryrun_a_p1.json --details-output results/eval_t7_cpu_dryrun_a_p1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --prompt-id p1 --expected-n 1000 --limit 5 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+      "exit_code": 0,
+      "wall_seconds": 0.5414205999113619,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "t7_cpu_dryrun_a_p1",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1",
+        "representation": "normalized_decimal",
+        "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "15ffc5310d71cef0cba4435735f0672969e72296d3334adf1af3acbd3ce1b86e",
+        "adapter": "adapters/sft_v1/adapter",
+        "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "stderr_tail": ""
+    },
+    "p1_bin1000": {
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id t7_cpu_dryrun_a_bin1000 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_cpu_dryrun_a_bin1000.json --details-output results/eval_t7_cpu_dryrun_a_bin1000_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --prompt-id p1_bin1000 --expected-n 1000 --limit 5 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+      "exit_code": 0,
+      "wall_seconds": 0.4999200999736786,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "t7_cpu_dryrun_a_bin1000",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "6f98bad021bd0abe57d8f4d5dfafcc43ef3ad07ceb2f248a4891c7df0abb471e",
+        "adapter": "adapters/sft_v1/adapter",
+        "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "stderr_tail": ""
+    },
+    "p1_pixel": {
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id t7_cpu_dryrun_a_pixel --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_cpu_dryrun_a_pixel.json --details-output results/eval_t7_cpu_dryrun_a_pixel_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --prompt-id p1_pixel --expected-n 1000 --limit 5 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+      "exit_code": 0,
+      "wall_seconds": 0.5214378000237048,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "t7_cpu_dryrun_a_pixel",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_pixel",
+        "representation": "pixel_xyxy",
+        "prompt_sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+        "coordinate_conversion_required": true,
+        "config_fingerprint": "c91c4d794829b18e6ea52664659d838106362f6dbb342fecf9880b148866a222",
+        "adapter": "adapters/sft_v1/adapter",
+        "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "stderr_tail": ""
+    }
+  },
+  "dry_runs_pending_adapters": {},
+  "cpu_end_to_end": {
+    "bin1000": {
+      "summary": "results/zeroshot_t7_bin1000_cpu_e2e.json",
+      "details": "results/eval_t7_bin1000_cpu_e2e_details.jsonl",
+      "validation": "results/eval_t7_bin1000_cpu_e2e_validation.json",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "rows": 20,
+      "metrics": {
+        "acc@0.5": 0.05,
+        "mIoU": 0.04097280424751377,
+        "parse_rate": 0.7,
+        "invalid": 6
+      },
+      "note": "CPU plumbing test with adapter A; not an official B metric"
+    },
+    "pixel": {
+      "summary": "results/zeroshot_t7_pixel_cpu_e2e.json",
+      "details": "results/eval_t7_pixel_cpu_e2e_details.jsonl",
+      "validation": "results/eval_t7_pixel_cpu_e2e_validation.json",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "rows": 20,
+      "metrics": {
+        "acc@0.5": 0.0,
+        "mIoU": 0.0,
+        "parse_rate": 0.0,
+        "invalid": 20
+      },
+      "note": "CPU plumbing test with adapter A (normalized outputs -> invalid under pixel rules); confirms conversion + validation path, not an official C metric"
+    },
+    "bin1000_with_adapter_B": {
+      "summary": "results/zeroshot_t7_b_cpu_e2e.json",
+      "details": "results/eval_t7_b_cpu_e2e_details.jsonl",
+      "validation": "results/eval_t7_b_cpu_e2e_validation.json",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "rows": 20,
+      "metrics": {
+        "acc@0.5": 0.05,
+        "mIoU": 0.14023610846279924,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "note": "CPU float32 plumbing test with the real T7 B adapter; all 20 outputs parsed as bin1000 integers (parse_rate=1.0). Not an official GPU metric."
+    },
+    "pixel_with_adapter_C": {
+      "summary": "results/zeroshot_t7_c_cpu_e2e.json",
+      "details": "results/eval_t7_c_cpu_e2e_details.jsonl",
+      "validation": "results/eval_t7_c_cpu_e2e_validation.json",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "rows": 20,
+      "metrics": {
+        "acc@0.5": 0.1,
+        "mIoU": 0.08154322127466049,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "parse_rate_all_rows": 1.0,
+      "note": "CPU float32 plumbing test with the real T7 C adapter; not an official GPU metric"
+    }
+  },
+  "cpu_tests": {
+    "report": "results/eval_t7_variants_cpu_tests.json",
+    "tests_run": 16,
+    "status": "passed",
+    "covers": [
+      "prompt equality with training module",
+      "B frozen-parser roundtrip",
+      "C pixel roundtrip/bounds/reversed/non-integer/multi-box",
+      "invalid-in-n",
+      "dry-run prompt-id plumbing"
+    ]
+  },
+  "next_gpu_plan": "results/eval_t7_batch1_plan.json",
+  "notes": [
+    "B uses the frozen parse_box integer/1000 branch unchanged.",
+    "C never calls parse_box: independent bracket grammar -> pixel integer/bounds/order validation -> normalize -> frozen iou/Score/metrics.",
+    "frozen grounding.py untouched; all invalid predictions stay in n.",
+    "No GPU was used in this CPU phase."
+  ],
+  "dry_runs_with_adapter_B": {
+    "synthetic": {
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id t7_cpu_dryrun_b_synthetic --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_cpu_dryrun_b_synthetic.json --details-output results/eval_t7_cpu_dryrun_b_synthetic_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_b_bin1000/adapter --prompt-id p1_bin1000 --expected-n 1000 --limit 5 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+      "exit_code": 0,
+      "wall_seconds": 0.6196490998845547,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "t7_cpu_dryrun_b_synthetic",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "76d213678ad55734d7bccf43822025519adc3a6c7b2e19308aec68bd35e842bb",
+        "adapter": "adapters/sft_t7_b_bin1000/adapter",
+        "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "stderr_tail": ""
+    },
+    "refcoco": {
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id t7_cpu_dryrun_b_refcoco --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_t7_cpu_dryrun_b_refcoco.json --details-output results/eval_t7_cpu_dryrun_b_refcoco_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_b_bin1000/adapter --prompt-id p1_bin1000 --expected-n 1000 --limit 5 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+      "exit_code": 0,
+      "wall_seconds": 0.6875555999577045,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "t7_cpu_dryrun_b_refcoco",
+        "dataset": "refcoco",
+        "split": "val",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_bin1000",
+        "representation": "bin1000_integer",
+        "prompt_sha256": "e9d560dc1404e9722cfb357d5052f3c5526ddf5f7d6d2977e16e3431dc827ee4",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "6daa05450d126016930ec55f0e56669f2d5ef20b41017936cd6d407e067b29ea",
+        "adapter": "adapters/sft_t7_b_bin1000/adapter",
+        "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "stderr_tail": ""
+    }
+  },
+  "adapter_hashes": {
+    "B": {
+      "path": "adapters/sft_t7_b_bin1000/adapter",
+      "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933",
+      "adapter_config_sha256": "8c293eaf0d56f54138e7998d3ca5a18d33e37e8f2553480333f5bc2179227341",
+      "training_summary": {
+        "complete": true,
+        "step": 1250,
+        "samples_seen": 10000,
+        "seed": 42,
+        "training_seconds": 3709.221395399887
+      }
+    },
+    "C": {
+      "path": "adapters/sft_t7_c_pixel/adapter",
+      "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+      "adapter_config_sha256": "f9bea9ea83b5a879aae0eecbe25d8e4d41de8a30883b66f2a3798f360db1f9e1",
+      "training_summary": {
+        "run_id": "sft_t7_c_pixel_s42",
+        "complete": true,
+        "step": 1250,
+        "samples_seen": 10000,
+        "seed": 42,
+        "training_seconds": 3645.595650100149
+      }
+    }
+  },
+  "dry_runs_with_adapter_C": {
+    "synthetic": {
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id t7_cpu_dryrun_c_synthetic --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_t7_cpu_dryrun_c_synthetic.json --details-output results/eval_t7_cpu_dryrun_c_synthetic_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_c_pixel/adapter --prompt-id p1_pixel --expected-n 1000 --limit 5 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+      "exit_code": 0,
+      "wall_seconds": 0.4529621999245137,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "t7_cpu_dryrun_c_synthetic",
+        "dataset": "synthetic",
+        "split": "eval",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_pixel",
+        "representation": "pixel_xyxy",
+        "prompt_sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+        "coordinate_conversion_required": true,
+        "config_fingerprint": "80e97759d67ae5d670cd8fcfb3486bb8148710f3ecd8f9a46b88ad9a8a9fd60f",
+        "adapter": "adapters/sft_t7_c_pixel/adapter",
+        "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "stderr_tail": ""
+    },
+    "refcoco": {
+      "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id t7_cpu_dryrun_c_refcoco --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_t7_cpu_dryrun_c_refcoco.json --details-output results/eval_t7_cpu_dryrun_c_refcoco_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_t7_c_pixel/adapter --prompt-id p1_pixel --expected-n 1000 --limit 5 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+      "exit_code": 0,
+      "wall_seconds": 0.44247460016049445,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "t7_cpu_dryrun_c_refcoco",
+        "dataset": "refcoco",
+        "split": "val",
+        "n": 5,
+        "resume_rows": 0,
+        "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1_pixel",
+        "representation": "pixel_xyxy",
+        "prompt_sha256": "19e80661947852519addc5304721e01f3747ae78abf1c4bc1864aa61eb4c502f",
+        "coordinate_conversion_required": true,
+        "config_fingerprint": "85b5b6483b40ad65e110fe8fff8aafdc0d2a4c493a4f5e6a4bc99e485c13298b",
+        "adapter": "adapters/sft_t7_c_pixel/adapter",
+        "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      },
+      "stderr_tail": ""
+    }
+  }
+}

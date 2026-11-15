@@ -1,0 +1,277 @@
+{
+  "status": "verification_failed",
+  "mode": "merge",
+  "started_at": "2026-11-10T01:39:34.444001+08:00",
+  "artifact": "adapters/merged/sft_v1_merged",
+  "dtype": "float32",
+  "base_model": "models/SmolVLM-256M-Instruct",
+  "adapter": "adapters/sft_v1/adapter",
+  "base_model_class": "Idefics3ForConditionalGeneration",
+  "merged_model_class": "Idefics3ForConditionalGeneration",
+  "lora_modules_before_merge": 120,
+  "lora_modules_after_merge": 0,
+  "peft_config_removed": true,
+  "torch_threads": 18,
+  "cpu_count": 18,
+  "peak_process_memory_mib": null,
+  "elapsed_seconds": 2.5057275001890957,
+  "copied_from_base": [
+    "preprocessor_config.json",
+    "chat_template.json",
+    "vocab.json",
+    "merges.txt",
+    "special_tokens_map.json",
+    "added_tokens.json"
+  ],
+  "provisional": true,
+  "provisional_reason": "T12/KD not run; the Lead has not frozen the final adapter",
+  "environment": {
+    "python": "3.14.8",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "peft": "0.21.2"
+  },
+  "plan": {
+    "model_path": "models/SmolVLM-256M-Instruct",
+    "adapter_path": "adapters/sft_v1/adapter",
+    "output_path": "adapters/merged/sft_v1_merged",
+    "dtype": "float32",
+    "estimated_parameters_millions": 256.51,
+    "expected_output_bytes": 1024000000,
+    "disk_free_bytes": 221328322560,
+    "disk_required_bytes": 1536000000,
+    "adapter": {
+      "path": "adapters/sft_v1/adapter",
+      "exists": true,
+      "required_files": {
+        "adapter_config.json": true,
+        "adapter_model.safetensors": true
+      },
+      "missing_required_files": [],
+      "peft_type": "LORA",
+      "task_type": "CAUSAL_LM",
+      "r": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "bias": "none",
+      "use_dora": false,
+      "base_model_name_or_path": "D:\\Deepseek Harness\\final-project\\models\\SmolVLM-256M-Instruct",
+      "base_model_matches_project_model": true,
+      "target_module_count": 91,
+      "target_module_sample": [
+        "12.self_attn.k_proj",
+        "12.self_attn.q_proj",
+        "12.self_attn.v_proj",
+        "13.self_attn.k_proj",
+        "13.self_attn.q_proj",
+        "13.self_attn.v_proj"
+      ],
+      "target_modules_include_q_proj": true,
+      "target_modules_include_o_proj": true,
+      "adapter_config": {
+        "path": "adapters/sft_v1/adapter/adapter_config.json",
+        "exists": true,
+        "bytes": 4313,
+        "sha256": "60522337b799eb240509cc1e2a1019bab782351dfbac6d77828eb77a8114ba3f"
+      },
+      "adapter_weights": {
+        "path": "adapters/sft_v1/adapter/adapter_model.safetensors",
+        "exists": true,
+        "bytes": 7407008,
+        "sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d"
+      },
+      "peft_version_recorded": "0.21.2",
+      "all_required_files_present": true
+    },
+    "model": {
+      "path": "models/SmolVLM-256M-Instruct",
+      "exists": true,
+      "required_files": {
+        "model.safetensors": true,
+        "config.json": true,
+        "generation_config.json": true,
+        "preprocessor_config.json": true,
+        "processor_config.json": true,
+        "chat_template.json": true,
+        "tokenizer.json": true,
+        "tokenizer_config.json": true,
+        "special_tokens_map.json": true
+      },
+      "missing_required_files": [],
+      "architecture": "Idefics3ForConditionalGeneration",
+      "model_type": "idefics3",
+      "image_token_id": 49190,
+      "vocab_size": 49280,
+      "torch_dtype": "bfloat16",
+      "vision_patch_size": 16,
+      "vision_scale_factor": 4,
+      "vision_hidden_size": 768,
+      "vision_layers": 12,
+      "text_hidden_size": 576,
+      "text_layers": 30,
+      "text_lora_targets_scope": "model.text_model",
+      "generation_eos_token_id": 49279,
+      "generation_pad_token_id": 2,
+      "processor_default_image_seq_len": 64,
+      "expected_runtime_image_seq_len": 36,
+      "processor_default_matches_384_no_split": false,
+      "preprocessor_do_image_splitting": true,
+      "preprocessor_size": {
+        "longest_edge": 2048
+      },
+      "preprocessor_max_image_size": {
+        "longest_edge": 512
+      },
+      "weights": {
+        "path": "models/SmolVLM-256M-Instruct/model.safetensors",
+        "exists": true,
+        "bytes": 513028808
+      },
+      "approx_parameters_millions": 256.51,
+      "all_required_files_present": true
+    },
+    "provisional": true,
+    "provisional_reason": "T12/KD not run; final adapter not frozen by the Lead",
+    "image_size": 384,
+    "expected_image_seq_len": 36,
+    "mode": "merge",
+    "dry_run": false,
+    "required_files_after_merge": [
+      "model.safetensors",
+      "config.json",
+      "generation_config.json",
+      "preprocessor_config.json",
+      "processor_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "chat_template.json",
+      "special_tokens_map.json"
+    ],
+    "follow_up": [
+      "python -m src.deploy.merge_lora --verify-only --artifact <merged> --report results/deploy_merge_verify.json",
+      "python -m src.deploy.merge_lora --verify-equivalence --artifact <merged> --report results/deploy_merge_equivalence.json"
+    ]
+  },
+  "verification": {
+    "artifact": "adapters/merged/sft_v1_merged",
+    "dtype": "float32",
+    "ok": false,
+    "checks": [
+      {
+        "check": "directory_exists",
+        "passed": true,
+        "detail": "D:\\Deepseek Harness\\final-project\\adapters\\merged\\sft_v1_merged"
+      },
+      {
+        "check": "required_files_present",
+        "passed": true,
+        "detail": {
+          "missing": []
+        }
+      },
+      {
+        "check": "architecture_is_idefics3",
+        "passed": true,
+        "detail": "Idefics3ForConditionalGeneration"
+      },
+      {
+        "check": "config_has_no_peft_block",
+        "passed": true,
+        "detail": [
+          "architectures",
+          "dtype",
+          "image_token_id",
+          "model_type",
+          "pad_token_id",
+          "scale_factor",
+          "text_config",
+          "tie_word_embeddings"
+        ]
+      },
+      {
+        "check": "model_type_preserved",
+        "passed": true,
+        "detail": "idefics3"
+      },
+      {
+        "check": "weights_present_and_nonempty",
+        "passed": true,
+        "detail": {
+          "path": "adapters/merged/sft_v1_merged/model.safetensors",
+          "exists": true,
+          "bytes": 1025998224,
+          "sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2"
+        }
+      },
+      {
+        "check": "processor_default_image_seq_len_untouched",
+        "passed": false,
+        "detail": {
+          "on_disk": 36,
+          "runtime_expected": 36
+        }
+      },
+      {
+        "check": "classified_as_merged",
+        "passed": true,
+        "detail": "merged"
+      }
+    ],
+    "files": {
+      "model.safetensors": {
+        "path": "adapters/merged/sft_v1_merged/model.safetensors",
+        "exists": true,
+        "bytes": 1025998224,
+        "sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2"
+      },
+      "config.json": {
+        "path": "adapters/merged/sft_v1_merged/config.json",
+        "exists": true,
+        "bytes": 5482,
+        "sha256": "4b2f35ded89f67e188013871f37ee39d0f46958c6083171bdd8480971f51b3d2"
+      },
+      "generation_config.json": {
+        "path": "adapters/merged/sft_v1_merged/generation_config.json",
+        "exists": true,
+        "bytes": 143,
+        "sha256": "ec8fe9072d392e1d40ec56b1f1e757b8260600d8441f4a7901694b00ff544eb9"
+      },
+      "preprocessor_config.json": {
+        "path": "adapters/merged/sft_v1_merged/preprocessor_config.json",
+        "exists": true,
+        "bytes": 486,
+        "sha256": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7"
+      },
+      "processor_config.json": {
+        "path": "adapters/merged/sft_v1_merged/processor_config.json",
+        "exists": true,
+        "bytes": 617,
+        "sha256": "3cc02146e0ee7ebb1a444ac4f42c720147f79c9782e7d1914ea25d45cfd1dc2a"
+      },
+      "tokenizer.json": {
+        "path": "adapters/merged/sft_v1_merged/tokenizer.json",
+        "exists": true,
+        "bytes": 3548471,
+        "sha256": "2500f374cdc89040032a7d8437b6ed0fe745667b1194c17914d062ee31701605"
+      },
+      "tokenizer_config.json": {
+        "path": "adapters/merged/sft_v1_merged/tokenizer_config.json",
+        "exists": true,
+        "bytes": 608,
+        "sha256": "98e97823c26db719898acf3abf134feb31eff99563bceb630fc70271ff0bef26"
+      },
+      "chat_template.json": {
+        "path": "adapters/merged/sft_v1_merged/chat_template.json",
+        "exists": true,
+        "bytes": 429,
+        "sha256": "a68ad1a42681ae44eacd109ff8dd56a840f761c03d72f4ff4c515d092f882168"
+      },
+      "special_tokens_map.json": {
+        "path": "adapters/merged/sft_v1_merged/special_tokens_map.json",
+        "exists": true,
+        "bytes": 1069,
+        "sha256": "aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09"
+      }
+    }
+  }
+}

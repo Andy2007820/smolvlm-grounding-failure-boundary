@@ -1,0 +1,95 @@
+{
+  "config": "configs/sft_overfit100_e48.json",
+  "config_fingerprint": "b6a152bef5d41238c0db585f35e06014592b85b021b542c5876120ae73dadd19",
+  "records": 100,
+  "answer_checks": {
+    "all_answer_match_raw_bbox": true,
+    "all_answer_text_parse_ok": true,
+    "max_answer_error": 5.000000025123796e-09,
+    "max_text_rounding_error": 5.000000000000143e-05,
+    "count": 100
+  },
+  "label_checks": {
+    "all_labels_mask_prompt": true,
+    "all_decoded_labels_equal_answer_plus_eos": true,
+    "all_eos_token_49279": true,
+    "all_image_placeholders_36": true,
+    "prompt_tokens_set": [
+      93,
+      94,
+      95,
+      97,
+      98,
+      100,
+      101
+    ],
+    "answer_tokens_set": [
+      33
+    ],
+    "samples": [
+      {
+        "id": "synthetic_train_000001",
+        "labeled_decoded": "[0.2891, 0.7500, 0.4883, 0.9094]<end_of_utterance>",
+        "gt_answer_text": "[0.2891, 0.7500, 0.4883, 0.9094]"
+      },
+      {
+        "id": "synthetic_train_000002",
+        "labeled_decoded": "[0.5594, 0.5508, 0.6906, 0.7148]<end_of_utterance>",
+        "gt_answer_text": "[0.5594, 0.5508, 0.6906, 0.7148]"
+      },
+      {
+        "id": "synthetic_train_000003",
+        "labeled_decoded": "[0.1062, 0.5052, 0.3094, 0.6745]<end_of_utterance>",
+        "gt_answer_text": "[0.1062, 0.5052, 0.3094, 0.6745]"
+      }
+    ],
+    "count": 100
+  },
+  "probe_prediction_analysis": {
+    "mean_iou_as_xyxy": 0.08421838906564025,
+    "max_iou": 0.42513110212983096,
+    "count_iou_ge_0.5": 0,
+    "mean_abs_center_error": 0.20859676137500002,
+    "pred_center_std": [
+      0.17197029211102133,
+      0.18905751109120206
+    ],
+    "gt_center_std": [
+      0.23029308390627226,
+      0.19776827869905192
+    ],
+    "pred_size_mean": [
+      0.19129499999999997,
+      0.1957
+    ],
+    "gt_size_mean": [
+      0.21612444150000001,
+      0.23387090800000002
+    ],
+    "candidate_conventions": {
+      "as_xyxy": {
+        "mean_iou": 0.08421838906564025,
+        "max_iou": 0.42513110212983096
+      },
+      "interpret_as_xywh": {
+        "mean_iou": 0.04541520787375945,
+        "max_iou": 0.28108876087903945
+      },
+      "best_constant_shift": {
+        "mean_iou": 0.0933190703002286,
+        "shift": [
+          0.05,
+          0.05
+        ]
+      }
+    }
+  },
+  "original_artifacts_untouched": {
+    "configs/sft_overfit100.json_sha256": "25b6d0f6cb4788d84c901b92c4ad8d48972036f0c0833048f4e2a48bcc4f2781",
+    "adapter_sft_overfit100_model_sha256": "47da671c9700cb1ac5ab5c9187181764905b3b56e25f98b427834470f1052ed7",
+    "probe_maxtok64_sha256": "490fe75952420be083103149363b2460477d93e1039a412b7220233a4132a208",
+    "probe_truncated16_sha256": "d4b2145cd71790ea5aecc7c35ca535d74bfde90b4e4d25763001fc012c181154",
+    "training_sha256": "a3c1115915a0c06fbe1692962bfb198d4e65aee8b506c1857fa7e02a6106ee3d"
+  },
+  "conclusion": "All 100 training records pass answer/raw_bbox consistency, evaluator-parseable answer text, prompt masking, explicit EOS=49279, and 36-placeholder visual-token alignment; the labels decode exactly to the GT answer. No label/image/answer misalignment was found. The 600-step model still cannot localize (acc@0.5=0), and no simple coordinate-convention transform (xywh, constant shift) explains the predictions. The failure is a model/training-signal limitation, not a data-label misalignment; further step scaling stopped per Lead instruction."
+}

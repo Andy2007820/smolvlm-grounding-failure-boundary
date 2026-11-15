@@ -1,0 +1,1595 @@
+{
+  "format": "eval-t7-g4-summary-3seed-v1",
+  "task": {
+    "id": "task-27",
+    "subject": "T7b/T7-C/T7-D · G4 坐标表示 3-seed 表"
+  },
+  "created_at": "2026-11-12T11:16:10.308269+08:00",
+  "scope": "A, B, C and D are 3-seed mean±std (seed42/43/44); C seed43 was retrained with the fixed resume loader (the old --resume did not restore LoRA weights; old artifacts archived); D (text grid 0-100) is the T7-D addition",
+  "runs": [
+    {
+      "variant": "A",
+      "dataset": "synthetic",
+      "seed": 42,
+      "run_id": "sft_v1_s42_synthetic_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "prompt_id": "p1",
+      "summary": "results\\zeroshot_sft_v1_s42_synthetic_v1.json",
+      "details": "results/eval_sft_v1_s42_synthetic_v1_details.jsonl",
+      "details_sha256": "4663be71c26e451aebd64f535968b3caa069f1396c2e7468f84d25325a4544bd",
+      "validation": "results\\eval_sft_v1_s42_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.011,
+        "mIoU": 0.06743763938552531,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.011,
+        "mIoU": 0.06743763938552531,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d"
+    },
+    {
+      "variant": "A",
+      "dataset": "synthetic",
+      "seed": 43,
+      "run_id": "sft_v1_s43_synthetic_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "prompt_id": "p1",
+      "summary": "results\\zeroshot_sft_v1_s43_synthetic_v1.json",
+      "details": "results/eval_sft_v1_s43_synthetic_v1_details.jsonl",
+      "details_sha256": "b601397e2264fa82f04e759772e7200d9b6f1ca34312bc0976ee96069d2d61c9",
+      "validation": "results\\eval_sft_v1_s43_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.004,
+        "mIoU": 0.05225551852880544,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.004,
+        "mIoU": 0.05225551852880544,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2"
+    },
+    {
+      "variant": "A",
+      "dataset": "synthetic",
+      "seed": 44,
+      "run_id": "sft_v1_s44_synthetic_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "prompt_id": "p1",
+      "summary": "results\\zeroshot_sft_v1_s44_synthetic_v1.json",
+      "details": "results/eval_sft_v1_s44_synthetic_v1_details.jsonl",
+      "details_sha256": "73553084102df724c7a4237fe9ab55ae1c1e4cc729670d12edaa28acba3115d5",
+      "validation": "results\\eval_sft_v1_s44_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.01,
+        "mIoU": 0.06043332964441271,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.01,
+        "mIoU": 0.06043332964441271,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0"
+    },
+    {
+      "variant": "A",
+      "dataset": "refcoco",
+      "seed": 42,
+      "run_id": "sft_v1_s42_refcoco_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "prompt_id": "p1",
+      "summary": "results\\zeroshot_sft_v1_s42_refcoco_v1.json",
+      "details": "results/eval_sft_v1_s42_refcoco_v1_details.jsonl",
+      "details_sha256": "bd811877375c437dbbb23edfeed13b365285d19e9afc8c04930a67e5e1b84131",
+      "validation": "results\\eval_sft_v1_s42_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.095,
+        "mIoU": 0.21124828873091464,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.095,
+        "mIoU": 0.21124828873091464,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d"
+    },
+    {
+      "variant": "A",
+      "dataset": "refcoco",
+      "seed": 43,
+      "run_id": "sft_v1_s43_refcoco_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "prompt_id": "p1",
+      "summary": "results\\zeroshot_sft_v1_s43_refcoco_v1.json",
+      "details": "results/eval_sft_v1_s43_refcoco_v1_details.jsonl",
+      "details_sha256": "695fbc4204a14d4e05ca71c63f8d0ac0a08841550acda8352f6e8f91d383b5e4",
+      "validation": "results\\eval_sft_v1_s43_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.052,
+        "mIoU": 0.13413801391646313,
+        "parse_rate": 0.999,
+        "invalid": 1
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.052,
+        "mIoU": 0.13413801391646313,
+        "parse_rate": 0.999,
+        "invalid": 1
+      },
+      "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2"
+    },
+    {
+      "variant": "A",
+      "dataset": "refcoco",
+      "seed": 44,
+      "run_id": "sft_v1_s44_refcoco_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "prompt_id": "p1",
+      "summary": "results\\zeroshot_sft_v1_s44_refcoco_v1.json",
+      "details": "results/eval_sft_v1_s44_refcoco_v1_details.jsonl",
+      "details_sha256": "fdaf35b90f5235a2bfe45273c871f2d3cb7619130f6940d0093357cc140cab45",
+      "validation": "results\\eval_sft_v1_s44_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.097,
+        "mIoU": 0.20310631666903378,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.097,
+        "mIoU": 0.20310631666903378,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0"
+    },
+    {
+      "variant": "B",
+      "dataset": "synthetic",
+      "seed": 42,
+      "run_id": "t7_b_synthetic_v1",
+      "adapter": "adapters/sft_t7_b_bin1000/adapter",
+      "prompt_id": "p1_bin1000",
+      "summary": "results\\zeroshot_t7_b_synthetic_v1.json",
+      "details": "results/eval_t7_b_synthetic_v1_details.jsonl",
+      "details_sha256": "45a724bb7bee68379b75992e2b5637c2c727ee1b0e6b0b8d9e3142f4b87058f5",
+      "validation": "results\\eval_t7_b_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.03,
+        "mIoU": 0.08110781507976045,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.03,
+        "mIoU": 0.08110781507976045,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933"
+    },
+    {
+      "variant": "B",
+      "dataset": "synthetic",
+      "seed": 43,
+      "run_id": "t7_b_s43_synthetic_v1",
+      "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+      "prompt_id": "p1_bin1000",
+      "summary": "results\\zeroshot_t7_b_s43_synthetic_v1.json",
+      "details": "results/eval_t7_b_s43_synthetic_v1_details.jsonl",
+      "details_sha256": "dabd6773c5c4045a54735c68ffa167f008b6b1efd56991994a3301618f3db4aa",
+      "validation": "results\\eval_t7_b_s43_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.025,
+        "mIoU": 0.08517404690047028,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.025,
+        "mIoU": 0.08517404690047028,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc"
+    },
+    {
+      "variant": "B",
+      "dataset": "synthetic",
+      "seed": 44,
+      "run_id": "t7_b_s44_synthetic_v1",
+      "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+      "prompt_id": "p1_bin1000",
+      "summary": "results\\zeroshot_t7_b_s44_synthetic_v1.json",
+      "details": "results/eval_t7_b_s44_synthetic_v1_details.jsonl",
+      "details_sha256": "aa89c84973c61d428ef013c6219125f2ae7c1224a8782040abed5b77ecf8e07d",
+      "validation": "results\\eval_t7_b_s44_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.023,
+        "mIoU": 0.08309617415293717,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.023,
+        "mIoU": 0.08309617415293717,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151"
+    },
+    {
+      "variant": "B",
+      "dataset": "refcoco",
+      "seed": 42,
+      "run_id": "t7_b_refcoco_v1",
+      "adapter": "adapters/sft_t7_b_bin1000/adapter",
+      "prompt_id": "p1_bin1000",
+      "summary": "results\\zeroshot_t7_b_refcoco_v1.json",
+      "details": "results/eval_t7_b_refcoco_v1_details.jsonl",
+      "details_sha256": "1d4d6d9ce428bc6f1cb12c9e891d8c6ba4f03da1ec697516dd94abb85fa3cfa2",
+      "validation": "results\\eval_t7_b_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.113,
+        "mIoU": 0.22896690196474548,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.113,
+        "mIoU": 0.22896690196474548,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933"
+    },
+    {
+      "variant": "B",
+      "dataset": "refcoco",
+      "seed": 43,
+      "run_id": "t7_b_s43_refcoco_v1",
+      "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+      "prompt_id": "p1_bin1000",
+      "summary": "results\\zeroshot_t7_b_s43_refcoco_v1.json",
+      "details": "results/eval_t7_b_s43_refcoco_v1_details.jsonl",
+      "details_sha256": "5e0000412e04a9b7bdd0f3e7f3a721daa3144a091fe72751e7431e69daf337e5",
+      "validation": "results\\eval_t7_b_s43_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.125,
+        "mIoU": 0.23737703670264684,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.125,
+        "mIoU": 0.23737703670264684,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc"
+    },
+    {
+      "variant": "B",
+      "dataset": "refcoco",
+      "seed": 44,
+      "run_id": "t7_b_s44_refcoco_v1",
+      "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+      "prompt_id": "p1_bin1000",
+      "summary": "results\\zeroshot_t7_b_s44_refcoco_v1.json",
+      "details": "results/eval_t7_b_s44_refcoco_v1_details.jsonl",
+      "details_sha256": "33daa17e6f42bceb30350999164d19ae29fc1504dd8fd522172c71793b80fa4e",
+      "validation": "results\\eval_t7_b_s44_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.118,
+        "mIoU": 0.23894349638024467,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.118,
+        "mIoU": 0.23894349638024467,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151"
+    },
+    {
+      "variant": "C",
+      "dataset": "synthetic",
+      "seed": 42,
+      "run_id": "t7_c_synthetic_v1",
+      "adapter": "adapters/sft_t7_c_pixel/adapter",
+      "prompt_id": "p1_pixel",
+      "summary": "results\\zeroshot_t7_c_synthetic_v1.json",
+      "details": "results/eval_t7_c_synthetic_v1_details.jsonl",
+      "details_sha256": "e78937db621fa3717d38c8831e6fa828a91ef5472acd2af649cfaaa262f14f2a",
+      "validation": "results\\eval_t7_c_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.014,
+        "mIoU": 0.05516290278650977,
+        "parse_rate": 0.994,
+        "invalid": 6
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.014,
+        "mIoU": 0.05516290278650977,
+        "parse_rate": 0.994,
+        "invalid": 6
+      },
+      "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa"
+    },
+    {
+      "variant": "C",
+      "dataset": "synthetic",
+      "seed": 43,
+      "run_id": "t7_c_s43_synthetic_v1",
+      "adapter": "adapters/sft_t7_c_pixel_s43/adapter",
+      "prompt_id": "p1_pixel",
+      "summary": "results\\zeroshot_t7_c_s43_synthetic_v1.json",
+      "details": "results/eval_t7_c_s43_synthetic_v1_details.jsonl",
+      "details_sha256": "2d9f4576edffbe3ae3e5b9fafecd414186357bd4777a177fbdc130d2f39ae53c",
+      "validation": "results\\eval_t7_c_s43_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.021,
+        "mIoU": 0.05677406494803907,
+        "parse_rate": 0.991,
+        "invalid": 9
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.021,
+        "mIoU": 0.05677406494803907,
+        "parse_rate": 0.991,
+        "invalid": 9
+      },
+      "adapter_model_sha256": "760d81420bbda432e859d4cbc6e7d837e97cd2176432647be289cb590c3d7655"
+    },
+    {
+      "variant": "C",
+      "dataset": "synthetic",
+      "seed": 44,
+      "run_id": "t7_c_s44_synthetic_v1",
+      "adapter": "adapters/sft_t7_c_pixel_s44/adapter",
+      "prompt_id": "p1_pixel",
+      "summary": "results\\zeroshot_t7_c_s44_synthetic_v1.json",
+      "details": "results/eval_t7_c_s44_synthetic_v1_details.jsonl",
+      "details_sha256": "7d7c1a19d40bf0ee08646d4966c34e8f4c4df8e4d900da634376e55a98ef103b",
+      "validation": "results\\eval_t7_c_s44_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.018,
+        "mIoU": 0.05784072924290615,
+        "parse_rate": 0.991,
+        "invalid": 9
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.018,
+        "mIoU": 0.05784072924290615,
+        "parse_rate": 0.991,
+        "invalid": 9
+      },
+      "adapter_model_sha256": "0e35379e177ed69a50e661d9b2db556341d578a83c5837bfe6b423775159291f"
+    },
+    {
+      "variant": "C",
+      "dataset": "refcoco",
+      "seed": 42,
+      "run_id": "t7_c_refcoco_v1",
+      "adapter": "adapters/sft_t7_c_pixel/adapter",
+      "prompt_id": "p1_pixel",
+      "summary": "results\\zeroshot_t7_c_refcoco_v1.json",
+      "details": "results/eval_t7_c_refcoco_v1_details.jsonl",
+      "details_sha256": "38a422d6774cc0335dd4e8f7b1ce701b8eb8724a19870fbdaebacd3d4150e387",
+      "validation": "results\\eval_t7_c_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.043,
+        "mIoU": 0.13519229729249985,
+        "parse_rate": 0.929,
+        "invalid": 71
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.043,
+        "mIoU": 0.13519229729249985,
+        "parse_rate": 0.929,
+        "invalid": 71
+      },
+      "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa"
+    },
+    {
+      "variant": "C",
+      "dataset": "refcoco",
+      "seed": 43,
+      "run_id": "t7_c_s43_refcoco_v1",
+      "adapter": "adapters/sft_t7_c_pixel_s43/adapter",
+      "prompt_id": "p1_pixel",
+      "summary": "results\\zeroshot_t7_c_s43_refcoco_v1.json",
+      "details": "results/eval_t7_c_s43_refcoco_v1_details.jsonl",
+      "details_sha256": "6241e1b9642d9bb2241495aebf07049c0d4624472674c9908eb229471e361b71",
+      "validation": "results\\eval_t7_c_s43_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.049,
+        "mIoU": 0.13654270179442696,
+        "parse_rate": 0.871,
+        "invalid": 129
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.049,
+        "mIoU": 0.13654270179442696,
+        "parse_rate": 0.871,
+        "invalid": 129
+      },
+      "adapter_model_sha256": "760d81420bbda432e859d4cbc6e7d837e97cd2176432647be289cb590c3d7655"
+    },
+    {
+      "variant": "C",
+      "dataset": "refcoco",
+      "seed": 44,
+      "run_id": "t7_c_s44_refcoco_v1",
+      "adapter": "adapters/sft_t7_c_pixel_s44/adapter",
+      "prompt_id": "p1_pixel",
+      "summary": "results\\zeroshot_t7_c_s44_refcoco_v1.json",
+      "details": "results/eval_t7_c_s44_refcoco_v1_details.jsonl",
+      "details_sha256": "3327bb33dfb9522023f2e35db3ab874ad4940465d421580882895b8cd713ca21",
+      "validation": "results\\eval_t7_c_s44_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.045,
+        "mIoU": 0.13520894220625504,
+        "parse_rate": 0.897,
+        "invalid": 103
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.045,
+        "mIoU": 0.13520894220625504,
+        "parse_rate": 0.897,
+        "invalid": 103
+      },
+      "adapter_model_sha256": "0e35379e177ed69a50e661d9b2db556341d578a83c5837bfe6b423775159291f"
+    },
+    {
+      "variant": "D",
+      "dataset": "synthetic",
+      "seed": 42,
+      "run_id": "t7_d_synthetic_v1",
+      "adapter": "adapters/sft_t7_d_grid100/adapter",
+      "prompt_id": "p1_grid100",
+      "summary": "results\\zeroshot_t7_d_synthetic_v1.json",
+      "details": "results/eval_t7_d_synthetic_v1_details.jsonl",
+      "details_sha256": "2e840001032f9dc31622263d069de2f6284960d3bd0a62509390b66f2e21e726",
+      "validation": "results\\eval_t7_d_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.034,
+        "mIoU": 0.0942243780880866,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.034,
+        "mIoU": 0.0942243780880866,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "26205fda0ab974974a1284fba19455764d70f27ff9e4ef2490b85a89b4d373a1"
+    },
+    {
+      "variant": "D",
+      "dataset": "synthetic",
+      "seed": 43,
+      "run_id": "t7_d_s43_synthetic_v1",
+      "adapter": "adapters/sft_t7_d_grid100_s43/adapter",
+      "prompt_id": "p1_grid100",
+      "summary": "results\\zeroshot_t7_d_s43_synthetic_v1.json",
+      "details": "results/eval_t7_d_s43_synthetic_v1_details.jsonl",
+      "details_sha256": "7ece474fa43c2c99d1d9ab4d61a55ca9c1d2667bc25fc03dc69885864ceba4f8",
+      "validation": "results\\eval_t7_d_s43_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.038,
+        "mIoU": 0.09154154435754232,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.038,
+        "mIoU": 0.09154154435754232,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "f0d7438cb7f29169256d5239ab9bdb6f00f94ec0cb5a0d88790a26afdc4e0fc7"
+    },
+    {
+      "variant": "D",
+      "dataset": "synthetic",
+      "seed": 44,
+      "run_id": "t7_d_s44_synthetic_v1",
+      "adapter": "adapters/sft_t7_d_grid100_s44/adapter",
+      "prompt_id": "p1_grid100",
+      "summary": "results\\zeroshot_t7_d_s44_synthetic_v1.json",
+      "details": "results/eval_t7_d_s44_synthetic_v1_details.jsonl",
+      "details_sha256": "5fb455ba18d3968c3d8043e0db9c7e80aa74d5309a1b283e51a0021091cbbcda",
+      "validation": "results\\eval_t7_d_s44_synthetic_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.041,
+        "mIoU": 0.09789544141960428,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.041,
+        "mIoU": 0.09789544141960428,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "56a614b8d286ea750916fe92ba22f35c3f3b58c0ab3bff2c573dbbfa5dc31d21"
+    },
+    {
+      "variant": "D",
+      "dataset": "refcoco",
+      "seed": 42,
+      "run_id": "t7_d_refcoco_v1",
+      "adapter": "adapters/sft_t7_d_grid100/adapter",
+      "prompt_id": "p1_grid100",
+      "summary": "results\\zeroshot_t7_d_refcoco_v1.json",
+      "details": "results/eval_t7_d_refcoco_v1_details.jsonl",
+      "details_sha256": "29a3dd332d0f2eac250f87d8d80e6f337ef154fdf4fa6b1a5026b33ba1bd2196",
+      "validation": "results\\eval_t7_d_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.106,
+        "mIoU": 0.2448828675204326,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.106,
+        "mIoU": 0.2448828675204326,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "26205fda0ab974974a1284fba19455764d70f27ff9e4ef2490b85a89b4d373a1"
+    },
+    {
+      "variant": "D",
+      "dataset": "refcoco",
+      "seed": 43,
+      "run_id": "t7_d_s43_refcoco_v1",
+      "adapter": "adapters/sft_t7_d_grid100_s43/adapter",
+      "prompt_id": "p1_grid100",
+      "summary": "results\\zeroshot_t7_d_s43_refcoco_v1.json",
+      "details": "results/eval_t7_d_s43_refcoco_v1_details.jsonl",
+      "details_sha256": "c654e0f1423d3886d75fe339034fb1c92402c9d76cc9fde595690a0803c33395",
+      "validation": "results\\eval_t7_d_s43_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.138,
+        "mIoU": 0.2619478943434157,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.138,
+        "mIoU": 0.2619478943434157,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "f0d7438cb7f29169256d5239ab9bdb6f00f94ec0cb5a0d88790a26afdc4e0fc7"
+    },
+    {
+      "variant": "D",
+      "dataset": "refcoco",
+      "seed": 44,
+      "run_id": "t7_d_s44_refcoco_v1",
+      "adapter": "adapters/sft_t7_d_grid100_s44/adapter",
+      "prompt_id": "p1_grid100",
+      "summary": "results\\zeroshot_t7_d_s44_refcoco_v1.json",
+      "details": "results/eval_t7_d_s44_refcoco_v1_details.jsonl",
+      "details_sha256": "c4a380f17fb5cb369db95243b9a46d993648cb3d8afee1ec31273b344e0c71e3",
+      "validation": "results\\eval_t7_d_s44_refcoco_v1_validation.json",
+      "validation_status": "passed",
+      "metrics": {
+        "acc@0.5": 0.123,
+        "mIoU": 0.25158192098390514,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "recomputed": {
+        "n": 1000,
+        "acc@0.5": 0.123,
+        "mIoU": 0.25158192098390514,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "adapter_model_sha256": "56a614b8d286ea750916fe92ba22f35c3f3b58c0ab3bff2c573dbbfa5dc31d21"
+    }
+  ],
+  "table": {
+    "A": {
+      "synthetic": {
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "runs": {
+          "42": {
+            "variant": "A",
+            "dataset": "synthetic",
+            "seed": 42,
+            "run_id": "sft_v1_s42_synthetic_v1",
+            "adapter": "adapters/sft_v1/adapter",
+            "prompt_id": "p1",
+            "summary": "results\\zeroshot_sft_v1_s42_synthetic_v1.json",
+            "details": "results/eval_sft_v1_s42_synthetic_v1_details.jsonl",
+            "details_sha256": "4663be71c26e451aebd64f535968b3caa069f1396c2e7468f84d25325a4544bd",
+            "validation": "results\\eval_sft_v1_s42_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.011,
+              "mIoU": 0.06743763938552531,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.011,
+              "mIoU": 0.06743763938552531,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d"
+          },
+          "43": {
+            "variant": "A",
+            "dataset": "synthetic",
+            "seed": 43,
+            "run_id": "sft_v1_s43_synthetic_v1",
+            "adapter": "adapters/sft_v1_s43/adapter",
+            "prompt_id": "p1",
+            "summary": "results\\zeroshot_sft_v1_s43_synthetic_v1.json",
+            "details": "results/eval_sft_v1_s43_synthetic_v1_details.jsonl",
+            "details_sha256": "b601397e2264fa82f04e759772e7200d9b6f1ca34312bc0976ee96069d2d61c9",
+            "validation": "results\\eval_sft_v1_s43_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.004,
+              "mIoU": 0.05225551852880544,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.004,
+              "mIoU": 0.05225551852880544,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2"
+          },
+          "44": {
+            "variant": "A",
+            "dataset": "synthetic",
+            "seed": 44,
+            "run_id": "sft_v1_s44_synthetic_v1",
+            "adapter": "adapters/sft_v1_s44/adapter",
+            "prompt_id": "p1",
+            "summary": "results\\zeroshot_sft_v1_s44_synthetic_v1.json",
+            "details": "results/eval_sft_v1_s44_synthetic_v1_details.jsonl",
+            "details_sha256": "73553084102df724c7a4237fe9ab55ae1c1e4cc729670d12edaa28acba3115d5",
+            "validation": "results\\eval_sft_v1_s44_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.01,
+              "mIoU": 0.06043332964441271,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.01,
+              "mIoU": 0.06043332964441271,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0"
+          }
+        },
+        "aggregate": {
+          "status": "three_seed_mean_std_ddof1",
+          "metrics": {
+            "acc@0.5": {
+              "mean": 0.008333333333333333,
+              "std_ddof1": 0.003785938897200182,
+              "n": 3
+            },
+            "mIoU": {
+              "mean": 0.06004216251958116,
+              "std_ddof1": 0.0075986154802486165,
+              "n": 3
+            },
+            "parse_rate": {
+              "mean": 1.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            },
+            "invalid": {
+              "mean": 0.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            }
+          }
+        }
+      },
+      "refcoco": {
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "runs": {
+          "42": {
+            "variant": "A",
+            "dataset": "refcoco",
+            "seed": 42,
+            "run_id": "sft_v1_s42_refcoco_v1",
+            "adapter": "adapters/sft_v1/adapter",
+            "prompt_id": "p1",
+            "summary": "results\\zeroshot_sft_v1_s42_refcoco_v1.json",
+            "details": "results/eval_sft_v1_s42_refcoco_v1_details.jsonl",
+            "details_sha256": "bd811877375c437dbbb23edfeed13b365285d19e9afc8c04930a67e5e1b84131",
+            "validation": "results\\eval_sft_v1_s42_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.095,
+              "mIoU": 0.21124828873091464,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.095,
+              "mIoU": 0.21124828873091464,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d"
+          },
+          "43": {
+            "variant": "A",
+            "dataset": "refcoco",
+            "seed": 43,
+            "run_id": "sft_v1_s43_refcoco_v1",
+            "adapter": "adapters/sft_v1_s43/adapter",
+            "prompt_id": "p1",
+            "summary": "results\\zeroshot_sft_v1_s43_refcoco_v1.json",
+            "details": "results/eval_sft_v1_s43_refcoco_v1_details.jsonl",
+            "details_sha256": "695fbc4204a14d4e05ca71c63f8d0ac0a08841550acda8352f6e8f91d383b5e4",
+            "validation": "results\\eval_sft_v1_s43_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.052,
+              "mIoU": 0.13413801391646313,
+              "parse_rate": 0.999,
+              "invalid": 1
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.052,
+              "mIoU": 0.13413801391646313,
+              "parse_rate": 0.999,
+              "invalid": 1
+            },
+            "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2"
+          },
+          "44": {
+            "variant": "A",
+            "dataset": "refcoco",
+            "seed": 44,
+            "run_id": "sft_v1_s44_refcoco_v1",
+            "adapter": "adapters/sft_v1_s44/adapter",
+            "prompt_id": "p1",
+            "summary": "results\\zeroshot_sft_v1_s44_refcoco_v1.json",
+            "details": "results/eval_sft_v1_s44_refcoco_v1_details.jsonl",
+            "details_sha256": "fdaf35b90f5235a2bfe45273c871f2d3cb7619130f6940d0093357cc140cab45",
+            "validation": "results\\eval_sft_v1_s44_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.097,
+              "mIoU": 0.20310631666903378,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.097,
+              "mIoU": 0.20310631666903378,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0"
+          }
+        },
+        "aggregate": {
+          "status": "three_seed_mean_std_ddof1",
+          "metrics": {
+            "acc@0.5": {
+              "mean": 0.08133333333333333,
+              "std_ddof1": 0.025423086620891128,
+              "n": 3
+            },
+            "mIoU": {
+              "mean": 0.18283087310547053,
+              "std_ddof1": 0.04236530218544993,
+              "n": 3
+            },
+            "parse_rate": {
+              "mean": 0.9996666666666667,
+              "std_ddof1": 0.0005773502691896263,
+              "n": 3
+            },
+            "invalid": {
+              "mean": 0.3333333333333333,
+              "std_ddof1": 0.5773502691896258,
+              "n": 3
+            }
+          }
+        }
+      }
+    },
+    "B": {
+      "synthetic": {
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "runs": {
+          "42": {
+            "variant": "B",
+            "dataset": "synthetic",
+            "seed": 42,
+            "run_id": "t7_b_synthetic_v1",
+            "adapter": "adapters/sft_t7_b_bin1000/adapter",
+            "prompt_id": "p1_bin1000",
+            "summary": "results\\zeroshot_t7_b_synthetic_v1.json",
+            "details": "results/eval_t7_b_synthetic_v1_details.jsonl",
+            "details_sha256": "45a724bb7bee68379b75992e2b5637c2c727ee1b0e6b0b8d9e3142f4b87058f5",
+            "validation": "results\\eval_t7_b_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.03,
+              "mIoU": 0.08110781507976045,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.03,
+              "mIoU": 0.08110781507976045,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933"
+          },
+          "43": {
+            "variant": "B",
+            "dataset": "synthetic",
+            "seed": 43,
+            "run_id": "t7_b_s43_synthetic_v1",
+            "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+            "prompt_id": "p1_bin1000",
+            "summary": "results\\zeroshot_t7_b_s43_synthetic_v1.json",
+            "details": "results/eval_t7_b_s43_synthetic_v1_details.jsonl",
+            "details_sha256": "dabd6773c5c4045a54735c68ffa167f008b6b1efd56991994a3301618f3db4aa",
+            "validation": "results\\eval_t7_b_s43_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.025,
+              "mIoU": 0.08517404690047028,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.025,
+              "mIoU": 0.08517404690047028,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc"
+          },
+          "44": {
+            "variant": "B",
+            "dataset": "synthetic",
+            "seed": 44,
+            "run_id": "t7_b_s44_synthetic_v1",
+            "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+            "prompt_id": "p1_bin1000",
+            "summary": "results\\zeroshot_t7_b_s44_synthetic_v1.json",
+            "details": "results/eval_t7_b_s44_synthetic_v1_details.jsonl",
+            "details_sha256": "aa89c84973c61d428ef013c6219125f2ae7c1224a8782040abed5b77ecf8e07d",
+            "validation": "results\\eval_t7_b_s44_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.023,
+              "mIoU": 0.08309617415293717,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.023,
+              "mIoU": 0.08309617415293717,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151"
+          }
+        },
+        "aggregate": {
+          "status": "three_seed_mean_std_ddof1",
+          "metrics": {
+            "acc@0.5": {
+              "mean": 0.026,
+              "std_ddof1": 0.0036055512754639887,
+              "n": 3
+            },
+            "mIoU": {
+              "mean": 0.0831260120443893,
+              "std_ddof1": 0.0020332801159119816,
+              "n": 3
+            },
+            "parse_rate": {
+              "mean": 1.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            },
+            "invalid": {
+              "mean": 0.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            }
+          }
+        }
+      },
+      "refcoco": {
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "runs": {
+          "42": {
+            "variant": "B",
+            "dataset": "refcoco",
+            "seed": 42,
+            "run_id": "t7_b_refcoco_v1",
+            "adapter": "adapters/sft_t7_b_bin1000/adapter",
+            "prompt_id": "p1_bin1000",
+            "summary": "results\\zeroshot_t7_b_refcoco_v1.json",
+            "details": "results/eval_t7_b_refcoco_v1_details.jsonl",
+            "details_sha256": "1d4d6d9ce428bc6f1cb12c9e891d8c6ba4f03da1ec697516dd94abb85fa3cfa2",
+            "validation": "results\\eval_t7_b_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.113,
+              "mIoU": 0.22896690196474548,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.113,
+              "mIoU": 0.22896690196474548,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "2641748f469a18dd73e83394dbac827a3973d05623a3fd87e1707873cdf3d933"
+          },
+          "43": {
+            "variant": "B",
+            "dataset": "refcoco",
+            "seed": 43,
+            "run_id": "t7_b_s43_refcoco_v1",
+            "adapter": "adapters/sft_t7_b_bin1000_s43/adapter",
+            "prompt_id": "p1_bin1000",
+            "summary": "results\\zeroshot_t7_b_s43_refcoco_v1.json",
+            "details": "results/eval_t7_b_s43_refcoco_v1_details.jsonl",
+            "details_sha256": "5e0000412e04a9b7bdd0f3e7f3a721daa3144a091fe72751e7431e69daf337e5",
+            "validation": "results\\eval_t7_b_s43_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.125,
+              "mIoU": 0.23737703670264684,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.125,
+              "mIoU": 0.23737703670264684,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "5057bad0303d3425fcdfa6dd802ff0b924d7578007947c62250142fbf6a5f4bc"
+          },
+          "44": {
+            "variant": "B",
+            "dataset": "refcoco",
+            "seed": 44,
+            "run_id": "t7_b_s44_refcoco_v1",
+            "adapter": "adapters/sft_t7_b_bin1000_s44/adapter",
+            "prompt_id": "p1_bin1000",
+            "summary": "results\\zeroshot_t7_b_s44_refcoco_v1.json",
+            "details": "results/eval_t7_b_s44_refcoco_v1_details.jsonl",
+            "details_sha256": "33daa17e6f42bceb30350999164d19ae29fc1504dd8fd522172c71793b80fa4e",
+            "validation": "results\\eval_t7_b_s44_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.118,
+              "mIoU": 0.23894349638024467,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.118,
+              "mIoU": 0.23894349638024467,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "3fcfc2ba573c9dc3bd4e3370f0535ffbc71eae230243652693629a014af8c151"
+          }
+        },
+        "aggregate": {
+          "status": "three_seed_mean_std_ddof1",
+          "metrics": {
+            "acc@0.5": {
+              "mean": 0.11866666666666666,
+              "std_ddof1": 0.006027713773341707,
+              "n": 3
+            },
+            "mIoU": {
+              "mean": 0.23509581168254567,
+              "std_ddof1": 0.005365267908231065,
+              "n": 3
+            },
+            "parse_rate": {
+              "mean": 1.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            },
+            "invalid": {
+              "mean": 0.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            }
+          }
+        }
+      }
+    },
+    "C": {
+      "synthetic": {
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "runs": {
+          "42": {
+            "variant": "C",
+            "dataset": "synthetic",
+            "seed": 42,
+            "run_id": "t7_c_synthetic_v1",
+            "adapter": "adapters/sft_t7_c_pixel/adapter",
+            "prompt_id": "p1_pixel",
+            "summary": "results\\zeroshot_t7_c_synthetic_v1.json",
+            "details": "results/eval_t7_c_synthetic_v1_details.jsonl",
+            "details_sha256": "e78937db621fa3717d38c8831e6fa828a91ef5472acd2af649cfaaa262f14f2a",
+            "validation": "results\\eval_t7_c_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.014,
+              "mIoU": 0.05516290278650977,
+              "parse_rate": 0.994,
+              "invalid": 6
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.014,
+              "mIoU": 0.05516290278650977,
+              "parse_rate": 0.994,
+              "invalid": 6
+            },
+            "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa"
+          },
+          "43": {
+            "variant": "C",
+            "dataset": "synthetic",
+            "seed": 43,
+            "run_id": "t7_c_s43_synthetic_v1",
+            "adapter": "adapters/sft_t7_c_pixel_s43/adapter",
+            "prompt_id": "p1_pixel",
+            "summary": "results\\zeroshot_t7_c_s43_synthetic_v1.json",
+            "details": "results/eval_t7_c_s43_synthetic_v1_details.jsonl",
+            "details_sha256": "2d9f4576edffbe3ae3e5b9fafecd414186357bd4777a177fbdc130d2f39ae53c",
+            "validation": "results\\eval_t7_c_s43_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.021,
+              "mIoU": 0.05677406494803907,
+              "parse_rate": 0.991,
+              "invalid": 9
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.021,
+              "mIoU": 0.05677406494803907,
+              "parse_rate": 0.991,
+              "invalid": 9
+            },
+            "adapter_model_sha256": "760d81420bbda432e859d4cbc6e7d837e97cd2176432647be289cb590c3d7655"
+          },
+          "44": {
+            "variant": "C",
+            "dataset": "synthetic",
+            "seed": 44,
+            "run_id": "t7_c_s44_synthetic_v1",
+            "adapter": "adapters/sft_t7_c_pixel_s44/adapter",
+            "prompt_id": "p1_pixel",
+            "summary": "results\\zeroshot_t7_c_s44_synthetic_v1.json",
+            "details": "results/eval_t7_c_s44_synthetic_v1_details.jsonl",
+            "details_sha256": "7d7c1a19d40bf0ee08646d4966c34e8f4c4df8e4d900da634376e55a98ef103b",
+            "validation": "results\\eval_t7_c_s44_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.018,
+              "mIoU": 0.05784072924290615,
+              "parse_rate": 0.991,
+              "invalid": 9
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.018,
+              "mIoU": 0.05784072924290615,
+              "parse_rate": 0.991,
+              "invalid": 9
+            },
+            "adapter_model_sha256": "0e35379e177ed69a50e661d9b2db556341d578a83c5837bfe6b423775159291f"
+          }
+        },
+        "aggregate": {
+          "status": "three_seed_mean_std_ddof1",
+          "metrics": {
+            "acc@0.5": {
+              "mean": 0.017666666666666667,
+              "std_ddof1": 0.0035118845842842467,
+              "n": 3
+            },
+            "mIoU": {
+              "mean": 0.05659256565915166,
+              "std_ddof1": 0.001348107980298342,
+              "n": 3
+            },
+            "parse_rate": {
+              "mean": 0.992,
+              "std_ddof1": 0.001732050807568879,
+              "n": 3
+            },
+            "invalid": {
+              "mean": 8.0,
+              "std_ddof1": 1.7320508075688772,
+              "n": 3
+            }
+          }
+        }
+      },
+      "refcoco": {
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "runs": {
+          "42": {
+            "variant": "C",
+            "dataset": "refcoco",
+            "seed": 42,
+            "run_id": "t7_c_refcoco_v1",
+            "adapter": "adapters/sft_t7_c_pixel/adapter",
+            "prompt_id": "p1_pixel",
+            "summary": "results\\zeroshot_t7_c_refcoco_v1.json",
+            "details": "results/eval_t7_c_refcoco_v1_details.jsonl",
+            "details_sha256": "38a422d6774cc0335dd4e8f7b1ce701b8eb8724a19870fbdaebacd3d4150e387",
+            "validation": "results\\eval_t7_c_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.043,
+              "mIoU": 0.13519229729249985,
+              "parse_rate": 0.929,
+              "invalid": 71
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.043,
+              "mIoU": 0.13519229729249985,
+              "parse_rate": 0.929,
+              "invalid": 71
+            },
+            "adapter_model_sha256": "95e59194ee2d2e2e2de7e4b5f91cd1e569772c6443f6cc0b0e881d382920e0aa"
+          },
+          "43": {
+            "variant": "C",
+            "dataset": "refcoco",
+            "seed": 43,
+            "run_id": "t7_c_s43_refcoco_v1",
+            "adapter": "adapters/sft_t7_c_pixel_s43/adapter",
+            "prompt_id": "p1_pixel",
+            "summary": "results\\zeroshot_t7_c_s43_refcoco_v1.json",
+            "details": "results/eval_t7_c_s43_refcoco_v1_details.jsonl",
+            "details_sha256": "6241e1b9642d9bb2241495aebf07049c0d4624472674c9908eb229471e361b71",
+            "validation": "results\\eval_t7_c_s43_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.049,
+              "mIoU": 0.13654270179442696,
+              "parse_rate": 0.871,
+              "invalid": 129
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.049,
+              "mIoU": 0.13654270179442696,
+              "parse_rate": 0.871,
+              "invalid": 129
+            },
+            "adapter_model_sha256": "760d81420bbda432e859d4cbc6e7d837e97cd2176432647be289cb590c3d7655"
+          },
+          "44": {
+            "variant": "C",
+            "dataset": "refcoco",
+            "seed": 44,
+            "run_id": "t7_c_s44_refcoco_v1",
+            "adapter": "adapters/sft_t7_c_pixel_s44/adapter",
+            "prompt_id": "p1_pixel",
+            "summary": "results\\zeroshot_t7_c_s44_refcoco_v1.json",
+            "details": "results/eval_t7_c_s44_refcoco_v1_details.jsonl",
+            "details_sha256": "3327bb33dfb9522023f2e35db3ab874ad4940465d421580882895b8cd713ca21",
+            "validation": "results\\eval_t7_c_s44_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.045,
+              "mIoU": 0.13520894220625504,
+              "parse_rate": 0.897,
+              "invalid": 103
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.045,
+              "mIoU": 0.13520894220625504,
+              "parse_rate": 0.897,
+              "invalid": 103
+            },
+            "adapter_model_sha256": "0e35379e177ed69a50e661d9b2db556341d578a83c5837bfe6b423775159291f"
+          }
+        },
+        "aggregate": {
+          "status": "three_seed_mean_std_ddof1",
+          "metrics": {
+            "acc@0.5": {
+              "mean": 0.04566666666666667,
+              "std_ddof1": 0.003055050463303896,
+              "n": 3
+            },
+            "mIoU": {
+              "mean": 0.1356479804310606,
+              "std_ddof1": 0.0007748961232556109,
+              "n": 3
+            },
+            "parse_rate": {
+              "mean": 0.899,
+              "std_ddof1": 0.029051678092667926,
+              "n": 3
+            },
+            "invalid": {
+              "mean": 101.0,
+              "std_ddof1": 29.0516780926679,
+              "n": 3
+            }
+          }
+        }
+      }
+    },
+    "D": {
+      "synthetic": {
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "runs": {
+          "42": {
+            "variant": "D",
+            "dataset": "synthetic",
+            "seed": 42,
+            "run_id": "t7_d_synthetic_v1",
+            "adapter": "adapters/sft_t7_d_grid100/adapter",
+            "prompt_id": "p1_grid100",
+            "summary": "results\\zeroshot_t7_d_synthetic_v1.json",
+            "details": "results/eval_t7_d_synthetic_v1_details.jsonl",
+            "details_sha256": "2e840001032f9dc31622263d069de2f6284960d3bd0a62509390b66f2e21e726",
+            "validation": "results\\eval_t7_d_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.034,
+              "mIoU": 0.0942243780880866,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.034,
+              "mIoU": 0.0942243780880866,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "26205fda0ab974974a1284fba19455764d70f27ff9e4ef2490b85a89b4d373a1"
+          },
+          "43": {
+            "variant": "D",
+            "dataset": "synthetic",
+            "seed": 43,
+            "run_id": "t7_d_s43_synthetic_v1",
+            "adapter": "adapters/sft_t7_d_grid100_s43/adapter",
+            "prompt_id": "p1_grid100",
+            "summary": "results\\zeroshot_t7_d_s43_synthetic_v1.json",
+            "details": "results/eval_t7_d_s43_synthetic_v1_details.jsonl",
+            "details_sha256": "7ece474fa43c2c99d1d9ab4d61a55ca9c1d2667bc25fc03dc69885864ceba4f8",
+            "validation": "results\\eval_t7_d_s43_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.038,
+              "mIoU": 0.09154154435754232,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.038,
+              "mIoU": 0.09154154435754232,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "f0d7438cb7f29169256d5239ab9bdb6f00f94ec0cb5a0d88790a26afdc4e0fc7"
+          },
+          "44": {
+            "variant": "D",
+            "dataset": "synthetic",
+            "seed": 44,
+            "run_id": "t7_d_s44_synthetic_v1",
+            "adapter": "adapters/sft_t7_d_grid100_s44/adapter",
+            "prompt_id": "p1_grid100",
+            "summary": "results\\zeroshot_t7_d_s44_synthetic_v1.json",
+            "details": "results/eval_t7_d_s44_synthetic_v1_details.jsonl",
+            "details_sha256": "5fb455ba18d3968c3d8043e0db9c7e80aa74d5309a1b283e51a0021091cbbcda",
+            "validation": "results\\eval_t7_d_s44_synthetic_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.041,
+              "mIoU": 0.09789544141960428,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.041,
+              "mIoU": 0.09789544141960428,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "56a614b8d286ea750916fe92ba22f35c3f3b58c0ab3bff2c573dbbfa5dc31d21"
+          }
+        },
+        "aggregate": {
+          "status": "three_seed_mean_std_ddof1",
+          "metrics": {
+            "acc@0.5": {
+              "mean": 0.03766666666666667,
+              "std_ddof1": 0.003511884584284246,
+              "n": 3
+            },
+            "mIoU": {
+              "mean": 0.09455378795507774,
+              "std_ddof1": 0.0031897311977928874,
+              "n": 3
+            },
+            "parse_rate": {
+              "mean": 1.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            },
+            "invalid": {
+              "mean": 0.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            }
+          }
+        }
+      },
+      "refcoco": {
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "runs": {
+          "42": {
+            "variant": "D",
+            "dataset": "refcoco",
+            "seed": 42,
+            "run_id": "t7_d_refcoco_v1",
+            "adapter": "adapters/sft_t7_d_grid100/adapter",
+            "prompt_id": "p1_grid100",
+            "summary": "results\\zeroshot_t7_d_refcoco_v1.json",
+            "details": "results/eval_t7_d_refcoco_v1_details.jsonl",
+            "details_sha256": "29a3dd332d0f2eac250f87d8d80e6f337ef154fdf4fa6b1a5026b33ba1bd2196",
+            "validation": "results\\eval_t7_d_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.106,
+              "mIoU": 0.2448828675204326,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.106,
+              "mIoU": 0.2448828675204326,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "26205fda0ab974974a1284fba19455764d70f27ff9e4ef2490b85a89b4d373a1"
+          },
+          "43": {
+            "variant": "D",
+            "dataset": "refcoco",
+            "seed": 43,
+            "run_id": "t7_d_s43_refcoco_v1",
+            "adapter": "adapters/sft_t7_d_grid100_s43/adapter",
+            "prompt_id": "p1_grid100",
+            "summary": "results\\zeroshot_t7_d_s43_refcoco_v1.json",
+            "details": "results/eval_t7_d_s43_refcoco_v1_details.jsonl",
+            "details_sha256": "c654e0f1423d3886d75fe339034fb1c92402c9d76cc9fde595690a0803c33395",
+            "validation": "results\\eval_t7_d_s43_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.138,
+              "mIoU": 0.2619478943434157,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.138,
+              "mIoU": 0.2619478943434157,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "f0d7438cb7f29169256d5239ab9bdb6f00f94ec0cb5a0d88790a26afdc4e0fc7"
+          },
+          "44": {
+            "variant": "D",
+            "dataset": "refcoco",
+            "seed": 44,
+            "run_id": "t7_d_s44_refcoco_v1",
+            "adapter": "adapters/sft_t7_d_grid100_s44/adapter",
+            "prompt_id": "p1_grid100",
+            "summary": "results\\zeroshot_t7_d_s44_refcoco_v1.json",
+            "details": "results/eval_t7_d_s44_refcoco_v1_details.jsonl",
+            "details_sha256": "c4a380f17fb5cb369db95243b9a46d993648cb3d8afee1ec31273b344e0c71e3",
+            "validation": "results\\eval_t7_d_s44_refcoco_v1_validation.json",
+            "validation_status": "passed",
+            "metrics": {
+              "acc@0.5": 0.123,
+              "mIoU": 0.25158192098390514,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.123,
+              "mIoU": 0.25158192098390514,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "adapter_model_sha256": "56a614b8d286ea750916fe92ba22f35c3f3b58c0ab3bff2c573dbbfa5dc31d21"
+          }
+        },
+        "aggregate": {
+          "status": "three_seed_mean_std_ddof1",
+          "metrics": {
+            "acc@0.5": {
+              "mean": 0.12233333333333334,
+              "std_ddof1": 0.016010413278030444,
+              "n": 3
+            },
+            "mIoU": {
+              "mean": 0.2528042276159178,
+              "std_ddof1": 0.008597924763818293,
+              "n": 3
+            },
+            "parse_rate": {
+              "mean": 1.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            },
+            "invalid": {
+              "mean": 0.0,
+              "std_ddof1": 0.0,
+              "n": 3
+            }
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "A reuses the T6 batch-1 results (p1); B uses p1_bin1000; C uses p1_pixel with the independent pixel conversion layer; D uses p1_grid100 with the independent 0-100 integer-grid conversion layer.",
+    "All runs n=1000, batch_size=1, independent validation passed; batch8 is permanently forbidden.",
+    "B seed42 and C/D seed42 are the already-evaluated runs; the other seeds are the replication runs.",
+    "D reporting is neutral: the grid representation is coarser (1% resolution) than A/B by construction."
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "captured_at": "2026-11-11T14:32:03.478133+08:00",
+  "modules": [
+    "src.deploy.test_deploy_cpu",
+    "demo.test_demo_cpu"
+  ],
+  "total_tests": 50,
+  "passed": 50,
+  "failed": 0,
+  "errored": 0,
+  "skipped": 0,
+  "elapsed_seconds": 0.6544384999979229,
+  "records": [
+    {
+      "test": "src.deploy.test_deploy_cpu.AssetTests.test_adapter_identity_and_hash",
+      "status": "passed",
+      "duration_seconds": 0.0059
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.AssetTests.test_asset_facts_track_reality_not_intent",
+      "status": "passed",
+      "duration_seconds": 0.0021
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.AssetTests.test_classify_artifact_real_paths",
+      "status": "passed",
+      "duration_seconds": 0.0016
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.AssetTests.test_model_facts_show_384_no_split_contract",
+      "status": "passed",
+      "duration_seconds": 0.0007
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.AssetTests.test_upstream_onnx_assets_cannot_carry_the_lora",
+      "status": "passed",
+      "duration_seconds": 0.0017
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.BenchmarkPlanTests.test_bench_plan_only_rejects_cuda_without_lease",
+      "status": "passed",
+      "duration_seconds": 0.0119
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.BenchmarkPlanTests.test_bench_plan_only_subprocess",
+      "status": "passed",
+      "duration_seconds": 0.1197
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.BenchmarkPlanTests.test_latency_stats_use_nearest_rank",
+      "status": "passed",
+      "duration_seconds": 0.0001
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.BenchmarkPlanTests.test_prior_cpu_evidence_is_recorded",
+      "status": "passed",
+      "duration_seconds": 0.0003
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.BenchmarkPlanTests.test_selection_is_deterministic_and_unique",
+      "status": "passed",
+      "duration_seconds": 0.0032
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.BenchmarkPlanTests.test_selection_rejects_oversampling",
+      "status": "passed",
+      "duration_seconds": 0.0001
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.ContractTests.test_image_seq_len_contract_is_36",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.ContractTests.test_packages_helper_is_import_free",
+      "status": "passed",
+      "duration_seconds": 0.0088
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.ContractTests.test_prep_document_is_honest_if_present",
+      "status": "passed",
+      "duration_seconds": 0.009
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.ContractTests.test_results_path_guard_blocks_foreign_prefixes",
+      "status": "passed",
+      "duration_seconds": 0.0004
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.EnvironmentTests.test_detection_does_not_import_torch",
+      "status": "passed",
+      "duration_seconds": 0.0001
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.EnvironmentTests.test_expected_versions_are_detected",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.EnvironmentTests.test_gpu_snapshot_is_read_only_metadata",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.EnvironmentTests.test_missing_optional_tools_are_reported_not_faked",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.MergeTests.test_merge_dry_run_subprocess_is_cpu_light",
+      "status": "passed",
+      "duration_seconds": 0.1164
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.MergeTests.test_merge_input_validation_accepts_the_real_adapter",
+      "status": "passed",
+      "duration_seconds": 0.0077
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.MergeTests.test_merge_input_validation_rejects_missing_adapter",
+      "status": "passed",
+      "duration_seconds": 0.0017
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.MergeTests.test_merge_input_validation_rejects_wrong_base",
+      "status": "passed",
+      "duration_seconds": 0.0037
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.MergeTests.test_verify_merged_directory_reports_missing_files_then_passes",
+      "status": "passed",
+      "duration_seconds": 0.0071
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.PlanTests.test_fallback_chain_order_is_the_documented_one",
+      "status": "passed",
+      "duration_seconds": 0.0001
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.PlanTests.test_only_gpu_and_download_steps_declare_their_needs",
+      "status": "passed",
+      "duration_seconds": 0.001
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.PlanTests.test_risks_cover_integrity_and_4bit_claims",
+      "status": "passed",
+      "duration_seconds": 0.0001
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.PlanTests.test_route_statuses_report_blockers",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.PlanTests.test_steps_are_ordered_and_have_commands",
+      "status": "passed",
+      "duration_seconds": 0.0007
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.QuantizePlanTests.test_export_free_routes_are_ready",
+      "status": "passed",
+      "duration_seconds": 0.0003
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.QuantizePlanTests.test_gguf_plan_blocked_without_tools",
+      "status": "passed",
+      "duration_seconds": 0.0067
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.QuantizePlanTests.test_gguf_plan_commands_when_tools_present",
+      "status": "passed",
+      "duration_seconds": 0.0006
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.QuantizePlanTests.test_handoff_contract_matches_the_evaluator",
+      "status": "passed",
+      "duration_seconds": 0.0006
+    },
+    {
+      "test": "src.deploy.test_deploy_cpu.QuantizePlanTests.test_onnx_plan_reports_missing_tools",
+      "status": "passed",
+      "duration_seconds": 0.0059
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoCliTests.test_app_module_does_not_import_gradio",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoCliTests.test_examples_are_real_images_from_the_dataset",
+      "status": "passed",
+      "duration_seconds": 0.0003
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoCliTests.test_parser_defaults_are_safe",
+      "status": "passed",
+      "duration_seconds": 0.0003
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoHandlerTests.test_description_states_the_frozen_contract",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoHandlerTests.test_fake_predictor_is_labeled_as_placeholder",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoHandlerTests.test_locate_handles_empty_question",
+      "status": "passed",
+      "duration_seconds": 0.0001
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoHandlerTests.test_locate_handles_missing_image",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoHandlerTests.test_locate_returns_annotated_image_and_text",
+      "status": "passed",
+      "duration_seconds": 0.0072
+    },
+    {
+      "test": "demo.test_demo_cpu.DemoHandlerTests.test_locate_survives_predictor_exception",
+      "status": "passed",
+      "duration_seconds": 0.0001
+    },
+    {
+      "test": "demo.test_demo_cpu.DrawBoxTests.test_box_to_pixels_rejects_invalid_box",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DrawBoxTests.test_box_to_pixels_rounds_inside_image",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DrawBoxTests.test_draw_box_paints_the_border_and_preserves_the_inside",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DrawBoxTests.test_draw_box_rejects_non_image",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DrawBoxTests.test_draw_box_with_none_returns_copy",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DrawBoxTests.test_format_result_marks_parse_failure",
+      "status": "passed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test": "demo.test_demo_cpu.DrawBoxTests.test_format_result_renders_box_and_raw_output",
+      "status": "passed",
+      "duration_seconds": 0.0
+    }
+  ],
+  "failure_details": [],
+  "constraints": {
+    "cuda_visible_devices": "",
+    "torch_imported": false,
+    "model_weights_loaded": false,
+    "network_used": false,
+    "gpu_used": false
+  },
+  "environment": {
+    "python": "3.14.8",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "note": "CPU-only deployment/demo tests; model load, merge, quantization and gradio launch are not covered here"
+}

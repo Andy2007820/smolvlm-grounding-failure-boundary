@@ -1,0 +1,44 @@
+{
+  "run_id": "validation_screenspot_b0_base_v1",
+  "validated_run_id": "screenspot_b0_base_v1",
+  "dataset": "screenspot",
+  "split": "test",
+  "n": 1272,
+  "timestamp": "2026-11-10T05:22:39.586036+08:00",
+  "status": "passed",
+  "result_path": "results/zeroshot_screenspot_b0_base_v1.json",
+  "checks": {
+    "prompt_variant": {
+      "prompt_id": "p1",
+      "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+      "prompt_sha256_matches": true,
+      "prompt_template_matches": true,
+      "representation": "normalized_decimal",
+      "representation_matches": true,
+      "conversion_required": false
+    },
+    "adapter": null,
+    "details_rows": 1272,
+    "recomputed_metrics": {
+      "acc@0.5": 0.0,
+      "mIoU": 0.0001967861567620813,
+      "parse_rate": 0.00550314465408805,
+      "invalid": 1265
+    },
+    "invalid_in_n_verified": true,
+    "raw_outputs_present": true,
+    "unique_detail_ids": 1272,
+    "dataset_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+    "details_sha256": "576d008e324e04405194a4f7318a5d9f28b489b0c2b5ee08ffca49531b8ebb55",
+    "recorded_source_sha256": {
+      "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+      "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+      "prompts.py": "57cab7f86584efc940bd40d8e85549cf993918ece87e3b75ace99eb4c53de0a5",
+      "pixel_convert.py": "4d6aa2295ea930f297c8b3cc8de53c9116c891341b2451ffef9b05d0e4c4bf9e",
+      "run_zeroshot.py": "8cfda8daef628477444bda5e162915186bedc05dc17ab88baebc7111d48df7a1"
+    },
+    "recorded_source_matches_current": true
+  },
+  "errors": [],
+  "gpu_used": false
+}

@@ -1,0 +1,495 @@
+{
+  "status": "preflight_passed",
+  "gpu_used": false,
+  "device": "cpu",
+  "dry_run": true,
+  "run_name": "rest_r1_s42",
+  "config_path": "configs/rest_r1.json",
+  "config_sha256": "01e225ad7ce3dad9fbe3804b87e1714c1bcf3daecb8d928fbe43f633b723309e",
+  "config_fingerprint": "b9a9699d6ad8c81ddbd36d69c0d223d861bada65675b450f4e4aed62e533b729",
+  "seed": 42,
+  "model": {
+    "path": "models/SmolVLM-256M-Instruct",
+    "geometry": {
+      "model_path": "models/SmolVLM-256M-Instruct",
+      "vision_patch_size": 16,
+      "vision_image_size": 512,
+      "scale_factor": 4,
+      "image_token_id": 49190,
+      "text_vocab_size": 49280,
+      "vision_hidden_layers": 12,
+      "text_hidden_layers": 30,
+      "text_hidden_size": 576,
+      "source_sha256": {
+        "config.json": "b70fb4bfde88df9eeebc9d8ff523733b8bf70d6c9b06c610325960e06ae9db52",
+        "generation_config.json": "067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636",
+        "processor_config.json": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46"
+      }
+    },
+    "files": {
+      "model.safetensors": {
+        "sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "bytes": 513028808
+      },
+      "config.json": {
+        "sha256": "b70fb4bfde88df9eeebc9d8ff523733b8bf70d6c9b06c610325960e06ae9db52",
+        "bytes": 7353
+      },
+      "generation_config.json": {
+        "sha256": "067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636",
+        "bytes": 136
+      },
+      "processor_config.json": {
+        "sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+        "bytes": 68
+      },
+      "tokenizer.json": {
+        "sha256": "5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a",
+        "bytes": 3548256
+      },
+      "tokenizer_config.json": {
+        "sha256": "36c6fd44d07d10fd8180ee6b46dcccf69fb7c06753968ff0d7e17b8bfe17b777",
+        "bytes": 28249
+      },
+      "special_tokens_map.json": {
+        "sha256": "aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09",
+        "bytes": 1069
+      },
+      "added_tokens.json": {
+        "sha256": "74135b8664b56088c0006f1c8e848d79a8eba003411f72ebf1dc2ee96227be3a",
+        "bytes": 4739
+      },
+      "chat_template.json": {
+        "sha256": "a68ad1a42681ae44eacd109ff8dd56a840f761c03d72f4ff4c515d092f882168",
+        "bytes": 429
+      },
+      "merges.txt": {
+        "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+        "bytes": 466391
+      },
+      "vocab.json": {
+        "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79",
+        "bytes": 800662
+      }
+    }
+  },
+  "processor_geometry": {
+    "do_image_splitting": false,
+    "size": {
+      "longest_edge": 384
+    },
+    "max_image_size": {
+      "longest_edge": 384
+    }
+  },
+  "pad_eos_audit": {
+    "tokenizer_class": "GPT2Tokenizer",
+    "tokenizer_pad_token": "<|im_end|>",
+    "tokenizer_pad_token_id": 2,
+    "tokenizer_eos_token": "<end_of_utterance>",
+    "tokenizer_eos_token_id": 49279,
+    "tokenizer_bos_token": "<|im_start|>",
+    "tokenizer_bos_token_id": 1,
+    "generation_config_pad_token_id": 2,
+    "generation_config_eos_token_id": 49279,
+    "text_config_pad_token_id": 2,
+    "config_image_token_id": 49190,
+    "processor_config_default_image_seq_len": 64,
+    "top_level_config_default_pad_token_id": 128002,
+    "text_config_vocab_size": 49280,
+    "top_level_default_is_out_of_vocab": true,
+    "warning_observed": true,
+    "warning_text": "Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.",
+    "warning_source": "transformers/models/idefics3/configuration_idefics3.py: class Idefics3Config default pad_token_id = 128_002, validated against the legacy 32000-entry default text vocabulary in configuration_utils.validate_token_ids",
+    "conclusion": "128002 is only the Idefics3Config class-level default for top-level pad_token_id; the tokenizer, generation_config and text config all resolve to pad=2 / eos=49279. SFT explicitly appends eos=49279 to every answer and uses pad=2 for collation, so the warning is documented and does not affect the training contract.",
+    "checks": {
+      "tokenizer_pad_is_2": true,
+      "tokenizer_eos_is_49279": true,
+      "generation_pad_is_2": true,
+      "generation_eos_is_49279": true,
+      "text_config_pad_is_2": true,
+      "image_token_is_49190": true,
+      "processor_default_image_seq_len_is_64": true,
+      "actual_pad_eos_inside_vocab": true,
+      "top_level_default_128002_outside_vocab": true,
+      "actual_pad_eos_not_128002": true
+    }
+  },
+  "plan": {
+    "train_records": 10191,
+    "num_epochs": 1,
+    "batch_size": 1,
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "micro_batches_per_optimizer_step": 8,
+    "true_accumulation": true,
+    "micro_forwards_total": 10000,
+    "loss_scale_per_micro_batch": 0.125,
+    "effective_batch_size": 8,
+    "total_micro_batches": 10000,
+    "total_optimizer_steps": 1250,
+    "checkpoint_steps": [
+      200,
+      400,
+      600,
+      800,
+      1000,
+      1200,
+      1250
+    ],
+    "checkpoint_every_steps": 200,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.03,
+    "max_steps_override": 1250
+  },
+  "training_semantics": {
+    "true_accumulation": true,
+    "micro_batch_size": 1,
+    "micro_batches_per_optimizer_step": 8,
+    "loss_scaling": "loss / gradient_accumulation_steps before backward",
+    "optimizer_step_order": "clip_grad_norm -> optimizer.step -> scheduler.step -> optimizer.zero_grad",
+    "micro_forwards_total": 10000,
+    "optimizer_steps_total": 1250,
+    "checkpoint_every_optimizer_steps": 200
+  },
+  "selected_ids_sha256": "19ea9e908cfc9e3ba2048f11f2c166d2b791bae8cc29af24740ea7f2464f68f2",
+  "train_order_sha256": "166045d59750a458c16cb9f71acc0a92b617cace5b67a70b6cea5aaddf375c49",
+  "train_dataset_evidence": [
+    {
+      "path": "data/synthetic_train.jsonl",
+      "source": "synthetic",
+      "split": "train",
+      "limit": null,
+      "rows_loaded": 5000,
+      "sha256": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88"
+    },
+    {
+      "path": "data/refcoco_train.jsonl",
+      "source": "refcoco",
+      "split": "train",
+      "limit": null,
+      "rows_loaded": 5000,
+      "sha256": "95dda7c3a6a1ab555cec0c8e6fff48fb0adf2c16200371a2bfa6ec97b1a58137"
+    },
+    {
+      "path": "data/rest/r1_pool.jsonl",
+      "source": "rest",
+      "split": "train",
+      "limit": null,
+      "rows_loaded": 191,
+      "sha256": "bcf4275f204275445bdb57815217a10ab5e9f80a70f0e1c2e0b289fe7fd35494"
+    }
+  ],
+  "full_train_manifest_evidence": [
+    {
+      "path": "data/synthetic_train.jsonl",
+      "source": "synthetic",
+      "split": "train",
+      "limit": null,
+      "rows_total": 5000,
+      "sha256": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88"
+    },
+    {
+      "path": "data/refcoco_train.jsonl",
+      "source": "refcoco",
+      "split": "train",
+      "limit": null,
+      "rows_total": 5000,
+      "sha256": "95dda7c3a6a1ab555cec0c8e6fff48fb0adf2c16200371a2bfa6ec97b1a58137"
+    },
+    {
+      "path": "data/rest/r1_pool.jsonl",
+      "source": "rest",
+      "split": "train",
+      "limit": null,
+      "rows_total": 191,
+      "sha256": "bcf4275f204275445bdb57815217a10ab5e9f80a70f0e1c2e0b289fe7fd35494"
+    }
+  ],
+  "val_manifest_evidence": [
+    {
+      "path": "data/synthetic_eval.jsonl",
+      "source": "synthetic",
+      "split": "eval",
+      "limit": null,
+      "rows_loaded": 1000,
+      "sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854"
+    },
+    {
+      "path": "data/refcoco_val.jsonl",
+      "source": "refcoco",
+      "split": "val",
+      "limit": null,
+      "rows_loaded": 1000,
+      "sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316"
+    }
+  ],
+  "id_intersection": {
+    "train_id_counts": {
+      "data/synthetic_train.jsonl": 5000,
+      "data/refcoco_train.jsonl": 5000,
+      "data/rest/r1_pool.jsonl": 191
+    },
+    "val_id_counts": {
+      "data/synthetic_eval.jsonl": 1000,
+      "data/refcoco_val.jsonl": 1000
+    },
+    "pair_id_intersection_counts": {
+      "data/synthetic_train.jsonl|data/synthetic_eval.jsonl": 0,
+      "data/synthetic_train.jsonl|data/refcoco_val.jsonl": 0,
+      "data/refcoco_train.jsonl|data/synthetic_eval.jsonl": 0,
+      "data/refcoco_train.jsonl|data/refcoco_val.jsonl": 0,
+      "data/rest/r1_pool.jsonl|data/synthetic_eval.jsonl": 0,
+      "data/rest/r1_pool.jsonl|data/refcoco_val.jsonl": 0
+    },
+    "global_train_val_id_intersection_count": 0,
+    "train_image_count": 9439,
+    "val_image_count": 1777,
+    "train_val_image_path_intersection_count": 0,
+    "requirement": "train/val ID intersection must be exactly 0"
+  },
+  "preflight_observations": [
+    {
+      "record_id": "synthetic_train_000004",
+      "image": "data/images/synthetic/train/synthetic_train_000004.png",
+      "original_size_wh": [
+        384,
+        384
+      ],
+      "image_size": 384,
+      "image_seq_len": 36,
+      "answer": {
+        "answer_text": "[0.3490, 0.0365, 0.5859, 0.2734]",
+        "precision_used": 4,
+        "max_abs_rounding_error": 4.1670000000000595e-05,
+        "evaluator_parse_ok": true
+      },
+      "representation": "normalized_decimal",
+      "representation_prompt_id": "p1",
+      "representation_prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+      "runtime_image_seq_len": {
+        "processor_config_path": "models/SmolVLM-256M-Instruct/processor_config.json",
+        "processor_config_default_image_seq_len": 64,
+        "processor_config_sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+        "processor_image_seq_len_before_call": 64,
+        "runtime_image_seq_len": 36,
+        "processor_image_seq_len_after_call": 36,
+        "global_default_unchanged": true
+      },
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      },
+      "generation_prompt_visual_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      },
+      "raw_conversation_placeholder_count": 1,
+      "raw_conversation_token_count": 89,
+      "raw_prompt_token_count": 55,
+      "expanded_prompt_token_count": 93,
+      "expanded_conversation_token_count": 127,
+      "image_expansion_delta": 38,
+      "offset_label_start_raw": 55,
+      "expanded_label_start_from_offsets": 93,
+      "prompt_tokens": 93,
+      "answer_tokens": 33,
+      "masked_tokens": 94,
+      "sequence_tokens": 127,
+      "tokens_after_eos": 1,
+      "eos_token_id": 49279,
+      "eos_position": 125,
+      "prompt_eos_positions": [
+        88
+      ],
+      "answer_eos_positions": [
+        125
+      ],
+      "pad_token_id": 2,
+      "label_rule": "input_ids come from the processor-expanded full conversation; labels=-100 for all positions before the label_start derived from EOS minus answer tokens; answer+EOS labeled; tokens after EOS masked",
+      "first_labeled_token_text": " [",
+      "labeled_span_decoded": " [0.3490, 0.0365, 0.5859, 0.2734]<end_of_utterance>",
+      "prefix_extension_verified": true,
+      "offset_cross_check_verified": true
+    },
+    {
+      "record_id": "synthetic_train_000001",
+      "image": "data/images/synthetic/train/synthetic_train_000001.png",
+      "original_size_wh": [
+        256,
+        320
+      ],
+      "image_size": 384,
+      "image_seq_len": 36,
+      "answer": {
+        "answer_text": "[0.2891, 0.7500, 0.4883, 0.9094]",
+        "precision_used": 4,
+        "max_abs_rounding_error": 3.7500000000023626e-05,
+        "evaluator_parse_ok": true
+      },
+      "representation": "normalized_decimal",
+      "representation_prompt_id": "p1",
+      "representation_prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+      "runtime_image_seq_len": {
+        "processor_config_path": "models/SmolVLM-256M-Instruct/processor_config.json",
+        "processor_config_default_image_seq_len": 64,
+        "processor_config_sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+        "processor_image_seq_len_before_call": 36,
+        "runtime_image_seq_len": 36,
+        "processor_image_seq_len_after_call": 36,
+        "global_default_unchanged": true
+      },
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      },
+      "generation_prompt_visual_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      },
+      "raw_conversation_placeholder_count": 1,
+      "raw_conversation_token_count": 89,
+      "raw_prompt_token_count": 55,
+      "expanded_prompt_token_count": 93,
+      "expanded_conversation_token_count": 127,
+      "image_expansion_delta": 38,
+      "offset_label_start_raw": 55,
+      "expanded_label_start_from_offsets": 93,
+      "prompt_tokens": 93,
+      "answer_tokens": 33,
+      "masked_tokens": 94,
+      "sequence_tokens": 127,
+      "tokens_after_eos": 1,
+      "eos_token_id": 49279,
+      "eos_position": 125,
+      "prompt_eos_positions": [
+        88
+      ],
+      "answer_eos_positions": [
+        125
+      ],
+      "pad_token_id": 2,
+      "label_rule": "input_ids come from the processor-expanded full conversation; labels=-100 for all positions before the label_start derived from EOS minus answer tokens; answer+EOS labeled; tokens after EOS masked",
+      "first_labeled_token_text": " [",
+      "labeled_span_decoded": " [0.2891, 0.7500, 0.4883, 0.9094]<end_of_utterance>",
+      "prefix_extension_verified": true,
+      "offset_cross_check_verified": true
+    }
+  ],
+  "preflight_source": "selected_train_records",
+  "preflight_records_used": 10191,
+  "answer_contract": {
+    "format": "[{x1}, {y1}, {x2}, {y2}]",
+    "precision": 4,
+    "eos_token_id": 49279,
+    "pad_token_id": 2
+  },
+  "environment": {
+    "python": "3.14.8",
+    "python_executable": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "transformers": "5.19.0",
+    "peft": "0.21.2",
+    "torch": "2.11.0+cu128",
+    "accelerate": "1.15.0",
+    "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU"
+  },
+  "source_hashes": {
+    "src/train/__init__.py": "1dc9d1345a5554d313aa0da5d4ddf0b60117b37483b81c984dcfcda54e4ac80e",
+    "src/train/config.py": "7e9e71d4971316c446a5c67b39d0d9f34e2664a3016741060b1432260ff7b7ca",
+    "src/train/vision_tokens.py": "3998f31e0b05a41256484e600051e253f09e4c73730fae89812d9003e90bc80d",
+    "src/train/sft_data.py": "e0ad312d6c12598ec36e6683bb44b29c3bdf9f5c7be0892ff7fe343f0102efcb",
+    "src/train/checkpoint.py": "072781d088b54da0f796dc5b4f5642dbb5a0779641026c76879134c6fbe67224",
+    "src/train/accumulation.py": "daedbb5a2d9abcdd7718fc833b71bb5cba539aa5e1462df24d764ff3281d708e",
+    "src/train/coordinate_variants.py": "8bedf95aafdbd0b4b883dc30939a9b2d215ab9a3bcfa944a927eb8c0ccce62a4",
+    "src/train/model_audit.py": "fa444051d600bf619ac8f0197c95b81f3506f517bf8eb6f7f6e6a2501f96bacf",
+    "src/train/train_sft.py": "0de3f6ba27c87f06ff7a182997cc0e8c719fa775906047ad1e38feb8c1a4be58",
+    "src/eval/grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+    "src/eval/prompts.py": "57cab7f86584efc940bd40d8e85549cf993918ece87e3b75ace99eb4c53de0a5",
+    "src/eval/dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+    "src/eval/run_zeroshot.py": "cbeb2216eaf67c112fae09d9655cfcf0a37a82886932e4c455569fdd44a77483"
+  },
+  "execution_requirements": {
+    "gpu_lease_required": true,
+    "exact_gpu_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.train.train_sft --config configs/rest_r1.json --device cuda --gpu-lease-id <GPU-LEASE-ID>",
+    "nvidia_smi_logging": "shell wrapper records `nvidia-smi --query-gpu=memory.used --format=csv` before process start and after process exit to logs/train/<run>_gpu.log; the script records before-load, post-profile, post-training and post-cleanup values in its JSON outputs",
+    "abort_conditions": [
+      "nvidia-smi memory.used > 7500 MiB",
+      "any competing game/training process",
+      "CUDA assert or non-finite loss"
+    ]
+  },
+  "generated_at": "2026-11-10T19:04:29.546296+08:00"
+}

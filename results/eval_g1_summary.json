@@ -1,0 +1,73 @@
+{
+  "gate": "G1",
+  "criterion": "results/zeroshot_*.json 有完整 metrics（两集齐备，且既有验证器独立复算通过）",
+  "status": "passed",
+  "timestamp": "2026-11-09T14:25:50+08:00",
+  "conclusion": "G1 通过：synthetic 与 RefCOCO 两集 summary 均含完整 metrics（acc@0.5 / mIoU / parse_rate / invalid），两份 validation 报告 status=passed、errors=[]；details 行数、details SHA256、invalid_in_n、dataset/source 哈希均核对一致。metrics 为 256M 模型零样本实测负结果（acc@0.5=0.0），照实记录，不属于 G1 判据的失败项。",
+  "episodes": {
+    "synthetic": {
+      "run_id": "zeroshot_b0_synthetic_s42_v1",
+      "dataset": "synthetic",
+      "split": "eval",
+      "n": 1000,
+      "acc@0.5": 0.0,
+      "mIoU": 0.00010114397437500003,
+      "parse_rate": 0.004,
+      "invalid": 996,
+      "summary": "results/zeroshot_synthetic.json",
+      "validation": "results/eval_zeroshot_b0_synthetic_s42_v1_validation.json",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "details": "results/eval_zeroshot_b0_synthetic_s42_v1_details.jsonl",
+      "details_sha256": "44472e4d4aadd9755d73ac1775b4aab43a1791c8bb2613ae3a897fb1847dc8cb",
+      "details_rows": 1000,
+      "invalid_in_n": true,
+      "dataset_sha256_matches": true,
+      "source_sha256_matches": true
+    },
+    "refcoco": {
+      "run_id": "zeroshot_b0_refcoco_s42_v1",
+      "dataset": "refcoco",
+      "split": "val",
+      "n": 1000,
+      "acc@0.5": 0.0,
+      "mIoU": 0.0002031602971321504,
+      "parse_rate": 0.002,
+      "invalid": 998,
+      "summary": "results/zeroshot_refcoco.json",
+      "validation": "results/eval_zeroshot_b0_refcoco_s42_v1_validation.json",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "details": "results/eval_zeroshot_b0_refcoco_s42_v1_details.jsonl",
+      "details_sha256": "b95265e3b5b2d4777ad636fa907b55dfec3c67c936cc53d897b7d3c1772d49b1",
+      "details_rows": 1000,
+      "invalid_in_n": true,
+      "dataset_sha256_matches": true,
+      "source_sha256_matches": true
+    }
+  },
+  "validation_files": {
+    "generated": [
+      "results/eval_zeroshot_b0_refcoco_s42_v1_validation.json"
+    ],
+    "existing_reused": [
+      "results/eval_zeroshot_b0_synthetic_s42_v1_validation.json"
+    ]
+  },
+  "gpu_released": true,
+  "gpu_evidence": {
+    "refcoco_gpu_log": "results/eval_zeroshot_b0_refcoco_s42_v1_gpu.log",
+    "memory_used_mib_before_process": 1274,
+    "memory_used_mib_after_process_exit": 1274,
+    "python_exit_code": 0,
+    "elapsed_seconds_including_load": 948.2143379999325,
+    "live_nvidia_smi_memory_used_mib": 1575,
+    "live_compute_apps": [
+      "DeepSeek Harness.exe",
+      "msedge.exe",
+      "360se.exe"
+    ],
+    "live_python_compute_process": false,
+    "note": "nvidia-smi 仅作只读查询，未运行任何 GPU 任务；退出后无 python 计算进程占用 GPU。"
+  }
+}

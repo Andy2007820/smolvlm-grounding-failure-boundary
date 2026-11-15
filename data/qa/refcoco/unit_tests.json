@@ -1,0 +1,24 @@
+{
+  "test_file": "src/data/test_prepare_refcoco.py",
+  "initial_run": {
+    "command": "python -m unittest -v src\\data\\test_prepare_refcoco.py",
+    "status": "failed",
+    "error": "ModuleNotFoundError: No module named 'prepare_refcoco'",
+    "resolution": "Added the test file's own directory to sys.path; no preparation logic was changed for this test-only failure."
+  },
+  "final_run": {
+    "command": "python -m unittest -v src\\data\\test_prepare_refcoco.py",
+    "status": "passed",
+    "tests_run": 5,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds_reported_by_unittest": 0.002,
+    "test_names": [
+      "test_clipping_is_recorded_and_answer_stays_in_unit_range",
+      "test_coco_url_uses_real_file_name",
+      "test_empty_sentences_are_rejected",
+      "test_selection_is_deterministic_under_row_shuffle",
+      "test_xywh_to_normalized_xyxy_and_raw_question"
+    ]
+  }
+}

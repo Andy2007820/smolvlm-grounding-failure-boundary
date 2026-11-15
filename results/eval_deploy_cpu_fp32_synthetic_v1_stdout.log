@@ -1,0 +1,74 @@
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 1, "n": 1000, "elapsed_seconds": 2.3667078998405486, "running_metrics": {"acc@0.5": 0.0, "mIoU": 0.0, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 25, "n": 1000, "elapsed_seconds": 37.8292749999091, "running_metrics": {"acc@0.5": 0.04, "mIoU": 0.15266478755745586, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 50, "n": 1000, "elapsed_seconds": 74.6843566999305, "running_metrics": {"acc@0.5": 0.02, "mIoU": 0.12700987344045464, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 75, "n": 1000, "elapsed_seconds": 111.43629849981517, "running_metrics": {"acc@0.5": 0.02666666666666667, "mIoU": 0.13141674935385914, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 100, "n": 1000, "elapsed_seconds": 148.14306819997728, "running_metrics": {"acc@0.5": 0.03, "mIoU": 0.1334413867351456, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 125, "n": 1000, "elapsed_seconds": 184.99925419990905, "running_metrics": {"acc@0.5": 0.048, "mIoU": 0.1310587236680075, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 150, "n": 1000, "elapsed_seconds": 221.66935479990207, "running_metrics": {"acc@0.5": 0.04, "mIoU": 0.1212586386512447, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 175, "n": 1000, "elapsed_seconds": 258.2608592999168, "running_metrics": {"acc@0.5": 0.03428571428571429, "mIoU": 0.11316138724255456, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 200, "n": 1000, "elapsed_seconds": 294.84373750002123, "running_metrics": {"acc@0.5": 0.03, "mIoU": 0.11277682004480233, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 225, "n": 1000, "elapsed_seconds": 331.3232740999665, "running_metrics": {"acc@0.5": 0.02666666666666667, "mIoU": 0.11050652244262503, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 250, "n": 1000, "elapsed_seconds": 367.71133339987136, "running_metrics": {"acc@0.5": 0.024, "mIoU": 0.10674600556157313, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 275, "n": 1000, "elapsed_seconds": 404.1643886999227, "running_metrics": {"acc@0.5": 0.025454545454545455, "mIoU": 0.1026317176784497, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 300, "n": 1000, "elapsed_seconds": 440.8965215999633, "running_metrics": {"acc@0.5": 0.023333333333333334, "mIoU": 0.09889942933509202, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 325, "n": 1000, "elapsed_seconds": 477.65056589990854, "running_metrics": {"acc@0.5": 0.021538461538461538, "mIoU": 0.09713957685778499, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 350, "n": 1000, "elapsed_seconds": 514.4228456998244, "running_metrics": {"acc@0.5": 0.02, "mIoU": 0.09525909160880987, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 375, "n": 1000, "elapsed_seconds": 551.0383884999901, "running_metrics": {"acc@0.5": 0.018666666666666668, "mIoU": 0.09243227766933547, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 400, "n": 1000, "elapsed_seconds": 587.7165204999037, "running_metrics": {"acc@0.5": 0.0175, "mIoU": 0.0908231856162333, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 425, "n": 1000, "elapsed_seconds": 624.1675435998477, "running_metrics": {"acc@0.5": 0.01647058823529412, "mIoU": 0.09006192919469741, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 450, "n": 1000, "elapsed_seconds": 660.6676689998712, "running_metrics": {"acc@0.5": 0.015555555555555555, "mIoU": 0.09042697068777238, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 475, "n": 1000, "elapsed_seconds": 697.1437425999902, "running_metrics": {"acc@0.5": 0.016842105263157894, "mIoU": 0.08920448871818348, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 500, "n": 1000, "elapsed_seconds": 733.5040792999789, "running_metrics": {"acc@0.5": 0.016, "mIoU": 0.08929489103019836, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 525, "n": 1000, "elapsed_seconds": 769.9076970999595, "running_metrics": {"acc@0.5": 0.015238095238095238, "mIoU": 0.08745141813348267, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 550, "n": 1000, "elapsed_seconds": 806.7543511998374, "running_metrics": {"acc@0.5": 0.014545454545454545, "mIoU": 0.08672987775538117, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 575, "n": 1000, "elapsed_seconds": 843.4736237998586, "running_metrics": {"acc@0.5": 0.01391304347826087, "mIoU": 0.08642115390958308, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 600, "n": 1000, "elapsed_seconds": 880.2297433000058, "running_metrics": {"acc@0.5": 0.013333333333333334, "mIoU": 0.08515356062216783, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 625, "n": 1000, "elapsed_seconds": 916.8492566000205, "running_metrics": {"acc@0.5": 0.016, "mIoU": 0.0863376893399855, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 650, "n": 1000, "elapsed_seconds": 953.3796108998358, "running_metrics": {"acc@0.5": 0.015384615384615385, "mIoU": 0.08562640132570128, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 675, "n": 1000, "elapsed_seconds": 989.9689007999841, "running_metrics": {"acc@0.5": 0.014814814814814815, "mIoU": 0.08418110511537902, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 700, "n": 1000, "elapsed_seconds": 1026.5035871998407, "running_metrics": {"acc@0.5": 0.017142857142857144, "mIoU": 0.08434096663225446, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 725, "n": 1000, "elapsed_seconds": 1063.0566708999686, "running_metrics": {"acc@0.5": 0.016551724137931035, "mIoU": 0.08413062000736704, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 750, "n": 1000, "elapsed_seconds": 1099.6079167998396, "running_metrics": {"acc@0.5": 0.016, "mIoU": 0.08417121989605579, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 775, "n": 1000, "elapsed_seconds": 1136.1862864999566, "running_metrics": {"acc@0.5": 0.01806451612903226, "mIoU": 0.08525714876362328, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 800, "n": 1000, "elapsed_seconds": 1172.8935967998113, "running_metrics": {"acc@0.5": 0.01875, "mIoU": 0.08625241735640744, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 825, "n": 1000, "elapsed_seconds": 1209.5981556999031, "running_metrics": {"acc@0.5": 0.01818181818181818, "mIoU": 0.08544166167541103, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 850, "n": 1000, "elapsed_seconds": 1246.1933068998624, "running_metrics": {"acc@0.5": 0.01764705882352941, "mIoU": 0.08530293002360549, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 875, "n": 1000, "elapsed_seconds": 1282.9336905998643, "running_metrics": {"acc@0.5": 0.018285714285714287, "mIoU": 0.08472424939678848, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 900, "n": 1000, "elapsed_seconds": 3069.089527899865, "running_metrics": {"acc@0.5": 0.017777777777777778, "mIoU": 0.08527133005927466, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 925, "n": 1000, "elapsed_seconds": 3111.4044933000114, "running_metrics": {"acc@0.5": 0.017297297297297298, "mIoU": 0.08471069256581776, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 950, "n": 1000, "elapsed_seconds": 3150.4955791998655, "running_metrics": {"acc@0.5": 0.017894736842105262, "mIoU": 0.08451433374133599, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 975, "n": 1000, "elapsed_seconds": 3190.876684800023, "running_metrics": {"acc@0.5": 0.017435897435897435, "mIoU": 0.08370669903193799, "parse_rate": 1.0, "invalid": 0}}
+{"run_id": "deploy_cpu_fp32_synthetic_v1", "completed": 1000, "n": 1000, "elapsed_seconds": 3230.4474179998506, "running_metrics": {"acc@0.5": 0.017, "mIoU": 0.08376013366688331, "parse_rate": 1.0, "invalid": 0}}
+{
+  "status": "completed",
+  "run_id": "deploy_cpu_fp32_synthetic_v1",
+  "output": "results/zeroshot_deploy_cpu_fp32_synthetic_v1.json",
+  "details": "results/eval_deploy_cpu_fp32_synthetic_v1_details.jsonl",
+  "n": 1000,
+  "batch_size": 1,
+  "prompt_id": "p1",
+  "representation": "normalized_decimal",
+  "adapter": null,
+  "adapter_load": null,
+  "metrics": {
+    "acc@0.5": 0.017,
+    "mIoU": 0.08376013366688331,
+    "parse_rate": 1.0,
+    "invalid": 0
+  },
+  "runtime": {
+    "started_at": "2026-11-10T10:00:17.905391+08:00",
+    "finished_at": "2026-11-10T10:54:03.842037+08:00",
+    "elapsed_seconds_including_load": 3230.827245999826,
+    "nvidia_smi_memory_before_mib": null,
+    "nvidia_smi_memory_after_model_load_mib": null,
+    "nvidia_smi_memory_after_generation_mib": null,
+    "torch_peak_memory_allocated_mib": null,
+    "torch_peak_memory_reserved_mib": null,
+    "nvidia_smi_memory_after_cleanup_mib": null,
+    "cpu_threads_requested": 2,
+    "torch_num_threads_effective": 2,
+    "post_process_exit_check": "recorded by the calling shell, not claimed by this in-process value",
+    "timing_caveat": "Diagnostic single-run wall time, not the Table 3 warmed latency benchmark."
+  }
+}

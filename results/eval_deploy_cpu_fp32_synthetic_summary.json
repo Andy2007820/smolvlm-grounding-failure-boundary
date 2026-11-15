@@ -1,0 +1,106 @@
+{
+  "format": "eval-deploy-cpu-fp32-summary-v1",
+  "task": {
+    "id": "task-29",
+    "subject": "T14-eval · merged CPU fp32 官方精度"
+  },
+  "created_at": "2026-11-10T10:54:51.589854+08:00",
+  "purpose": "deployment diagnostic only; NOT a Table-1 main-table entry",
+  "gpu_used": false,
+  "device": "cpu",
+  "dtype": "float32",
+  "cpu_threads_requested": 2,
+  "torch_num_threads_effective": 2,
+  "environment": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "merged_model": {
+    "path": "adapters/merged/sft_v1_merged",
+    "model_safetensors_sha256": "5398b41e2e069e8efb87da09d607e47295e85107edf9a8b47be4a211968387d2",
+    "config_sha256": "4b2f35ded89f67e188013871f37ee39d0f46958c6083171bdd8480971f51b3d2",
+    "model_class": "Idefics3ForConditionalGeneration",
+    "has_peft_block": false,
+    "run_id": "deploy_cpu_fp32_synthetic_v1",
+    "summary": "results/zeroshot_deploy_cpu_fp32_synthetic_v1.json",
+    "details": "results/eval_deploy_cpu_fp32_synthetic_v1_details.jsonl",
+    "details_sha256": "9427f6c2feb056701a5767e3d6f0a1635916131bb9bc3a8fe2336ce46fae27e3",
+    "validation": "results/eval_deploy_cpu_fp32_synthetic_v1_validation.json",
+    "validation_status": "passed",
+    "validation_errors": [],
+    "metrics": {
+      "acc@0.5": 0.017,
+      "mIoU": 0.08376013366688331,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "n": 1000,
+    "parse_rate": 1.0,
+    "invalid": 0,
+    "validation_sha256": "94c07b5226ff6f79517cc61ee0aefc30f37bcd3d8c916acca0ab5df7c036ec1c",
+    "run_info_sha256": "bf13ab0a0aba1f8a63e5dcb1858034875fcba1c7ab1fc6eb290a82fdacbb29d6",
+    "summary_sha256_note": "summary hash is external; see the published file hash in the final report/ledger"
+  },
+  "reference_adapter": {
+    "run_id": "sft_v1_s42_synthetic_v1",
+    "adapter": "adapters/sft_v1/adapter",
+    "summary": "results/zeroshot_sft_v1_s42_synthetic_v1.json",
+    "metrics": {
+      "acc@0.5": 0.011,
+      "mIoU": 0.06743763938552531,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "note": "official seed42 adapter result, previously validated (GPU bf16)"
+  },
+  "comparison": {
+    "metric_deltas": {
+      "acc@0.5": 0.006000000000000002,
+      "mIoU": 0.016322494281358,
+      "parse_rate": 0.0,
+      "invalid": 0
+    },
+    "raw_output_exact_equal_count": 111,
+    "output_text_exact_equal_count": 111,
+    "predicted_box_exact_equal_count": 111,
+    "correct_at_0.5_disagreement_count": 16,
+    "iou_mean_abs_difference": 0.049978987064668676,
+    "iou_max_abs_difference": 0.6664234907897137,
+    "hit_max_new_tokens": 0,
+    "equivalence_note": "Merged weights are the same LoRA merge as the seed42 adapter, and the earlier 5-sample merge equivalence was 5/5 identical. The full CPU-fp32 vs GPU-bf16 comparison is NOT byte-identical: 17/1000 vs 11/1000 correct, Acc@0.5 0.017 vs 0.011, mIoU 0.083760 vs 0.067438. This is a dtype/device numerical divergence, not a deployment weight mismatch; the adapter GPU result remains the official number and the merged CPU result is a deployment diagnostic only.",
+    "correct_count": {
+      "merged": 17,
+      "adapter": 11
+    },
+    "explicit_note": "Merged CPU fp32 is +6 correct predictions and +0.016322 mIoU versus the GPU bf16 adapter; this is a dtype/device numerical difference, not weight non-equivalence. It is NOT claimed to be byte-identical/equivalent and is NOT a Table-1 main-table result."
+  },
+  "timing": {
+    "wall_seconds_including_load": 3230.827245999826,
+    "wall_minutes": 53.84712076666377,
+    "per_sample_seconds_mean": 3.2292104911042845,
+    "per_sample_seconds_median": 1.4649197499966249,
+    "per_sample_seconds_sum": 3229.2104911042843,
+    "prior_deploy_latency_mean_seconds_per_sample_2threads": 1.570195675981231,
+    "note": "The wall time (~53.8 min) is inflated by host CPU contention/stalls during this run; the per-sample compute diagnostics and the earlier 50-sample 2-thread latency (mean 1.57 s/sample) are the cleaner timing references. Do not report the wall as a benchmark.",
+    "per_sample_seconds_max": 1556.3236088000704,
+    "per_sample_seconds_p50": 1.4649197499966249,
+    "stall_note": "a single sample recorded 1556.3s during a host CPU stall; excluding that outlier the median is 1.465 s/sample, consistent with the earlier 1.57 s/sample 2-thread deploy latency.",
+    "wrapper_wall_seconds": 3236.63
+  },
+  "policy": "deployment diagnostic only; do not put this row in Table 1/Table 3 as an official accuracy number; report the adapter GPU result as authoritative.",
+  "execution": {
+    "run_id": "deploy_cpu_fp32_synthetic_v1",
+    "python_exit_code": 0,
+    "wrapper_wall_seconds": 3236.63,
+    "in_process_elapsed_seconds_including_load": 3230.827245999826,
+    "cpu_only": true,
+    "cpu_threads_requested": 2,
+    "torch_num_threads_effective": 2,
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "cuda_hidden": true,
+    "CUDA_VISIBLE_DEVICES": "",
+    "gpu_used": false
+  }
+}

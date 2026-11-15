@@ -1,0 +1,56 @@
+{
+  "run_id": "validation_t7_d_s43_synthetic_v1",
+  "validated_run_id": "t7_d_s43_synthetic_v1",
+  "dataset": "synthetic",
+  "split": "eval",
+  "n": 1000,
+  "timestamp": "2026-11-12T03:47:04.730099+08:00",
+  "status": "passed",
+  "result_path": "results/zeroshot_t7_d_s43_synthetic_v1.json",
+  "checks": {
+    "prompt_variant": {
+      "prompt_id": "p1_grid100",
+      "prompt_sha256": "840bc56487b518683874ff41b6c814c48cb7a000a06083fafb0e0988618a27cd",
+      "prompt_sha256_matches": true,
+      "prompt_template_matches": true,
+      "representation": "grid100_integer",
+      "representation_matches": true,
+      "conversion_required": true
+    },
+    "adapter": {
+      "path": "adapters/sft_t7_d_grid100_s43/adapter",
+      "expected_path": "adapters/sft_t7_d_grid100_s43/adapter",
+      "path_matches": true,
+      "is_trainable": false,
+      "is_trainable_false": true,
+      "adapter_config_sha256": "f3ea67aa14609b72193a84c391483e5f3d9cef991ffb9fa408e725299a1aa083",
+      "adapter_model_sha256": "f0d7438cb7f29169256d5239ab9bdb6f00f94ec0cb5a0d88790a26afdc4e0fc7",
+      "adapter_files_present": true,
+      "adapter_config_sha256_matches": true,
+      "adapter_model_sha256_matches": true
+    },
+    "details_rows": 1000,
+    "recomputed_metrics": {
+      "acc@0.5": 0.038,
+      "mIoU": 0.09154154435754232,
+      "parse_rate": 1.0,
+      "invalid": 0
+    },
+    "invalid_in_n_verified": true,
+    "raw_outputs_present": true,
+    "unique_detail_ids": 1000,
+    "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+    "details_sha256": "7ece474fa43c2c99d1d9ab4d61a55ca9c1d2667bc25fc03dc69885864ceba4f8",
+    "recorded_source_sha256": {
+      "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+      "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+      "prompts.py": "5d1362329c70e2a74228a6271a8f40ace5e0457cd9c46f93559f95ddeb95310b",
+      "pixel_convert.py": "4d6aa2295ea930f297c8b3cc8de53c9116c891341b2451ffef9b05d0e4c4bf9e",
+      "grid_convert.py": "8ab270831283220cec06b7495149ef374fca3eef4373de9339bf60e0df9d1f46",
+      "run_zeroshot.py": "7977aed90f80aa208a909af163b0c1258d4ce12baec50e2681e66008fc4f1784"
+    },
+    "recorded_source_matches_current": true
+  },
+  "errors": [],
+  "gpu_used": false
+}

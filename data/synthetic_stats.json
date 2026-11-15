@@ -1,0 +1,276 @@
+{
+  "dataset": "synthetic",
+  "generator_version": "synthetic-grounding-v2",
+  "derived_from": "hw6_rsi_localize.py draw_scene/render/make_dataset; extended without importing torch",
+  "generated_at": "2026-11-09T04:49:33.376687+00:00",
+  "elapsed_seconds": 73.69866140000522,
+  "config": {
+    "seed": 42,
+    "train_split_seed": 42,
+    "eval_split_seed": 43,
+    "train_size": 5000,
+    "eval_size": 1000,
+    "colors": [
+      "red",
+      "blue",
+      "green",
+      "yellow",
+      "purple",
+      "orange"
+    ],
+    "shapes": [
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "pentagon"
+    ],
+    "resolutions": [
+      [
+        256,
+        256
+      ],
+      [
+        320,
+        320
+      ],
+      [
+        384,
+        384
+      ],
+      [
+        448,
+        448
+      ],
+      [
+        512,
+        512
+      ],
+      [
+        320,
+        256
+      ],
+      [
+        384,
+        256
+      ],
+      [
+        448,
+        320
+      ],
+      [
+        512,
+        384
+      ],
+      [
+        256,
+        320
+      ],
+      [
+        320,
+        384
+      ],
+      [
+        384,
+        512
+      ]
+    ],
+    "object_count": "1 with 8% probability in non-occlusion scenes, otherwise 2-6",
+    "occlusion": "every third sample requests a target with 55%-90% visible area; exact mask visibility recorded",
+    "question_uniqueness": "at most one object per color/shape combination per scene"
+  },
+  "splits": {
+    "train": {
+      "records": 5000,
+      "unique_images": 5000,
+      "resolution_counts": {
+        "256x256": 430,
+        "256x320": 408,
+        "320x256": 432,
+        "320x320": 416,
+        "320x384": 390,
+        "384x256": 417,
+        "384x384": 389,
+        "384x512": 423,
+        "448x320": 450,
+        "448x448": 404,
+        "512x384": 420,
+        "512x512": 421
+      },
+      "object_count_distribution": {
+        "1": 256,
+        "2": 1014,
+        "3": 937,
+        "4": 944,
+        "5": 995,
+        "6": 854
+      },
+      "target_shape_counts": {
+        "circle": 1056,
+        "diamond": 935,
+        "pentagon": 1022,
+        "square": 1029,
+        "triangle": 958
+      },
+      "target_color_counts": {
+        "blue": 804,
+        "green": 888,
+        "orange": 818,
+        "purple": 794,
+        "red": 846,
+        "yellow": 850
+      },
+      "question_template_counts": {
+        "color_shape": 2590,
+        "occlusion": 81,
+        "quadrant": 1035,
+        "relation": 816,
+        "relative_size": 478
+      },
+      "requested_target_occlusion_count": 1667,
+      "target_at_least_10pct_occluded_count": 2001,
+      "target_fully_visible_count": 2736,
+      "target_visible_fraction": {
+        "min": 0.5500177999288003,
+        "max": 1.0,
+        "mean": 0.8876988309588167,
+        "median": 1.0
+      },
+      "normalized_bbox_area": {
+        "min": 0.010416666249999998,
+        "max": 0.11111111222222221,
+        "mean": 0.049743264897918166,
+        "median": 0.046875
+      },
+      "expression_word_count": {
+        "min": 3,
+        "max": 10,
+        "mean": 4.8986,
+        "median": 3.0
+      },
+      "image_bytes_total": 12147032
+    },
+    "eval": {
+      "records": 1000,
+      "unique_images": 1000,
+      "resolution_counts": {
+        "256x256": 75,
+        "256x320": 79,
+        "320x256": 93,
+        "320x320": 79,
+        "320x384": 81,
+        "384x256": 89,
+        "384x384": 96,
+        "384x512": 86,
+        "448x320": 82,
+        "448x448": 68,
+        "512x384": 80,
+        "512x512": 92
+      },
+      "object_count_distribution": {
+        "1": 51,
+        "2": 189,
+        "3": 218,
+        "4": 201,
+        "5": 154,
+        "6": 187
+      },
+      "target_shape_counts": {
+        "circle": 216,
+        "diamond": 191,
+        "pentagon": 195,
+        "square": 208,
+        "triangle": 190
+      },
+      "target_color_counts": {
+        "blue": 164,
+        "green": 180,
+        "orange": 166,
+        "purple": 164,
+        "red": 163,
+        "yellow": 163
+      },
+      "question_template_counts": {
+        "color_shape": 534,
+        "occlusion": 19,
+        "quadrant": 184,
+        "relation": 173,
+        "relative_size": 90
+      },
+      "requested_target_occlusion_count": 334,
+      "target_at_least_10pct_occluded_count": 411,
+      "target_fully_visible_count": 543,
+      "target_visible_fraction": {
+        "min": 0.550125313283208,
+        "max": 1.0,
+        "mean": 0.8847386732267266,
+        "median": 1.0
+      },
+      "normalized_bbox_area": {
+        "min": 0.011077880859375,
+        "max": 0.11111111555555563,
+        "mean": 0.049134089771305685,
+        "median": 0.04515625000000001
+      },
+      "expression_word_count": {
+        "min": 3,
+        "max": 10,
+        "mean": 4.849,
+        "median": 3.0
+      },
+      "image_bytes_total": 2414459
+    }
+  },
+  "generation_counters": {
+    "train": {
+      "attempts": 7392,
+      "generated": 5000,
+      "occlusion_or_visibility_rejections": 2392
+    },
+    "eval": {
+      "attempts": 1443,
+      "generated": 1000,
+      "occlusion_or_visibility_rejections": 443
+    }
+  },
+  "quality_checks": {
+    "train_eval_id_intersection_count": 0,
+    "train_eval_image_intersection_count": 0,
+    "train_eval_scene_signature_intersection_count": 0,
+    "train_eval_image_sha256_intersection_count": 0,
+    "train_duplicate_id_count": 0,
+    "eval_duplicate_id_count": 0,
+    "train_duplicate_scene_signature_count": 0,
+    "eval_duplicate_scene_signature_count": 0
+  },
+  "outputs": {
+    "synthetic_train.jsonl": {
+      "bytes": 1412769,
+      "sha256": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88"
+    },
+    "synthetic_eval.jsonl": {
+      "bytes": 279387,
+      "sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854"
+    }
+  },
+  "qa": {
+    "samples_per_split": 10,
+    "sample_count": 20,
+    "sample_manifest": "data/qa/synthetic/sample_manifest.json",
+    "train_contact_sheet": "data/qa/synthetic/train_contact_sheet.png",
+    "eval_contact_sheet": "data/qa/synthetic/eval_contact_sheet.png",
+    "visual_review": "passed",
+    "review": {
+      "status": "passed",
+      "reviewed_at": "2026-11-09T04:51:47.080048+00:00",
+      "reviewer": "data-engineer; vision-assisted inspection through the configured fallback vision model (not a human review)",
+      "notes": "Reviewed both final 10-sample contact sheets and individually rechecked three heavily overlapping scenes. Boxes matched the referred full-drawn objects; partially occluded targets intentionally retain their complete pre-occlusion GT boxes. No coordinate swap, scale error, shape/color mismatch, or image-size mismatch was observed. Vision-assisted review, not human relabeling.",
+      "sample_count": 20,
+      "contact_sheets": [
+        "data/qa/synthetic/train_contact_sheet.png",
+        "data/qa/synthetic/eval_contact_sheet.png"
+      ],
+      "review_type": "vision-assisted overlay review; contact sheets remain available for independent human inspection"
+    }
+  }
+}

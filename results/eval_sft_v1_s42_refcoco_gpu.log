@@ -1,0 +1,20 @@
+﻿lease=GPU-LEASE-T6EVAL-20261109-07
+attempt=1
+phase=before_process
+memory.used [MiB]
+1525 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+2208, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+28808, C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe, [N/A]
+phase=after_process_exit
+memory.used [MiB]
+1287 MiB
+compute_processes:
+pid, process_name, used_gpu_memory [MiB]
+2208, C:\Users\45485\AppData\Local\Programs\DeepSeek Harness\DeepSeek Harness.exe, [N/A]
+28808, C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe, [N/A]
+python_exit_code=
+wall_seconds=1364.474
+python_exit_code_observation=Start-Process -PassThru returned $null for Process.ExitCode in this PowerShell session; the DSH job wrapper recorded exit code 0 and the run summary status=completed with details_rows=1000. No wrapper error was written to stderr.
+post_release_check=no python compute process; GPU memory.used observed 1291 MiB after both runs (Harness/Edge only)

@@ -1,0 +1,130 @@
+{
+  "request_id": "GPU-LEASE-REQ-T5-20261109-04",
+  "supersedes_scope": "extension experiment only; original T5 run and its artifacts remain untouched",
+  "requester": "train-runner",
+  "task": "task-6 / T5 extension · 100-record overfit to 600 optimizer steps (e48)",
+  "status": "attempt_completed_lease_released",
+  "context": "G3 was judged FAIL (parse_rate=1.0 but acc@0.5=0.0, equal to B0). The original 200-step overfit learned the answer format but not locations. This extension tests whether 600 optimizer steps can learn location on the same 100 training samples before any label/image/answer-alignment audit.",
+  "goal": "Determine whether 600 optimizer steps memorize/learn locations on the training samples. If probe acc@0.5 is still 0, STOP extending and audit label/image/answer alignment; do not add more steps.",
+  "independent_artifacts": {
+    "config": "configs/sft_overfit100_e48.json",
+    "config_sha256": "2e2662ebdcca23541136e2b226e4026fb6b56b2ac848ae0fd1ed0ca53a5acae7",
+    "config_fingerprint": "b6a152bef5d41238c0db585f35e06014592b85b021b542c5876120ae73dadd19",
+    "run_name": "sft_overfit100_e48_s42",
+    "adapter_dir": "adapters/sft_overfit100_e48",
+    "log": "logs/train/sft_overfit100_e48.jsonl",
+    "gpu_log": "logs/train/sft_overfit100_e48_gpu.log",
+    "training_results": "results/train_sft_overfit100_e48_s42_training.json",
+    "probe_results": "results/train_sft_overfit100_e48_s42_probe.json"
+  },
+  "unchanged_originals": {
+    "configs/sft_overfit100.json": "left at max_new_tokens=16 and original run_name/output (verified by test_17)",
+    "configs/sft_v1.json": "unchanged in this extension task",
+    "adapters/sft_overfit100": "untouched (adapter_model sha256 47da671c9700cb1ac5ab5c9187181764905b3b56e25f98b427834470f1052ed7)",
+    "results/train_sft_overfit100_s42_training.json": "untouched (sha256 a3c1115915a0c06fbe1692962bfb198d4e65aee8b506c1857fa7e02a6106ee3d)",
+    "results/train_sft_overfit100_s42_probe_maxtok64.json": "untouched (sha256 490fe75952420be083103149363b2460477d93e1039a412b7220233a4132a208)",
+    "results/train_sft_overfit100_s42_probe_truncated_at_16.json": "untouched (sha256 d4b2145cd71790ea5aecc7c35ca535d74bfde90b4e4d25763001fc012c181154)"
+  },
+  "fixed_contract": {
+    "train_records": 100,
+    "data": "data/synthetic_train.jsonl first 100; val synthetic_eval + refcoco_val for ID-intersection=0",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "learning_rate": 1e-4,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "true_accumulation": true,
+    "effective_batch_size": 8,
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len": 36,
+    "dtype": "bfloat16",
+    "freeze_vision_tower": true,
+    "seed": 42,
+    "gradient_checkpointing": true,
+    "eos_token_id": 49279,
+    "pad_token_id": 2,
+    "num_epochs": 48,
+    "total_micro_batches": 4800,
+    "total_optimizer_steps": 600,
+    "save_every_steps": 100,
+    "checkpoints": [100, 200, 300, 400, 500, 600],
+    "probe": {"n": 20, "max_new_tokens": 64, "do_sample": false}
+  },
+  "cpu_evidence": {
+    "cpu_unit_tests": {
+      "path": "results/train_t5_cpu_tests.json",
+      "status": "passed",
+      "tests_run": 17,
+      "failures": 0,
+      "errors": 0,
+      "gpu_used": false,
+      "sha256": "a746b6f81721e3f2a346b62634309e7eed9b3e7049f57c2d8379d00e47ca300f",
+      "new_test": "test_17_extension_e48_config_and_plan verifies fixed contract, 4800 micro / 600 steps, checkpoints [100..600], probe max_new_tokens=64, independent paths, and that the original config/run is unchanged"
+    },
+    "dry_run_plan": {
+      "path": "results/train_t5_dryrun_plan_e48.json",
+      "status": "preflight_passed",
+      "gpu_used": false,
+      "sha256": "615e1b6b7b67115ae5848b55a3d53d510c8e1789139e2c5c9043df300290a298",
+      "train_records": 100,
+      "micro_forwards_total": 4800,
+      "micro_batches_per_optimizer_step": 8,
+      "total_optimizer_steps": 600,
+      "checkpoint_steps": [100, 200, 300, 400, 500, 600],
+      "loss_scale_per_micro_batch": 0.125,
+      "train_val_id_intersection": 0,
+      "preflight_square_rect_placeholders": [36, 36],
+      "label_start": 93,
+      "answer_eos_position": 125,
+      "config_fingerprint": "b6a152bef5d41238c0db585f35e06014592b85b021b542c5876120ae73dadd19"
+    }
+  },
+  "exact_command": {
+    "preflight": "python -m src.train.test_t5_cpu --report results/train_t5_cpu_tests.json && python -m src.train.train_sft --config configs/sft_overfit100_e48.json --dry-run --plan-out results/train_t5_dryrun_plan_e48.json",
+    "gpu": [
+      "$env:PYTHONIOENCODING='utf-8'",
+      "$env:HF_HUB_OFFLINE='1'; $env:TRANSFORMERS_OFFLINE='1'; $env:TOKENIZERS_PARALLELISM='false'",
+      "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | Tee-Object -FilePath logs/train/sft_overfit100_e48_gpu.log -Append",
+      "python -m src.train.train_sft --config configs/sft_overfit100_e48.json --device cuda --gpu-lease-id GPU-LEASE-T5-20261109-04 --max-steps 600 --profile-steps 25",
+      "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | Tee-Object -FilePath logs/train/sft_overfit100_e48_gpu.log -Append"
+    ],
+    "resume_if_interrupted": "python -m src.train.train_sft --config configs/sft_overfit100_e48.json --device cuda --gpu-lease-id GPU-LEASE-T5-20261109-04 --max-steps 600 --profile-steps 25 --resume latest"
+  },
+  "expected_duration": {
+    "measured_basis": "attempt2 (same loop, same data): 200 optimizer steps in 548.9 s total; profile step25 elapsed 81.6 s; steady-state 2.57 s/optimizer step (3-step difference after step 25).",
+    "estimate_seconds": "1542 s steady-state compute for 600 steps + ~35 s load/precompute + ~42 s probe-only (20 x 64 tokens) + ~4 extra checkpoint writes ≈ 1620-2000 s",
+    "estimate_minutes": "27-33",
+    "hard_cap_minutes": 40,
+    "measured_extrapolation_rule": "At optimizer step 25 report measured s/step, nvidia-smi memory, torch peaks and projected finish. If projected finish exceeds the approved window, stop at the next checkpoint (100-step boundaries) and request an extension instead of running over the lease."
+  },
+  "expected_memory": {
+    "same_workload_as_attempt2": true,
+    "nvidia_smi_peak_attempt2_mib": 2094,
+    "torch_peak_allocated_attempt2_mib": 651.77880859375,
+    "torch_peak_reserved_attempt2_mib": 768.0,
+    "estimate_total_including_gui": "2200-2600 MiB (GUI baseline ~1200-1250 MiB + model/LoRA/activations)",
+    "abort_threshold_mib": 7500
+  },
+  "nvidia_smi_logging": {
+    "shell_log": "logs/train/sft_overfit100_e48_gpu.log",
+    "method": "Add-Content before process start and after process exit (memory.used); the script records before-load, after-load, step-25 profile, after-training and after-cleanup values in the training JSON and JSONL log; torch peaks recorded at profile and after training."
+  },
+  "acceptance_checks": [
+    "600/600 optimizer steps completed with finite loss; counters must read forward=backward=4800, optimizer/clip/scheduler/zero=600, micro_batches=samples_seen=4800, every step 8 x batch=1",
+    "checkpoints checkpoint-000100 ... checkpoint-000600 plus final adapter",
+    "probe (20 train records, max_new_tokens=64, greedy): record parse_rate / acc@0.5 / mIoU; explicitly report whether 600 steps learn location",
+    "if acc@0.5 is still 0: stop the extension, do NOT add more steps; next action is label/image/answer-alignment audit (report as such)",
+    "no modification of data/, src/data/, src/eval/, GT, original configs/adapters/results",
+    "nvidia-smi never exceeds 7500 MiB; no competing game/training process; after-exit memory reported"
+  ],
+  "stop_conditions": [
+    "nvidia-smi memory.used > 7500 MiB at any check",
+    "competing game or training process appears",
+    "CUDA assert, OOM, or non-finite loss",
+    "projected finish exceeds the approved lease window (stop at next 100-step checkpoint)"
+  ],
+  "concurrency": "Exclusive GPU lease; no other member may run GPU work (no evaluation, teacher model, or other training) during the window.",
+  "notes": "CPU evidence complete; no GPU work for this extension has been started. Existing attempt2 training/probe evidence is preserved unchanged.",
+  "created_at": "2026-11-09T15:16:00+08:00"
+}

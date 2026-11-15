@@ -1,0 +1,138 @@
+{
+  "schema": "deploy_quantize_gguf/v1",
+  "generated_at": "2026-11-11T13:31:09+08:00",
+  "status": "artifact_produced_official_eval_not_run",
+  "toolchain": {
+    "llama_cpp_tag": "b12282",
+    "binaries": "llama-b12282-bin-win-cpu-x64.zip (25,058,018 B) via ghproxy.net mirror (github.com direct is blocked in this sandbox)",
+    "source_tarball": "api.github.com/repos/ggml-org/llama.cpp/tarball/b12282 -> codeload (38,847,254 B), used for convert_hf_to_gguf.py + conversion/ + gguf-py",
+    "gguf_python": "repo-matched gguf-py from the same tarball (PyPI gguf 0.19.0 is incompatible with b12282's GGUFWriter API: tensor_filter)",
+    "sentencepiece": "0.2.3 cp314 win_amd64 wheel (net: pypi.org reachable)"
+  },
+  "conversion": {
+    "text_command": "convert_hf_to_gguf.py adapters/merged/sft_v1_merged --outtype f16 --outfile sft_v1_merged-f16.gguf",
+    "mmproj_command": "convert_hf_to_gguf.py adapters/merged/sft_v1_merged --outtype f16 --mmproj --outfile sft_v1_merged-f16.gguf",
+    "text_architecture": "llama (text-only export; SmolVLM vision tensors are skipped in the text path)",
+    "mmproj_architecture": "clip / GGUFType.MMPROJ (SmolVLM vision tower 198 tensors, VisionProjectorType.IDEFICS3)",
+    "text_f16_bytes": null,
+    "mmproj_f16_bytes": 190030400
+  },
+  "quantization": {
+    "text": {
+      "type": "Q4_K_M",
+      "bytes": 125051904,
+      "bpw": 6.05,
+      "note": "181 of 273 tensors required fallback quantization (small tensors kept at higher precision), so effective BPW is 6.05 not 4.5"
+    },
+    "mmproj": {
+      "type": "Q8_0",
+      "bytes": 103768640,
+      "bpw": 8.88
+    }
+  },
+  "artifacts": [
+    {
+      "path": "adapters/quantized/gguf/sft_v1_merged-Q4_K_M.gguf",
+      "bytes": 125051904,
+      "sha256": "9c21fe21a9aabbbd448ac7d754d1eb54c6ebc79eb715e9ccf2bf1789b6ab5076"
+    },
+    {
+      "path": "adapters/quantized/gguf/mmproj-sft_v1_merged-Q8_0.gguf",
+      "bytes": 103768640,
+      "sha256": "d04c189d9e5dcdd9d51332b3c11fce56e47d9177af79b88e2780bd9e8a7cac11"
+    }
+  ],
+  "smoke": {
+    "tool": "llama-mtmd-cli.exe",
+    "image": "data/images/synthetic/eval/synthetic_eval_000001.png",
+    "question": "the purple triangle",
+    "output_text": "[0.6680, 0.5500, 0.8880, 0.7300]",
+    "parsed_box": [
+      0.668,
+      0.55,
+      0.888,
+      0.73
+    ],
+    "iou": 0.5497479437516581,
+    "command_exit": 0
+  },
+  "diagnostics": {
+    "synthetic_50": {
+      "schema": "p8_gguf_diagnostic/v1",
+      "dataset": "synthetic",
+      "limit": 50,
+      "metrics": {
+        "n": 50,
+        "acc@0.5": 0.02,
+        "hits": 1,
+        "mIoU": 0.0819962499851148,
+        "parse_rate": 0.96,
+        "invalid": 2,
+        "mean_latency_s": 8.200916967391969
+      },
+      "model": "artifacts/p8-4bit-gguf/sft_v1_merged-Q4_K_M.gguf",
+      "mmproj": "artifacts/p8-4bit-gguf/mmproj-sft_v1_merged-Q8_0.gguf",
+      "protocol": "llama.cpp llama-mtmd-cli, p1 frozen prompt, greedy (--temp 0, -n 48), one image per process",
+      "scope_red_line": "DIAGNOSTIC subset run, not the official 1,000-image evaluation with validation report. Must not be written into Table 1 as an official metric; it only proves the quantized GGUF is loadable and produces parseable boxes on real images.",
+      "generated_at": "2026-11-11T13:28:19+0800"
+    },
+    "refcoco_20": {
+      "schema": "p8_gguf_diagnostic/v1",
+      "dataset": "refcoco",
+      "limit": 20,
+      "metrics": {
+        "n": 20,
+        "acc@0.5": 0.05,
+        "hits": 1,
+        "mIoU": 0.09042737892979726,
+        "parse_rate": 0.65,
+        "invalid": 7,
+        "mean_latency_s": 6.499874031543731
+      },
+      "model": "artifacts/p8-4bit-gguf/sft_v1_merged-Q4_K_M.gguf",
+      "mmproj": "artifacts/p8-4bit-gguf/mmproj-sft_v1_merged-Q8_0.gguf",
+      "protocol": "llama.cpp llama-mtmd-cli, p1 frozen prompt, greedy (--temp 0, -n 48), one image per process",
+      "scope_red_line": "DIAGNOSTIC subset run, not the official 1,000-image evaluation with validation report. Must not be written into Table 1 as an official metric; it only proves the quantized GGUF is loadable and produces parseable boxes on real images.",
+      "generated_at": "2026-11-11T13:30:33+0800"
+    }
+  },
+  "official_eval": {
+    "status": "not_run",
+    "reason": "A server-mode runner was implemented (src/eval/run_zeroshot_gguf.py, llama-server /v1/chat/completions, -np parallel slots, per-slot context fix) and a per-image CLI path was benchmarked, but CPU throughput is the wall: llama-mtmd-cli needs 5.6-5.8 s/image effective with 8 parallel processes (and llama-server serialises the mtmd image encode, giving 11.4 s/image), i.e. 2,000 images would take 3+ hours. The remaining window before 15:30 did not allow an official 1,000-image x 2-dataset run, so Table 1's +4-bit row stays `not_run` and only the 100-image diagnostics are cited.",
+    "measured_throughput": {
+      "cli_8_workers_effective_s_per_image": 5.62,
+      "cli_12_workers_effective_s_per_image": 6.16,
+      "server_6_slots_effective_s_per_image": 11.4
+    },
+    "runner_available": "src/eval/run_zeroshot_gguf.py (server mode) + artifacts/tmp/gguf_diag_parallel.py (CLI parallel diagnostics)"
+  },
+  "scope_red_line": [
+    "Diagnostics used llama-mtmd-cli with -n 48 and one process per image; RefCOCO parse 0.65 is partly a -n 48 truncation artifact, so its mIoU is diagnostic only.",
+    "GGUF + mmproj is a real deployable artifact (loads and grounds), but accuracy must be quoted only as the diagnostic numbers above, never as Table 1.",
+    "BPW of the text model is 6.05 (Q4_K_M with fallback tensors), not 4.0 — do not describe it as a uniform 4-bit model."
+  ],
+  "diagnostics_100": {
+    "protocol": "llama-mtmd-cli.exe, one process per image, 8 parallel, frozen p1 prompt, greedy (--temp 0, -n 48)",
+    "synthetic": {
+      "n": 100,
+      "acc@0.5": 0.01,
+      "hits": 1,
+      "mIoU": 0.0699351786411431,
+      "parse_rate": 0.97,
+      "invalid": 3,
+      "effective_s_per_image": 5.62
+    },
+    "refcoco": {
+      "n": 100,
+      "acc@0.5": 0.03,
+      "hits": 3,
+      "mIoU": 0.10488034989479972,
+      "parse_rate": 0.53,
+      "invalid": 47,
+      "effective_s_per_image": 4.95
+    },
+    "cross_check": "CPU merged fp32 official 1,000-image run was acc@0.5 0.017 / mIoU 0.083760 (synthetic); this Q4_K_M 100-image diagnostic is 0.01 / 0.069935 — same order, but different n/backend so NOT comparable as an official delta.",
+    "refcoco_parse_caveat": "RefCOCO parse 0.53 is dominated by -n 48 truncation (long generations on some images); it is an artifact of the diagnostic budget, not evidence about model quality."
+  },
+  "updated_at": "2026-11-11T14:15:11+08:00"
+}

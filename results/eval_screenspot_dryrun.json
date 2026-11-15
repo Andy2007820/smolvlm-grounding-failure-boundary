@@ -1,0 +1,177 @@
+{
+  "format": "eval-screenspot-dryrun-v1",
+  "timestamp": "2026-11-10T02:01:24.520753+08:00",
+  "task": {
+    "id": "task-25",
+    "subject": "T3b · ScreenSpot 迁移独立评测"
+  },
+  "gpu_used": false,
+  "dry_run": true,
+  "dataset": "screenspot",
+  "split": "test",
+  "n": 1272,
+  "dataset_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+  "data_audit": "results/eval_screenspot_data_audit.json",
+  "fixed_contract": {
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len": 36,
+    "prompt_id": "p1",
+    "max_new_tokens": 64,
+    "seed": 42,
+    "do_sample": false,
+    "num_beams": 1,
+    "batch_size": 1,
+    "batch8": "forbidden",
+    "expected_source": "screenspot",
+    "n": 1272
+  },
+  "normalization_note": "ScreenSpot source bbox is already normalized once; answer is used unchanged and the evaluator performs no second normalization. Audit: results/eval_screenspot_data_audit.json (answer max=1.0, answer == raw_bbox/width,height for all 1272 rows).",
+  "cases": {
+    "b0_base": {
+      "run_id": "screenspot_b0_base_v1",
+      "adapter": null,
+      "dry_run_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id screenspot_b0_base_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_b0_base_v1.json --details-output results/eval_screenspot_b0_base_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+      "gpu_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id screenspot_b0_base_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_b0_base_v1.json --details-output results/eval_screenspot_b0_base_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_screenspot_b0_base_v1.json --report results/eval_screenspot_b0_base_v1_validation.json --expected-run-id screenspot_b0_base_v1 --expected-dataset screenspot --expected-split test --expected-n 1272 --expected-prompt-id p1",
+      "dry_run_wall_seconds": 5.60194049985148,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "screenspot_b0_base_v1",
+        "dataset": "screenspot",
+        "split": "test",
+        "n": 1272,
+        "resume_rows": 0,
+        "dataset_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1",
+        "representation": "normalized_decimal",
+        "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "3ca490969dc83ab4ae133673a15ce2709b355bdc44944783e70a0b6437dbd70c",
+        "adapter": null,
+        "adapter_model_sha256": null,
+        "adapter_is_trainable": null,
+        "gpu_used": false
+      }
+    },
+    "sft_s42": {
+      "run_id": "screenspot_sft_s42_v1",
+      "adapter": "adapters/sft_v1/adapter",
+      "dry_run_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id screenspot_sft_s42_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s42_v1.json --details-output results/eval_screenspot_sft_s42_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1/adapter --dry-run",
+      "gpu_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id screenspot_sft_s42_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s42_v1.json --details-output results/eval_screenspot_sft_s42_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1/adapter",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_screenspot_sft_s42_v1.json --report results/eval_screenspot_sft_s42_v1_validation.json --expected-run-id screenspot_sft_s42_v1 --expected-dataset screenspot --expected-split test --expected-n 1272 --expected-prompt-id p1 --expected-adapter adapters/sft_v1/adapter",
+      "dry_run_wall_seconds": 1.234617599984631,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "screenspot_sft_s42_v1",
+        "dataset": "screenspot",
+        "split": "test",
+        "n": 1272,
+        "resume_rows": 0,
+        "dataset_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1",
+        "representation": "normalized_decimal",
+        "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "cceb70513d6d30e9a720469dbf89f654b58121bbba736c76ccd19cd8cc1d1d67",
+        "adapter": "adapters/sft_v1/adapter",
+        "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      }
+    },
+    "sft_s43": {
+      "run_id": "screenspot_sft_s43_v1",
+      "adapter": "adapters/sft_v1_s43/adapter",
+      "dry_run_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id screenspot_sft_s43_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s43_v1.json --details-output results/eval_screenspot_sft_s43_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1_s43/adapter --dry-run",
+      "gpu_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id screenspot_sft_s43_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s43_v1.json --details-output results/eval_screenspot_sft_s43_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1_s43/adapter",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_screenspot_sft_s43_v1.json --report results/eval_screenspot_sft_s43_v1_validation.json --expected-run-id screenspot_sft_s43_v1 --expected-dataset screenspot --expected-split test --expected-n 1272 --expected-prompt-id p1 --expected-adapter adapters/sft_v1_s43/adapter",
+      "dry_run_wall_seconds": 1.3148972999770194,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "screenspot_sft_s43_v1",
+        "dataset": "screenspot",
+        "split": "test",
+        "n": 1272,
+        "resume_rows": 0,
+        "dataset_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1",
+        "representation": "normalized_decimal",
+        "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "20a26f7a9381df222ed97d285b3da2c6606452a16035ab2d69993fd700ec90e6",
+        "adapter": "adapters/sft_v1_s43/adapter",
+        "adapter_model_sha256": "9132f7be7561b0adb840d072395bad900bcf1857d35e12021037dbb713d9e9e2",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      }
+    },
+    "sft_s44": {
+      "run_id": "screenspot_sft_s44_v1",
+      "adapter": "adapters/sft_v1_s44/adapter",
+      "dry_run_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id screenspot_sft_s44_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s44_v1.json --details-output results/eval_screenspot_sft_s44_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1_s44/adapter --dry-run",
+      "gpu_command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id screenspot_sft_s44_v1 --dataset screenspot --split test --data data/screenspot.jsonl --output results/zeroshot_screenspot_sft_s44_v1.json --details-output results/eval_screenspot_sft_s44_v1_details.jsonl --model-path models/SmolVLM-256M-Instruct --prompt-id p1 --expected-n 1272 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --adapter adapters/sft_v1_s44/adapter",
+      "validation_command": "python -m src.eval.validate_results --result results/zeroshot_screenspot_sft_s44_v1.json --report results/eval_screenspot_sft_s44_v1_validation.json --expected-run-id screenspot_sft_s44_v1 --expected-dataset screenspot --expected-split test --expected-n 1272 --expected-prompt-id p1 --expected-adapter adapters/sft_v1_s44/adapter",
+      "dry_run_wall_seconds": 1.2135847001336515,
+      "preflight": {
+        "status": "preflight_passed",
+        "dry_run": true,
+        "run_id": "screenspot_sft_s44_v1",
+        "dataset": "screenspot",
+        "split": "test",
+        "n": 1272,
+        "resume_rows": 0,
+        "dataset_sha256": "3ff22e2ea36aa09341c6bc4179a5cde8413bf8c59244a6234314836c2b78ee42",
+        "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+        "image_seq_len": 36,
+        "batch_size": 1,
+        "prompt_id": "p1",
+        "representation": "normalized_decimal",
+        "prompt_sha256": "0a53ca480b2c70ebb1c10fc048634cdba4edfa84aeb8cbf722f02fa8e7c544c0",
+        "coordinate_conversion_required": false,
+        "config_fingerprint": "499057d4d8cdb2f2364ad9bba553a5298f0eb2337f89a1cffc841569cce276de",
+        "adapter": "adapters/sft_v1_s44/adapter",
+        "adapter_model_sha256": "f04049b0002e16d50faeabfd3c8fb3bd5b89bc428e844820243467b5347b27a0",
+        "adapter_is_trainable": false,
+        "gpu_used": false
+      }
+    }
+  },
+  "order": [
+    "screenspot_b0_base_v1",
+    "screenspot_sft_s42_v1",
+    "screenspot_sft_s43_v1",
+    "screenspot_sft_s44_v1"
+  ],
+  "timing_estimate": {
+    "runs": 4,
+    "samples_per_run": 1272,
+    "batch1_seconds_per_sample_range_from_prior_runs": {
+      "low": 1.3,
+      "high": 2.7
+    },
+    "per_run_minutes_range": [
+      27.560000000000002,
+      57.24
+    ],
+    "four_runs_minutes_range": [
+      110.24000000000001,
+      228.96
+    ],
+    "note": "ScreenSpot screenshots are larger on the CPU image path; refine after the first 25 rows of the first run. Request a lease window based on measured throughput and stop after the current run if the lease deadline is reached."
+  },
+  "known_annotation_note": "ScreenSpot has one disclosed same-image same-instruction annotation pair with differing boxes (IoU=0.7792577287); both rows are kept and no GT was modified.",
+  "pending": "GPU lease not requested in this CPU phase; T7 B/C evaluation has priority once its training finishes."
+}

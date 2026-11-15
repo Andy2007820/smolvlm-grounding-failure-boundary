@@ -1,0 +1,65 @@
+# =============================================================================
+# T17 reproducibility manifest — pinned to the environment measured on 2026-11-10
+#
+# Project : 小视觉语言模型的可验证自进化定位（方向 A）
+# Machine : Windows 11, NVIDIA GeForce RTX 5060 Laptop GPU (8151 MiB), 18 logical CPUs
+# Python  : 3.14.8 (CPython 64-bit) — the wheels below were validated on it.
+# Install : python -m pip install -r requirements.txt
+#
+# Notes
+#  * The torch +cu128 wheel comes from the PyTorch index below, not PyPI.
+#  * Do NOT upgrade torch/transformers/peft majors: the frozen evaluator and the
+#    3-seed results were produced with exactly these versions.
+#  * `triton` is intentionally absent (only disables torch flop counting).
+#  * `optimum-onnx` is intentionally absent: it requires transformers<4.58 while
+#    this project is pinned to 5.19.0 (see results/deploy_quantize_onnx.json).
+#  * llama.cpp is an external C++ toolchain, not a pip dependency; GGUF Q4_K_M
+#    is blocked in this environment (see results/deploy_failure_ledger.json F4).
+# =============================================================================
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+# --- core runtime used by src/ (training, evaluation, deployment) -------------
+torch==2.11.0+cu128
+transformers==5.19.0
+peft==0.21.2
+huggingface_hub==2.2.0
+tokenizers==0.23.3
+safetensors==0.8.0
+numpy==2.5.4
+pillow==12.3.0
+pyarrow==26.0.0
+onnxruntime==1.31.0
+
+# --- measured environment: analysis / experiment conveniences -----------------
+accelerate==1.15.0
+bitsandbytes==0.50.2
+datasets==5.1.0
+matplotlib==3.11.2
+pandas==3.0.6
+opencv-python==5.0.0.93
+tqdm==4.70.1
+PyYAML==6.0.3
+packaging==26.3
+
+# --- pinned transitive dependencies that affect I/O / numerics ----------------
+filelock==4.1.1
+fsspec==2026.7.0
+Jinja2==3.1.6
+networkx==3.7
+regex==2026.9.29
+sympy==1.14.0
+typing_extensions==4.16.0
+
+# =============================================================================
+# Optional: T15 Gradio demo only — NOT part of the core environment
+#
+# In the 2026-11-10 session pip was blocked by the sandbox temp-directory policy,
+# so gradio 6.31.0 + gradio_client 2.7.2 were resolved manually into
+# final-project/.cache/deploy_pkgs and used with PYTHONPATH=.cache/deploy_pkgs.
+# On a normal machine install them into a separate venv and run the demo with:
+#   python -m demo.app --engine hf-cpu --artifact adapters/merged/sft_v1_merged
+#
+# gradio==6.31.0
+# gradio_client==2.7.2
+#
+# =============================================================================

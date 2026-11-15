@@ -1,0 +1,44 @@
+{
+  "format": "eval-launch-failure-v1",
+  "run_id": "sft_v1_s42_synthetic_v1",
+  "stage": "synthetic_eval GPU launch attempt1 (model loading, before any sample)",
+  "timestamp": "2026-11-09T17:20:00+08:00",
+  "lease_id": "GPU-LEASE-T6EVAL-20261109-07",
+  "root_cause": "PowerShell wrapper aborted the child because $ErrorActionPreference='Stop' turned the transformers pad_token_id stderr warning into a terminating NativeCommandError; this is a launcher bug, not a model/data/evaluator failure",
+  "samples_generated": 0,
+  "details_created": false,
+  "summary_created": false,
+  "metrics_produced": false,
+  "contamination": "none",
+  "gpu_released_immediately": true,
+  "gpu_memory_before_after_mib": {
+    "before": 1505,
+    "after_abort": 1504
+  },
+  "python_process_after_abort": false,
+  "fix": "attempt2 used Start-Process with explicit stdout/stderr file redirection and no Stop error preference; the same approved command then completed all 1000 samples",
+  "final_status_after_fix": {
+    "synthetic": {
+      "run_id": "sft_v1_s42_synthetic_v1",
+      "n": 1000,
+      "status": "completed",
+      "validation": "passed"
+    },
+    "refcoco": {
+      "run_id": "sft_v1_s42_refcoco_v1",
+      "n": 1000,
+      "status": "completed",
+      "validation": "passed"
+    }
+  },
+  "tooling_caveat": "Start-Process -PassThru returned $null for Process.ExitCode in this PowerShell session, so the gpu.log python_exit_code line is empty; the DSH job wrapper exit code was 0 and each Python run wrote a completed summary with details_rows=1000. The gpu.logs contain an appended python_exit_code_observation line.",
+  "evidence": [
+    "results/eval_sft_v1_s42_synthetic_gpu_attempt1.log",
+    "results/eval_sft_v1_s42_synthetic_stderr_attempt1.log",
+    "results/eval_sft_v1_s42_synthetic_gpu.log",
+    "results/eval_sft_v1_s42_synthetic_stdout.log",
+    "results/eval_sft_v1_s42_synthetic_stderr.log",
+    "results/eval_sft_v1_s42_dryrun.json"
+  ],
+  "ledger": "handoff/TRAINING-FAILURE-LEDGER.md"
+}

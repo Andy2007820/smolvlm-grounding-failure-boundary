@@ -1,0 +1,60 @@
+{
+  "run_id": "eval_batch_cpu_tests_v1",
+  "timestamp": "2026-11-11T14:31:41.746527+08:00",
+  "status": "passed",
+  "tests_run": 14,
+  "failures": 0,
+  "errors": 0,
+  "failure_details": [],
+  "error_details": [],
+  "gpu_used": false,
+  "device": "cpu",
+  "cuda_initialized": false,
+  "cuda_visibility": "CUDA_VISIBLE_DEVICES set to empty before importing torch/transformers",
+  "adapter": {
+    "path": "adapters/sft_v1/adapter",
+    "adapter_config_sha256": "60522337b799eb240509cc1e2a1019bab782351dfbac6d77828eb77a8114ba3f",
+    "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+    "adapter_model_bytes": 7407008,
+    "peft_type": "LORA",
+    "task_type": "CAUSAL_LM",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "base_model_name_or_path": "D:\\Deepseek Harness\\final-project\\models\\SmolVLM-256M-Instruct",
+    "peft_version": "0.21.2",
+    "is_trainable": false
+  },
+  "batch_contract": {
+    "batch1_path_unchanged": true,
+    "batched_left_padding": true,
+    "padded_input_length_slice": true,
+    "per_sample_prompt_length_via_attention_mask": true,
+    "eos_trim_inclusive": true,
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64
+  },
+  "cpu_equivalence_probe": {
+    "batch1_run_id": "batch_cpu_test_b1",
+    "batch2_run_id": "batch_cpu_test_b2",
+    "n": 2,
+    "raw_output_identical": true,
+    "details": [
+      "results/eval_batch_cpu_test_b1_details.jsonl",
+      "results/eval_batch_cpu_test_b2_details.jsonl"
+    ],
+    "note": "CPU float32 probe; it validates the batching/slicing machinery, not GPU bf16 identity. GPU A/B (batch1 vs batch8, 20 samples) remains mandatory before any batched re-run."
+  },
+  "torch_version": "2.11.0+cu128",
+  "transformers_version": "5.19.0",
+  "peft_version": "0.21.2",
+  "python": "3.14.8",
+  "source_sha256": {
+    "grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113",
+    "dataset.py": "fff0a89b5e834f875eadf6da31738b5f5a3f358c9b2cd1e2534ba1a00f20ebb1",
+    "prompts.py": "57cab7f86584efc940bd40d8e85549cf993918ece87e3b75ace99eb4c53de0a5",
+    "run_zeroshot.py": "cbeb2216eaf67c112fae09d9655cfcf0a37a82886932e4c455569fdd44a77483",
+    "test_batch_eval_cpu.py": "cec974bbf80d5d4ad42fa81136bd69829866076f4c05e02429b428157eb78f0f"
+  }
+}

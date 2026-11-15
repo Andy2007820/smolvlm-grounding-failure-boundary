@@ -1,0 +1,263 @@
+{
+  "format": "eval-batch-dryrun-v1",
+  "timestamp": "2026-11-09T19:18:16.062957+08:00",
+  "gpu_used": false,
+  "dry_run": true,
+  "adapter": "adapters/sft_v1/adapter",
+  "batch_size_default": 1,
+  "batch_sizes_checked": [
+    1,
+    8
+  ],
+  "preflights": {
+    "synthetic_eval": {
+      "1": {
+        "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id batch_cpu_dryrun_synthetic_b1 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_batch_cpu_dryrun_synthetic_b1.json --details-output results/eval_batch_cpu_dryrun_synthetic_b1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+        "dry_run_wall_seconds": 0.5697765999939293,
+        "preflight": {
+          "status": "preflight_passed",
+          "dry_run": true,
+          "run_id": "batch_cpu_dryrun_synthetic_b1",
+          "dataset": "synthetic",
+          "split": "eval",
+          "n": 1000,
+          "resume_rows": 0,
+          "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+          "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+          "image_seq_len": 36,
+          "batch_size": 1,
+          "config_fingerprint": "7172dd93e028c55ca1ab386ea7efb48157af08ced548ee459824f54f79b8f8f6",
+          "adapter": "adapters/sft_v1/adapter",
+          "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+          "adapter_is_trainable": false,
+          "gpu_used": false
+        }
+      },
+      "8": {
+        "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id batch_cpu_dryrun_synthetic_b8 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_batch_cpu_dryrun_synthetic_b8.json --details-output results/eval_batch_cpu_dryrun_synthetic_b8_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8 --dry-run",
+        "dry_run_wall_seconds": 0.5777626999188215,
+        "preflight": {
+          "status": "preflight_passed",
+          "dry_run": true,
+          "run_id": "batch_cpu_dryrun_synthetic_b8",
+          "dataset": "synthetic",
+          "split": "eval",
+          "n": 1000,
+          "resume_rows": 0,
+          "dataset_sha256": "2a61b1b72812c78fd62f56d429b1932b0cf2e2a370695149309aa3a3c4c71854",
+          "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+          "image_seq_len": 36,
+          "batch_size": 8,
+          "config_fingerprint": "7e847d5f01952265071a171db384f1ac9b4c1ba671797c5aa504306169a83eb0",
+          "adapter": "adapters/sft_v1/adapter",
+          "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+          "adapter_is_trainable": false,
+          "gpu_used": false
+        }
+      }
+    },
+    "refcoco_val": {
+      "1": {
+        "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id batch_cpu_dryrun_refcoco_b1 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_batch_cpu_dryrun_refcoco_b1.json --details-output results/eval_batch_cpu_dryrun_refcoco_b1_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1 --dry-run",
+        "dry_run_wall_seconds": 0.6882326998747885,
+        "preflight": {
+          "status": "preflight_passed",
+          "dry_run": true,
+          "run_id": "batch_cpu_dryrun_refcoco_b1",
+          "dataset": "refcoco",
+          "split": "val",
+          "n": 1000,
+          "resume_rows": 0,
+          "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+          "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+          "image_seq_len": 36,
+          "batch_size": 1,
+          "config_fingerprint": "c8de724ee8d4e231c10f0295ecbef827b63ca4285e277addcd83bae13267ed54",
+          "adapter": "adapters/sft_v1/adapter",
+          "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+          "adapter_is_trainable": false,
+          "gpu_used": false
+        }
+      },
+      "8": {
+        "command": "C:\\Users\\45485\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe -m src.eval.run_zeroshot --run-id batch_cpu_dryrun_refcoco_b8 --dataset refcoco --split val --data data/refcoco_val.jsonl --output results/zeroshot_batch_cpu_dryrun_refcoco_b8.json --details-output results/eval_batch_cpu_dryrun_refcoco_b8_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8 --dry-run",
+        "dry_run_wall_seconds": 0.6860585999675095,
+        "preflight": {
+          "status": "preflight_passed",
+          "dry_run": true,
+          "run_id": "batch_cpu_dryrun_refcoco_b8",
+          "dataset": "refcoco",
+          "split": "val",
+          "n": 1000,
+          "resume_rows": 0,
+          "dataset_sha256": "19d3c28100bb5ea0a8125ca498e736b28959bc350762115deed6a52eb57df316",
+          "model_sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+          "image_seq_len": 36,
+          "batch_size": 8,
+          "config_fingerprint": "81f02ca798da2140c9d51205805ab762f403c29a9ba20d76cc2ac0ee3b97d3da",
+          "adapter": "adapters/sft_v1/adapter",
+          "adapter_model_sha256": "5050ec8d9d7667fd6aada392e0722ac0463902d9fa05960febba82559235db0d",
+          "adapter_is_trainable": false,
+          "gpu_used": false
+        }
+      }
+    }
+  },
+  "estimates": {
+    "synthetic_eval": {
+      "measured_batch1_steady_seconds_per_sample": 1.3279624775384002,
+      "measured_batch1_stdout_log": "results/eval_sft_v1_s42_synthetic_stdout.log",
+      "measured_batch1_source_run_id": "sft_v1_s42_synthetic_v1",
+      "projected_seconds_per_sample_by_speedup": {
+        "4": 0.33199061938460006,
+        "5": 0.26559249550768005,
+        "6": 0.22132707958973338,
+        "7": 0.1897089253626286,
+        "8": 0.16599530969230003
+      },
+      "projected_minutes_per_1000_by_speedup": {
+        "4": 5.5331769897433345,
+        "5": 4.426541591794668,
+        "6": 3.68878465982889,
+        "7": 3.1618154227104767,
+        "8": 2.7665884948716672
+      }
+    },
+    "refcoco_val": {
+      "measured_batch1_steady_seconds_per_sample": 1.3413317207180155,
+      "measured_batch1_stdout_log": "results/eval_sft_v1_s42_refcoco_stdout.log",
+      "measured_batch1_source_run_id": "sft_v1_s42_refcoco_v1",
+      "projected_seconds_per_sample_by_speedup": {
+        "4": 0.3353329301795039,
+        "5": 0.2682663441436031,
+        "6": 0.22355528678633593,
+        "7": 0.19161881724543078,
+        "8": 0.16766646508975194
+      },
+      "projected_minutes_per_1000_by_speedup": {
+        "4": 5.588882169658398,
+        "5": 4.471105735726719,
+        "6": 3.725921446438932,
+        "7": 3.193646954090513,
+        "8": 2.794441084829199
+      }
+    }
+  },
+  "projected_six_runs_3seeds_x_2datasets": {
+    "4": {
+      "total_seconds": 2001.970648692312,
+      "total_minutes": 33.366177478205195
+    },
+    "5": {
+      "total_seconds": 1601.5765189538497,
+      "total_minutes": 26.69294198256416
+    },
+    "6": {
+      "total_seconds": 1334.6470991282079,
+      "total_minutes": 22.244118318803466
+    },
+    "7": {
+      "total_seconds": 1143.9832278241781,
+      "total_minutes": 19.06638713040297
+    },
+    "8": {
+      "total_seconds": 1000.985324346156,
+      "total_minutes": 16.683088739102597
+    }
+  },
+  "vram_expectation_mib": {
+    "measured_batch1_nvidia_smi_after_load_range": [
+      2155,
+      2161
+    ],
+    "measured_batch1_torch_peak_allocated_mib": 528.7666015625,
+    "measured_batch1_torch_peak_reserved_mib": 554.0,
+    "batch8_expected_torch_peak_allocated_mib_range": [
+      650,
+      1000
+    ],
+    "batch8_expected_nvidia_smi_after_load_mib_range": [
+      2300,
+      3000
+    ],
+    "hard_abort_threshold_mib": 7500,
+    "note": "estimate only; the mandatory GPU A/B will record real batch8 memory"
+  },
+  "gpu_ab_plan": {
+    "required": "same adapter, 20 samples, batch1 vs batch8, raw_output byte-identical 20/20 before any batched re-run",
+    "subset": "first 20 records of data/synthetic_eval.jsonl",
+    "batch1_run_id": "ab_batch1_s42_20",
+    "batch8_run_id": "ab_batch8_s42_20",
+    "batch1_command": "python -m src.eval.run_zeroshot --run-id ab_batch1_s42_20 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_ab_batch1_s42_20.json --details-output results/eval_ab_batch1_s42_20_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --limit 20 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 1",
+    "batch8_command": "python -m src.eval.run_zeroshot --run-id ab_batch8_s42_20 --dataset synthetic --split eval --data data/synthetic_eval.jsonl --output results/zeroshot_ab_batch8_s42_20.json --details-output results/eval_ab_batch8_s42_20_details.jsonl --model-path models/SmolVLM-256M-Instruct --adapter adapters/sft_v1/adapter --expected-n 1000 --limit 20 --image-size 384 --max-new-tokens 64 --seed 42 --device cuda --batch-size 8",
+    "compare_fields": [
+      "raw_output",
+      "output_text",
+      "predicted_box",
+      "parse_error",
+      "iou",
+      "correct@0.5",
+      "generated_tokens"
+    ],
+    "pass_rule": "20/20 byte-identical raw_output; any mismatch => stop and fall back to batch1 permanently",
+    "extra_check": "also compare new batch1 raw_output against the first 20 rows of the already-finished official seed42 batch1 details (results/eval_sft_v1_s42_synthetic_v1_details.jsonl)",
+    "planned_batched_reruns_if_pass": [
+      "sft_v1_s42_synthetic_b8_v1",
+      "sft_v1_s42_refcoco_b8_v1",
+      "sft_v1_s43_synthetic_b8_v1 (adapter adapters/sft_v1_s43/adapter)",
+      "sft_v1_s43_refcoco_b8_v1",
+      "sft_v1_s44_synthetic_b8_v1 (adapter adapters/sft_v1_s44/adapter)",
+      "sft_v1_s44_refcoco_b8_v1"
+    ],
+    "preserve": "existing batch1 seed42 results and validation reports stay untouched; batch8 runs get new run_ids and their own validation reports"
+  },
+  "fallback": "if A/B fails: no batched re-runs; use batch1 for seeds 43/44 (slower) and document the negative equivalence result in handoff/TRAINING-FAILURE-LEDGER.md plus an archive manifest",
+  "code_changes": {
+    "run_zeroshot": "--batch-size (default 1); branch batch_size==1 keeps the historical one-sample path; >1 uses left-padded inputs, attention-mask prompt lengths, padded-length generation slice, inclusive EOS trim; parsing/IoU/denominator/metrics untouched",
+    "validate_results": "unchanged for batching (batch_size is extra config metadata; fixed metric checks unchanged)",
+    "cpu_tests": "results/eval_batch_cpu_tests.json (14/14 passed, gpu_used=false, cuda_initialized=false)"
+  },
+  "cpu_backward_compatibility": {
+    "description": "new batch-size=1 path reproduces the pre-batch code outputs on CPU float32 for the same two samples",
+    "pre_change_details": "results/eval_batch_cpu_probe_b1_details.jsonl (generated before the --batch-size change)",
+    "post_change_details": "results/eval_batch_cpu_compat_b1_details.jsonl (new code, batch-size=1)",
+    "rows_compared": 2,
+    "raw_output_identical": "2/2",
+    "output_text_identical": "2/2",
+    "iou_identical": "2/2",
+    "generated_tokens_identical": "2/2",
+    "input_tokens_identical": "2/2",
+    "note": "CPU float32 only; the GPU bf16 A/B gate plus the old official seed42 batch1 details comparison remain mandatory"
+  },
+  "cpu_tests": {
+    "report": "results/eval_batch_cpu_tests.json",
+    "tests_run": 14,
+    "status": "passed",
+    "gpu_used": false,
+    "cuda_initialized": false,
+    "other_refreshed_reports": [
+      "results/eval_unit_tests_post_batch.json",
+      "results/eval_cpu_forward_tests_post_batch.json",
+      "results/eval_adapter_tests_post_batch.json",
+      "results/eval_adapter_cpu_forward_post_batch.json"
+    ]
+  },
+  "cpu_20_sample_ab": {
+    "description": "CPU float32 dry A/B replicating the planned GPU protocol: first 20 synthetic_eval records, batch1 vs batch8, same adapter",
+    "batch1_run_id": "batch_cpu_20_b1",
+    "batch8_run_id": "batch_cpu_20_b8",
+    "batch1_details": "results/eval_batch_cpu_20_b1_details.jsonl",
+    "batch8_details": "results/eval_batch_cpu_20_b8_details.jsonl",
+    "rows": 20,
+    "raw_output_identical": "20/20",
+    "output_text_identical": "20/20",
+    "predicted_box_identical": "20/20",
+    "parse_error_identical": "20/20",
+    "iou_identical": "20/20",
+    "correct@0.5_identical": "20/20",
+    "generated_tokens_identical": "20/20",
+    "input_tokens_identical": "20/20",
+    "hit_max_new_tokens_identical": "20/20",
+    "note": "CPU float32 only; GPU bf16 A/B on the leased device is still mandatory before any batched re-run"
+  }
+}

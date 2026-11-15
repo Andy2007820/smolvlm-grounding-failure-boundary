@@ -1,0 +1,99 @@
+{
+  "config_version": 1,
+  "run_name": "sft_t7_a_norm_s42",
+  "seed": 42,
+  "model": {
+    "path": "models/SmolVLM-256M-Instruct",
+    "dtype": "bfloat16",
+    "freeze_vision_tower": true,
+    "gradient_checkpointing": true,
+    "local_files_only": true
+  },
+  "lora": {
+    "r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "target_scope": "model.text_model",
+    "task_type": "CAUSAL_LM",
+    "bias": "none"
+  },
+  "image": {
+    "image_size": 384,
+    "do_image_splitting": false,
+    "patch_size": 16,
+    "scale_factor": 4,
+    "expected_image_seq_len": 36
+  },
+  "answer": {
+    "format": "[{x1}, {y1}, {x2}, {y2}]",
+    "precision": 4,
+    "eos_token_id": 49279,
+    "pad_token_id": 2,
+    "representation": "normalized_decimal"
+  },
+  "data": {
+    "train": [
+      {
+        "path": "data/synthetic_train.jsonl",
+        "source": "synthetic",
+        "split": "train",
+        "limit": null,
+        "select": "first"
+      },
+      {
+        "path": "data/refcoco_train.jsonl",
+        "source": "refcoco",
+        "split": "train",
+        "limit": null,
+        "select": "first"
+      }
+    ],
+    "val": [
+      {
+        "path": "data/synthetic_eval.jsonl",
+        "source": "synthetic",
+        "split": "eval",
+        "limit": null
+      },
+      {
+        "path": "data/refcoco_val.jsonl",
+        "source": "refcoco",
+        "split": "val",
+        "limit": null
+      }
+    ],
+    "id_intersection_must_be_zero": true,
+    "example_cache_max": 200
+  },
+  "training": {
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "effective_batch_size": 8,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "num_epochs": 1,
+    "save_every_steps": 200,
+    "log_every_steps": 1,
+    "lr_scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "max_grad_norm": 1.0,
+    "max_steps": null
+  },
+  "probe": {
+    "records": "val",
+    "n": 20,
+    "max_new_tokens": 64,
+    "do_sample": false
+  },
+  "output": {
+    "dir": "adapters/sft_t7_a_norm",
+    "log": "logs/train/sft_t7_a_norm.jsonl"
+  },
+  "notes": "T7 coordinate-representation ablation (single-seed pilot, NOT a 3-seed main table). Representation=normalized_decimal. Same data (5000 synthetic + 5000 RefCOCO train), 1 epoch=1250 optimizer steps, same seed 42/LoRA r16/alpha32/lr1e-4/batch1xaccum8/384/bf16/frozen vision/EOS49279/pad2. Prompt and answer encoding are representation-specific and must match the independent evaluator variant. Independent run/output/log/results; GPU lease required."
+}

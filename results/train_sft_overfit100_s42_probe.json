@@ -1,0 +1,839 @@
+{
+  "run_id": "sft_overfit100_s42",
+  "config_fingerprint": "497e24ddb164cbd0d0b40e55a831ef7e91c2170a509d5562fe0ce315f2ed87a0",
+  "probe_kind": "training_diagnostic",
+  "official_eval": false,
+  "note": "Diagnostic overfitting check only: metrics are computed with the frozen evaluator parser but are not the project's official evaluation. eval-keeper produces the official numbers.",
+  "records": "train",
+  "n": 20,
+  "metrics": {
+    "acc@0.5": 0.0,
+    "mIoU": 0.0,
+    "parse_rate": 0.0,
+    "invalid": 20
+  },
+  "details": [
+    {
+      "id": "synthetic_train_000001",
+      "image": "data/images/synthetic/train/synthetic_train_000001.png",
+      "question": "the green diamond",
+      "ground_truth": [
+        0.2890625,
+        0.75,
+        0.48828125,
+        0.909375
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.1064, 0.2052,",
+      "output_text": " [0.1064, 0.2052,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000002",
+      "image": "data/images/synthetic/train/synthetic_train_000002.png",
+      "question": "the yellow circle",
+      "ground_truth": [
+        0.559375,
+        0.55078125,
+        0.690625,
+        0.71484375
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.1094, 0.2046,",
+      "output_text": " [0.1094, 0.2046,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000003",
+      "image": "data/images/synthetic/train/synthetic_train_000003.png",
+      "question": "the orange circle to the left of the green pentagon",
+      "ground_truth": [
+        0.10625,
+        0.50520833,
+        0.309375,
+        0.67447917
+      ],
+      "prompt_tokens": 101,
+      "generated_tokens": 16,
+      "raw_output": " [0.2055, 0.2055,",
+      "output_text": " [0.2055, 0.2055,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000004",
+      "image": "data/images/synthetic/train/synthetic_train_000004.png",
+      "question": "the orange square",
+      "ground_truth": [
+        0.34895833,
+        0.03645833,
+        0.5859375,
+        0.2734375
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.1094, 0.2054,",
+      "output_text": " [0.1094, 0.2054,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000005",
+      "image": "data/images/synthetic/train/synthetic_train_000005.png",
+      "question": "the orange circle",
+      "ground_truth": [
+        0.74609375,
+        0.12890625,
+        0.89453125,
+        0.27734375
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.1064, 0.2046,",
+      "output_text": " [0.1064, 0.2046,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000006",
+      "image": "data/images/synthetic/train/synthetic_train_000006.png",
+      "question": "the orange triangle",
+      "ground_truth": [
+        0.675,
+        0.32421875,
+        0.915625,
+        0.625
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.1065, 0.3050,",
+      "output_text": " [0.1065, 0.3050,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000007",
+      "image": "data/images/synthetic/train/synthetic_train_000007.png",
+      "question": "the purple pentagon in the bottom right",
+      "ground_truth": [
+        0.47135417,
+        0.46354167,
+        0.7421875,
+        0.734375
+      ],
+      "prompt_tokens": 98,
+      "generated_tokens": 16,
+      "raw_output": " [0.3555, 0.5044,",
+      "output_text": " [0.3555, 0.5044,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000008",
+      "image": "data/images/synthetic/train/synthetic_train_000008.png",
+      "question": "the purple triangle",
+      "ground_truth": [
+        0.5546875,
+        0.66666667,
+        0.74414062,
+        0.91927083
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.3065, 0.2550,",
+      "output_text": " [0.3065, 0.2550,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000009",
+      "image": "data/images/synthetic/train/synthetic_train_000009.png",
+      "question": "the green square",
+      "ground_truth": [
+        0.68973214,
+        0.0375,
+        0.91517857,
+        0.353125
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.1094, 0.2056,",
+      "output_text": " [0.1094, 0.2056,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000010",
+      "image": "data/images/synthetic/train/synthetic_train_000010.png",
+      "question": "the small yellow diamond",
+      "ground_truth": [
+        0.109375,
+        0.73828125,
+        0.30859375,
+        0.9375
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 16,
+      "raw_output": " [0.1064, 0.2052,",
+      "output_text": " [0.1064, 0.2052,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000011",
+      "image": "data/images/synthetic/train/synthetic_train_000011.png",
+      "question": "the orange pentagon in the bottom left",
+      "ground_truth": [
+        0.12946429,
+        0.46875,
+        0.328125,
+        0.746875
+      ],
+      "prompt_tokens": 98,
+      "generated_tokens": 16,
+      "raw_output": " [0.3055, 0.3059,",
+      "output_text": " [0.3055, 0.3059,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000012",
+      "image": "data/images/synthetic/train/synthetic_train_000012.png",
+      "question": "the red pentagon in the bottom right",
+      "ground_truth": [
+        0.40178571,
+        0.42857143,
+        0.72991071,
+        0.75669643
+      ],
+      "prompt_tokens": 98,
+      "generated_tokens": 16,
+      "raw_output": " [0.3055, 0.3059,",
+      "output_text": " [0.3055, 0.3059,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000013",
+      "image": "data/images/synthetic/train/synthetic_train_000013.png",
+      "question": "the red pentagon",
+      "ground_truth": [
+        0.646875,
+        0.45833333,
+        0.959375,
+        0.71875
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 16,
+      "raw_output": " [0.1064, 0.2046,",
+      "output_text": " [0.1064, 0.2046,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000014",
+      "image": "data/images/synthetic/train/synthetic_train_000014.png",
+      "question": "the orange circle in the top left",
+      "ground_truth": [
+        0.09765625,
+        0.31640625,
+        0.4140625,
+        0.6328125
+      ],
+      "prompt_tokens": 97,
+      "generated_tokens": 16,
+      "raw_output": " [0.3065, 0.2554,",
+      "output_text": " [0.3065, 0.2554,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000015",
+      "image": "data/images/synthetic/train/synthetic_train_000015.png",
+      "question": "the yellow pentagon",
+      "ground_truth": [
+        0.70089286,
+        0.66517857,
+        0.85044643,
+        0.81473214
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 16,
+      "raw_output": " [0.2055, 0.2055,",
+      "output_text": " [0.2055, 0.2055,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000016",
+      "image": "data/images/synthetic/train/synthetic_train_000016.png",
+      "question": "the blue circle in the bottom left",
+      "ground_truth": [
+        0.33035714,
+        0.51339286,
+        0.59151786,
+        0.77455357
+      ],
+      "prompt_tokens": 97,
+      "generated_tokens": 16,
+      "raw_output": " [0.3065, 0.2044,",
+      "output_text": " [0.3065, 0.2044,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000017",
+      "image": "data/images/synthetic/train/synthetic_train_000017.png",
+      "question": "the green square",
+      "ground_truth": [
+        0.77232143,
+        0.20535714,
+        0.93303571,
+        0.36607143
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.0864, 0.2550,",
+      "output_text": " [0.0864, 0.2550,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000018",
+      "image": "data/images/synthetic/train/synthetic_train_000018.png",
+      "question": "the blue pentagon",
+      "ground_truth": [
+        0.075,
+        0.33984375,
+        0.284375,
+        0.6015625
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 16,
+      "raw_output": " [0.1065, 0.2058,",
+      "output_text": " [0.1065, 0.2058,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000019",
+      "image": "data/images/synthetic/train/synthetic_train_000019.png",
+      "question": "the red square in the bottom left",
+      "ground_truth": [
+        0.3125,
+        0.41796875,
+        0.446875,
+        0.5859375
+      ],
+      "prompt_tokens": 97,
+      "generated_tokens": 16,
+      "raw_output": " [0.2055, 0.2055,",
+      "output_text": " [0.2055, 0.2055,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    },
+    {
+      "id": "synthetic_train_000020",
+      "image": "data/images/synthetic/train/synthetic_train_000020.png",
+      "question": "the orange square",
+      "ground_truth": [
+        0.5546875,
+        0.50520833,
+        0.76171875,
+        0.78125
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 16,
+      "raw_output": " [0.3055, 0.2050,",
+      "output_text": " [0.3055, 0.2050,",
+      "predicted_box": null,
+      "parse_error": "expected_exactly_four_coordinates",
+      "iou": 0.0,
+      "correct@0.5": false,
+      "visual_token_contract": {
+        "batch_size": 1,
+        "views_per_sample": 1,
+        "total_views": 1,
+        "channels": 3,
+        "view_height": 384,
+        "view_width": 384,
+        "patch_size": 16,
+        "scale_factor": 4,
+        "tokens_per_view": 36,
+        "derived_visual_tokens": 36,
+        "placeholder_count": 36,
+        "expected_image_seq_len": 36,
+        "image_token_id": 49190,
+        "pixel_values_shape": [
+          1,
+          1,
+          3,
+          384,
+          384
+        ]
+      }
+    }
+  ],
+  "elapsed_seconds": 14.778705700067803,
+  "generated_at": "2026-11-09T15:08:04.379900+08:00"
+}

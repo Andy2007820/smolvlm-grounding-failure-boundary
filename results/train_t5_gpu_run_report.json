@@ -1,0 +1,126 @@
+{
+  "run_id": "sft_overfit100_s42",
+  "task": "task-6 / T5 100-record overfit SFT + corrected probe-only diagnostic",
+  "lease_id": "GPU-LEASE-T5-20261109-02",
+  "lease_window": "2026-11-09 14:56-15:36 UTC+8",
+  "status": "completed",
+  "gpu_released": true,
+  "attempts": {
+    "training_attempt_1": {
+      "time": "14:56:05-14:56:13",
+      "exit_code": 1,
+      "cause": "order-sensitive LoRA target list comparison during build_lora_model; no training, no artifacts",
+      "evidence": "logs/train/sft_overfit100_attempt1_failure.log, results/train_t5_gpu_failure_attempt1.json"
+    },
+    "training_attempt_2": {
+      "time": "14:58:34-15:08:05",
+      "exit_code": 0,
+      "status": "completed"
+    },
+    "probe_only_attempt_1": {
+      "time": "15:11:28-15:11:36",
+      "exit_code": 1,
+      "cause": "processor not configured for 384 no-split before image processing; before generation",
+      "evidence": "results/train_t5_probe_only_attempt1_failure.json, logs/train/sft_overfit100_probe_stderr.log"
+    },
+    "probe_only_attempt_2": {
+      "time": "15:12:04-15:13:04",
+      "exit_code": 0,
+      "status": "completed"
+    }
+  },
+  "training_hard_acceptance": {
+    "forward_calls": 1600,
+    "backward_calls": 1600,
+    "optimizer_steps": 200,
+    "optimizer_step_calls": 200,
+    "clip_calls": 200,
+    "scheduler_step_calls": 200,
+    "zero_grad_calls": 200,
+    "micro_batches_seen": 1600,
+    "samples_seen": 1600,
+    "partial_final_step": false,
+    "stop_reason": "max_steps",
+    "every_step_micro_batches_in_step": 8,
+    "every_step_micro_batch_sizes": [1, 1, 1, 1, 1, 1, 1, 1],
+    "loss_first": 1.5555554181337357,
+    "loss_last": 0.9983221665024757,
+    "training_seconds": 548.8723198000807
+  },
+  "gpu_memory": {
+    "shell_before_training_mib": 1215,
+    "shell_after_training_exit_mib": 1191,
+    "in_process_before_mib": 1229,
+    "in_process_after_model_load_mib": 1886,
+    "in_process_at_profile_step_25_mib": 2090,
+    "in_process_after_training_mib": 2094,
+    "in_process_after_cleanup_mib": 1456,
+    "torch_peak_allocated_mib": 651.77880859375,
+    "torch_peak_reserved_mib": 768.0,
+    "threshold_mib": 7500,
+    "threshold_crossed": false,
+    "probe_only_before_mib": 1215,
+    "probe_only_after_adapter_load_mib": 1860,
+    "probe_only_after_generation_mib": 1899,
+    "probe_only_after_exit_mib": 1216,
+    "probe_only_torch_peak_allocated_mib": 526.03369140625,
+    "probe_only_torch_peak_reserved_mib": 556.0,
+    "current_after_release_mib": 1240,
+    "current_compute_processes": ["DeepSeek Harness.exe", "msedge.exe"],
+    "python_compute_process_after_release": false
+  },
+  "artifacts": {
+    "adapter_dir": "adapters/sft_overfit100/adapter",
+    "adapter_model_sha256": "47da671c9700cb1ac5ab5c9187181764905b3b56e25f98b427834470f1052ed7",
+    "checkpoints": ["adapters/sft_overfit100/checkpoint-000100", "adapters/sft_overfit100/checkpoint-000200"],
+    "training_summary": "adapters/sft_overfit100/training_summary.json",
+    "training_results": "results/train_sft_overfit100_s42_training.json",
+    "training_json_sha256": "a3c1115915a0c06fbe1692962bfb198d4e65aee8b506c1857fa7e02a6106ee3d",
+    "training_log": "logs/train/sft_overfit100.jsonl",
+    "gpu_log": "logs/train/sft_overfit100_gpu.log",
+    "source_manifest_includes_accumulation_py": true,
+    "source_hashes_count": 13
+  },
+  "probe_truncated_at_16": {
+    "path": "results/train_sft_overfit100_s42_probe_truncated_at_16.json",
+    "sha256": "d4b2145cd71790ea5aecc7c35ca535d74bfde90b4e4d25763001fc012c181154",
+    "status": "preserved as evidence of the measurement defect; not overwritten",
+    "metrics": {"acc@0.5": 0.0, "mIoU": 0.0, "parse_rate": 0.0, "invalid": 20},
+    "truncation": "all 20 outputs stopped at max_new_tokens=16 mid-box, e.g. \" [0.1064, 0.2052,\"",
+    "usable_for_decision": false
+  },
+  "probe_maxtok64": {
+    "path": "results/train_sft_overfit100_s42_probe_maxtok64.json",
+    "sha256": "490fe75952420be083103149363b2460477d93e1039a412b7220233a4132a208",
+    "diagnostic_only": true,
+    "official_eval": false,
+    "n": 20,
+    "max_new_tokens": 64,
+    "do_sample": false,
+    "num_beams": 1,
+    "metrics": {"acc@0.5": 0.0, "mIoU": 0.030300934597406952, "parse_rate": 1.0, "invalid": 0},
+    "truncation_audit": {
+      "samples_hit_max_new_tokens": 0,
+      "samples_eos_reached": 20,
+      "samples_truncated": 0
+    },
+    "adapter_identity_checks_all_true": true,
+    "lora_modules_loaded": 120,
+    "generated_tokens_distribution": "33 tokens for all 20 records; explicit <end_of_utterance> reached",
+    "interpretation": "100-record overfit at 200 optimizer steps learned the answer format (parse_rate=1.0, 20/20 EOS, no truncation) but did not learn target locations: acc@0.5=0.0 and mIoU=0.0303; predictions cluster in the 0.1-0.4 range (mode-collapsed/format-only). This is an honest negative/incomplete overfit result, NOT a G3 decision."
+  },
+  "eval_integrity": {
+    "src_eval_unchanged_against_eval_unit_tests_hashes": true,
+    "data_gt_unmodified": true,
+    "adapter_unchanged_after_training": true
+  },
+  "lease_release": {
+    "released_at": "2026-11-09T15:13:12+08:00",
+    "shell_after_probe_exit_mib": 1216,
+    "current_mib": 1240,
+    "python_compute_process": false,
+    "note": "No further GPU work requested or started; lease released."
+  },
+  "task_status": "task-6 remains in_progress pending Lead/G3 decision; T5 CPU + 100-record overfit training + corrected diagnostic probe completed.",
+  "created_at": "2026-11-09T15:14:00+08:00"
+}

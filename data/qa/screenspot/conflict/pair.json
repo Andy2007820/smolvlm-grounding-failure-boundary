@@ -1,0 +1,58 @@
+{
+  "ids": [
+    "screenspot_test_000559",
+    "screenspot_test_000740"
+  ],
+  "image_sha256": "931fbc8554bae61414ce82102fd53f9fcd951b8b97bc12f6aeaa58176c3bd443",
+  "instruction": "done",
+  "bbox_iou": 0.7792577287012425,
+  "records": [
+    {
+      "id": "screenspot_test_000559",
+      "image": "data/images/screenspot/mobile_4c2df330-55c0-4272-80c0-6e2cf8f96903.png",
+      "question": "done",
+      "answer": [
+        0.23611111,
+        0.79,
+        0.775,
+        0.88166667
+      ],
+      "raw_bbox": [
+        255.0,
+        1896.0,
+        837.0,
+        2116.0
+      ],
+      "width": 1080,
+      "height": 2400,
+      "source": "screenspot"
+    },
+    {
+      "id": "screenspot_test_000740",
+      "image": "data/images/screenspot/mobile_d9e451e3-6238-496f-8cc4-37e019e1a9c3.png",
+      "question": "done",
+      "answer": [
+        0.21296296,
+        0.80166667,
+        0.78425926,
+        0.8875
+      ],
+      "raw_bbox": [
+        230.0,
+        1924.0,
+        847.0,
+        2130.0
+      ],
+      "width": 1080,
+      "height": 2400,
+      "source": "screenspot"
+    }
+  ],
+  "disposition": "retain both source annotations; not exact duplicates; do not relabel",
+  "visual_review": {
+    "status": "passed_with_source_annotation_variation",
+    "observation": "both boxes surround the same Done button on an identical payment-success screenshot; box extents differ",
+    "reviewer": "deepseek-flash via image_understand fallback; coordinates assessed by data-engineer",
+    "disposition": "retain both original source annotations; not exact duplicates; no relabeling"
+  }
+}

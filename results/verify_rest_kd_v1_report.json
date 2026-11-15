@@ -1,0 +1,425 @@
+{
+  "run_id": "verify_rest_kd_v1",
+  "script": "src/eval/verify_rest_round.py --tag kd_v1",
+  "generated_at": "2026-11-11T05:47:17+08:00",
+  "expected_n": 1000,
+  "tolerance": 1e-12,
+  "grounding_module": "D:\\Deepseek Harness\\final-project\\src\\eval\\grounding.py",
+  "verifier_basis": "src/eval/verify_rest_r1.py (frozen check implementations, reused as a library)",
+  "inputs": {
+    "datasets": {
+      "synthetic": {
+        "run_id": "kd_v1_s42_synthetic_v1",
+        "summary": "results/zeroshot_kd_v1_s42_synthetic_v1.json",
+        "details": "results/eval_kd_v1_s42_synthetic_v1_details.jsonl",
+        "validation": "results/eval_kd_v1_s42_synthetic_v1_validation.json"
+      },
+      "refcoco": {
+        "run_id": "kd_v1_s42_refcoco_v1",
+        "summary": "results/zeroshot_kd_v1_s42_refcoco_v1.json",
+        "details": "results/eval_kd_v1_s42_refcoco_v1_details.jsonl",
+        "validation": "results/eval_kd_v1_s42_refcoco_v1_validation.json"
+      }
+    },
+    "training_json": "results/train_kd_v1_s42_training.json",
+    "adapter": "adapters/kd_v1/adapter/adapter_model.safetensors"
+  },
+  "datasets": {
+    "synthetic": {
+      "status": "checked",
+      "run_id": "kd_v1_s42_synthetic_v1",
+      "missing": []
+    },
+    "refcoco": {
+      "status": "checked",
+      "run_id": "kd_v1_s42_refcoco_v1",
+      "missing": []
+    }
+  },
+  "pending": {
+    "datasets": [],
+    "items": [],
+    "missing_paths": []
+  },
+  "deferred_checks": [],
+  "status": "passed",
+  "missing": [],
+  "checks": [
+    {
+      "id": "details_counts",
+      "description": "details 行数 = n = 1000（两数据集）",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "expected_n": 1000,
+        "observed": {
+          "synthetic": {
+            "details_rows": 1000,
+            "summary_n": 1000,
+            "summary_details_rows": 1000,
+            "validation_n": 1000
+          },
+          "refcoco": {
+            "details_rows": 1000,
+            "summary_n": 1000,
+            "summary_details_rows": 1000,
+            "validation_n": 1000
+          }
+        }
+      }
+    },
+    {
+      "id": "metrics_recompute",
+      "description": "用 src/eval/grounding.py 逐条重算 n/parse_rate/invalid/acc@0.5/mIoU 并与 summary 比对",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "tolerance": 1e-12,
+        "per_dataset": {
+          "synthetic": {
+            "prompt_id": "p1",
+            "details_rows": 1000,
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.012,
+              "mIoU": 0.06728028742791117,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "summary_metrics": {
+              "acc@0.5": 0.012,
+              "mIoU": 0.06728028742791117,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "validation_recomputed_metrics": {
+              "acc@0.5": 0.012,
+              "mIoU": 0.06728028742791117,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "metric_diffs_vs_summary": [],
+            "metric_diffs_vs_validation": [],
+            "row_mismatch_count": 0,
+            "row_mismatch_samples": []
+          },
+          "refcoco": {
+            "prompt_id": "p1",
+            "details_rows": 1000,
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.093,
+              "mIoU": 0.21926890385036313,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "summary_metrics": {
+              "acc@0.5": 0.093,
+              "mIoU": 0.21926890385036313,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "validation_recomputed_metrics": {
+              "acc@0.5": 0.093,
+              "mIoU": 0.21926890385036313,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "metric_diffs_vs_summary": [],
+            "metric_diffs_vs_validation": [],
+            "row_mismatch_count": 0,
+            "row_mismatch_samples": []
+          }
+        }
+      }
+    },
+    {
+      "id": "details_sha256",
+      "description": "validation 报告的 details_sha256 与 details 文件实际 sha256 一致（两数据集）",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "synthetic": {
+          "details_path": "results/eval_kd_v1_s42_synthetic_v1_details.jsonl",
+          "actual_sha256": "cc5fbd7abfd690564757483e5fc4eedc94e4de31eaed36138968f8f33371eaf1",
+          "summary_details_sha256": "cc5fbd7abfd690564757483e5fc4eedc94e4de31eaed36138968f8f33371eaf1",
+          "validation_details_sha256": "cc5fbd7abfd690564757483e5fc4eedc94e4de31eaed36138968f8f33371eaf1",
+          "validation_details_rows": 1000,
+          "actual_rows": 1000
+        },
+        "refcoco": {
+          "details_path": "results/eval_kd_v1_s42_refcoco_v1_details.jsonl",
+          "actual_sha256": "d3911bab609792d9d0b86bd85faa725015d5b6bcfbb710e61113473abffd9812",
+          "summary_details_sha256": "d3911bab609792d9d0b86bd85faa725015d5b6bcfbb710e61113473abffd9812",
+          "validation_details_sha256": "d3911bab609792d9d0b86bd85faa725015d5b6bcfbb710e61113473abffd9812",
+          "validation_details_rows": 1000,
+          "actual_rows": 1000
+        }
+      }
+    },
+    {
+      "id": "validation_report",
+      "description": "validation 报告本身 status=passed、errors 为空、run_id/result_path 自洽",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "synthetic": {
+          "validation_path": "results/eval_kd_v1_s42_synthetic_v1_validation.json",
+          "summary_run_id": "kd_v1_s42_synthetic_v1",
+          "validated_run_id": "kd_v1_s42_synthetic_v1",
+          "status": "passed",
+          "errors": [],
+          "result_path": "results/zeroshot_kd_v1_s42_synthetic_v1.json"
+        },
+        "refcoco": {
+          "validation_path": "results/eval_kd_v1_s42_refcoco_v1_validation.json",
+          "summary_run_id": "kd_v1_s42_refcoco_v1",
+          "validated_run_id": "kd_v1_s42_refcoco_v1",
+          "status": "passed",
+          "errors": [],
+          "result_path": "results/zeroshot_kd_v1_s42_refcoco_v1.json"
+        }
+      }
+    },
+    {
+      "id": "training_hardcounts",
+      "description": "训练硬计数/完整性：forward=backward=micro-batches、1,250 optimizer steps、stop_reason、数据集行数/sha、id 交集",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "final_adapter_summary.complete": true,
+        "top_level_complete_informational": false,
+        "stop_reason": "max_steps",
+        "partial_final_step": false,
+        "micro_batches_expected": 10000,
+        "optimizer_steps_expected": 1250,
+        "top.micro_batches_seen": 10000,
+        "top.forward_calls": 10000,
+        "top.backward_calls": 10000,
+        "stats.micro_batches_seen": 10000,
+        "stats.forward_calls": 10000,
+        "stats.backward_calls": 10000,
+        "stats.optimizer_steps": 1250,
+        "stats.clip_calls": 1250,
+        "stats.optimizer_step_calls": 1250,
+        "stats.scheduler_step_calls": 1250,
+        "stats.zero_grad_calls": 1250,
+        "stats.partial_final_step": false,
+        "stats.stop_reason": "max_steps",
+        "loss_history_len": 1250,
+        "loss_first": 1.568840429186821,
+        "loss_last": 0.9768162444233894,
+        "training_seconds": 4003.394155099988,
+        "datasets": [
+          {
+            "path": "data/synthetic_train.jsonl",
+            "rows_loaded": 5000,
+            "sha256": "0499a6f3cf42"
+          },
+          {
+            "path": "data/refcoco_train.jsonl",
+            "rows_loaded": 5000,
+            "sha256": "95dda7c3a6a1"
+          },
+          {
+            "path": "data/kd/kd_train.jsonl",
+            "rows_loaded": 356,
+            "sha256": "740c3fcab423"
+          }
+        ],
+        "id_intersection": {
+          "train_id_counts": {
+            "data/synthetic_train.jsonl": 5000,
+            "data/refcoco_train.jsonl": 5000,
+            "data/kd/kd_train.jsonl": 356
+          },
+          "val_id_counts": {
+            "data/synthetic_eval.jsonl": 1000,
+            "data/refcoco_val.jsonl": 1000
+          },
+          "pair_id_intersection_counts": {
+            "data/synthetic_train.jsonl|data/synthetic_eval.jsonl": 0,
+            "data/synthetic_train.jsonl|data/refcoco_val.jsonl": 0,
+            "data/refcoco_train.jsonl|data/synthetic_eval.jsonl": 0,
+            "data/refcoco_train.jsonl|data/refcoco_val.jsonl": 0,
+            "data/kd/kd_train.jsonl|data/synthetic_eval.jsonl": 0,
+            "data/kd/kd_train.jsonl|data/refcoco_val.jsonl": 0
+          },
+          "global_train_val_id_intersection_count": 0,
+          "train_image_count": 9439,
+          "val_image_count": 1777,
+          "train_val_image_path_intersection_count": 0,
+          "requirement": "train/val ID intersection must be exactly 0"
+        },
+        "global_train_val_id_intersection_count": 0,
+        "train_val_image_path_intersection_count": 0
+      }
+    },
+    {
+      "id": "adapter_sha256",
+      "description": "adapter_model.safetensors sha256 与 training JSON 记录一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "training_json": "results/train_kd_v1_s42_training.json",
+        "adapter_path": "adapters/kd_v1/adapter/adapter_model.safetensors",
+        "actual_sha256": "0999a305276bf504eefa4b4aa940a94718b967dc212f8c5a75448b2d48e9ac0c",
+        "actual_bytes": 7407008,
+        "recorded_sha256_entries": [
+          {
+            "path": "final_adapter_summary.adapter_files.adapter_model.safetensors.sha256",
+            "sha256": "0999a305276bf504eefa4b4aa940a94718b967dc212f8c5a75448b2d48e9ac0c"
+          }
+        ],
+        "recorded_bytes": 7407008,
+        "summary_adapter_sha256": {
+          "synthetic": "0999a305276bf504eefa4b4aa940a94718b967dc212f8c5a75448b2d48e9ac0c",
+          "refcoco": "0999a305276bf504eefa4b4aa940a94718b967dc212f8c5a75448b2d48e9ac0c"
+        }
+      }
+    },
+    {
+      "id": "report_literals",
+      "description": "report/tables/table1_draft.md 与 report/paper.md 中 rest_r1 数字与 JSON 字面一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "canonical_metrics": [
+          {
+            "dataset": "synthetic",
+            "metric": "n",
+            "value": 1000,
+            "literal": "1000"
+          },
+          {
+            "dataset": "synthetic",
+            "metric": "acc@0.5",
+            "value": 0.012,
+            "literal": "0.012"
+          },
+          {
+            "dataset": "synthetic",
+            "metric": "mIoU",
+            "value": 0.06728028742791117,
+            "literal": "0.06728028742791117"
+          },
+          {
+            "dataset": "synthetic",
+            "metric": "parse_rate",
+            "value": 1.0,
+            "literal": "1.0"
+          },
+          {
+            "dataset": "synthetic",
+            "metric": "invalid",
+            "value": 0,
+            "literal": "0"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "n",
+            "value": 1000,
+            "literal": "1000"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "acc@0.5",
+            "value": 0.093,
+            "literal": "0.093"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "mIoU",
+            "value": 0.21926890385036313,
+            "literal": "0.21926890385036313"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "parse_rate",
+            "value": 1.0,
+            "literal": "1.0"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "invalid",
+            "value": 0,
+            "literal": "0"
+          }
+        ],
+        "per_file": {
+          "report/tables/table1_draft.md": {
+            "status": "passed",
+            "relevant_line_count": 5,
+            "relevant_lines": [
+              6,
+              30,
+              32,
+              34,
+              83
+            ],
+            "token_count": 56,
+            "missing_presence": [],
+            "suspect_rounding": [],
+            "decimal_format_warnings": [],
+            "problems": []
+          },
+          "report/paper.md": {
+            "status": "passed",
+            "relevant_line_count": 43,
+            "relevant_lines": [
+              1,
+              25,
+              61,
+              74,
+              90,
+              100,
+              202,
+              204,
+              206,
+              208,
+              210,
+              212,
+              434,
+              436,
+              438,
+              448,
+              449,
+              474,
+              588,
+              593,
+              610,
+              617,
+              642,
+              708,
+              709,
+              710,
+              711,
+              712,
+              713,
+              714,
+              715,
+              716,
+              717,
+              718,
+              791,
+              797,
+              898,
+              899,
+              900,
+              901,
+              924,
+              925,
+              936
+            ],
+            "token_count": 505,
+            "missing_presence": [],
+            "suspect_rounding": [],
+            "decimal_format_warnings": [],
+            "problems": []
+          }
+        }
+      }
+    }
+  ],
+  "failed_checks": []
+}

@@ -1,0 +1,449 @@
+{
+  "run_id": "verify_rest_r2",
+  "script": "src/eval/verify_rest_round.py --tag r2",
+  "generated_at": "2026-11-11T03:35:30+08:00",
+  "expected_n": 1000,
+  "tolerance": 1e-12,
+  "grounding_module": "D:\\Deepseek Harness\\final-project\\src\\eval\\grounding.py",
+  "verifier_basis": "src/eval/verify_rest_r1.py (frozen check implementations, reused as a library)",
+  "inputs": {
+    "datasets": {
+      "synthetic": {
+        "run_id": "rest_r2_s42_synthetic_v1",
+        "summary": "results/zeroshot_rest_r2_s42_synthetic_v1.json",
+        "details": "results/eval_rest_r2_s42_synthetic_v1_details.jsonl",
+        "validation": "results/eval_rest_r2_s42_synthetic_v1_validation.json"
+      },
+      "refcoco": {
+        "run_id": "rest_r2_s42_refcoco_v1",
+        "summary": "results/zeroshot_rest_r2_s42_refcoco_v1.json",
+        "details": "results/eval_rest_r2_s42_refcoco_v1_details.jsonl",
+        "validation": "results/eval_rest_r2_s42_refcoco_v1_validation.json"
+      }
+    },
+    "training_json": "results/train_rest_r2_s42_training.json",
+    "adapter": "adapters/rest_r2/adapter/adapter_model.safetensors"
+  },
+  "datasets": {
+    "synthetic": {
+      "status": "checked",
+      "run_id": "rest_r2_s42_synthetic_v1",
+      "missing": []
+    },
+    "refcoco": {
+      "status": "checked",
+      "run_id": "rest_r2_s42_refcoco_v1",
+      "missing": []
+    }
+  },
+  "pending": {
+    "datasets": [],
+    "items": [],
+    "missing_paths": []
+  },
+  "deferred_checks": [],
+  "status": "passed",
+  "missing": [],
+  "checks": [
+    {
+      "id": "details_counts",
+      "description": "details 行数 = n = 1000（两数据集）",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "expected_n": 1000,
+        "observed": {
+          "synthetic": {
+            "details_rows": 1000,
+            "summary_n": 1000,
+            "summary_details_rows": 1000,
+            "validation_n": 1000
+          },
+          "refcoco": {
+            "details_rows": 1000,
+            "summary_n": 1000,
+            "summary_details_rows": 1000,
+            "validation_n": 1000
+          }
+        }
+      }
+    },
+    {
+      "id": "metrics_recompute",
+      "description": "用 src/eval/grounding.py 逐条重算 n/parse_rate/invalid/acc@0.5/mIoU 并与 summary 比对",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "tolerance": 1e-12,
+        "per_dataset": {
+          "synthetic": {
+            "prompt_id": "p1",
+            "details_rows": 1000,
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.019,
+              "mIoU": 0.06590766735396848,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "summary_metrics": {
+              "acc@0.5": 0.019,
+              "mIoU": 0.06590766735396848,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "validation_recomputed_metrics": {
+              "acc@0.5": 0.019,
+              "mIoU": 0.06590766735396848,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "metric_diffs_vs_summary": [],
+            "metric_diffs_vs_validation": [],
+            "row_mismatch_count": 0,
+            "row_mismatch_samples": []
+          },
+          "refcoco": {
+            "prompt_id": "p1",
+            "details_rows": 1000,
+            "recomputed": {
+              "n": 1000,
+              "acc@0.5": 0.099,
+              "mIoU": 0.2146825400408837,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "summary_metrics": {
+              "acc@0.5": 0.099,
+              "mIoU": 0.2146825400408837,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "validation_recomputed_metrics": {
+              "acc@0.5": 0.099,
+              "mIoU": 0.2146825400408837,
+              "parse_rate": 1.0,
+              "invalid": 0
+            },
+            "metric_diffs_vs_summary": [],
+            "metric_diffs_vs_validation": [],
+            "row_mismatch_count": 0,
+            "row_mismatch_samples": []
+          }
+        }
+      }
+    },
+    {
+      "id": "details_sha256",
+      "description": "validation 报告的 details_sha256 与 details 文件实际 sha256 一致（两数据集）",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "synthetic": {
+          "details_path": "results/eval_rest_r2_s42_synthetic_v1_details.jsonl",
+          "actual_sha256": "7d1aac10aec94ab5fbc9630240500a89fd0bfa1cf27f8447d1316742651dc490",
+          "summary_details_sha256": "7d1aac10aec94ab5fbc9630240500a89fd0bfa1cf27f8447d1316742651dc490",
+          "validation_details_sha256": "7d1aac10aec94ab5fbc9630240500a89fd0bfa1cf27f8447d1316742651dc490",
+          "validation_details_rows": 1000,
+          "actual_rows": 1000
+        },
+        "refcoco": {
+          "details_path": "results/eval_rest_r2_s42_refcoco_v1_details.jsonl",
+          "actual_sha256": "6ac39d6a61b068eb03a89fe988d206a0b94f550f955957e3c4ab190c7956a797",
+          "summary_details_sha256": "6ac39d6a61b068eb03a89fe988d206a0b94f550f955957e3c4ab190c7956a797",
+          "validation_details_sha256": "6ac39d6a61b068eb03a89fe988d206a0b94f550f955957e3c4ab190c7956a797",
+          "validation_details_rows": 1000,
+          "actual_rows": 1000
+        }
+      }
+    },
+    {
+      "id": "validation_report",
+      "description": "validation 报告本身 status=passed、errors 为空、run_id/result_path 自洽",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "synthetic": {
+          "validation_path": "results/eval_rest_r2_s42_synthetic_v1_validation.json",
+          "summary_run_id": "rest_r2_s42_synthetic_v1",
+          "validated_run_id": "rest_r2_s42_synthetic_v1",
+          "status": "passed",
+          "errors": [],
+          "result_path": "results/zeroshot_rest_r2_s42_synthetic_v1.json"
+        },
+        "refcoco": {
+          "validation_path": "results/eval_rest_r2_s42_refcoco_v1_validation.json",
+          "summary_run_id": "rest_r2_s42_refcoco_v1",
+          "validated_run_id": "rest_r2_s42_refcoco_v1",
+          "status": "passed",
+          "errors": [],
+          "result_path": "results/zeroshot_rest_r2_s42_refcoco_v1.json"
+        }
+      }
+    },
+    {
+      "id": "training_hardcounts",
+      "description": "训练硬计数/完整性：forward=backward=micro-batches、1,250 optimizer steps、stop_reason、数据集行数/sha、id 交集",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "final_adapter_summary.complete": true,
+        "top_level_complete_informational": false,
+        "stop_reason": "max_steps",
+        "partial_final_step": false,
+        "micro_batches_expected": 10000,
+        "optimizer_steps_expected": 1250,
+        "top.micro_batches_seen": 10000,
+        "top.forward_calls": 10000,
+        "top.backward_calls": 10000,
+        "stats.micro_batches_seen": 10000,
+        "stats.forward_calls": 10000,
+        "stats.backward_calls": 10000,
+        "stats.optimizer_steps": 1250,
+        "stats.clip_calls": 1250,
+        "stats.optimizer_step_calls": 1250,
+        "stats.scheduler_step_calls": 1250,
+        "stats.zero_grad_calls": 1250,
+        "stats.partial_final_step": false,
+        "stats.stop_reason": "max_steps",
+        "loss_history_len": 1250,
+        "loss_first": 1.599017694592476,
+        "loss_last": 1.0101446136832237,
+        "training_seconds": 4105.6127103001345,
+        "datasets": [
+          {
+            "path": "data/synthetic_train.jsonl",
+            "rows_loaded": 5000,
+            "sha256": "0499a6f3cf42"
+          },
+          {
+            "path": "data/refcoco_train.jsonl",
+            "rows_loaded": 5000,
+            "sha256": "95dda7c3a6a1"
+          },
+          {
+            "path": "data/rest/r1_pool.jsonl",
+            "rows_loaded": 191,
+            "sha256": "bcf4275f2042"
+          },
+          {
+            "path": "data/rest/r2_pool.jsonl",
+            "rows_loaded": 163,
+            "sha256": "70d94f079647"
+          }
+        ],
+        "id_intersection": {
+          "train_id_counts": {
+            "data/synthetic_train.jsonl": 5000,
+            "data/refcoco_train.jsonl": 5000,
+            "data/rest/r1_pool.jsonl": 191,
+            "data/rest/r2_pool.jsonl": 163
+          },
+          "val_id_counts": {
+            "data/synthetic_eval.jsonl": 1000,
+            "data/refcoco_val.jsonl": 1000
+          },
+          "pair_id_intersection_counts": {
+            "data/synthetic_train.jsonl|data/synthetic_eval.jsonl": 0,
+            "data/synthetic_train.jsonl|data/refcoco_val.jsonl": 0,
+            "data/refcoco_train.jsonl|data/synthetic_eval.jsonl": 0,
+            "data/refcoco_train.jsonl|data/refcoco_val.jsonl": 0,
+            "data/rest/r1_pool.jsonl|data/synthetic_eval.jsonl": 0,
+            "data/rest/r1_pool.jsonl|data/refcoco_val.jsonl": 0,
+            "data/rest/r2_pool.jsonl|data/synthetic_eval.jsonl": 0,
+            "data/rest/r2_pool.jsonl|data/refcoco_val.jsonl": 0
+          },
+          "global_train_val_id_intersection_count": 0,
+          "train_image_count": 9439,
+          "val_image_count": 1777,
+          "train_val_image_path_intersection_count": 0,
+          "requirement": "train/val ID intersection must be exactly 0"
+        },
+        "global_train_val_id_intersection_count": 0,
+        "train_val_image_path_intersection_count": 0
+      }
+    },
+    {
+      "id": "adapter_sha256",
+      "description": "adapter_model.safetensors sha256 与 training JSON 记录一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "training_json": "results/train_rest_r2_s42_training.json",
+        "adapter_path": "adapters/rest_r2/adapter/adapter_model.safetensors",
+        "actual_sha256": "11d1194c4a270639ba7bc3f47ff6a26cd402015c7f8dcefd4f13fd997ad1f136",
+        "actual_bytes": 7407008,
+        "recorded_sha256_entries": [
+          {
+            "path": "final_adapter_summary.adapter_files.adapter_model.safetensors.sha256",
+            "sha256": "11d1194c4a270639ba7bc3f47ff6a26cd402015c7f8dcefd4f13fd997ad1f136"
+          }
+        ],
+        "recorded_bytes": 7407008,
+        "summary_adapter_sha256": {
+          "synthetic": "11d1194c4a270639ba7bc3f47ff6a26cd402015c7f8dcefd4f13fd997ad1f136",
+          "refcoco": "11d1194c4a270639ba7bc3f47ff6a26cd402015c7f8dcefd4f13fd997ad1f136"
+        }
+      }
+    },
+    {
+      "id": "report_literals",
+      "description": "report/tables/table1_draft.md 与 report/paper.md 中 rest_r1 数字与 JSON 字面一致",
+      "status": "passed",
+      "problems": [],
+      "details": {
+        "canonical_metrics": [
+          {
+            "dataset": "synthetic",
+            "metric": "n",
+            "value": 1000,
+            "literal": "1000"
+          },
+          {
+            "dataset": "synthetic",
+            "metric": "acc@0.5",
+            "value": 0.019,
+            "literal": "0.019"
+          },
+          {
+            "dataset": "synthetic",
+            "metric": "mIoU",
+            "value": 0.06590766735396848,
+            "literal": "0.06590766735396848"
+          },
+          {
+            "dataset": "synthetic",
+            "metric": "parse_rate",
+            "value": 1.0,
+            "literal": "1.0"
+          },
+          {
+            "dataset": "synthetic",
+            "metric": "invalid",
+            "value": 0,
+            "literal": "0"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "n",
+            "value": 1000,
+            "literal": "1000"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "acc@0.5",
+            "value": 0.099,
+            "literal": "0.099"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "mIoU",
+            "value": 0.2146825400408837,
+            "literal": "0.2146825400408837"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "parse_rate",
+            "value": 1.0,
+            "literal": "1.0"
+          },
+          {
+            "dataset": "refcoco",
+            "metric": "invalid",
+            "value": 0,
+            "literal": "0"
+          }
+        ],
+        "per_file": {
+          "report/tables/table1_draft.md": {
+            "status": "passed",
+            "relevant_line_count": 2,
+            "relevant_lines": [
+              29,
+              83
+            ],
+            "token_count": 15,
+            "missing_presence": [],
+            "suspect_rounding": [],
+            "decimal_format_warnings": [],
+            "problems": []
+          },
+          "report/paper.md": {
+            "status": "passed",
+            "relevant_line_count": 29,
+            "relevant_lines": [
+              25,
+              163,
+              192,
+              194,
+              196,
+              198,
+              428,
+              441,
+              575,
+              597,
+              624,
+              678,
+              679,
+              680,
+              681,
+              682,
+              683,
+              684,
+              685,
+              686,
+              687,
+              688,
+              761,
+              767,
+              863,
+              864,
+              865,
+              866,
+              888
+            ],
+            "token_count": 449,
+            "missing_presence": [],
+            "suspect_rounding": [
+              {
+                "line": 198,
+                "token": "0.065908",
+                "dataset": "synthetic",
+                "metric": "mIoU",
+                "expected_literal": "0.06590766735396848",
+                "expected_value": 0.06590766735396848
+              },
+              {
+                "line": 198,
+                "token": "0.214683",
+                "dataset": "refcoco",
+                "metric": "mIoU",
+                "expected_literal": "0.2146825400408837",
+                "expected_value": 0.2146825400408837
+              },
+              {
+                "line": 575,
+                "token": "0.065908",
+                "dataset": "synthetic",
+                "metric": "mIoU",
+                "expected_literal": "0.06590766735396848",
+                "expected_value": 0.06590766735396848
+              },
+              {
+                "line": 575,
+                "token": "0.214683",
+                "dataset": "refcoco",
+                "metric": "mIoU",
+                "expected_literal": "0.2146825400408837",
+                "expected_value": 0.2146825400408837
+              }
+            ],
+            "decimal_format_warnings": [],
+            "problems": []
+          }
+        }
+      }
+    }
+  ],
+  "failed_checks": []
+}

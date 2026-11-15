@@ -1,0 +1,203 @@
+{
+  "schema": "final_audit_2026-11-11/v1",
+  "generated_at": "2026-11-13T15:44:56+08:00",
+  "status": "passed",
+  "failed_checks": [],
+  "checks": [
+    {
+      "id": "g5_curve_points",
+      "status": "passed",
+      "detail": [
+        "sft_s42",
+        "rest_r1",
+        "rest_r2"
+      ]
+    },
+    {
+      "id": "g6_kd_present",
+      "status": "passed",
+      "detail": "混合（有升有降，按数据集逐个报）"
+    },
+    {
+      "id": "t10_levels",
+      "status": "passed",
+      "detail": "ok"
+    },
+    {
+      "id": "t7c_three_seeds",
+      "status": "passed",
+      "detail": [
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "id": "t7c_aggregate_status",
+      "status": "passed",
+      "detail": "three_seed_mean_std_ddof1"
+    },
+    {
+      "id": "verify_verify_rest_r2_report",
+      "status": "passed",
+      "detail": {
+        "status": "passed",
+        "checks": 7
+      }
+    },
+    {
+      "id": "verify_verify_rest_kd_v1_report",
+      "status": "passed",
+      "detail": {
+        "status": "passed",
+        "checks": 7
+      }
+    },
+    {
+      "id": "verify_verify_t7c_3seed",
+      "status": "passed",
+      "detail": {
+        "status": "passed",
+        "checks": 7
+      }
+    },
+    {
+      "id": "manifest_validations_all_passed",
+      "status": "passed",
+      "detail": {
+        "count": 42,
+        "bad": []
+      }
+    },
+    {
+      "id": "doc_numbers_paper",
+      "status": "passed",
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "id": "doc_numbers_table1",
+      "status": "passed",
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "id": "doc_numbers_table2",
+      "status": "passed",
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "id": "no_forbidden_gain_wording",
+      "status": "passed",
+      "detail": {
+        "asserted": []
+      }
+    },
+    {
+      "id": "not_run_list_updated",
+      "status": "passed",
+      "detail": [
+        "G8 full cold start from empty artifacts (would retrain everything; run_all --stage all against the current tree already ran: 23 executed / 79 skipped / 0 failed)",
+        "ONNX INT8 export (blocked: optimum-onnx requires transformers<4.58 vs project 5.19)",
+        "human subjective demo confirmation (requires the user)",
+        "T7 <loc> vocabulary-expansion representation (not implemented; T7-D text grid is now completed)"
+      ]
+    },
+    {
+      "id": "manifest_paths_exist",
+      "status": "passed",
+      "detail": {
+        "missing": []
+      }
+    }
+  ],
+  "highlights": {
+    "rest_r2": {
+      "synthetic": {
+        "acc@0.5": 0.019,
+        "mIoU": 0.06590766735396848,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "refcoco": {
+        "acc@0.5": 0.099,
+        "mIoU": 0.2146825400408837,
+        "parse_rate": 1.0,
+        "invalid": 0
+      }
+    },
+    "kd_v1": {
+      "synthetic": {
+        "acc@0.5": 0.012,
+        "mIoU": 0.06728028742791117,
+        "parse_rate": 1.0,
+        "invalid": 0
+      },
+      "refcoco": {
+        "acc@0.5": 0.093,
+        "mIoU": 0.21926890385036313,
+        "parse_rate": 1.0,
+        "invalid": 0
+      }
+    },
+    "g5_gate": true,
+    "g5_verdict": "两集一致下降（负结果，照实报）",
+    "g6_gate": true,
+    "g6_verdict": "混合（有升有降，按数据集逐个报）",
+    "t7c": {
+      "synthetic": {
+        "acc@0.5": {
+          "mean": 0.017666666666666667,
+          "std_ddof1": 0.0035118845842842467,
+          "n": 3
+        },
+        "mIoU": {
+          "mean": 0.05659256565915166,
+          "std_ddof1": 0.001348107980298342,
+          "n": 3
+        },
+        "parse_rate": {
+          "mean": 0.992,
+          "std_ddof1": 0.001732050807568879,
+          "n": 3
+        },
+        "invalid": {
+          "mean": 8.0,
+          "std_ddof1": 1.7320508075688772,
+          "n": 3
+        }
+      },
+      "refcoco": {
+        "acc@0.5": {
+          "mean": 0.04566666666666667,
+          "std_ddof1": 0.003055050463303896,
+          "n": 3
+        },
+        "mIoU": {
+          "mean": 0.1356479804310606,
+          "std_ddof1": 0.0007748961232556109,
+          "n": 3
+        },
+        "parse_rate": {
+          "mean": 0.899,
+          "std_ddof1": 0.029051678092667926,
+          "n": 3
+        },
+        "invalid": {
+          "mean": 101.0,
+          "std_ddof1": 29.0516780926679,
+          "n": 3
+        }
+      }
+    },
+    "validations": {
+      "count": 42,
+      "passed": 42
+    },
+    "artifacts": 203
+  }
+}

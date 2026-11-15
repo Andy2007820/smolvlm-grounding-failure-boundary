@@ -1,0 +1,284 @@
+{
+  "script": "gpu-runner manual verification (read-only)",
+  "generated_at": "2026-11-10T21:19:22.464039+08:00",
+  "scope": "single-seed pilot (seed 42, ReST round 1)",
+  "status": "passed",
+  "checks": {
+    "training_hardcounts": {
+      "file": "results/train_rest_r1_s42_training.json",
+      "forward_calls": {
+        "expected": 10000,
+        "actual": 10000,
+        "pass": true
+      },
+      "backward_calls": {
+        "expected": 10000,
+        "actual": 10000,
+        "pass": true
+      },
+      "optimizer_steps": {
+        "expected": 1250,
+        "actual": 1250,
+        "pass": true
+      },
+      "clip_calls": {
+        "expected": 1250,
+        "actual": 1250,
+        "pass": true
+      },
+      "scheduler_step_calls": {
+        "expected": 1250,
+        "actual": 1250,
+        "pass": true
+      },
+      "zero_grad_calls": {
+        "expected": 1250,
+        "actual": 1250,
+        "pass": true
+      },
+      "partial_final_step": {
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      "stop_reason": {
+        "expected": "max_steps",
+        "actual": "max_steps",
+        "pass": true
+      },
+      "train_records": {
+        "expected": 10191,
+        "actual": 10191,
+        "pass": true
+      },
+      "training_seconds": 4099.437170699937,
+      "training_seconds_source": "results/train_rest_r1_s42_training.json (measured wall of the training loop)",
+      "supporting": {
+        "step": 1250,
+        "samples_seen": 10000,
+        "micro_batches_seen": 10000,
+        "plan_micro_forwards_total": 10000,
+        "plan_total_optimizer_steps": 1250,
+        "started_at": "2026-11-10T19:14:10.714255+08:00",
+        "finished_at": "2026-11-10T20:22:30.152522+08:00",
+        "datasets": [
+          {
+            "path": "data/synthetic_train.jsonl",
+            "source": "synthetic",
+            "split": "train",
+            "limit": null,
+            "rows_loaded": 5000,
+            "sha256": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88"
+          },
+          {
+            "path": "data/refcoco_train.jsonl",
+            "source": "refcoco",
+            "split": "train",
+            "limit": null,
+            "rows_loaded": 5000,
+            "sha256": "95dda7c3a6a1ab555cec0c8e6fff48fb0adf2c16200371a2bfa6ec97b1a58137"
+          },
+          {
+            "path": "data/rest/r1_pool.jsonl",
+            "source": "rest",
+            "split": "train",
+            "limit": null,
+            "rows_loaded": 191,
+            "sha256": "bcf4275f204275445bdb57815217a10ab5e9f80a70f0e1c2e0b289fe7fd35494"
+          }
+        ],
+        "note_complete_field": "results summary carries complete=false per build_metadata pre-flip convention; adapters/rest_r1/training_summary.json carries complete=true (same convention as sft_v1)"
+      },
+      "pass": true
+    },
+    "adapter_sha256": {
+      "file": "adapters/rest_r1/adapter/adapter_model.safetensors",
+      "measured_sha256": "d7431d7fcfacb2c688dddfdbf9fb352d58a325842a0358152158ef57899adbae",
+      "recorded_sha256": "d7431d7fcfacb2c688dddfdbf9fb352d58a325842a0358152158ef57899adbae",
+      "recorded_bytes": 7407008,
+      "measured_bytes": 7407008,
+      "pass": true
+    },
+    "eval_artifacts": {
+      "datasets": {
+        "synthetic": {
+          "summary": "results/zeroshot_rest_r1_s42_synthetic_v1.json",
+          "validation": "results/eval_rest_r1_s42_synthetic_v1_validation.json",
+          "summary_status": "completed",
+          "n": 1000,
+          "details_path": "results/eval_rest_r1_s42_synthetic_v1_details.jsonl",
+          "details_rows": {
+            "expected": 1000,
+            "actual": 1000,
+            "pass": true
+          },
+          "details_sha256_summary": "34b3b2270dbbb37f1dd0b9fdeb245ed916befe393ed6432e9d56563209d520d9",
+          "details_sha256_measured": "34b3b2270dbbb37f1dd0b9fdeb245ed916befe393ed6432e9d56563209d520d9",
+          "summary_details_sha_matches": true,
+          "validation_details_sha": "34b3b2270dbbb37f1dd0b9fdeb245ed916befe393ed6432e9d56563209d520d9",
+          "validation_details_sha_matches": true,
+          "validation_status": "passed",
+          "validation_errors": [],
+          "metrics": {
+            "acc@0.5": 0.02,
+            "mIoU": 0.07348886560381905,
+            "parse_rate": 1.0,
+            "invalid": 0
+          },
+          "pass": true
+        },
+        "refcoco": {
+          "summary": "results/zeroshot_rest_r1_s42_refcoco_v1.json",
+          "validation": "results/eval_rest_r1_s42_refcoco_v1_validation.json",
+          "summary_status": "completed",
+          "n": 1000,
+          "details_path": "results/eval_rest_r1_s42_refcoco_v1_details.jsonl",
+          "details_rows": {
+            "expected": 1000,
+            "actual": 1000,
+            "pass": true
+          },
+          "details_sha256_summary": "0c5d7cf13c6c1d9519a58cfb36bfda0e0e6a563838f9cdca237e4f3479cd6c5a",
+          "details_sha256_measured": "0c5d7cf13c6c1d9519a58cfb36bfda0e0e6a563838f9cdca237e4f3479cd6c5a",
+          "summary_details_sha_matches": true,
+          "validation_details_sha": "0c5d7cf13c6c1d9519a58cfb36bfda0e0e6a563838f9cdca237e4f3479cd6c5a",
+          "validation_details_sha_matches": true,
+          "validation_status": "passed",
+          "validation_errors": [],
+          "metrics": {
+            "acc@0.5": 0.102,
+            "mIoU": 0.21502137946413766,
+            "parse_rate": 0.999,
+            "invalid": 1
+          },
+          "pass": true
+        }
+      },
+      "pass": true
+    },
+    "artifact_integrity": {
+      "git": {
+        "repo_toplevel": "D:/Deepseek Harness",
+        "final_project_tracked_files": 0,
+        "available_for_this_check": false,
+        "reason": "workspace .gitignore line 4 (*) excludes all of final-project, so git has no baseline for results/ or handoff/; verdict is based on filesystem evidence instead"
+      },
+      "results_historical_files_untouched": {
+        "files_with_mtime_before_session_1800": 312,
+        "files_touched_since_1800": 15,
+        "touched_list": [
+          {
+            "file": "train_rest_sample_smoke.json",
+            "bytes": 5073,
+            "mtime": "2026-11-10T18:30:44"
+          },
+          {
+            "file": "train_rest_sample_r1.json",
+            "bytes": 5252,
+            "mtime": "2026-11-10T18:59:38"
+          },
+          {
+            "file": "train_rest_pool_r1_7field.json",
+            "bytes": 1733,
+            "mtime": "2026-11-10T19:00:15"
+          },
+          {
+            "file": "train_rest_pool_r1_pre_source_label.json",
+            "bytes": 2441,
+            "mtime": "2026-11-10T19:01:51"
+          },
+          {
+            "file": "train_rest_pool_r1.json",
+            "bytes": 3476,
+            "mtime": "2026-11-10T19:03:07"
+          },
+          {
+            "file": "train_rest_r1_dryrun_plan.json",
+            "bytes": 18136,
+            "mtime": "2026-11-10T19:04:29"
+          },
+          {
+            "file": "train_rest_r1_s42_probe.json",
+            "bytes": 28551,
+            "mtime": "2026-11-10T20:23:09"
+          },
+          {
+            "file": "train_rest_r1_s42_training.json",
+            "bytes": 2118227,
+            "mtime": "2026-11-10T20:23:09"
+          },
+          {
+            "file": "eval_rest_r1_s42_synthetic_v1_details.jsonl",
+            "bytes": 911636,
+            "mtime": "2026-11-10T20:52:37"
+          },
+          {
+            "file": "zeroshot_rest_r1_s42_synthetic_v1.json",
+            "bytes": 7102,
+            "mtime": "2026-11-10T20:52:37"
+          },
+          {
+            "file": "eval_rest_r1_s42_synthetic_v1_validation.json",
+            "bytes": 2262,
+            "mtime": "2026-11-10T20:52:39"
+          },
+          {
+            "file": "eval_rest_r1_s42_refcoco_v1_details.jsonl",
+            "bytes": 924674,
+            "mtime": "2026-11-10T21:17:23"
+          },
+          {
+            "file": "zeroshot_rest_r1_s42_refcoco_v1.json",
+            "bytes": 7095,
+            "mtime": "2026-11-10T21:17:23"
+          },
+          {
+            "file": "eval_rest_r1_s42_refcoco_v1_validation.json",
+            "bytes": 2256,
+            "mtime": "2026-11-10T21:17:25"
+          },
+          {
+            "file": "verify_rest_r1_report.json",
+            "bytes": 12813,
+            "mtime": "2026-11-10T21:17:52"
+          }
+        ],
+        "all_touched_are_new_rest_r1_artifacts": true,
+        "pass": true,
+        "criterion": "every touched file is a new ReST-r1 artifact (filename contains rest); no pre-existing historical result file was modified"
+      },
+      "ledger_append_only": {
+        "path": "handoff/TRAINING-FAILURE-LEDGER.md",
+        "bytes": 25688,
+        "sha256": "f51f79576ba51d36ffcc79bacce2618b4e8e953d2603d8fb734f3c26f96950f7",
+        "history_sections": [
+          "## 一、失败训练运行",
+          "## 二、失败原因与后续改进",
+          "## 三、正对照（不是失败，保留以防误判）",
+          "## 四、保留与审计规则",
+          "## 五、T6/G3 独立评测期间的失败（2026-11-09）",
+          "## 六、T6c 3-seed 评测最终状态（2026-11-09 22:15）",
+          "## 七、T6c 3-seed 评测完成（2026-11-10 01:38）",
+          "## 八、T14-eval merged CPU fp32 与 adapter GPU 官方结果偏差（2026-11-10，诊断留档）"
+        ],
+        "appended_section": "## 九、T8-R1-A1：rest_r1 首次训练在 step 25 被回收（2026-11-10，已由 Lead 重跑）",
+        "appended_section_byte_offset": 23747,
+        "appended_bytes": 1941,
+        "bytes_before_append": 23746,
+        "bytes_after_append": 25688,
+        "note": "append performed by gpu-runner at 19:16; existing sections 一–八 and their order remain intact (content prefix 23,746 B preserved; 1,941 B added at EOF)",
+        "pass": true
+      },
+      "pass": true
+    }
+  },
+  "crosscheck": {
+    "t6_verifier_report": "results/verify_rest_r1_report.json",
+    "t6_verifier_status": "failed",
+    "t6_verifier_failed_checks": [
+      "report_literals"
+    ],
+    "note": "T6 独立复核报告的唯一失败项是 report_literals（论文/表格尚未更新所致），与本核对的对象（训练硬计数、adapter、两集 details/validation）无关；本核对 4/4 项通过。"
+  },
+  "conclusion": "训练硬计数 forward=backward=10000、optimizer/clip/scheduler/zero_grad=1250、train_records=10191 全部一致；adapter sha256 与记录一致；两集 n=1000、details sha256 三处一致、validation passed/errors=[]；results/ 无历史文件被改，ledger 仅追加。"
+}

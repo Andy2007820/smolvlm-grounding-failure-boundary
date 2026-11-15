@@ -1,0 +1,688 @@
+{
+  "status": "completed",
+  "gpu_used": false,
+  "device": "cpu",
+  "diagnostic_only": true,
+  "official_eval": false,
+  "run_id": "sft_overfit100_s42",
+  "adapter_dir": "adapters/sft_overfit100/adapter",
+  "training_summary": "adapters/sft_overfit100/training_summary.json",
+  "training_results": "results/train_sft_overfit100_s42_training.json",
+  "identity": {
+    "checks": {
+      "summary_config_fingerprint_matches_config": true,
+      "training_results_config_fingerprint_matches_config": true,
+      "summary_and_results_fingerprints_equal": true,
+      "seed_is_42": true,
+      "lora_r_is_16": true,
+      "lora_alpha_is_32": true,
+      "task_type_is_causal_lm": true,
+      "adapter_is_for_causal_lm": true,
+      "model_path_matches": true
+    },
+    "config_fingerprint": "497e24ddb164cbd0d0b40e55a831ef7e91c2170a509d5562fe0ce315f2ed87a0",
+    "config_path": "configs/sft_overfit100.json",
+    "config_sha256": "25b6d0f6cb4788d84c901b92c4ad8d48972036f0c0833048f4e2a48bcc4f2781",
+    "training_summary_config_fingerprint": "497e24ddb164cbd0d0b40e55a831ef7e91c2170a509d5562fe0ce315f2ed87a0",
+    "training_results_config_fingerprint": "497e24ddb164cbd0d0b40e55a831ef7e91c2170a509d5562fe0ce315f2ed87a0",
+    "adapter_config_sha256": "e90b5321c0aec2858455717fc7c094acdbcdf7d562fb33bf385a8c8e1ab58ac7",
+    "adapter_model_sha256": "47da671c9700cb1ac5ab5c9187181764905b3b56e25f98b427834470f1052ed7",
+    "adapter_saved_target_modules_count": 91,
+    "adapter_config_note": "PEFT 0.21 persisted a truncated-looking target_modules list in adapter_config.json (91 entries), but PeftModel.from_pretrained resolves all 120 text decoder q/k/v/o LoRA modules from the 240 adapter weight tensors; this is recorded as a display/serialisation anomaly, not a failed load."
+  },
+  "records_available": 100,
+  "probe_records": 20,
+  "probe_record_ids": [
+    "synthetic_train_000001",
+    "synthetic_train_000002",
+    "synthetic_train_000003",
+    "synthetic_train_000004",
+    "synthetic_train_000005",
+    "synthetic_train_000006",
+    "synthetic_train_000007",
+    "synthetic_train_000008",
+    "synthetic_train_000009",
+    "synthetic_train_000010",
+    "synthetic_train_000011",
+    "synthetic_train_000012",
+    "synthetic_train_000013",
+    "synthetic_train_000014",
+    "synthetic_train_000015",
+    "synthetic_train_000016",
+    "synthetic_train_000017",
+    "synthetic_train_000018",
+    "synthetic_train_000019",
+    "synthetic_train_000020"
+  ],
+  "max_new_tokens": 64,
+  "do_sample": false,
+  "num_beams": 1,
+  "image_seq_len": 36,
+  "train_dataset_evidence": [
+    {
+      "path": "data/synthetic_train.jsonl",
+      "source": "synthetic",
+      "split": "train",
+      "limit": 100,
+      "rows_loaded": 100,
+      "sha256": "0499a6f3cf4269bc57ec501b872c7f8fcf3492110e4c54967fb2e3c5176f8e88"
+    }
+  ],
+  "inference_only_contract": {
+    "loads_adapter_with_is_trainable_false": true,
+    "calls_model_eval": true,
+    "calls_torch_inference_mode": true,
+    "computes_training_loss": false,
+    "calls_backward": false,
+    "calls_optimizer_step": false,
+    "calls_scheduler_step": false,
+    "calls_zero_grad": false,
+    "writes_adapter": false,
+    "modifies_data": false,
+    "modifies_evaluator": false
+  },
+  "n": 20,
+  "metrics": {
+    "acc@0.5": 0.0,
+    "mIoU": 0.030300934597406952,
+    "parse_rate": 1.0,
+    "invalid": 0
+  },
+  "details": [
+    {
+      "id": "synthetic_train_000001",
+      "image": "data/images/synthetic/train/synthetic_train_000001.png",
+      "question": "the green diamond",
+      "ground_truth": [
+        0.2890625,
+        0.75,
+        0.48828125,
+        0.909375
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1064, 0.2052, 0.3050, 0.4050]<end_of_utterance>",
+      "output_text": " [0.1064, 0.2052, 0.3050, 0.4050]",
+      "predicted_box": [
+        0.1064,
+        0.2052,
+        0.305,
+        0.405
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000002",
+      "image": "data/images/synthetic/train/synthetic_train_000002.png",
+      "question": "the yellow circle",
+      "ground_truth": [
+        0.559375,
+        0.55078125,
+        0.690625,
+        0.71484375
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1094, 0.2046, 0.3056, 0.4050]<end_of_utterance>",
+      "output_text": " [0.1094, 0.2046, 0.3056, 0.4050]",
+      "predicted_box": [
+        0.1094,
+        0.2046,
+        0.3056,
+        0.405
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000003",
+      "image": "data/images/synthetic/train/synthetic_train_000003.png",
+      "question": "the orange circle to the left of the green pentagon",
+      "ground_truth": [
+        0.10625,
+        0.50520833,
+        0.309375,
+        0.67447917
+      ],
+      "prompt_tokens": 101,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.2055, 0.2055, 0.4066, 0.4066]<end_of_utterance>",
+      "output_text": " [0.2055, 0.2055, 0.4066, 0.4066]",
+      "predicted_box": [
+        0.2055,
+        0.2055,
+        0.4066,
+        0.4066
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000004",
+      "image": "data/images/synthetic/train/synthetic_train_000004.png",
+      "question": "the orange square",
+      "ground_truth": [
+        0.34895833,
+        0.03645833,
+        0.5859375,
+        0.2734375
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1094, 0.2054, 0.3050, 0.4050]<end_of_utterance>",
+      "output_text": " [0.1094, 0.2054, 0.3050, 0.4050]",
+      "predicted_box": [
+        0.1094,
+        0.2054,
+        0.305,
+        0.405
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000005",
+      "image": "data/images/synthetic/train/synthetic_train_000005.png",
+      "question": "the orange circle",
+      "ground_truth": [
+        0.74609375,
+        0.12890625,
+        0.89453125,
+        0.27734375
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1064, 0.2046, 0.3152, 0.4050]<end_of_utterance>",
+      "output_text": " [0.1064, 0.2046, 0.3152, 0.4050]",
+      "predicted_box": [
+        0.1064,
+        0.2046,
+        0.3152,
+        0.405
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000006",
+      "image": "data/images/synthetic/train/synthetic_train_000006.png",
+      "question": "the orange triangle",
+      "ground_truth": [
+        0.675,
+        0.32421875,
+        0.915625,
+        0.625
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1065, 0.3050, 0.3050, 0.5050]<end_of_utterance>",
+      "output_text": " [0.1065, 0.3050, 0.3050, 0.5050]",
+      "predicted_box": [
+        0.1065,
+        0.305,
+        0.305,
+        0.505
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000007",
+      "image": "data/images/synthetic/train/synthetic_train_000007.png",
+      "question": "the purple pentagon in the bottom right",
+      "ground_truth": [
+        0.47135417,
+        0.46354167,
+        0.7421875,
+        0.734375
+      ],
+      "prompt_tokens": 98,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.3555, 0.5044, 0.5751, 0.7009]<end_of_utterance>",
+      "output_text": " [0.3555, 0.5044, 0.5751, 0.7009]",
+      "predicted_box": [
+        0.3555,
+        0.5044,
+        0.5751,
+        0.7009
+      ],
+      "parse_error": null,
+      "iou": 0.21209837839746992,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000008",
+      "image": "data/images/synthetic/train/synthetic_train_000008.png",
+      "question": "the purple triangle",
+      "ground_truth": [
+        0.5546875,
+        0.66666667,
+        0.74414062,
+        0.91927083
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.3065, 0.2550, 0.5150, 0.4770]<end_of_utterance>",
+      "output_text": " [0.3065, 0.2550, 0.5150, 0.4770]",
+      "predicted_box": [
+        0.3065,
+        0.255,
+        0.515,
+        0.477
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000009",
+      "image": "data/images/synthetic/train/synthetic_train_000009.png",
+      "question": "the green square",
+      "ground_truth": [
+        0.68973214,
+        0.0375,
+        0.91517857,
+        0.353125
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1094, 0.2056, 0.3056, 0.4057]<end_of_utterance>",
+      "output_text": " [0.1094, 0.2056, 0.3056, 0.4057]",
+      "predicted_box": [
+        0.1094,
+        0.2056,
+        0.3056,
+        0.4057
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000010",
+      "image": "data/images/synthetic/train/synthetic_train_000010.png",
+      "question": "the small yellow diamond",
+      "ground_truth": [
+        0.109375,
+        0.73828125,
+        0.30859375,
+        0.9375
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1064, 0.2052, 0.3050, 0.4050]<end_of_utterance>",
+      "output_text": " [0.1064, 0.2052, 0.3050, 0.4050]",
+      "predicted_box": [
+        0.1064,
+        0.2052,
+        0.305,
+        0.405
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000011",
+      "image": "data/images/synthetic/train/synthetic_train_000011.png",
+      "question": "the orange pentagon in the bottom left",
+      "ground_truth": [
+        0.12946429,
+        0.46875,
+        0.328125,
+        0.746875
+      ],
+      "prompt_tokens": 98,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.3055, 0.3059, 0.5054, 0.5060]<end_of_utterance>",
+      "output_text": " [0.3055, 0.3059, 0.5054, 0.5060]",
+      "predicted_box": [
+        0.3055,
+        0.3059,
+        0.5054,
+        0.506
+      ],
+      "parse_error": null,
+      "iou": 0.008926848437189782,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000012",
+      "image": "data/images/synthetic/train/synthetic_train_000012.png",
+      "question": "the red pentagon in the bottom right",
+      "ground_truth": [
+        0.40178571,
+        0.42857143,
+        0.72991071,
+        0.75669643
+      ],
+      "prompt_tokens": 98,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.3055, 0.3059, 0.5050, 0.5060]<end_of_utterance>",
+      "output_text": " [0.3055, 0.3059, 0.5050, 0.5060]",
+      "predicted_box": [
+        0.3055,
+        0.3059,
+        0.505,
+        0.506
+      ],
+      "parse_error": null,
+      "iou": 0.05724975047689957,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000013",
+      "image": "data/images/synthetic/train/synthetic_train_000013.png",
+      "question": "the red pentagon",
+      "ground_truth": [
+        0.646875,
+        0.45833333,
+        0.959375,
+        0.71875
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1064, 0.2046, 0.3050, 0.4016]<end_of_utterance>",
+      "output_text": " [0.1064, 0.2046, 0.3050, 0.4016]",
+      "predicted_box": [
+        0.1064,
+        0.2046,
+        0.305,
+        0.4016
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000014",
+      "image": "data/images/synthetic/train/synthetic_train_000014.png",
+      "question": "the orange circle in the top left",
+      "ground_truth": [
+        0.09765625,
+        0.31640625,
+        0.4140625,
+        0.6328125
+      ],
+      "prompt_tokens": 97,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.3065, 0.2554, 0.5426, 0.5740]<end_of_utterance>",
+      "output_text": " [0.3065, 0.2554, 0.5426, 0.5740]",
+      "predicted_box": [
+        0.3065,
+        0.2554,
+        0.5426,
+        0.574
+      ],
+      "parse_error": null,
+      "iou": 0.18768543440236288,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000015",
+      "image": "data/images/synthetic/train/synthetic_train_000015.png",
+      "question": "the yellow pentagon",
+      "ground_truth": [
+        0.70089286,
+        0.66517857,
+        0.85044643,
+        0.81473214
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.2055, 0.2055, 0.3050, 0.3050]<end_of_utterance>",
+      "output_text": " [0.2055, 0.2055, 0.3050, 0.3050]",
+      "predicted_box": [
+        0.2055,
+        0.2055,
+        0.305,
+        0.305
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000016",
+      "image": "data/images/synthetic/train/synthetic_train_000016.png",
+      "question": "the blue circle in the bottom left",
+      "ground_truth": [
+        0.33035714,
+        0.51339286,
+        0.59151786,
+        0.77455357
+      ],
+      "prompt_tokens": 97,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.3065, 0.2044, 0.5050, 0.4414]<end_of_utterance>",
+      "output_text": " [0.3065, 0.2044, 0.5050, 0.4414]",
+      "predicted_box": [
+        0.3065,
+        0.2044,
+        0.505,
+        0.4414
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000017",
+      "image": "data/images/synthetic/train/synthetic_train_000017.png",
+      "question": "the green square",
+      "ground_truth": [
+        0.77232143,
+        0.20535714,
+        0.93303571,
+        0.36607143
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.0864, 0.2550, 0.3356, 0.5540]<end_of_utterance>",
+      "output_text": " [0.0864, 0.2550, 0.3356, 0.5540]",
+      "predicted_box": [
+        0.0864,
+        0.255,
+        0.3356,
+        0.554
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000018",
+      "image": "data/images/synthetic/train/synthetic_train_000018.png",
+      "question": "the blue pentagon",
+      "ground_truth": [
+        0.075,
+        0.33984375,
+        0.284375,
+        0.6015625
+      ],
+      "prompt_tokens": 94,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.1065, 0.2058, 0.3050, 0.4050]<end_of_utterance>",
+      "output_text": " [0.1065, 0.2058, 0.3050, 0.4050]",
+      "predicted_box": [
+        0.1065,
+        0.2058,
+        0.305,
+        0.405
+      ],
+      "parse_error": null,
+      "iou": 0.14005828023421693,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000019",
+      "image": "data/images/synthetic/train/synthetic_train_000019.png",
+      "question": "the red square in the bottom left",
+      "ground_truth": [
+        0.3125,
+        0.41796875,
+        0.446875,
+        0.5859375
+      ],
+      "prompt_tokens": 97,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.2055, 0.2055, 0.4066, 0.4066]<end_of_utterance>",
+      "output_text": " [0.2055, 0.2055, 0.4066, 0.4066]",
+      "predicted_box": [
+        0.2055,
+        0.2055,
+        0.4066,
+        0.4066
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    },
+    {
+      "id": "synthetic_train_000020",
+      "image": "data/images/synthetic/train/synthetic_train_000020.png",
+      "question": "the orange square",
+      "ground_truth": [
+        0.5546875,
+        0.50520833,
+        0.76171875,
+        0.78125
+      ],
+      "prompt_tokens": 93,
+      "generated_tokens": 33,
+      "max_new_tokens": 64,
+      "hit_max_new_tokens": false,
+      "eos_reached": true,
+      "truncated": false,
+      "raw_output": " [0.3055, 0.2050, 0.5050, 0.4050]<end_of_utterance>",
+      "output_text": " [0.3055, 0.2050, 0.5050, 0.4050]",
+      "predicted_box": [
+        0.3055,
+        0.205,
+        0.505,
+        0.405
+      ],
+      "parse_error": null,
+      "iou": 0.0,
+      "correct@0.5": false
+    }
+  ],
+  "truncation_audit": {
+    "max_new_tokens": 64,
+    "samples_hit_max_new_tokens": 0,
+    "samples_eos_reached": 20,
+    "samples_truncated": 0
+  },
+  "lora_module_count_loaded": 120,
+  "processor_geometry": {
+    "do_image_splitting": false,
+    "size": {
+      "longest_edge": 384
+    },
+    "max_image_size": {
+      "longest_edge": 384
+    }
+  },
+  "runtime": {
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "gpu_lease_id": "GPU-LEASE-T5-20261109-02",
+    "nvidia_smi_memory_before_mib": 1215,
+    "nvidia_smi_memory_after_adapter_load_mib": 1860,
+    "nvidia_smi_memory_after_generation_mib": 1899,
+    "torch_peak_memory_allocated_mib": 526.03369140625,
+    "torch_peak_memory_reserved_mib": 556.0,
+    "elapsed_seconds": 41.52505930000916
+  },
+  "source_sha256": {
+    "src/train/probe_only.py": "54ca0a15f896b8bed071b827823ac6b794c5e3a1219ca08e7a2df4c9b45c71c7",
+    "src/train/sft_data.py": "b9e22e4a65bf01acb8e850394470af24af6a7e6e32cbb5bdaa04d497b8ee6f41",
+    "src/train/config.py": "debe973c5b90392ac94f2380f9878cbcc60b7553786656ab35a221765ba64b26",
+    "src/eval/grounding.py": "796e7a340cd4c070997d49f6c640692034dc0bda3c4c7c89ec3418f021f4b113"
+  },
+  "note": "Diagnostic-only re-measurement of the T5 100-record overfit probe with a sufficient max_new_tokens. Not the official evaluation and not a G3 decision; eval-keeper produces official metrics.",
+  "generated_at": "2026-11-09T15:13:03.270731+08:00"
+}

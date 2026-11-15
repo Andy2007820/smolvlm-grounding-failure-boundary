@@ -1,0 +1,132 @@
+{
+  "request_id": "GPU-LEASE-REQ-T6-20261109-06",
+  "requester": "train-runner",
+  "task": "task-7 / T6 · full SFT v1 (seed 42)",
+  "status": "completed_lease_released",
+  "context": "T5 completed: format pass, 100-record localization negative (acc 0 at 200/600 steps), single-sample positive control (acc 1.0, IoU 0.99956) proving the pipeline works. G3 is DEFERRED to T6 independent evaluation. This request is for the T6 full-data SFT v1 run; no GPU work has been started.",
+  "goal": "Train LoRA SFT v1 on 5000 synthetic + 5000 RefCOCO training records for 1 epoch (1250 optimizer steps) with the frozen T5 contract; save checkpoints every 200 steps and a diagnostic probe. Official G3 evaluation is produced independently by eval-keeper, not by this trainer.",
+  "independent_artifacts": {
+    "config": "configs/sft_v1.json",
+    "config_sha256": "664e69edb7ee19efd3c2d324db2362126787894502e544ec1b380f5b0a7daafd",
+    "config_fingerprint": "30b27a0a4c91ad3ebd216c5e7196449f61bd2885ffdd5bc54ea3aa260daa6979",
+    "run_name": "sft_v1_s42",
+    "adapter_dir": "adapters/sft_v1",
+    "log": "logs/train/sft_v1.jsonl",
+    "gpu_log": "logs/train/sft_v1_gpu.log",
+    "stderr_log": "logs/train/sft_v1_stderr.log",
+    "training_results": "results/train_sft_v1_s42_training.json",
+    "probe_results": "results/train_sft_v1_s42_probe.json"
+  },
+  "fixed_contract": {
+    "train_records": 10000,
+    "train_files": ["data/synthetic_train.jsonl (5000)", "data/refcoco_train.jsonl (5000)"],
+    "val_files": ["data/synthetic_eval.jsonl (1000)", "data/refcoco_val.jsonl (1000)"],
+    "train_val_id_intersection": 0,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "learning_rate": 1e-4,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "true_accumulation": true,
+    "effective_batch_size": 8,
+    "image_size": 384,
+    "do_image_splitting": false,
+    "image_seq_len": 36,
+    "dtype": "bfloat16",
+    "freeze_vision_tower": true,
+    "seed": 42,
+    "gradient_checkpointing": true,
+    "eos_token_id": 49279,
+    "pad_token_id": 2,
+    "num_epochs": 1,
+    "total_micro_batches": 10000,
+    "total_optimizer_steps": 1250,
+    "save_every_steps": 200,
+    "checkpoints": [200, 400, 600, 800, 1000, 1200, 1250],
+    "probe": {"records": "val", "n": 20, "max_new_tokens": 64, "do_sample": false}
+  },
+  "cpu_evidence": {
+    "dry_run_plan": {
+      "path": "results/train_t6_dryrun_plan.json",
+      "status": "preflight_passed",
+      "gpu_used": false,
+      "sha256": "f43fdc382f545c3d3ae3fc91a0a16f66dea46c74203bca53ba5eb18e11b7960e",
+      "train_records": 10000,
+      "train_files_loaded": [5000, 5000],
+      "micro_forwards_total": 10000,
+      "micro_batches_per_optimizer_step": 8,
+      "total_optimizer_steps": 1250,
+      "checkpoint_steps": [200, 400, 600, 800, 1000, 1200, 1250],
+      "loss_scale_per_micro_batch": 0.125,
+      "train_val_id_intersection": 0,
+      "preflight_observations": "square 384x384 and rectangular 256x320, both 36 placeholders; label_start=93, answer EOS=125",
+      "config_fingerprint": "30b27a0a4c91ad3ebd216c5e7196449f61bd2885ffdd5bc54ea3aa260daa6979"
+    },
+    "cpu_unit_tests": {
+      "path": "results/train_t5_cpu_tests.json",
+      "status": "passed",
+      "tests_run": 18,
+      "failures": 0,
+      "errors": 0,
+      "gpu_used": false,
+      "sha256": "5aed823db0585f1b361b70793c4ef3f3881ac10777d5d0ad70eac993b5533c84"
+    },
+    "cost_estimate": {
+      "path": "results/train_t6_cpu_cost_estimate.json",
+      "sha256": "f1198f7995636aa27126961ac7d5c82445741a222ddac60996053ae7bb691140",
+      "benchmark_records": 40,
+      "mean_seconds_per_example": 0.022301702521508558,
+      "cpu_data_seconds_10000": 223.0170252150856,
+      "gpu_step_seconds_basis": 2.65,
+      "gpu_compute_seconds": 3312.5,
+      "overhead_seconds_estimate": 79.9,
+      "projected_total_minutes": 60.25695042025143,
+      "scenarios_minutes": {"fast": 59.33, "measured": 60.26, "slow": 61.19}
+    }
+  },
+  "exact_command": {
+    "gpu": [
+      "$env:PYTHONIOENCODING='utf-8'",
+      "$env:HF_HUB_OFFLINE='1'; $env:TRANSFORMERS_OFFLINE='1'; $env:TOKENIZERS_PARALLELISM='false'",
+      "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | Add-Content -Path logs/train/sft_v1_gpu.log",
+      "python -m src.train.train_sft --config configs/sft_v1.json --device cuda --gpu-lease-id GPU-LEASE-T6-20261109-06 --max-steps 1250 --profile-steps 25 2> logs/train/sft_v1_stderr.log",
+      "nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | Add-Content -Path logs/train/sft_v1_gpu.log"
+    ],
+    "resume_if_interrupted": "python -m src.train.train_sft --config configs/sft_v1.json --device cuda --gpu-lease-id GPU-LEASE-T6-20261109-06 --max-steps 1250 --profile-steps 25 --resume latest"
+  },
+  "expected_duration": {
+    "estimate_minutes": "60.3 (range 59.3-61.2)",
+    "hard_cap_minutes": 75,
+    "basis": "Measured CPU example-build 0.0223 s/example x 10000 = 223 s; measured GPU ~2.65 s/optimizer step x 1250 = 3312.5 s; ~80 s load/checkpoints/probe overhead. T6 records exceed example_cache_max=200, so all 10000 examples are preprocessed on the fly.",
+    "measured_extrapolation_rule": "At optimizer step 25 report measured s/step, nvidia-smi memory, torch peaks and projected finish. If projected finish exceeds the approved 75-minute window, stop at the next 200-step checkpoint and request/resume an extension; checkpoints every 200 steps make resume cheap."
+  },
+  "expected_memory": {
+    "same_workload_class_as_T5": true,
+    "nvidia_smi_peak_estimate_mib": "2000-2200",
+    "torch_peak_allocated_estimate_mib": 652,
+    "torch_peak_reserved_estimate_mib": 768,
+    "total_including_gui_estimate": "2200-2700 MiB",
+    "abort_threshold_mib": 7500
+  },
+  "nvidia_smi_logging": {
+    "shell_log": "logs/train/sft_v1_gpu.log",
+    "method": "append memory.used before start and after exit (Add-Content); the script records before-load, after-load, step-25 profile, checkpoint-time memory, after-training and after-cleanup values plus torch peaks in logs/train/sft_v1.jsonl and results/train_sft_v1_s42_training.json"
+  },
+  "acceptance_checks": [
+    "1250/1250 optimizer steps completed with finite loss; counters forward=backward=10000, optimizer/clip/scheduler/zero=1250 each, micro_batches=samples_seen=10000, every step 8 x batch=1",
+    "checkpoints checkpoint-000200 ... checkpoint-001200 plus checkpoint-001250/final adapter",
+    "probe (val subset n=20, 64 tokens, greedy): record parse_rate/acc/mIoU; explicitly diagnostic only",
+    "train/val ID intersection 0 asserted before training; official G3 evaluation independently by eval-keeper (not claimed by trainer)",
+    "no modification of data/, src/data/, src/eval/, GT, or T5 configs/adapters/results",
+    "nvidia-smi never exceeds 7500 MiB; no competing tasks; after-exit memory reported and lease released"
+  ],
+  "stop_conditions": [
+    "nvidia-smi memory.used > 7500 MiB",
+    "competing game/training process",
+    "CUDA assert, OOM, or non-finite loss",
+    "projected finish exceeds the approved window (stop at next 200-step checkpoint and resume)"
+  ],
+  "concurrency": "Exclusive GPU lease; no other member may run GPU work (no evaluation, teacher model, or other training) during the window.",
+  "notes": "CPU evidence complete; no GPU work for T6 has been started. T5 evidence is preserved under results/train_t5_* and results/train_sft_overfit*; G3 remains deferred to independent evaluation. The task-7 requirement of at least 3 seeds for the final main table may need follow-up leases; this request covers the seed-42 v1 run first.",
+  "created_at": "2026-11-09T16:03:00+08:00"
+}
